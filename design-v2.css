@@ -1,0 +1,405 @@
+/* ============================================================
+   Design v2 — 고등학생 취향 리디자인 (Paperlogy + 스티커/말풍선)
+   styles.css 뒤에 로드되어 디자인 토큰과 컴포넌트를 덮어쓴다.
+   ============================================================ */
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --red: #FF5A47;
+  --red-deep: #D6402F;
+  --red-soft: #FFECE8;
+  --green: #1FA97E;
+  --green-deep: #14775A;
+  --green-soft: #E3F6EE;
+  --blue: #4A7DDC;
+  --blue-soft: #EAF1FD;
+  --amber: #F59E0B;
+  --amber-soft: #FEF3D8;
+  --violet: #8B5CF6;
+  --teal: #0EA5B7;
+  --teal-soft: #E0F6F9;
+  --sun: #FFD84D;
+  --sun-soft: #FFF6D9;
+  --ink: #22262E;
+  --bg: #F3F6FA;
+  --white: #FFFFFF;
+}
+
+body { background: var(--bg); }
+
+h1, h2, h3, .brand, .session-num, .tool-badge {
+  font-family: 'Paperlogy', 'Pretendard', 'Malgun Gothic', sans-serif;
+  letter-spacing: 0;
+}
+
+/* 형광펜 밑줄 섹션 제목 */
+.section-head h2 {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+  z-index: 0;
+}
+.section-head h2::after {
+  content: "";
+  position: absolute;
+  left: -1.5%;
+  bottom: 0.08em;
+  width: 103%;
+  height: 0.42em;
+  background: var(--sun);
+  border-radius: 5px;
+  opacity: 0.55;
+  z-index: -1;
+}
+
+/* ---------- 레이아웃 여백 ---------- */
+.wrap { width: min(var(--wrap), calc(100% - 48px)); }
+.hero-inner.wrap {
+  width: min(var(--wrap), calc(100% - 48px));
+  margin-inline: auto;
+  column-gap: 36px;
+}
+.hero-copy { padding-right: 8px; }
+
+/* ---------- 히어로 ---------- */
+.hero h1 {
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  line-height: 1.24;
+  word-break: keep-all;
+}
+.hero .c-red { color: var(--red-deep); }
+.hero .c-green { color: var(--green-deep); }
+.hero-badge {
+  display: inline-block;
+  background: var(--white);
+  border: 2px dashed var(--ink);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-weight: 800;
+  transform: rotate(-1.2deg);
+}
+.btn { border-radius: 999px; font-weight: 800; }
+.btn-primary {
+  background: var(--red);
+  box-shadow: 0 6px 0 var(--red-deep);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn-primary:hover { transform: translateY(2px); box-shadow: 0 4px 0 var(--red-deep); background: var(--red); }
+.btn-secondary {
+  background: var(--white);
+  border: 2px solid var(--ink);
+  box-shadow: 0 6px 0 rgba(34,38,46,.25);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn-secondary:hover { transform: translateY(2px); box-shadow: 0 4px 0 rgba(34,38,46,.25); }
+
+/* ---------- 말풍선 ---------- */
+.bubble {
+  position: relative;
+  display: inline-block;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  padding: 9px 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 26px;
+  width: 12px;
+  height: 12px;
+  background: inherit;
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  transform: rotate(45deg);
+}
+.bubble-red { background: var(--red-soft); border-color: var(--red-deep); color: var(--red-deep); }
+.bubble-red::after { border-color: var(--red-deep); }
+.bubble-green { background: var(--green-soft); border-color: var(--green-deep); color: var(--green-deep); }
+.bubble-green::after { border-color: var(--green-deep); }
+
+.hero-chars { position: relative; overflow: visible; padding-top: 64px; }
+.hero-bubble { position: absolute; z-index: 3; font-size: .95rem; white-space: nowrap; }
+.hero-bubble-1 { top: 10px; left: 5%; transform: rotate(-2deg); }
+.hero-bubble-2 { top: 10px; right: 5%; transform: rotate(1.5deg); }
+.hero-bubble-2::after { left: auto; right: 26px; }
+
+/* ---------- 통계 스티커 ---------- */
+.stat-band {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 0;
+  margin: 0 0 34px;
+}
+.stat {
+  background: var(--white);
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+  padding: 16px 14px 12px;
+  box-shadow: 4px 5px 0 rgba(34,38,46,.14);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.stat:nth-child(odd) { transform: rotate(-1.1deg); }
+.stat:nth-child(even) { transform: rotate(1.1deg); }
+.stat strong {
+  font-family: 'Paperlogy', 'Pretendard', sans-serif;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  line-height: 1.05;
+}
+.stat span { font-size: .86rem; font-weight: 700; color: var(--ink); }
+.stat em { font-style: normal; font-size: .72rem; color: #6B7280; }
+.stat-red strong { color: var(--red-deep); }
+.stat-amber strong { color: var(--amber); }
+.stat-blue strong { color: var(--blue); }
+.stat-green strong { color: var(--green-deep); }
+
+/* 편지 카드 가운데 정렬 */
+.letter { margin-inline: auto; }
+
+/* ---------- 흐름 스텝 ---------- */
+.flow-steps { counter-reset: fstep; gap: 10px; }
+.step-chip {
+  counter-increment: fstep;
+  position: relative;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-weight: 800;
+  background: var(--white);
+  box-shadow: 3px 4px 0 rgba(34,38,46,.12);
+  padding-left: 40px;
+}
+.step-chip::before {
+  content: counter(fstep);
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--sun);
+  color: var(--ink);
+  font-family: 'Paperlogy', sans-serif;
+  font-size: .85rem;
+  display: grid;
+  place-items: center;
+}
+.step-chip.step-red { background: var(--red); color: #fff; border-color: var(--red-deep); }
+.step-chip.step-red::before { background: #fff; color: var(--red-deep); }
+.step-chip.step-green { background: var(--green); color: #fff; border-color: var(--green-deep); }
+.step-chip.step-green::before { background: #fff; color: var(--green-deep); }
+
+/* ---------- 카드 공통 ---------- */
+.card {
+  border: 2px solid rgba(34,38,46,.12);
+  border-radius: 20px;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(34,38,46,.12);
+  border-color: rgba(34,38,46,.28);
+}
+
+/* 4단계 카드 도트 */
+.stage-card { position: relative; }
+.stage-card::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+.stage-grid .stage-card:nth-child(1)::before { background: var(--red); }
+.stage-grid .stage-card:nth-child(2)::before { background: var(--amber); }
+.stage-grid .stage-card:nth-child(3)::before { background: var(--blue); }
+.stage-grid .stage-card:nth-child(4)::before { background: var(--green); }
+
+/* ---------- 차시 카드: 학습지 색과 일치 (1 RED / 2 BLUE / 3 GREEN) ---------- */
+.session-card { border-top: 6px solid var(--ink); }
+.session-grid .session-card:nth-child(1) { border-top-color: var(--red); }
+.session-grid .session-card:nth-child(2) { border-top-color: var(--blue); }
+.session-grid .session-card:nth-child(3) { border-top-color: var(--green); }
+.session-num {
+  display: inline-block;
+  font-size: 1.3rem;
+  border-radius: 12px;
+  padding: 4px 12px;
+  margin-bottom: 8px;
+}
+.session-grid .session-card:nth-child(1) .session-num { background: var(--red-soft); color: var(--red-deep); }
+.session-grid .session-card:nth-child(2) .session-num { background: var(--blue-soft); color: var(--blue); }
+.session-grid .session-card:nth-child(3) .session-num { background: var(--green-soft); color: var(--green-deep); }
+.session-card ul li::marker { color: var(--green); }
+
+/* 인라인 아이콘 */
+.ico-inline {
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: -0.2em;
+  display: inline-block;
+}
+.leg-item { white-space: nowrap; font-weight: 700; }
+
+/* ---------- 도구 카드 ---------- */
+.tool-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 1.05rem;
+  transform: rotate(-3deg);
+}
+.tools-grid .tool-card:nth-child(1) .tool-badge { background: var(--red); }
+.tools-grid .tool-card:nth-child(2) .tool-badge { background: var(--blue); }
+.tools-grid .tool-card:nth-child(3) .tool-badge { background: var(--amber); }
+.tools-grid .tool-card:nth-child(4) .tool-badge { background: var(--green); }
+.tools-grid .tool-card:nth-child(5) .tool-badge { background: var(--violet); }
+.tools-grid .tool-card:nth-child(6) .tool-badge { background: var(--teal); }
+
+/* 면접 문항 = 채팅 스레드 */
+.bubble-qs { list-style: none; counter-reset: q; padding: 0; margin: 12px 0; display: flex; flex-direction: column; gap: 12px; }
+.bubble-qs li {
+  position: relative;
+  background: var(--blue-soft);
+  border: 2px solid var(--blue);
+  border-radius: 4px 16px 16px 16px;
+  padding: 10px 14px 10px 44px;
+  font-weight: 700;
+  counter-increment: q;
+}
+.bubble-qs li::before {
+  content: "Q" counter(q);
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-family: 'Paperlogy', sans-serif;
+  font-size: .82rem;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 8px;
+  padding: 2px 6px;
+}
+
+/* GREEN 세 질문 = 짝의 말풍선 */
+.green-qs { list-style: none; padding: 0; margin: 12px 0; display: flex; flex-direction: column; gap: 14px; }
+.green-qs li { display: flex; align-items: flex-start; gap: 10px; }
+.q-chip {
+  flex: 0 0 auto;
+  font-family: 'Paperlogy', sans-serif;
+  font-size: .95rem;
+  color: #fff;
+  border-radius: 12px;
+  padding: 6px 12px;
+  transform: rotate(-2deg);
+}
+.chip-meaning { background: var(--blue); }
+.chip-respect { background: var(--red); }
+.chip-use { background: var(--green); }
+.bubble-ask {
+  background: var(--white);
+  border-color: var(--ink);
+  font-size: .95rem;
+}
+.bubble-ask::after { left: 20px; }
+
+/* 사다리 */
+.ladder {
+  background: var(--teal-soft);
+  border: 2px dashed var(--teal);
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-weight: 800;
+}
+
+/* ---------- 안전 약속 ---------- */
+.section-safety { background: var(--sun-soft); }
+.safety-item {
+  border: 2px solid rgba(34,38,46,.2);
+  background: var(--white);
+  font-weight: 700;
+  padding-left: 46px;
+  position: relative;
+}
+.safety-item::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  background: url("img/icon-check.png") center/contain no-repeat;
+}
+
+/* ---------- 자료실: 앱 아이콘 그리드 ---------- */
+.resource-card {
+  text-align: center;
+  padding-top: 46px;
+  position: relative;
+  border: 2px solid rgba(34,38,46,.14);
+}
+.resource-card::before {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  content: "📄";
+}
+.resource-grid .resource-card:nth-child(1)::before { content: "🚦"; }
+.resource-grid .resource-card:nth-child(2)::before { content: "📕"; }
+.resource-grid .resource-card:nth-child(3)::before { content: "📘"; }
+.resource-grid .resource-card:nth-child(4)::before { content: "📗"; }
+.resource-grid .resource-card:nth-child(5)::before { content: "📚"; }
+.resource-grid .resource-card:nth-child(6)::before { content: "🔍"; }
+.resource-grid .resource-card:nth-child(7)::before { content: "🌱"; }
+.resource-grid .resource-card:nth-child(1) { border-color: var(--red); }
+
+/* ---------- 푸터 ---------- */
+.site-footer .copyright {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,.18);
+  font-weight: 700;
+}
+.site-footer .credits { opacity: .75; font-size: .82rem; }
+
+/* ---------- 반응형 보정 ---------- */
+@media (max-width: 900px) {
+  .stat-band { grid-template-columns: repeat(2, 1fr); }
+  .hero-bubble-1 { top: -40px; left: 2%; }
+  .hero-bubble-2 { top: -40px; right: 2%; }
+}
+@media (max-width: 640px) {
+  .hero-bubble { font-size: .8rem; }
+  .hero-chars { margin-top: 30px; }
+  .green-qs li { flex-direction: column; gap: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary, .btn-secondary, .card { transition: none; }
+}
