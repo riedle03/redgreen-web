@@ -364,21 +364,46 @@ h1, h2, h3, .brand, .session-num, .tool-badge {
   border: 2px solid rgba(34,38,46,.14);
 }
 .resource-card::before {
+  content: "";
   position: absolute;
-  top: 12px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.5rem;
-  content: "📄";
+  width: 34px;
+  height: 34px;
+  background: url("img/icon-sheet-stack.png") center/contain no-repeat;
 }
-.resource-grid .resource-card:nth-child(1)::before { content: "🚦"; }
-.resource-grid .resource-card:nth-child(2)::before { content: "📕"; }
-.resource-grid .resource-card:nth-child(3)::before { content: "📘"; }
-.resource-grid .resource-card:nth-child(4)::before { content: "📗"; }
-.resource-grid .resource-card:nth-child(5)::before { content: "📚"; }
-.resource-grid .resource-card:nth-child(6)::before { content: "🔍"; }
-.resource-grid .resource-card:nth-child(7)::before { content: "🌱"; }
+.resource-grid .resource-card:nth-child(1)::before { background-image: url("img/icon-redcard.png"); }
+.resource-grid .resource-card:nth-child(2)::before { background-image: url("img/icon-sheet-red.png"); }
+.resource-grid .resource-card:nth-child(3)::before { background-image: url("img/icon-sheet-blue.png"); }
+.resource-grid .resource-card:nth-child(4)::before { background-image: url("img/icon-sheet-green.png"); }
+.resource-grid .resource-card:nth-child(5)::before { background-image: url("img/icon-sheet-stack.png"); }
+.resource-grid .resource-card:nth-child(6)::before { background-image: url("img/icon-dictionary.png"); }
+.resource-grid .resource-card:nth-child(7)::before { background-image: url("img/icon-sprout-book.png"); }
 .resource-grid .resource-card:nth-child(1) { border-color: var(--red); }
+
+/* ---------- 사이드 펫 캐릭터 ---------- */
+.pets .pet {
+  position: fixed;
+  bottom: 14px;
+  width: clamp(84px, 8vw, 120px);
+  z-index: 40;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 10px rgba(34,38,46,.22));
+  animation: pet-bob 3.4s ease-in-out infinite alternate;
+}
+.pet-boy { left: 14px; }
+.pet-girl { right: 14px; animation-delay: 1.1s; }
+@keyframes pet-bob {
+  from { transform: translateY(0) rotate(-1deg); }
+  to { transform: translateY(-9px) rotate(1.5deg); }
+}
+@media (max-width: 900px) {
+  .pets .pet { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pets .pet { animation: none; }
+}
 
 /* ---------- 푸터 ---------- */
 .site-footer .copyright {
