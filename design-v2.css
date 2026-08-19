@@ -176,6 +176,30 @@ h1, h2, h3, .brand, .session-num, .tool-badge {
 /* 편지 카드 가운데 정렬 */
 .letter { margin-inline: auto; }
 
+/* 가상 의뢰문 상단 표시 */
+.letter-tag {
+  display: inline-block;
+  background: var(--amber-soft, #FEF3D8);
+  color: #9A6B00;
+  border: 1.5px dashed #D9A21B;
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: .8rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* 상단 고정 RED 웹앱 버튼 */
+.nav-cta {
+  background: var(--red);
+  color: #fff !important;
+  border-radius: 999px;
+  padding: 8px 16px !important;
+  font-weight: 800;
+  box-shadow: 0 3px 0 var(--red-deep);
+}
+.nav-cta:hover { transform: translateY(1px); box-shadow: 0 2px 0 var(--red-deep); }
+
 /* ---------- 흐름 스텝 ---------- */
 .flow-steps { counter-reset: fstep; gap: 10px; }
 .step-chip {
