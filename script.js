@@ -101,3 +101,13 @@
   window.addEventListener("scroll", setActiveLink, { passive: true });
   window.addEventListener("resize", setActiveLink);
 })();
+
+(function () {
+  var hero = document.querySelector(".hero");
+  function togglePets() {
+    var limit = hero ? hero.offsetHeight * 0.55 : 300;
+    document.body.classList.toggle("pets-on", window.scrollY > limit);
+  }
+  togglePets();
+  window.addEventListener("scroll", togglePets, { passive: true });
+})();
