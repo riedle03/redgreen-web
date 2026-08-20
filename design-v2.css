@@ -189,6 +189,16 @@ h1, h2, h3, .brand, .session-num, .tool-badge {
   margin-bottom: 14px;
 }
 
+/* 상단 메뉴 탐구질문 가이드 */
+.nav-guide {
+  color: var(--blue) !important;
+  font-weight: 800;
+  border: 2px solid var(--blue);
+  border-radius: 999px;
+  padding: 6px 14px !important;
+}
+.nav-guide:hover { background: var(--blue-soft); }
+
 /* 상단 고정 RED 웹앱 버튼 */
 .nav-cta {
   background: var(--red);
