@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="icon" type="image/png" href="img/icon-logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>역할 면접 가이드 — RED RED GREEN GREEN</title>
+  <meta name="description" content="역할 면접을 왜 하는지, 어떻게 묻고 어떻게 기록하는지 예시와 함께 알아봅니다">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="design-v2.css">
+  <style>
+    .guide-hero { background: var(--blue-soft); padding: 120px 0 48px; }
+    .guide-hero h1 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); }
+    .guide-hero .lede { color: var(--sub, #6B7280); font-weight: 600; margin-top: 10px; }
+    .back-link { display: inline-block; margin-bottom: 14px; font-weight: 800; color: var(--blue); text-decoration: none; }
+    .back-link:hover { text-decoration: underline; }
+    .qa-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0 22px; }
+    .qa-box { border: 2px solid var(--ink); border-radius: 18px; padding: 16px 18px; background: var(--white); }
+    .qa-box.bad { border-color: var(--red-deep); background: var(--red-soft); }
+    .qa-box.good { border-color: var(--green-deep); background: var(--green-soft); }
+    .qa-tag { display: inline-block; font-family: 'Paperlogy', 'Pretendard', sans-serif; font-size: .85rem; color: #fff; border-radius: 10px; padding: 3px 10px; margin-bottom: 8px; }
+    .qa-box.bad .qa-tag { background: var(--red-deep); }
+    .qa-box.good .qa-tag { background: var(--green-deep); }
+    .qa-box p.q { font-size: 1.05rem; font-weight: 800; }
+    .qa-box p.why { font-size: .88rem; color: var(--sub, #6B7280); margin-top: 8px; font-weight: 600; }
+    .faq-item { border: 2px solid rgba(34,38,46,.12); border-radius: 16px; background: var(--white); padding: 14px 18px; margin-bottom: 12px; }
+    .faq-item p.fq { font-weight: 800; color: var(--blue); margin-bottom: 6px; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+    .role-note { font-size: .88rem; color: var(--sub, #6B7280); font-weight: 600; margin-top: 10px; }
+    .ev-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 14px 0; }
+    .ev-card { border: 2px solid rgba(34,38,46,.14); border-radius: 16px; background: var(--white); padding: 14px 16px; }
+    .ev-card strong { display: block; margin-bottom: 4px; }
+    .ev-card.guess { background: var(--sun-soft); border-color: #D9A21B; }
+    @media (max-width: 700px) { .qa-pair, .ev-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a class="brand" href="index.html">
+        <span class="c-red">RED RED</span>
+        <span class="c-green">GREEN GREEN</span>
+      </a>
+      <ul class="nav-links" style="display:flex;">
+        <li><a href="index.html">← 메인으로</a></li>
+        <li><a class="nav-guide" href="question.html">탐구질문 가이드</a></li>
+        <li class="nav-cta-li"><a class="nav-cta" href="https://script.google.com/a/macros/e-mirim.hs.kr/s/AKfycbwfmUjWA3QLke0zZzwaPeZRYcMjdLuke04AEYwVJdpgSA2n5LdXSHjYWinZ8odoBpo/exec" target="_blank" rel="noopener">RED 카드 웹앱</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="guide-hero">
+      <div class="wrap">
+        <a class="back-link" href="index.html#flow">← 메인으로 돌아가기</a>
+        <h1>역할 면접 <span style="background:var(--sun);border-radius:6px;padding:0 6px;">가이드</span></h1>
+        <p class="lede">학습지 2차시 STEP 1에서 막혔다면 이 페이지를 보면 됩니다.</p>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="wrap">
+        <header class="section-head"><h2>면접을 왜 해요?</h2></header>
+        <p>RED 카드에는 <strong>겉으로 관찰한 것</strong>만 적혀 있습니다. 그 표현을 <strong>왜 골랐는지</strong>, 들은 사람에게 <strong>실제로 어떤 일이 있었는지</strong>는 카드를 쓴 사람만 압니다. 그래서 짐작으로 채우지 않고 당사자에게 직접 물어 확인합니다 — 이것이 면접입니다.</p>
+        <p class="note">면접은 <strong>판정이 아니라 확인</strong>입니다. 잘했는지 못했는지 따지는 자리가 아니라, 무슨 일이 있었는지를 정확히 알아내는 자리입니다.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="roles">
+      <div class="wrap">
+        <header class="section-head"><h2>누가 무엇을 해요?</h2></header>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">역할</th><th scope="col">하는 일</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">사례 제공자</th><td>고른 카드를 쓴 사람입니다. 카드의 상황과 그 표현으로 전달하려던 내용을 설명합니다. 기억나지 않으면 "기억나지 않는다"고 말합니다 — 지어내지 않습니다.</td></tr>
+              <tr><th scope="row">면담자 1</th><td>공통 면접 문항을 차례로 묻습니다. 답을 재촉하거나 원하는 답으로 유도하지 않습니다.</td></tr>
+              <tr><th scope="row">면담자 2 (5인 모둠만)</th><td>면담자 1과 번갈아 묻고, 순서·시간·안전 약속을 함께 살핍니다.</td></tr>
+              <tr><th scope="row">조사 기록자</th><td>답을 기록하고, 확인된 것과 추정을 구분해 표시합니다.</td></tr>
+              <tr><th scope="row">녹화 기록자</th><td>얼굴보다 카드·손·상호작용 중심으로 면접 과정을 찍습니다.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="role-note">두 번째 카드를 면접할 때는 역할을 바꿉니다.</p>
+      </div>
+    </section>
+
+    <section class="section" id="questions">
+      <div class="wrap">
+        <header class="section-head"><h2>무엇을 물어요? — 공통 면접 문항 4개</h2></header>
+        <ol class="bubble-qs">
+          <li>이 표현으로 어떤 내용이나 의도를 전달하려 했는가?</li>
+          <li>다른 표현 대신 왜 이 표현을 선택했는가?</li>
+          <li>들은 사람에게 어떤 영향이나 반응이 나타났는가?</li>
+          <li>그 반응은 어떻게 알 수 있는가?</li>
+        </ol>
+        <p class="note">1번은 목적, 2번은 선택 이유, 3번은 청자에게 나타난 일, 4번은 그것을 아는 근거를 확인합니다. 네 개를 순서대로 물으면 사례 분석에 필요한 재료가 다 모입니다. 친구에게 물을 때는 자연스러운 말로 바꿔 물어도 됩니다 — "이 말로 뭘 전하고 싶었어?"</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="howask">
+      <div class="wrap">
+        <header class="section-head"><h2>어떻게 물어요?</h2></header>
+
+        <div class="qa-pair">
+          <div class="qa-box bad">
+            <span class="qa-tag">답을 정해 주는 질문</span>
+            <p class="q">"그때 기분 나빴지?"</p>
+            <p class="why">듣는 사람은 "응"이라고 답할 수밖에 없습니다. 우리가 정한 답을 확인받는 것은 조사가 아닙니다.</p>
+          </div>
+          <div class="qa-box good">
+            <span class="qa-tag">열린 질문</span>
+            <p class="q">"들은 사람은 어떤 반응을 보였어?"</p>
+            <p class="why">답을 정해 주지 않고, 실제로 있었던 일을 그대로 말하게 합니다.</p>
+          </div>
+        </div>
+
+        <div class="qa-pair">
+          <div class="qa-box bad">
+            <span class="qa-tag">훈계</span>
+            <p class="q">"그 말 잘못된 거 알지?"</p>
+            <p class="why">판정부터 하면 사례 제공자는 솔직하게 말하기 어려워집니다. 면접은 판정이 아니라 확인입니다.</p>
+          </div>
+          <div class="qa-box good">
+            <span class="qa-tag">이어 묻기</span>
+            <p class="q">"조금 더 자세히 말해 줄래?" · "그 반응은 직접 본 거야, 나중에 들은 거야?"</p>
+            <p class="why">답이 짧을 때는 이렇게 이어 물으면 구체적인 이야기가 나옵니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="record">
+      <div class="wrap">
+        <header class="section-head"><h2>어떻게 기록해요? — 확인과 추정 구분</h2></header>
+        <p>답마다 <strong>근거가 무엇인지</strong>를 함께 표시합니다. 가장 가까운 것 하나에 표시하면 됩니다.</p>
+        <div class="ev-grid">
+          <div class="ev-card"><strong>직접 들은 반응</strong>그 자리에서 내 귀로 들었습니다. (예: "레전드가 뭔데?"라고 되묻는 것을 직접 들음)</div>
+          <div class="ev-card"><strong>당사자가 말해 준 반응</strong>나중에 그 사람에게 물어서 알았습니다.</div>
+          <div class="ev-card"><strong>행동으로 확인한 반응</strong>표정·몸짓을 보았습니다. (예: 표정이 굳었다, 웃었다)</div>
+          <div class="ev-card guess"><strong>우리 모둠의 추정</strong>짐작입니다. 사실처럼 쓰지 않고 <strong>"~할 수 있다"</strong>로 씁니다. (예: "선생님이 못 알아들으셨을 수 있다")</div>
+        </div>
+        <p class="note">확인과 추정을 구분해 두면, 3차시 브리핑에서 "확인된 것은 ~이고, ~는 우리 모둠의 추정입니다"라고 정확하게 말할 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="safety">
+      <div class="wrap">
+        <header class="section-head"><h2>촬영·안전 — 면접 중에 지킵니다</h2></header>
+        <ul class="safety-list">
+          <li class="card safety-item">얼굴보다 카드·손·상호작용 중심으로 찍기</li>
+          <li class="card safety-item">실명·학번·특정할 수 있는 사건은 말하지 않기</li>
+          <li class="card safety-item">거친 말은 원래 말로 되살려 읽지 않기 — 초성 그대로 말하거나 "그 말"이라고 부르기</li>
+          <li class="card safety-item">촬영이 어려운 사람은 화면 밖에서 같은 역할 수행 가능 — 패스는 불이익이 아님</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <header class="section-head"><h2>막힐 때 이렇게 해 보세요</h2></header>
+        <div class="faq-item">
+          <p class="fq">Q. 답이 한마디로 끝나요. ("그냥요")</p>
+          <p>"그냥"도 답입니다 — 거기서 이어 물으세요. <strong>"그냥 나온 말이면, 평소에 자주 쓰는 말이야?"</strong> · "다른 말로 하려면 뭐라고 했을 것 같아?" 습관인지, 골라 쓴 것인지가 드러납니다.</p>
+        </div>
+        <div class="faq-item">
+          <p class="fq">Q. 사례 제공자가 기억이 안 난대요.</p>
+          <p>지어내지 않는 것이 원칙입니다. <strong>"기억나지 않는다"라고 그대로 기록</strong>하고 다음 문항으로 넘어갑니다. 기억나는 부분만으로도 분석할 수 있습니다.</p>
+        </div>
+        <div class="faq-item">
+          <p class="fq">Q. 이게 확인인지 추정인지 헷갈려요.</p>
+          <p>기준은 하나입니다 — <strong>내 귀로 들었거나, 당사자가 말했거나, 행동을 보았으면 확인</strong>입니다. 우리끼리 "아마 그랬을걸?"이라고 생각한 것은 전부 추정이고, "~할 수 있다"로 씁니다.</p>
+        </div>
+        <div class="faq-item">
+          <p class="fq">Q. 면접이 일찍 끝났어요. / 시간이 부족해요.</p>
+          <p>일찍 끝났으면 <strong>두 번째 카드를 면접</strong>하거나(역할 바꾸기), 카드 1의 답에서 더 파고들 곳을 이어 묻습니다. 부족하면 문항 3·4(반응과 근거)를 먼저 확보하세요 — 분석에 가장 필요한 재료입니다.</p>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="index.html#tools">활동 도구 보러 가기</a>
+          <a class="btn btn-secondary" href="question.html">탐구질문 가이드</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>이 페이지는 학습지 2차시 STEP 1(역할 면접)의 도움 자료입니다.</p>
+      <p class="credits">RED RED GREEN GREEN · 학급 언어생활 사례 조사 프로젝트</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -416,7 +416,11 @@ h1, h2, h3, .brand, .session-num, .tool-badge {
 .resource-grid .resource-card:nth-child(7)::before { background-image: url("img/icon-sprout-book.png"); }
 .resource-grid .resource-card:nth-child(1) { border-color: var(--red); }
 
-/* ---------- 탐구질문 가이드 링크 ---------- */
+/* ---------- 가이드 링크 ---------- */
+.guide-banner-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 26px; }
+.guide-banner-row .guide-banner { margin-bottom: 0; }
+@media (max-width: 700px) { .guide-banner-row { grid-template-columns: 1fr; } }
+.resource-grid .resource-card:nth-child(10)::before { background-image: url("img/icon-pen.png"); }
 .guide-banner {
   display: block;
   background: var(--blue-soft);
