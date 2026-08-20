@@ -406,6 +406,29 @@ h1, h2, h3, .brand, .session-num, .tool-badge {
 .resource-grid .resource-card:nth-child(7)::before { background-image: url("img/icon-sprout-book.png"); }
 .resource-grid .resource-card:nth-child(1) { border-color: var(--red); }
 
+/* ---------- 탐구질문 가이드 링크 ---------- */
+.guide-banner {
+  display: block;
+  background: var(--blue-soft);
+  border: 2px dashed var(--blue);
+  border-radius: 16px;
+  padding: 14px 20px;
+  margin-bottom: 26px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform .15s ease;
+}
+.guide-banner:hover { transform: translateY(-2px); }
+.guide-banner strong { color: var(--blue); }
+.inline-guide {
+  font-weight: 800;
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 2px solid var(--blue);
+}
+.resource-grid .resource-card:nth-child(9)::before { background-image: url("img/icon-dictionary.png"); }
+
 /* ---------- 사이드 펫 캐릭터 ---------- */
 .pets .pet {
   position: fixed;
