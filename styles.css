@@ -399,7 +399,12 @@ h3 {
 .letter p + ul,
 .letter ol + p,
 .letter ul + p,
-.letter h3 + ol {
+.letter h3 + ol,
+.letter h3 + p,
+.letter h3 + .table-wrap,
+.letter p + .table-wrap,
+.letter ul + .table-wrap,
+.letter .table-wrap + p {
   margin-top: 1em;
 }
 
