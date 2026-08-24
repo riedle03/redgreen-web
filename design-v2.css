@@ -328,6 +328,9 @@ h1, h2, h3, .brand, .session-num, .tool-badge {
 .tools-grid .tool-card:nth-child(4) .tool-badge { background: var(--green); }
 .tools-grid .tool-card:nth-child(5) .tool-badge { background: var(--violet); }
 .tools-grid .tool-card:nth-child(6) .tool-badge { background: var(--teal); }
+.tools-session-1 .session-num { background: var(--red-soft); color: var(--red-deep); }
+.tools-session-2 .session-num { background: var(--blue-soft); color: var(--blue); }
+.tools-session-3 .session-num { background: var(--green-soft); color: var(--green-deep); }
 
 /* 면접 문항 = 채팅 스레드 */
 .bubble-qs { list-style: none; counter-reset: q; padding: 0; margin: 12px 0; display: flex; flex-direction: column; gap: 12px; }

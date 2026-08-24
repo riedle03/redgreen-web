@@ -638,6 +638,34 @@ h3 {
 }
 
 /* Tools */
+.tools-session + .tools-session {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.tools-session-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 12px;
+  margin-bottom: 6px;
+}
+
+.tools-session-head h3 {
+  font-size: 1.22rem;
+}
+
+.tools-when {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.tools-session .guide-banner {
+  margin-bottom: 16px;
+}
+
 .tools-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
