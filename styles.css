@@ -845,7 +845,24 @@ tbody th {
   background: var(--white);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-soft);
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.about-body table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.about-body table col:nth-child(1) { width: 18%; }
+.about-body table col:nth-child(2) { width: 13%; }
+.about-body table col:nth-child(3),
+.about-body table col:nth-child(4),
+.about-body table col:nth-child(5) { width: 23%; }
+
+.about-body tbody th {
+  width: auto;
+  white-space: normal;
 }
 
 .about-body table th,
@@ -853,6 +870,8 @@ tbody th {
   padding: 10px 12px;
   font-size: 0.86rem;
   line-height: 1.45;
+  overflow-wrap: break-word;
+  word-break: keep-all;
 }
 
 /* Footer */
@@ -1076,5 +1095,9 @@ html.js .reveal.is-visible {
   tbody th {
     white-space: normal;
     width: auto;
+  }
+
+  .about-body table {
+    min-width: 44rem;
   }
 }
