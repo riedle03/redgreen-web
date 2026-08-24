@@ -822,7 +822,9 @@ tbody th {
 
 .about-body table th,
 .about-body table td {
-  padding: 14px 16px;
+  padding: 10px 12px;
+  font-size: 0.86rem;
+  line-height: 1.45;
 }
 
 /* Footer */
