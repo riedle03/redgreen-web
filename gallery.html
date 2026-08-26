@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="icon" type="image/png" href="img/icon-logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>우리 반 조사 갤러리 — RED RED GREEN GREEN</title>
+  <meta name="description" content="모둠이 조사한 말을 웹페이지로 만들어 모은 곳입니다. 다른 모둠이 무엇을 조사했는지 읽어 봅니다">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="design-v2.css">
+  <style>
+    .gal-hero { background: linear-gradient(150deg, #EAF1FD 0%, #F3F6FA 50%, #E3F6EE 100%); padding: 120px 0 52px; }
+    .gal-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    .gal-hero .lede { color: #4B5563; font-weight: 600; margin-top: 12px; font-size: 1.02rem; line-height: 1.75; max-width: 62ch; }
+    .back-link { display: inline-block; margin-bottom: 14px; font-weight: 800; color: var(--blue); text-decoration: none; }
+    .back-link:hover { text-decoration: underline; }
+
+    /* 어떻게 올라오나 */
+    .howto { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 8px; }
+    .howto-step { border: 2px solid rgba(34,38,46,.14); border-radius: 16px; background: var(--white); padding: 16px 18px; position: relative; }
+    .howto-step .n { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: var(--blue); color: #fff; font-family: 'Paperlogy','Pretendard',sans-serif; font-size: .85rem; font-weight: 800; margin-bottom: 8px; }
+    .howto-step:nth-child(2) .n { background: var(--green-deep, #14775A); }
+    .howto-step:nth-child(3) .n { background: var(--amber, #F59E0B); }
+    .howto-step:nth-child(4) .n { background: var(--violet, #8B5CF6); }
+    .howto-step > strong { display: block; margin-bottom: 4px; font-size: .98rem; }
+    .howto-step p { margin: 0; font-size: .87rem; line-height: 1.6; font-weight: 600; color: #4B5563; }
+
+    /* 카드 */
+    .gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 10px; }
+    .gal-card { display: block; border: 2px solid rgba(34,38,46,.14); border-radius: 22px; background: var(--white); padding: 24px 24px 20px; text-decoration: none; color: inherit; transition: transform .18s ease, box-shadow .18s ease; }
+    .gal-card:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(38,41,46,.12); }
+    .gal-card .word { display: block; font-family: 'Paperlogy','Pretendard',sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; line-height: 1.2; margin-bottom: 10px; }
+    .gal-card .word span { background: var(--sun); border-radius: 6px; padding: 0 8px; }
+    .gal-card .one { font-size: .98rem; font-weight: 700; line-height: 1.6; color: var(--ink); margin: 0 0 14px; }
+    .gal-card .meta { font-size: .82rem; font-weight: 700; color: var(--sub, #6B7280); }
+    .gal-card .go { display: inline-block; margin-top: 12px; font-size: .88rem; font-weight: 800; color: var(--blue); }
+    .gal-card.is-sample { border-color: var(--amber, #F59E0B); background: #FFFDF7; }
+    .gal-card .badge { display: inline-block; font-family: 'Paperlogy','Pretendard',sans-serif; font-size: .74rem; color: #fff; background: var(--amber, #F59E0B); border-radius: 999px; padding: 3px 11px; margin-bottom: 12px; }
+
+    .gal-empty { border: 2px dashed #B9C2D0; border-radius: 22px; background: #F6F8FB; padding: 24px; display: flex; flex-direction: column; justify-content: center; text-align: center; min-height: 190px; }
+    .gal-empty strong { display: block; font-size: 1.02rem; margin-bottom: 6px; color: #4B5563; }
+    .gal-empty p { margin: 0; font-size: .87rem; font-weight: 600; color: var(--sub, #6B7280); line-height: 1.6; }
+
+    .read-rules { margin: 16px 0 0; padding-left: 20px; }
+    .read-rules li { font-size: .96rem; line-height: 1.78; margin-bottom: 6px; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+
+    @media (max-width: 980px) { .howto { grid-template-columns: repeat(2, 1fr); } .gal-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .howto, .gal-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a class="brand" href="index.html">
+        <span class="c-red">RED RED</span>
+        <span class="c-green">GREEN GREEN</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="visually-hidden">메뉴</span>
+      </button>
+      <ul id="site-menu" class="nav-links">
+        <li><a href="index.html">← 메인으로</a></li>
+        <li><a class="nav-pill pill-green" href="report.html">보고서 예시</a></li>
+        <li><a class="nav-pill pill-blue" href="interview.html">면접(Interview) 가이드</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gal-hero">
+      <div class="wrap">
+        <a class="back-link" href="index.html">← 메인으로 돌아가기</a>
+        <h1>우리 반 조사 <span style="background:var(--sun);border-radius:6px;padding:0 8px;">갤러리</span></h1>
+        <p class="lede">모둠이 조사한 말 하나를 웹페이지로 만들어 모은 곳입니다. 전국 조사 통계에는 없는, <strong>이 교실에서 실제로 쓰는 말</strong>에 대한 기록입니다. 다른 모둠은 무엇을 조사했는지 읽어 보세요.</p>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="wrap">
+        <header class="section-head">
+          <h2>어떻게 여기에 올라오나요</h2>
+        </header>
+        <div class="howto">
+          <div class="howto-step">
+            <span class="n">1</span>
+            <strong>조사하기</strong>
+            <p>모둠이 말 하나를 정해 사전을 찾고, 써 본 사람을 면접합니다. (1·2차시)</p>
+          </div>
+          <div class="howto-step">
+            <span class="n">2</span>
+            <strong>보고서 쓰기</strong>
+            <p>구글 독스에 모둠 조사 보고서를 함께 씁니다. (3차시)</p>
+          </div>
+          <div class="howto-step">
+            <span class="n">3</span>
+            <strong>프롬프트 채우기</strong>
+            <p>보고서 맨 아래 「웹페이지 제작 프롬프트」 9칸을 모둠이 채웁니다. 표·그래프·워드클라우드 같은 자료를 <strong>반드시 두 가지 이상</strong> 고릅니다. 보고서를 옮기는 것이 아니라, <strong>다른 반 학생이 읽을 것</strong>이므로 무엇을 먼저 보여 줄지 다시 정합니다. (과제)</p>
+          </div>
+          <div class="howto-step">
+            <span class="n">4</span>
+            <strong>여기에 올리기</strong>
+            <p>선생님이 그 프롬프트로 웹페이지를 만들어 갤러리에 올립니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="works">
+      <div class="wrap">
+        <header class="section-head">
+          <h2>올라온 조사</h2>
+          <p>카드를 누르면 그 모둠이 만든 페이지로 갑니다.</p>
+        </header>
+
+        <div class="gal-grid">
+          <a class="card gal-card is-sample reveal" href="gallery-sample.html">
+            <span class="badge">예시</span>
+            <span class="word"><span>팩폭</span></span>
+            <p class="one">사실이면 다 말해도 될까?</p>
+            <p class="meta">3모둠 · 면접 1명 · 카드 3장</p>
+            <span class="go">읽어 보기 →</span>
+          </a>
+
+          <div class="gal-empty reveal">
+            <strong>아직 비어 있습니다</strong>
+            <p>여러분 모둠이 조사한 말이<br>여기에 올라옵니다.</p>
+          </div>
+
+          <div class="gal-empty reveal">
+            <strong>아직 비어 있습니다</strong>
+            <p>프롬프트를 다 채운 모둠부터<br>차례로 올라갑니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="read">
+      <div class="wrap">
+        <header class="section-head">
+          <h2>읽을 때 지킬 것</h2>
+          <p>다른 모둠의 조사를 읽는 일도 이 수업의 한 부분입니다.</p>
+        </header>
+        <ol class="read-rules">
+          <li><strong>조사한 범위 안에서 읽습니다.</strong> 면접 1명, 카드 몇 장으로 알아낸 것입니다. "우리 학교 학생들은 다 그렇다"로 넓혀 읽지 않습니다.</li>
+          <li><strong>알아내지 못했다고 적힌 것을 눈여겨봅니다.</strong> 모르는 것을 모른다고 적은 것도 조사 결과입니다. 빈 곳이 다음 조사의 자리입니다.</li>
+          <li><strong>확인한 것과 짐작한 것을 나눠서 읽습니다.</strong> "~일 수 있다"라고 쓴 문장은 아직 확인되지 않은 것입니다.</li>
+          <li><strong>말을 쓴 사람을 찾지 않습니다.</strong> 누가 그랬는지 알아내려 하거나 짐작해서 말하지 않습니다. 조사한 것은 사람이 아니라 말입니다.</li>
+        </ol>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="gallery-sample.html">예시 페이지 읽어 보기</a>
+          <a class="btn btn-secondary" href="report.html">보고서는 어떻게 쓰나</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>갤러리에 올라오는 페이지는 모둠이 채운 프롬프트로 만든 것입니다. 실명과 특정 사건은 담지 않습니다.</p>
+      <p class="credits">RED RED GREEN GREEN · 학급 언어생활 사례 조사 프로젝트</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
