@@ -201,6 +201,94 @@ h1, h2, h3, .brand, .session-num, .tool-badge {
 .pill-blue { background: var(--blue); box-shadow: 0 3px 0 #2C4F8A; }
 .pill-red { background: var(--red); box-shadow: 0 3px 0 var(--red-deep); }
 .pill-green { background: var(--green); box-shadow: 0 3px 0 var(--green-deep); }
+.pill-amber { background: var(--amber); box-shadow: 0 3px 0 #B4740A; }
+
+/* 지금 보고 있는 페이지의 버튼 — 누를 수 없고 흐리게 */
+.nav-pill.is-current {
+  opacity: .5;
+  pointer-events: none;
+  box-shadow: none;
+  transform: translateY(1px);
+}
+
+/* ── 이 페이지의 차례 (히어로 아래 블록) ───────────────── */
+.page-toc-section { padding: 34px 0 6px; background: var(--bg); }
+.page-toc { margin-top: 0; }
+.page-toc h2 {
+  font-size: 1rem; font-weight: 800; color: var(--ink);
+  margin: 0 0 12px; letter-spacing: .01em;
+}
+.page-toc h2::after { content: none; }
+.toc-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+}
+.toc-item {
+  display: block; text-decoration: none; color: inherit;
+  border: 2px solid rgba(34,38,46,.12); border-radius: 14px;
+  background: rgba(255,255,255,.72); padding: 12px 14px;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.toc-item:hover { transform: translateY(-2px); border-color: var(--blue); background: #fff; }
+.toc-item .tnum {
+  display: inline-block; font-family: 'Paperlogy','Pretendard',sans-serif;
+  font-size: .72rem; font-weight: 800; color: #fff; background: var(--blue);
+  border-radius: 999px; padding: 1px 8px; margin-bottom: 6px;
+}
+.toc-item strong { display: block; font-size: .95rem; margin-bottom: 2px; }
+.toc-item span { display: block; font-size: .8rem; font-weight: 600; color: var(--sub, #6B7280); line-height: 1.5; }
+
+/* ── 우측 플로팅 목차 ──────────────────────────────── */
+.toc-rail {
+  position: fixed; right: 12px; top: 50%; transform: translateY(-50%);
+  z-index: 30; display: none; max-width: 124px;
+  background: rgba(255,255,255,.93); backdrop-filter: blur(6px);
+  border: 1px solid rgba(34,38,46,.10); border-radius: 16px;
+  padding: 7px 5px; box-shadow: 0 8px 24px rgba(38,41,46,.12);
+  opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility .25s ease;
+}
+.toc-rail.is-on { opacity: 1; visibility: visible; }
+.toc-rail ol { list-style: none; margin: 0; padding: 0; }
+.toc-rail li { margin: 0; }
+.toc-rail a {
+  display: flex; align-items: center; gap: 9px;
+  padding: 5px 8px 5px 6px; border-radius: 999px;
+  text-decoration: none; font-size: .78rem; font-weight: 700;
+  color: var(--sub, #6B7280); white-space: nowrap;
+  transition: color .15s ease, background .15s ease;
+}
+.toc-rail a::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%;
+  background: transparent; box-shadow: inset 0 0 0 2px #C6CDD8;
+  flex: 0 0 auto; transition: box-shadow .15s ease, background .15s ease;
+}
+.toc-rail a:hover { color: var(--ink); background: #F1F4F9; }
+.toc-rail a.is-active { color: var(--blue); background: var(--blue-soft); }
+.toc-rail a.is-active::before { background: var(--blue); box-shadow: inset 0 0 0 2px var(--blue); }
+
+/* 본문(--wrap)과 겹치지 않을 만큼 좌우 여백이 생기는 폭에서만 띄운다 */
+@media (min-width: 1440px) { .toc-rail { display: block; } }
+@media (max-width: 1080px) { .toc-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px)  { .toc-grid { grid-template-columns: repeat(2, 1fr); } }
+/* 휴대폰 — 설명 줄을 접어 차례가 본문을 밀어내지 않게 한다 */
+@media (max-width: 460px) {
+  .toc-item { padding: 10px 12px; }
+  .toc-item strong { font-size: .9rem; margin-bottom: 0; }
+  .toc-item span:not(.tnum) { display: none; }
+  .toc-item .tnum { margin-bottom: 4px; }
+}
+
+/* 햄버거 메뉴 안의 차례 — 넓은 화면에서는 숨긴다 */
+.nav-toc-head, .nav-section-link { display: none; }
+@media (max-width: 900px) {
+  .nav-toc-head, .nav-section-link { display: block; }
+  .nav-toc-head {
+    margin-top: 14px; padding: 6px 10px 2px;
+    font-size: .78rem; font-weight: 800; color: var(--sub, #6B7280);
+    border-top: 1px solid rgba(34,38,46,.12);
+  }
+  .nav-section-link a { font-weight: 700; }
+}
+@media (prefers-reduced-motion: reduce) { .toc-item, .toc-rail, .toc-rail a { transition: none; } }
 .nav-pill:hover { transform: translateY(1px); box-shadow: 0 2px 0 rgba(34,38,46,.4); }
 
 /* (구) 가이드 버튼 스타일 — 하위 호환 */

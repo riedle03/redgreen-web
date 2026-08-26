@@ -71,8 +71,15 @@
     });
   }
 
+  // 스크롤 위치 표시는 우측 목차 레일이 맡는다.
+  // (섹션 링크는 상단 메뉴에서 빠지고 .toc-rail / .page-toc 로 옮겨졌다)
+  var spyLinks = document.querySelectorAll('.toc-rail a[href^="#"]');
+  if (!spyLinks.length) {
+    spyLinks = menu ? menu.querySelectorAll('a[href^="#"]') : [];
+  }
+
   var sections = [];
-  navLinks.forEach(function (link) {
+  Array.prototype.forEach.call(spyLinks, function (link) {
     var href = link.getAttribute("href");
     if (!href || href.charAt(0) !== "#") return;
     var section = document.querySelector(href);
@@ -91,11 +98,24 @@
         }
       }
     }
-    navLinks.forEach(function (link) {
-      link.classList.remove("is-active");
+    sections.forEach(function (item) {
+      item.link.classList.remove("is-active");
     });
     if (current) current.link.classList.add("is-active");
   }
+
+  // 히어로를 지나 본문에 들어서면 우측 목차를 띄운다
+  var rail = document.querySelector(".toc-rail");
+  var firstSection = sections.length ? sections[0].section : null;
+
+  function toggleRail() {
+    if (!rail || !firstSection) return;
+    rail.classList.toggle("is-on", window.scrollY + 200 >= firstSection.offsetTop);
+  }
+
+  toggleRail();
+  window.addEventListener("scroll", toggleRail, { passive: true });
+  window.addEventListener("resize", toggleRail);
 
   setActiveLink();
   window.addEventListener("scroll", setActiveLink, { passive: true });
