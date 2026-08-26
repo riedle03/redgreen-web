@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="icon" type="image/png" href="img/icon-logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>모둠 조사 보고서 예시 — RED RED GREEN GREEN</title>
+  <meta name="description" content="3차시에 쓰는 모둠 조사 보고서를 한 편 다 쓴 예시입니다. 표·그래프·인용 같은 매체 자료를 어디에 어떻게 넣는지 함께 봅니다">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="design-v2.css">
+  <style>
+    .guide-hero { background: var(--blue-soft); padding: 120px 0 48px; }
+    .guide-hero h1 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); }
+    .guide-hero .lede { color: var(--sub, #6B7280); font-weight: 600; margin-top: 10px; }
+    .back-link { display: inline-block; margin-bottom: 14px; font-weight: 800; color: var(--blue); text-decoration: none; }
+    .back-link:hover { text-decoration: underline; }
+
+    /* 예시임을 알리는 띠 */
+    .example-banner { border: 2px solid var(--amber, #F59E0B); background: var(--amber-soft, #FEF3D8); border-radius: 18px; padding: 16px 20px; margin-top: 22px; }
+    .example-banner > strong { display: block; font-size: 1.05rem; margin-bottom: 6px; }
+    .example-banner p { font-size: .93rem; font-weight: 600; margin: 0; }
+
+    /* 보고서 지면 */
+    .report-sheet { background: var(--white); border: 2px solid rgba(34,38,46,.14); border-radius: 22px; padding: 30px 32px 34px; box-shadow: var(--shadow-soft, 0 4px 16px rgba(38,41,46,.06)); }
+    .report-sheet .rep-eyebrow { font-size: .82rem; color: var(--sub, #6B7280); font-weight: 700; letter-spacing: .01em; }
+    .report-sheet h2.rep-title { font-size: clamp(1.25rem, 2.4vw, 1.7rem); line-height: 1.35; margin: 6px 0 2px; }
+    .report-sheet h2.rep-title::after { content: none; }
+    .rep-meta { display: grid; grid-template-columns: 92px 1fr; gap: 2px 0; border: 1px solid var(--line, #e4e7ec); border-radius: 12px; overflow: hidden; margin: 16px 0 26px; font-size: .93rem; }
+    .rep-meta dt { background: #F2F4F7; font-weight: 800; padding: 9px 12px; }
+    .rep-meta dd { padding: 9px 12px; margin: 0; font-weight: 600; }
+
+    .rep-h { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 30px 0 10px; padding-bottom: 7px; border-bottom: 2px solid var(--blue); }
+    .rep-h h3 { font-size: 1.12rem; margin: 0; }
+    .who { font-family: 'Paperlogy', 'Pretendard', sans-serif; font-size: .78rem; font-weight: 800; color: #fff; background: var(--blue); border-radius: 999px; padding: 3px 11px; white-space: nowrap; }
+    .who.b { background: var(--green-deep, #14775A); }
+    .who.c { background: var(--teal, #0EA5B7); }
+    .who.d { background: var(--violet, #8B5CF6); }
+    .rep-sub { font-weight: 800; font-size: .98rem; margin: 18px 0 6px; color: var(--ink); }
+    .report-sheet p { font-size: .97rem; line-height: 1.78; }
+
+    /* 복합양식 자료 — 그림·표 공통 */
+    .figure { margin: 18px 0 22px; border: 2px solid rgba(34,38,46,.12); border-radius: 16px; background: #FBFCFE; padding: 16px 18px 12px; }
+    .figure figcaption { font-size: .85rem; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+    .figure figcaption .fignum { color: var(--blue); font-weight: 800; }
+    .figure .figsrc { font-size: .78rem; color: var(--sub, #6B7280); font-weight: 600; margin-top: 10px; }
+    .figure svg { display: block; width: 100%; height: auto; max-width: 620px; margin: 0 auto; }
+    .figure table { font-size: .9rem; }
+
+    /* 인용 상자 */
+    .rep-quote { border-left: 5px solid var(--teal, #0EA5B7); background: var(--teal-soft, #E0F6F9); border-radius: 0 14px 14px 0; padding: 14px 18px; margin: 18px 0 22px; }
+    .rep-quote p { margin: 0; font-size: 1rem; font-weight: 700; line-height: 1.7; }
+    .rep-quote .src { display: block; font-size: .82rem; font-weight: 600; color: var(--sub, #6B7280); margin-top: 8px; }
+
+    /* 사진 자리 */
+    .photo-slot { border: 2px dashed #B9C2D0; border-radius: 16px; background: #F6F8FB; padding: 26px 18px; text-align: center; }
+    .photo-slot strong { display: block; font-size: .95rem; margin-bottom: 6px; }
+    .photo-slot span { font-size: .85rem; color: var(--sub, #6B7280); font-weight: 600; }
+
+    /* 참고 자료 목록 */
+    .ref-list { list-style: none; padding: 0; margin: 6px 0 0; }
+    .ref-list li { font-size: .93rem; line-height: 1.7; padding-left: 18px; position: relative; font-weight: 600; }
+    .ref-list li::before { content: "·"; position: absolute; left: 4px; font-weight: 800; color: var(--blue); }
+
+    /* 제언 ⓐ 표 */
+    .swap-table td:first-child { width: 84px; font-weight: 800; }
+    .swap-arrow { color: var(--red-deep, #D6402F); font-weight: 800; }
+
+    /* 매체 자료 안내 */
+    .media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 6px; }
+    .media-card { border: 2px solid rgba(34,38,46,.14); border-radius: 16px; background: var(--white); padding: 16px 18px; }
+    .media-card .mtag { display: inline-block; font-family: 'Paperlogy', 'Pretendard', sans-serif; font-size: .8rem; color: #fff; background: var(--blue); border-radius: 10px; padding: 3px 10px; margin-bottom: 8px; }
+    .media-card.g .mtag { background: var(--green-deep, #14775A); }
+    .media-card.t .mtag { background: var(--teal, #0EA5B7); }
+    .media-card.v .mtag { background: var(--violet, #8B5CF6); }
+    .media-card > strong { display: block; margin-bottom: 5px; }
+    .media-card p { font-size: .9rem; margin: 0; font-weight: 600; line-height: 1.65; }
+
+    .rule-list { margin: 16px 0 0; padding-left: 20px; }
+    .rule-list li { font-size: .95rem; line-height: 1.75; margin-bottom: 6px; }
+
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+
+    @media (max-width: 760px) {
+      .report-sheet { padding: 22px 18px 26px; }
+      .media-grid { grid-template-columns: 1fr; }
+      .rep-meta { grid-template-columns: 76px 1fr; font-size: .88rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a class="brand" href="index.html">
+        <span class="c-red">RED RED</span>
+        <span class="c-green">GREEN GREEN</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="visually-hidden">메뉴</span>
+      </button>
+      <ul id="site-menu" class="nav-links">
+        <li><a href="index.html">← 메인으로</a></li>
+        <li><a class="nav-pill pill-blue" href="question.html">탐구질문 가이드</a></li>
+        <li><a class="nav-pill pill-red" href="https://script.google.com/a/macros/e-mirim.hs.kr/s/AKfycbwfmUjWA3QLke0zZzwaPeZRYcMjdLuke04AEYwVJdpgSA2n5LdXSHjYWinZ8odoBpo/exec" target="_blank" rel="noopener">RED 카드 웹앱</a></li>
+        <li><a class="nav-pill pill-green" href="interview.html">면접(Interview) 가이드</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="guide-hero">
+      <div class="wrap">
+        <a class="back-link" href="index.html#tools">← 메인으로 돌아가기</a>
+        <h1>모둠 조사 보고서 <span style="background:var(--sun);border-radius:6px;padding:0 6px;">예시</span></h1>
+        <p class="lede">3차시에 쓰는 보고서를 한 편 다 쓴 모습입니다. 구글 독스를 열어 놓고 옆에 두고 봅니다.</p>
+
+        <div class="example-banner">
+          <strong>이 보고서는 예시입니다. 실제 모둠의 보고서가 아닙니다.</strong>
+          <p>여기서 볼 것은 <strong>문장의 짜임</strong>입니다 — 확인한 것과 짐작을 어떻게 나누는지, 알아내지 못한 것을 어떻게 적는지, 표와 그래프를 어디에 넣는지. 조사한 말과 결론은 모둠마다 다릅니다. 그대로 옮겨 적으면 우리 모둠의 조사가 아니게 됩니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sheet">
+      <div class="wrap">
+        <header class="section-head">
+          <h2>보고서 본문</h2>
+          <p>칸 이름 옆의 배지는 3차시에 그 칸을 맡는 사람입니다 — <span class="who">A</span> 틀과 자료 · <span class="who b">B</span> 말의 뜻 · <span class="who c">C</span> 면접에서 들은 것 · <span class="who d">D</span> 결론. 자기 기호를 찾아 그 칸을 봅니다.</p>
+        </header>
+
+        <article class="report-sheet">
+          <p class="rep-eyebrow">모르고 막 쓰면 RED RED, 뜻 알고 바꾸면 GREEN GREEN · 학급 언어생활 사례 조사</p>
+          <h2 class="rep-title">'팩폭'은 어떤 뜻으로 쓰이고 듣는 사람에게 어떻게 들리나</h2>
+
+          <dl class="rep-meta">
+            <dt>모둠</dt><dd>3모둠</dd>
+            <dt>작성자</dt><dd>ㄱ, ㄴ, ㄷ, ㄹ</dd>
+            <dt>조사한 말</dt><dd>팩폭</dd>
+          </dl>
+
+          <!-- 1 -->
+          <div class="rep-h"><h3>1. 조사 동기와 목적</h3><span class="who b">B</span></div>
+
+          <p class="rep-sub">가. 조사 동기</p>
+          <p>1차시에 웹앱에서 학급 카드를 보다가 「그거 팩폭이지 뭐. 듣기 싫어도 사실이잖아.」라는 카드를 봤다. 우리 모둠 네 명 중 세 명이 이 카드를 골랐다. 사실을 말한 것인데 듣는 사람은 웃지 않았다고 적혀 있었다. 사실이면 다 말해도 되는 것인지 궁금해졌다. 점심시간에 우리도 이 말을 자주 쓴다. 그래서 이 말을 조사하기로 했다.</p>
+
+          <p class="rep-sub">나. 조사 목적</p>
+          <p>우리 모둠의 조사 목적은 「'팩폭'이라는 말을 붙이면 지적하는 말이 듣는 사람에게 다르게 들리는가?」에 답하는 것이다.</p>
+
+          <!-- 2 -->
+          <div class="rep-h"><h3>2. 조사 계획</h3><span class="who">A</span></div>
+
+          <p class="rep-sub">가. 조사 기간</p>
+          <p>2026년 9월 8일부터 9월 10일까지 (1차시부터 3차시까지)</p>
+
+          <p class="rep-sub">나. 조사 대상</p>
+          <p>면접 1명(모둠원 가운데 '팩폭'을 써 본 사람), 학급 RED 카드 3장('팩폭'이 적힌 카드). 면접 전에 모둠원 네 명이 각자 이 말을 써 봤는지 들어 봤는지 말했고, 그 수도 자료로 적었다.</p>
+
+          <figure class="figure">
+            <figcaption><span class="fignum">그림 1</span> · 모둠원 4명은 '팩폭'을 어떻게 겪었나</figcaption>
+            <svg viewBox="0 0 620 150" role="img" aria-label="가로 막대그래프. 써 봤다 1명, 들어 봤다 3명, 처음 본다 0명.">
+              <g font-family="Pretendard, sans-serif" font-size="13" font-weight="700" fill="#22262E">
+                <text x="0" y="30">써 봤다</text>
+                <text x="0" y="76">들어 봤다</text>
+                <text x="0" y="122">처음 본다</text>
+              </g>
+              <g>
+                <rect x="96" y="14" width="132" height="22" rx="5" fill="#FF5A47"></rect>
+                <rect x="96" y="60" width="396" height="22" rx="5" fill="#4A7DDC"></rect>
+                <rect x="96" y="106" width="3" height="22" rx="1.5" fill="#C6CDD8"></rect>
+              </g>
+              <g font-family="Pretendard, sans-serif" font-size="13" font-weight="800">
+                <text x="238" y="31" fill="#D6402F">1명</text>
+                <text x="502" y="77" fill="#2F5FBB">3명</text>
+                <text x="110" y="123" fill="#6B7280">0명</text>
+              </g>
+              <line x1="94" y1="6" x2="94" y2="136" stroke="#D9DDE3" stroke-width="1.5"></line>
+            </svg>
+            <p class="figsrc">자료: 2차시 면접 준비에서 모둠원 4명이 각자 말한 것 (2026년 9월 9일)</p>
+          </figure>
+
+          <p class="rep-sub">다. 조사 방법</p>
+          <p>사전 조사, 사례 자료 분석, 모둠 면접(초점 집단 면접, FGI 방식), 토의.</p>
+
+          <!-- 3 -->
+          <div class="rep-h"><h3>3. 조사 결과</h3><span class="who b">B</span><span class="who c">C</span></div>
+
+          <p class="rep-sub">가. 사전적 의미와 실제 쓰이는 뜻 <span class="who b">B</span></p>
+
+          <figure class="figure">
+            <figcaption><span class="fignum">표 1</span> · '팩폭'을 사전에서 찾은 결과</figcaption>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th scope="col">찾은 곳</th><th scope="col">결과</th><th scope="col">뜻</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">표준국어대사전</th><td>없음</td><td>—</td></tr>
+                  <tr><th scope="row">우리말샘</th><td>'팩트 폭격' 있음</td><td>사실을 들어 상대를 꼼짝 못 하게 하는 일</td></tr>
+                  <tr><th scope="row">우리가 쓰는 뜻</th><td>—</td><td>상대가 반박하지 못하게 사실로 정확하게 지적하는 것</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="figsrc">자료: 표준국어대사전·우리말샘 검색 (2026년 9월 10일) · 우리가 쓰는 뜻은 모둠원 4명이 각자 적은 것을 모아 정리</p>
+          </figure>
+
+          <p>'팩폭'은 표준국어대사전에 없다. 우리말샘에서는 '팩트 폭격'을 찾을 수 있었다. '팩폭'은 '팩트 폭격'을 줄인 말이고, '팩트'는 영어 fact에서 온 말로 사실이라는 뜻이다. 실제로 쓰이는 뜻은 상대가 반박하지 못하게 사실로 정확하게 지적하는 것이다. 우리 모둠에서는 이 뜻을 '사실로 정확하게 지적하는 것'과 '반박 못 하게 사실로 찌르는 것'으로 다르게 적었는데, 이야기해 보니 지적한다는 뜻은 같고 세기만 달랐다.</p>
+
+          <p class="rep-sub">나. 말하는 사람이 이 표현을 고른 이유 <span class="who c">C</span></p>
+
+          <figure class="figure">
+            <figcaption><span class="fignum">표 2</span> · 면접 기록</figcaption>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th scope="col">문항</th><th scope="col">응답자가 말한 것</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">① 선택</th><td>'그냥 사실이야'라고만 하면 싸우자는 말처럼 들릴 것 같았다. '팩폭'을 붙이면 장난처럼 넘어갈 수 있다고 생각했다. '그건 좀 아닌 것 같아'는 너무 진지해 보였다.</td></tr>
+                  <tr><th scope="row">② 영향</th><td>들은 사람이 웃지 않고 "아 됐어"라고 하면서 다른 이야기로 넘어갔다. 옆에 있던 사람은 웃었다. 표정이 굳은 것을 봤다.</td></tr>
+                  <tr><th scope="row">③ 원인</th><td>다들 쓰니까. 매체에서 봐서. 선생님이나 부모님 앞에서는 쓰지 않는다.</td></tr>
+                  <tr><th scope="row">④ 우리 문항</th><td>지적을 받는 쪽이었을 때도 '팩폭'이라는 말이 붙으면 덜 기분이 나쁜지 물었다. 응답자는 "그건 아니다"라고 답했다.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="figsrc">자료: 2026년 9월 9일 모둠 면접 10분 · 응답자 1명(써 본 사람) · 기록자 ㄷ</p>
+          </figure>
+
+          <p>면접에서 응답자는 '그냥 사실이야'라고만 하면 싸우자는 말처럼 들릴 것 같았다고 했다. '팩폭'을 붙이면 장난처럼 넘어갈 수 있다고 생각했다고 한다. 다른 말은 떠오르지 않았고, '그건 좀 아닌 것 같아'는 너무 진지해 보였다고 했다. 여기까지는 면접에서 들은 것이다. 그러니까 이 표현은 습관으로 나온 것이 아니라 상황을 보고 고른 것일 수 있다.</p>
+
+          <p class="rep-sub">다. 듣는 사람의 느낌 <span class="who c">C</span></p>
+
+          <div class="rep-quote">
+            <p>"웃지도 않고 '아 됐어' 하고 다른 얘기로 넘어갔어요. 표정이 굳은 건 봤어요."</p>
+            <span class="src">— 응답자, 2026년 9월 9일 모둠 면접에서</span>
+          </div>
+
+          <p>응답자는 그 말을 들은 사람이 웃지 않고 "아 됐어"라고 하면서 다른 이야기로 넘어갔다고 했다. 옆에 있던 사람은 웃었다고 한다. 표정이 굳은 것을 봤다고도 했다. 그래서 근거는 말과 표정 둘 다이다. 다만 이것은 말한 사람이 본 것이고, 들은 사람에게 직접 물어본 것은 아니다.</p>
+
+          <p class="rep-sub">라. 바꿔 쓸 표현 <span class="who c">C</span></p>
+          <p>「그거 팩폭이지 뭐. 듣기 싫어도 사실이잖아.」를 「내가 보기엔 이런데, 말해도 될까?」로 바꿨다. 모둠에서 한 사람이 실제로 말해 보았고, 들은 사람이 뜻을 바로 알겠다와 존중받는다고 느낀다에 모두 표시했다. 사실을 말하는 것은 그대로 두고, 말하기 전에 물어보는 부분만 넣었다.</p>
+
+          <figure class="figure">
+            <div class="photo-slot">
+              <strong>사진 1 · 바꾼 말을 실제로 말해 보는 장면</strong>
+              <span>모둠 휴대폰으로 찍은 사진을 여기에 넣습니다. 얼굴이 아니라 학습지와 손이 보이게 찍습니다.</span>
+            </div>
+            <p class="figsrc">사진을 넣지 못했으면 넣지 않아도 됩니다. 대신 무엇을 했는지 문장으로 씁니다.</p>
+          </figure>
+
+          <!-- 4 -->
+          <div class="rep-h"><h3>4. 결론</h3><span class="who d">D</span><span class="who">A</span></div>
+
+          <p class="rep-sub">가. 조사에 따른 주요 발견점 <span class="who d">D</span></p>
+
+          <figure class="figure">
+            <figcaption><span class="fignum">그림 2</span> · 우리 반 RED 카드 76장을 유형별로 센 것</figcaption>
+            <svg viewBox="0 0 620 220" role="img" aria-label="세로 막대그래프. 비속어 18장, 속어·유행어 16장, 혐오·배제 표현 12장, 축약어 9장, 온라인 표현 8장, 은어 6장, 외래어 5장, 상품명 2장. 우리 모둠이 조사한 팩폭은 속어·유행어 16장 가운데 3장이다.">
+              <line x1="42" y1="170" x2="612" y2="170" stroke="#D9DDE3" stroke-width="1.5"></line>
+              <g font-family="Pretendard, sans-serif" font-size="11" font-weight="600" fill="#6B7280">
+                <text x="30" y="36" text-anchor="end">20</text>
+                <text x="30" y="103" text-anchor="end">10</text>
+                <text x="30" y="174" text-anchor="end">0</text>
+              </g>
+              <line x1="42" y1="32" x2="612" y2="32" stroke="#EEF1F5" stroke-width="1"></line>
+              <line x1="42" y1="99" x2="612" y2="99" stroke="#EEF1F5" stroke-width="1"></line>
+              <g>
+                <rect x="54"  y="49"  width="52" height="121" rx="4" fill="#8FA9DC"></rect>
+                <rect x="124" y="63"  width="52" height="107" rx="4" fill="#FF5A47"></rect>
+                <rect x="194" y="90"  width="52" height="80"  rx="4" fill="#8FA9DC"></rect>
+                <rect x="264" y="110" width="52" height="60"  rx="4" fill="#8FA9DC"></rect>
+                <rect x="334" y="117" width="52" height="53"  rx="4" fill="#8FA9DC"></rect>
+                <rect x="404" y="130" width="52" height="40"  rx="4" fill="#8FA9DC"></rect>
+                <rect x="474" y="137" width="52" height="33"  rx="4" fill="#8FA9DC"></rect>
+                <rect x="544" y="157" width="52" height="13"  rx="4" fill="#8FA9DC"></rect>
+              </g>
+              <g font-family="Pretendard, sans-serif" font-size="11.5" font-weight="800" fill="#22262E" text-anchor="middle">
+                <text x="80"  y="43">18</text>
+                <text x="150" y="57" fill="#D6402F">16</text>
+                <text x="220" y="84">12</text>
+                <text x="290" y="104">9</text>
+                <text x="360" y="111">8</text>
+                <text x="430" y="124">6</text>
+                <text x="500" y="131">5</text>
+                <text x="570" y="151">2</text>
+              </g>
+              <g font-family="Pretendard, sans-serif" font-size="10.5" font-weight="700" fill="#4B5563" text-anchor="middle">
+                <text x="80"  y="187">비속어</text>
+                <text x="150" y="187" fill="#D6402F">속어·유행어</text>
+                <text x="220" y="187">혐오·배제</text>
+                <text x="290" y="187">축약어</text>
+                <text x="360" y="187">온라인</text>
+                <text x="430" y="187">은어</text>
+                <text x="500" y="187">외래어</text>
+                <text x="570" y="187">상품명</text>
+              </g>
+              <g font-family="Pretendard, sans-serif" font-size="11" font-weight="700" fill="#D6402F">
+                <text x="150" y="209" text-anchor="middle">↑ 우리가 조사한 '팩폭'이 든 유형 (16장 중 3장)</text>
+              </g>
+            </svg>
+            <p class="figsrc">자료: RED 카드 웹앱의 말 지도, 1학년 RED 카드 76장 (2026년 9월 8일)</p>
+          </figure>
+
+          <p>우리 모둠이 조사한 '팩폭'에서는, 면접 1명과 학급 카드 3장을 보고 세 가지를 알아냈다. 첫째, 응답자는 이 말을 쓰는 원인을 '다들 쓰니까'와 '매체에서 봐서'라고 했는데, 선생님이나 부모님 앞에서는 쓰지 않는다고 했다. 앞뒤가 맞지 않는다. 습관이면 어른 앞에서도 나와야 한다. 그래서 이 말은 습관이 아니라 듣는 사람을 보고 고르는 말일 수 있다. 둘째, '팩폭'을 붙이면 듣는 사람이 바로 화를 내지는 않지만 그 뒤에 대화가 짧아진다고 했다. 지적이 부드러워지는 것이 아니라 반응만 늦춰지는 것일 수 있다. 셋째, 우리 탐구질문의 답은 '다르게 들린다'이다. 다만 좋게 들리는 것은 아니다. 왜 친구에게는 쓰고 어른에게는 쓰지 않는지, 그 기준이 무엇인지는 면접 1명만으로는 아직 모른다.</p>
+
+          <p class="rep-sub">나. 더 나은 언어생활을 위한 제언</p>
+
+          <p style="font-weight:700;margin-bottom:2px;">ⓐ 모둠원 각자 자기 카드의 말을 바꾼 것 <span class="who">A</span></p>
+          <p style="margin-top:6px;">조사에서 알게 된 기준(뜻이 바로 통한다 · 듣는 사람을 존중한다 · 나라도 이 상황에서 이렇게 말하겠다)으로 모둠원이 각자 자기 카드의 말을 바꿨다.</p>
+
+          <div class="table-wrap">
+            <table class="swap-table">
+              <thead><tr><th scope="col">이름</th><th scope="col">원래 말</th><th scope="col">바꾼 말</th></tr></thead>
+              <tbody>
+                <tr><td>ㄱ</td><td>갑분싸 됐다</td><td><span class="swap-arrow">→</span> 갑자기 다들 조용해졌다</td></tr>
+                <tr><td>ㄴ</td><td>그거 TMI야</td><td><span class="swap-arrow">→</span> 그 얘기는 다음에 듣고 싶어</td></tr>
+                <tr><td>ㄷ</td><td>노잼이다</td><td><span class="swap-arrow">→</span> 나는 재미없었다</td></tr>
+                <tr><td>ㄹ</td><td>오운완 인증해</td><td><span class="swap-arrow">→</span> 오늘 운동 다 했다고 알려 줘</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="font-weight:700;margin:22px 0 2px;">ⓑ 학생 언어 문제를 풀기 위한 방안 <span class="who d">D</span></p>
+          <p style="margin-top:6px;">2차시에 우리 모둠이 고른 갈래는 학급·학교에서 할 수 있는 일이다. 지적할 때 '팩폭'이라는 말을 붙이지 않고, 사실을 말하기 전에 상대에게 말해도 되는지 먼저 묻는 방법을 학급에서 함께 정하면 좋겠다. 면접에서 이 말을 매체에서 배웠다고 했으니 온라인에서 할 수 있는 일도 있을 것 같은데, 우리 모둠은 그 갈래를 조사하지 않아서 여기에는 쓰지 않는다.</p>
+
+          <!-- 5 -->
+          <div class="rep-h"><h3>5. 참고 자료</h3><span class="who">A</span></div>
+          <ul class="ref-list">
+            <li>표준국어대사전(stdict.korean.go.kr) — '팩폭' 검색 결과 없음</li>
+            <li>우리말샘(opendict.korean.go.kr) — '팩트 폭격'</li>
+            <li>국립국어원, 「2020년 국민의 언어 의식 조사」 (조사 의뢰문에서 인용)</li>
+            <li>스마트학생복, 「청소년 언어 사용 설문」, 2021 (조사 의뢰문에서 인용)</li>
+            <li>RED 카드 웹앱 말 지도 — 1학년 RED 카드 76장 (2026년 9월 8일)</li>
+            <li>1학년 RED 카드 3장 ('팩폭'이 적힌 카드, 2026년 9월 8일)</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="media">
+      <div class="wrap">
+        <header class="section-head">
+          <h2>표·그래프·사진은 어디에 넣어요?</h2>
+          <p>이 보고서에는 글만 있지 않습니다. 표 2개, 그래프 2개, 인용 1개, 사진 자리 1개가 들어 있습니다. 여러 가지 매체 자료를 함께 넣은 보고서를 <strong>복합양식 보고서</strong>라고 합니다. 자료는 글을 꾸미려고 넣는 것이 아니라, <strong>글로 쓰면 길어지는 것을 한눈에 보이게</strong> 하려고 넣습니다.</p>
+        </header>
+
+        <div class="media-grid">
+          <div class="media-card">
+            <span class="mtag">표</span>
+            <strong>여러 개를 나란히 견줄 때</strong>
+            <p>사전 두 곳의 결과처럼 <strong>줄과 칸으로 견주는 것</strong>은 표가 낫습니다. 면접 기록도 문항과 응답이 짝을 이루므로 표가 맞습니다. 이 보고서의 표 1·표 2가 그렇습니다.</p>
+          </div>
+          <div class="media-card g">
+            <span class="mtag">그래프</span>
+            <strong>수를 견줄 때</strong>
+            <p>몇 명인지, 몇 장인지처럼 <strong>수가 여러 개</strong>일 때 넣습니다. 그림 1은 모둠원 4명, 그림 2는 학급 카드 76장입니다. 수가 두세 개뿐이면 그래프로 만들지 말고 문장으로 씁니다.</p>
+          </div>
+          <div class="media-card t">
+            <span class="mtag">인용</span>
+            <strong>말한 그대로가 중요할 때</strong>
+            <p>응답자가 쓴 말투 자체가 자료일 때는 <strong>들은 대로 따옴표에 넣습니다.</strong> 요약하면 사라지는 것이 있습니다. 다만 인용은 짧게 하고, 실명은 쓰지 않습니다.</p>
+          </div>
+          <div class="media-card v">
+            <span class="mtag">사진</span>
+            <strong>한 일을 보여 줄 때</strong>
+            <p>바꾼 말을 실제로 말해 보는 장면처럼 <strong>했다는 것을 보여 주는</strong> 자리에 넣습니다. 얼굴이 아니라 학습지·손이 보이게 찍습니다. 없으면 넣지 않고 문장으로 씁니다.</p>
+          </div>
+        </div>
+
+        <ol class="rule-list">
+          <li><strong>번호와 이름을 붙입니다.</strong> 표 1, 표 2, 그림 1, 그림 2처럼 붙이고 무엇을 나타내는지 한 줄로 씁니다.</li>
+          <li><strong>자료 아래에 출처를 씁니다.</strong> 어디서 온 것인지, 언제 것인지 씁니다. 그리고 그 출처를 <strong>5 참고 자료에도 한 줄 더 씁니다.</strong></li>
+          <li><strong>자료를 넣고 그것을 설명하는 문장을 씁니다.</strong> 표만 붙여 놓으면 보고서가 아닙니다. 표에서 무엇을 읽었는지 글로 씁니다.</li>
+          <li><strong>우리가 실제로 본 것만 넣습니다.</strong> 인터넷에서 찾은 남의 그래프를 우리 조사 결과인 것처럼 넣지 않습니다. 넣을 때는 출처를 밝히고 인용한 것이라고 씁니다.</li>
+        </ol>
+
+        <p class="note" style="margin-top:18px;">넣을 자료가 없으면 넣지 않아도 됩니다. 대신 무엇을 알아냈는지 문장으로 정확히 씁니다. 알아내지 못한 것은 알아내지 못했다고 적습니다. 그것도 조사 결과입니다.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="index.html#tools">3차시 도구 보기</a>
+          <a class="btn btn-secondary" href="files/학습지_3차시.pdf" target="_blank" rel="noopener">학습지 3차시 PDF</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>이 페이지는 학습지 3차시(모둠 조사 보고서 쓰기)의 도움 자료입니다. 보고서 예시는 가상 모둠의 것이며 실제 학생 자료가 아닙니다.</p>
+      <p class="credits">RED RED GREEN GREEN · 학급 언어생활 사례 조사 프로젝트</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
