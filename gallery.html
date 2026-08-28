@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>우리 반 조사 갤러리 — RED RED GREEN GREEN</title>
-  <meta name="description" content="모둠이 조사한 말을 웹페이지로 만들어 모은 곳입니다. 다른 모둠이 무엇을 조사했는지 읽어 봅니다">
+  <meta name="description" content="5개 반 20개 모둠이 조사한 말을 학술 포스터로 만들어 모은 곳입니다. 반으로 거르거나 조사한 말로 찾아볼 수 있습니다">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="design-v2.css">
@@ -43,6 +43,24 @@
     .gal-empty strong { display: block; font-size: 1.02rem; margin-bottom: 6px; color: #4B5563; }
     .gal-empty p { margin: 0; font-size: .87rem; font-weight: 600; color: var(--sub, #6B7280); line-height: 1.6; }
 
+    /* 거르기 — 20장이 넘으면 한눈에 안 들어온다 */
+    .gal-tools { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin: 4px 0 18px; }
+    .gal-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .gal-filters button { font-family: 'Paperlogy','Pretendard',sans-serif; font-size: .92rem; font-weight: 800;
+      color: var(--ink); background: var(--white); border: 2px solid rgba(34,38,46,.16);
+      border-radius: 999px; padding: 7px 16px; cursor: pointer; transition: all .15s ease; }
+    .gal-filters button:hover { border-color: var(--blue); color: var(--blue); }
+    .gal-filters button.is-on { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .gal-search { flex: 1; min-width: 200px; max-width: 320px; margin-left: auto; }
+    .gal-search input { width: 100%; font-family: inherit; font-size: .95rem; font-weight: 600;
+      padding: 9px 14px; border: 2px solid rgba(34,38,46,.16); border-radius: 999px; background: var(--white); }
+    .gal-search input:focus { outline: none; border-color: var(--blue); }
+    .gal-count { font-size: .9rem; font-weight: 700; color: var(--sub, #6B7280); }
+    .gal-card[hidden], .gal-none[hidden] { display: none !important; }
+    .gal-none { grid-column: 1/-1; text-align: center; padding: 40px 20px; font-weight: 700; color: var(--sub, #6B7280); }
+    .gal-card .cls { display: inline-block; font-family: 'Paperlogy','Pretendard',sans-serif; font-size: .72rem;
+      font-weight: 800; color: #fff; background: var(--blue); border-radius: 999px; padding: 3px 10px; margin-bottom: 10px; }
+
     .read-rules { margin: 16px 0 0; padding-left: 20px; }
     .read-rules li { font-size: .96rem; line-height: 1.78; margin-bottom: 6px; }
     .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
@@ -78,7 +96,7 @@
       <div class="wrap">
         <a class="back-link" href="index.html">← 메인으로 돌아가기</a>
         <h1>우리 반 조사 <span style="background:var(--sun);border-radius:6px;padding:0 8px;">갤러리</span></h1>
-        <p class="lede">모둠이 조사한 말 하나를 웹페이지로 만들어 모은 곳입니다. 전국 조사 통계에는 없는, <strong>이 교실에서 실제로 쓰는 말</strong>에 대한 기록입니다. 다른 모둠은 무엇을 조사했는지 읽어 보세요.</p>
+        <p class="lede">모둠이 조사한 말 하나를 <strong>학술 포스터 한 장</strong>으로 만들어 모은 곳입니다. 5개 반 20개 모둠의 조사입니다. 전국 조사 통계에는 없는, <strong>이 교실에서 실제로 쓰는 말</strong>에 대한 기록입니다. 다른 모둠은 무엇을 조사했는지 읽어 보세요.</p>
       </div>
     </section>
 
@@ -116,27 +134,192 @@
       <div class="wrap">
         <header class="section-head">
           <h2>올라온 조사</h2>
-          <p>카드를 누르면 그 모둠이 만든 페이지로 갑니다.</p>
+          <p>카드를 누르면 그 모둠이 만든 포스터로 갑니다. 반으로 거르거나, 조사한 말로 찾아보세요.</p>
         </header>
+
+        <div class="gal-tools">
+          <div class="gal-filters" role="group" aria-label="반으로 거르기">
+            <button type="button" class="is-on" data-cls="all">전체</button>
+            <button type="button" data-cls="2">2반</button>
+            <button type="button" data-cls="3">3반</button>
+            <button type="button" data-cls="4">4반</button>
+            <button type="button" data-cls="5">5반</button>
+            <button type="button" data-cls="6">6반</button>
+          </div>
+          <div class="gal-search">
+            <input type="search" id="galSearch" placeholder="조사한 말로 찾기" aria-label="조사한 말로 찾기">
+          </div>
+        </div>
+        <p class="gal-count" id="galCount"></p>
 
         <div class="gal-grid">
           <a class="card gal-card is-sample reveal" href="gallery-poster-sample.html">
-            <span class="badge">예시</span>
+            <span class="badge">형식 예시</span>
             <span class="word"><span>팩폭</span></span>
-            <p class="one">사실이면 다 말해도 될까?</p>
-            <p class="meta">1학년 3반 3조 · 면접 1명 · 같은 말 카드 3장</p>
+            <p class="one">포스터가 어떻게 생겼는지 보여 주는 예시입니다</p>
+            <p class="meta">실제 학생 자료가 아닙니다</p>
             <span class="go">포스터 읽어 보기 →</span>
           </a>
 
-          <div class="gal-empty reveal">
-            <strong>아직 비어 있습니다</strong>
-            <p>여러분 모둠이 조사한 말이<br>여기에 올라옵니다.</p>
-          </div>
+          <a class="card gal-card reveal" data-cls="2" href="gallery-2-1.html">
+            <span class="cls">1학년 2반 1조</span>
+            <span class="word"><span>쌰갈</span></span>
+            <p class="one">'쌰갈'은 왜 '짜증나' 대신 쓰일까. 1학년 2반 1조가 면접 1명과 우리 반 RED 카드로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 4장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
 
-          <div class="gal-empty reveal">
-            <strong>아직 비어 있습니다</strong>
-            <p>프롬프트를 다 채운 모둠부터<br>차례로 올라갑니다.</p>
-          </div>
+          <a class="card gal-card reveal" data-cls="2" href="gallery-2-2.html">
+            <span class="cls">1학년 2반 2조</span>
+            <span class="word"><span>아자스</span></span>
+            <p class="one">유행의 기준은 무엇이고, 친구들과 대화를 즐겁게 하려는 이유는 무엇인가. 1학년 2반 2조가 면접 1명과 우리 반 RED 카드로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 1장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="2" href="gallery-2-3.html">
+            <span class="cls">1학년 2반 3조</span>
+            <span class="word"><span>너 ㅇㅁ없냐</span></span>
+            <p class="one">우리가 계속 이 말을 써야 할까. 1학년 2반 3조가 면접 1명과 우리 반 RED 카드로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 2장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="2" href="gallery-2-4.html">
+            <span class="cls">1학년 2반 4조</span>
+            <span class="word"><span>헬조선</span></span>
+            <p class="one">헬조선 - 한국 사회에는 어떤 문제가 있을까? 1학년 2반 4조가 면접 1명과 우리 반 RED 카드로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 1장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="3" href="gallery-3-1.html">
+            <span class="cls">1학년 3반 1조</span>
+            <span class="word"><span>야르</span></span>
+            <p class="one">'야르'는 어떻게 쓰이게 됐고 어떤 뜻으로 쓰일까. 1학년 3반 1조가 면접 1명과 우리 반 RED 카드로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 2장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="3" href="gallery-3-2.html">
+            <span class="cls">1학년 3반 2조</span>
+            <span class="word"><span>ㅆㅂ</span></span>
+            <p class="one">우리 반 친구들은 보통 어떤 종류의 은어나 비속어를 사용할까. 1학년 3반 2조가 'ㅆㅂ'을 면접 1명과 우리 반 RED 카드로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 5장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="3" href="gallery-3-3.html">
+            <span class="cls">1학년 3반 3조</span>
+            <span class="word"><span>ㅈ됐다</span></span>
+            <p class="one">과격한 표현은 왜 기존 감탄사 대신 쓸까. 1학년 3반 3조가 'ㅈ됐다'를 면접 1명과 우리 반 RED 카드로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 1장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="3" href="gallery-3-4.html">
+            <span class="cls">1학년 3반 4조</span>
+            <span class="word"><span>급식충</span></span>
+            <p class="one">'급식충'의 뜻을 정확히 알고 사용하고 있나요. 1학년 3반 4조가 면접 1명과 우리 반 RED 카드로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 1장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="4" href="gallery-4-1.html">
+            <span class="cls">1학년 4반 1조</span>
+            <span class="word"><span>엄</span></span>
+            <p class="one">'엄'은 왜 다른 감탄사로 대체되지 않을까 — 1학년 4반 1조가 면접 1명과 RED 카드 1장으로 조사한 결과</p>
+            <p class="meta">면접 1명 · 같은 말 카드 1장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="4" href="gallery-4-2.html">
+            <span class="cls">1학년 4반 2조</span>
+            <span class="word"><span>ㅅㅂ</span></span>
+            <p class="one">'ㅅㅂ'은 어떤 뜻으로 쓰이고 듣는 사람에게 어떻게 들리나 — 1학년 4반 2조가 면접 1명과 RED 카드 5장으로 조사한 결과</p>
+            <p class="meta">면접 1명 · 같은 말 카드 5장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="4" href="gallery-4-3.html">
+            <span class="cls">1학년 4반 3조</span>
+            <span class="word"><span>샤갈 / 쌰갈</span></span>
+            <p class="one">'샤갈'이라는 말은 어떻게 유행하게 되었을까 — 1학년 4반 3조가 면접 1명과 RED 카드로 조사한 결과</p>
+            <p class="meta">면접 1명 · 같은 말 카드 3장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="4" href="gallery-4-4.html">
+            <span class="cls">1학년 4반 4조</span>
+            <span class="word"><span>쌰르(쌰갈+야르)</span></span>
+            <p class="one">왜 다양한 표현을 쓰지 않고 한 단어만 사용할까 — 1학년 4반 4조 '샤르 청년'이 면접 1명과 RED 카드로 조사한 결과</p>
+            <p class="meta">면접 1명 · 같은 말 카드 4장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="5" href="gallery-5-1.html">
+            <span class="cls">1학년 5반 1조</span>
+            <span class="word"><span>쌰갈 / 샤갈</span></span>
+            <p class="one">'쌰갈'은 어디서 만들어지고 어쩌다 쓰이게 되었나. 1학년 5반 1조가 면접 1명과 우리 반 RED 카드로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 4장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="5" href="gallery-5-2.html">
+            <span class="cls">1학년 5반 2조</span>
+            <span class="word"><span>야르</span></span>
+            <p class="one">야르, 우리는 왜 그 표현을 사용하는 걸까. 1학년 5반 2조가 면접 1명과 카드 17장으로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 17장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="5" href="gallery-5-3.html">
+            <span class="cls">1학년 5반 3조</span>
+            <span class="word"><span>너임마청년</span></span>
+            <p class="one">'너임마청년' — 무슨 뜻인지 알고 있나요. 1학년 5반 3조가 면접 1명과 카드 3장으로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 3장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="5" href="gallery-5-4.html">
+            <span class="cls">1학년 5반 4조</span>
+            <span class="word"><span>듣기 싫어도 사실이잖아.</span></span>
+            <p class="one">남에게 이런 말을 해도 될까. 1학년 5반 4조가 면접 1명과 카드 1장으로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 1장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="6" href="gallery-6-1.html">
+            <span class="cls">1학년 6반 1조</span>
+            <span class="word"><span>쌰갈 / 샤갈</span></span>
+            <p class="one">'쌰갈'은 어쩌다 쓰이게 된 걸까. 1학년 6반 1조가 면접 1명과 우리 반 RED 카드로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 1장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="6" href="gallery-6-2.html">
+            <span class="cls">1학년 6반 2조</span>
+            <span class="word"><span>레알</span></span>
+            <p class="one">'레알' — 습관적으로 쓰이는 말일까? 1학년 6반 2조가 면접 1명과 우리 반 RED 카드 2장으로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 2장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="6" href="gallery-6-3.html">
+            <span class="cls">1학년 6반 3조</span>
+            <span class="word"><span>영포티</span></span>
+            <p class="one">'영포티' — 외래어로 비하하는 표현을 쓰는 이유는 뭘까? 1학년 6반 3조가 면접 1명과 우리 반 RED 카드로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 2장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
+
+          <a class="card gal-card reveal" data-cls="6" href="gallery-6-4.html">
+            <span class="cls">1학년 6반 4조</span>
+            <span class="word"><span>쌰갈</span></span>
+            <p class="one">'쌰갈' — 쌰갈??? 그게 뭔데!!!!!! 1학년 6반 4조가 면접 1명과 우리 반 RED 카드 4장으로 조사한 결과.</p>
+            <p class="meta">면접 1명 · 같은 말 카드 4장</p>
+            <span class="go">포스터 읽어 보기 →</span>
+          </a>
         </div>
       </div>
     </section>
@@ -169,5 +352,55 @@
     </div>
   </footer>
   <script src="script.js"></script>
+  <script>
+    // 갤러리 거르기 — 반 버튼과 조사한 말 검색.
+    // 자바스크립트가 꺼져 있어도 카드는 그대로 다 보인다(초기 상태가 전체다).
+    (function () {
+      var grid = document.querySelector('.gal-grid');
+      if (!grid) return;
+      var cards = [].slice.call(grid.querySelectorAll('.gal-card'));
+      var btns = [].slice.call(document.querySelectorAll('.gal-filters button'));
+      var input = document.getElementById('galSearch');
+      var count = document.getElementById('galCount');
+      var none = document.createElement('p');
+      none.className = 'gal-none';
+      none.hidden = true;
+      none.textContent = '찾는 조사가 없습니다. 다른 말로 찾아보세요.';
+      grid.appendChild(none);
+
+      var cls = 'all';
+
+      function apply() {
+        var q = (input && input.value || '').trim().toLowerCase();
+        var shown = 0;
+        cards.forEach(function (c) {
+          // data-cls가 없는 카드(형식 예시)는 반 필터의 대상이 아니라 늘 보인다
+          var own = c.getAttribute('data-cls');
+          var okCls = cls === 'all' || !own || own === cls;
+          var okQ = !q || (c.textContent || '').toLowerCase().indexOf(q) !== -1;
+          var ok = okCls && okQ;
+          c.hidden = !ok;
+          if (ok) shown++;
+        });
+        none.hidden = shown !== 0;
+        if (count) {
+          count.textContent = (cls === 'all' && !q)
+            ? '모두 ' + cards.length + '개'
+            : shown + '개 보이는 중 (전체 ' + cards.length + '개)';
+        }
+      }
+
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          btns.forEach(function (x) { x.classList.remove('is-on'); });
+          b.classList.add('is-on');
+          cls = b.getAttribute('data-cls');
+          apply();
+        });
+      });
+      if (input) input.addEventListener('input', apply);
+      apply();
+    })();
+  </script>
 </body>
 </html>

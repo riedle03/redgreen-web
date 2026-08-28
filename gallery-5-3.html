@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>'너임마청년' — 학급 언어생활 사례 조사 · 1학년 5반 3조</title>
+<meta name="description" content="'너임마청년' — 무슨 뜻인지 알고 있나요. 1학년 5반 3조가 면접 1명과 카드 3장으로 조사한 결과.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* 학급 언어생활 사례 조사 · 모둠 조사 포스터
+     A1 세로(594×841mm) 비율. 인쇄하면 그대로 나온다. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #E9EDF3; color: #22262E;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
+p { margin: 0; }
+
+/* ── 포스터 캔버스 · A1 세로 비율 1 : 1.414 ── */
+.poster { width: 1360px; min-height: 1923px; margin: 28px auto; background: #fff;
+  box-shadow: 0 18px 46px rgba(30,35,45,.22); display: flex; flex-direction: column; }
+
+/* ── 머리띠 · 제목과 작성자 ── */
+.po-head { background: #22262E; color: #fff; padding: 34px 44px 30px; position: relative; }
+.po-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px;
+  background: linear-gradient(90deg, #FF5A47 0%, #FFD84D 50%, #1FA97E 100%); }
+.po-kicker { font-size: .92rem; font-weight: 800; color: #FFD84D; letter-spacing: .04em; }
+.po-head h1 { font-size: 2.75rem; line-height: 1.22; margin-top: 12px; }
+.po-head h1 .hl { background: #FFD84D; color: #22262E; border-radius: 8px; padding: 0 12px; }
+.po-sub { font-size: 1.12rem; font-weight: 600; color: #C7CEDA; margin-top: 14px; line-height: 1.6; }
+.po-authors { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-top: 22px;
+  padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+.po-authors .aff { font-size: 1.02rem; font-weight: 800; color: #8FE3C4; }
+.po-authors .names { font-size: 1.02rem; font-weight: 600; color: #E8ECF3; }
+.po-authors .names b { font-weight: 800; }
+.po-authors .when { font-size: .9rem; font-weight: 600; color: #9AA4B4; margin-left: auto; }
+
+/* ── 조사 범위 띠 ── */
+.po-scope { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 13px 44px;
+  display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: center; }
+.po-scope span { font-size: .95rem; font-weight: 700; }
+.po-scope .k { color: #8A6D1F; font-weight: 800; margin-right: 6px; }
+
+/* ── 2단 본문 ── */
+.po-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+.po-col { padding: 26px 32px; border-right: 1px solid #E4E8EE;
+  display: flex; flex-direction: column; gap: 22px; }
+.po-col:last-child { border-right: none; }
+
+.blk > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.14rem; margin-bottom: 10px; }
+.blk .n { display: inline-flex; align-items: center; justify-content: center; width: 27px; height: 27px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .88rem; font-weight: 800; flex: 0 0 auto; }
+.blk p { font-size: .93rem; line-height: 1.72; margin-bottom: 9px; }
+.blk p:last-child { margin-bottom: 0; }
+.blk .sub { font-size: .86rem; font-weight: 800; color: #4B5563; margin: 12px 0 5px; }
+
+/* ── 자료 · 표·그래프·워드클라우드·그림은 모두 이 틀에 넣는다 ── */
+.po-fig { border: 1.5px solid #E1E6ED; border-radius: 12px; background: #FBFCFE; padding: 12px 14px 9px; }
+.po-fig svg { display: block; width: 100%; height: auto; }
+.po-fig .cap { font-size: .74rem; font-weight: 700; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+.po-fig .cap b { color: #22262E; }
+.wc text { font-weight: 800; }
+
+/* ── 면접에서 들은 말 ── */
+.po-quote { border-left: 5px solid #4A7DDC; background: #EEF3FC; border-radius: 0 12px 12px 0; padding: 14px 16px; }
+.po-quote p { font-size: 1rem; font-weight: 800; line-height: 1.6; }
+.po-quote .who { display: block; font-size: .78rem; font-weight: 700; color: #6B7280; margin-top: 8px; }
+
+/* ── 원인 · 포스터의 축. 바꾼 말·제언보다 앞에 온다 ── */
+.po-cause { border: 2.5px solid #22262E; border-radius: 14px; background: #FFF8E1; padding: 16px 18px; }
+.po-cause .lab { display: inline-block; font-size: .72rem; font-weight: 800; color: #fff; background: #22262E;
+  border-radius: 999px; padding: 3px 11px; margin-bottom: 9px; }
+.po-cause p { font-size: 1.02rem; font-weight: 800; line-height: 1.55; }
+
+/* ── 결론 전폭 띠 ── */
+.po-concl { border-top: 3px solid #22262E; background: #FAFBFD; padding: 24px 32px 26px; }
+.po-concl > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.24rem; margin-bottom: 16px; }
+.po-concl > h2 .n { display: inline-flex; align-items: center; justify-content: center; width: 29px; height: 29px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .92rem; font-weight: 800; flex: 0 0 auto; }
+.po-cgrid { display: grid; grid-template-columns: 1.05fr 1fr 1.15fr; gap: 22px; align-items: start; }
+.po-cgrid > div { display: flex; flex-direction: column; gap: 12px; }
+
+/* ── 원래 말 → 바꾼 말 ── */
+.po-flip { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 6px; align-items: stretch; }
+.po-flip .s { border-radius: 11px; padding: 12px 13px; }
+.po-flip .b4 { background: #FFECE8; border: 1.5px solid #FF5A47; }
+.po-flip .af { background: #E3F6EE; border: 1.5px solid #1FA97E; }
+.po-flip .t { display: inline-block; font-size: .68rem; color: #fff; border-radius: 999px;
+  padding: 2px 9px; margin-bottom: 6px; font-weight: 800; }
+.po-flip .b4 .t { background: #D6402F; }
+.po-flip .af .t { background: #14775A; }
+.po-flip .s p { font-size: .87rem; font-weight: 700; line-height: 1.5; }
+.po-flip .ar { display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; }
+
+/* ── 실행 방안 · 줄일 원인·누가·언제·무엇을·확인 ── */
+.po-plan { border: 2px solid #1FA97E; border-radius: 14px; background: #E3F6EE; padding: 15px 17px; }
+.po-plan dl { display: grid; grid-template-columns: 62px 1fr; gap: 7px 12px; margin: 0; }
+.po-plan dt { font-size: .76rem; font-weight: 800; color: #14775A; padding-top: 2px; }
+.po-plan dd { margin: 0; font-size: .87rem; line-height: 1.6; font-weight: 600; }
+.po-plan .why { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(20,119,90,.26);
+  font-size: .84rem; line-height: 1.6; font-weight: 700; }
+
+.po-tbl { width: 100%; border-collapse: collapse; }
+.po-tbl th, .po-tbl td { border: 1px solid #DDE2EA; padding: 7px 9px; font-size: .84rem;
+  text-align: left; line-height: 1.5; }
+.po-tbl th { background: #F4F6FA; font-weight: 800; font-size: .78rem; }
+
+/* ── 알아내지 못한 것 ── */
+.po-limit { border: 2px dashed #B9C2D0; border-radius: 12px; background: #F6F8FB; padding: 13px 15px; }
+.po-limit strong { display: block; font-size: .88rem; margin-bottom: 5px; }
+.po-limit p { font-size: .84rem; line-height: 1.65; font-weight: 600; color: #4B5563; }
+
+/* ── 발 ── */
+.po-foot { background: #F4F6FA; border-top: 2px solid #E1E6ED; padding: 15px 44px;
+  display: flex; flex-wrap: wrap; gap: 6px 26px; align-items: baseline; }
+.po-foot p { font-size: .8rem; font-weight: 600; color: #4B5563; line-height: 1.6; }
+.po-foot .brand { font-size: .84rem; font-weight: 800; color: #22262E; margin-left: auto; }
+
+/* ── 휴대폰 · 캔버스 고정을 풀고 1열로 편다 ── */
+@media (max-width: 900px) {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: 0; margin: 0; box-shadow: none; }
+  .po-head { padding: 24px 20px 22px; }
+  .po-head h1 { font-size: 1.72rem; }
+  .po-sub { font-size: 1rem; }
+  .po-authors { gap: 6px 12px; }
+  .po-authors .when { margin-left: 0; }
+  .po-scope { padding: 12px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .po-body { grid-template-columns: 1fr; }
+  .po-col { border-right: none; border-bottom: 1px solid #E4E8EE; padding: 22px 20px; }
+  .po-concl { padding: 22px 20px 26px; }
+  .po-cgrid { grid-template-columns: 1fr; gap: 26px; }
+  .po-plan dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .po-plan dt { padding-top: 9px; }
+  .po-flip { grid-template-columns: 1fr; gap: 4px; }
+  .po-flip .ar { transform: rotate(90deg); padding: 2px 0; }
+  .po-foot { padding: 14px 20px; }
+  .po-foot .brand { margin-left: 0; }
+  .blk p, .po-plan dd, .po-limit p { font-size: .96rem; }
+}
+
+/* ── 인쇄 · A1 세로 ── */
+@media print {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
+  @page { size: 594mm 841mm; margin: 0 }
+    /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
+}
+</style>
+</head>
+<body>
+<article class="poster">
+
+  <header class="po-head">
+    <p class="po-kicker">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+    <h1>'<span class="hl">너임마청년</span>'<br>무슨 뜻인지 알고 있나요?</h1>
+    <p class="po-sub">우리 모둠의 조사 목적은 '레드 카드 웹앱에 있는 단어 중 들었을 때 우리 반 학생들이 가장 기분 나쁘다고 느끼는 말은 무엇인가'에 답하는 것이다.</p>
+    <div class="po-authors">
+      <span class="aff">1학년 5반 3조</span>
+      <span class="names"><b>1504 김다은</b>(면담자) · <b>1512 윤하은</b>(기록자) · <b>1511 유형석</b>(응답자) · <b>1515 조나현</b>(촬영자)</span>
+      <span class="when">2026년 8월 21일 ~ 8월 28일</span>
+    </div>
+  </header>
+
+  <div class="po-scope">
+    <span><span class="k">조사 대상</span>면접 1명(이 말을 들어 본 모둠원). 써 본 사람은 없었다</span>
+    <span><span class="k">자료</span>'너임마청년'이 적힌 우리 반 RED 카드 3장, '엄마'와 관련된 패드립 카드 3장 이상</span>
+    <span><span class="k">방법</span>사전 조사 · 모둠 면접(FGI) · 토의</span>
+  </div>
+
+  <div class="po-body">
+
+    <!-- ══ 왼쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">1</span>조사 동기와 목적</h2>
+        <p class="sub">가. 조사 동기</p>
+        <p>1차시에 학급 카드를 보다가 '너임마청년'이라는 카드를 봤다. 이 학급 카드는 <strong>패드립을 교묘하게 돌려서 사람의 기분을 불쾌하게 만든다.</strong> 그래서 사람의 기분을 불쾌하게 만드는 단어를 왜 쓰는지 궁금해졌다. 그래서 이 말을 조사하기로 했다.</p>
+        <p class="sub">나. 조사 목적</p>
+        <p>우리 모둠의 조사 목적은 '레드 카드 웹앱에 있는 단어 중 들었을 때 우리 반 학생들이 가장 기분 나쁘다고 느끼는 말은 무엇인가'에 답하는 것이다.</p>
+      </section>
+
+      <section class="blk">
+        <h2><span class="n">2</span>조사 계획</h2>
+        <p class="sub">가. 조사 기간</p><p>2026년 8월 21일부터 8월 28일까지</p>
+        <p class="sub">나. 조사 대상</p>
+        <p>이 말을 써 본 적 있는 사람 — 없음<br>이 말을 들어 본 적 있는 사람 — 응답자 1명<br>우리 반 레드 카드 중 '너임마청년' 3장 + '엄마'와 관련된 패드립 3장 이상</p>
+        <p class="sub">다. 조사 방법</p>
+        <p>사전 조사 — '너임마청년'의 단어 뜻을 우리말샘과 표준국어대사전에서 조사<br>실제 사용되는 의미와 다른 점을 모둠원과 토의<br>이 말을 들어 본 적 있는 모둠원 면접<br>질문의 답에 대해 토의</p>
+      </section>
+
+      <figure class="po-fig">
+        <table class="po-tbl">
+          <tr><th>낱말</th><th>사전이 말하는 뜻</th></tr>
+          <tr><td>임마</td><td>우리말샘 — '이놈아'가 줄어든 말</td></tr>
+          <tr><td>청년</td><td>표준국어대사전 · 우리말샘 — 신체적, 정신적으로 한창 성장하거나 무르익은 시기 또는 그 시기에 있는 사람</td></tr>
+          <tr><td>너임마청년<br>(실제로 쓰이는 뜻)</td><td>임마와 청년을 합쳐서 사용해 본래 있던 단어를 바꾼, <strong>어머니를 욕보이는 패드립</strong></td></tr>
+        </table>
+        <p class="cap"><b>표 1</b> · 사전에 있는 낱말 둘과, 그 둘을 합쳐 만든 말의 뜻(2026년 8월 27일 우리말샘 확인)<br>
+          <b>어디서 왔나</b> 사전 · <b>보여 주는 것</b> 낱말 하나하나는 사전에 있는 보통 말인데, 합치면 사전에 없는 다른 뜻이 된다.</p>
+      </figure>
+
+      <section class="blk">
+        <h2><span class="n">5</span>참고 자료</h2>
+        <p>우리말샘 — '임마' 검색 결과: '이놈아'가 줄어든 말 (2026년 8월 27일)</p>
+        <p>우리말샘 — '청년' 검색 결과: 신체적, 정신적으로 무르익은 시기, 성년 남자 (2026년 8월 27일)</p>
+        <p>우리 반 레드 카드 — '너임마청년' 3장</p>
+      </section>
+    </div>
+
+    <!-- ══ 오른쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">3</span>조사 결과</h2>
+        <p class="sub">가. 사전적 의미와 실제 쓰이는 뜻</p>
+        <p>'임마'는 우리말샘에서는 '이놈아'가 줄어든 말. '청년'은 표준국어대사전과 우리말샘에서는 신체적, 정신적으로 한창 성장하거나 무르익은 시기 또는 그 시기에 있는 사람. 실제로 쓰이는 뜻은 임마와 청년이 합쳐서 사용해 본래 있던 단어를 바꾼 <strong>어머니를 욕보이는 패드립</strong>이다.</p>
+        <p class="sub">나. 말하는 사람이 이 표현을 고른 이유</p>
+        <p>면접에서 응답자는 자신이 '너임마청년'이라는 단어를 <strong>들어 본 입장</strong>이라고 했다. 친구한테 들었을 때는 장난, 게임에서 들었을 때는 패드립의 의미가 있었던 것 같다고 했다. 여기까지는 면접에서 들은 것이다. 그러니까 응답자는 온라인에서 들은 이 말 때문에 기분이 나빴을 수 있다.</p>
+        <p class="sub">다. 듣는 사람의 느낌</p>
+      </section>
+
+      <div class="po-quote">
+        <p>"채팅을 통해 그 말을 들었을 때 기분이 나빴다."</p>
+        <span class="who">— 면접 응답자, 2026년 8월</span>
+      </div>
+
+      <section class="blk">
+        <p>그래서 근거는 '말'로 인해 기분이 나빠졌다는 것이다.</p>
+      </section>
+
+      <figure class="po-fig">
+        <svg viewBox="0 0 560 132" role="img" aria-label="가로 막대그래프. 너임마청년이 적힌 카드 3장, 엄마와 관련된 패드립 카드 3장 이상. 두 번째 막대는 점선으로 더 길어질 수 있음을 나타낸다.">
+          <g font-family="Pretendard, sans-serif" font-size="13" font-weight="700" fill="#22262E">
+            <text x="0" y="34">'너임마청년'</text>
+            <text x="0" y="90">'엄마' 관련</text>
+            <text x="0" y="106">패드립</text>
+          </g>
+          <line x1="112" y1="10" x2="112" y2="120" stroke="#D9DDE3" stroke-width="1.5"></line>
+          <rect x="114" y="16" width="240" height="26" rx="5" fill="#FF5A47"></rect>
+          <rect x="114" y="72" width="240" height="26" rx="5" fill="#4A7DDC"></rect>
+          <rect x="356" y="72" width="120" height="26" rx="5" fill="none" stroke="#4A7DDC" stroke-width="2" stroke-dasharray="6 5"></rect>
+          <g font-family="Pretendard, sans-serif" font-size="14" font-weight="800">
+            <text x="364" y="35" fill="#D6402F">3장</text>
+            <text x="486" y="91" fill="#2F5FBB">3장 이상</text>
+          </g>
+        </svg>
+        <p class="cap"><b>그림 1</b> · 우리가 살펴본 우리 반 레드 카드(2026년 8월)<br>
+          <b>어디서 왔나</b> 우리 반 RED 카드 · <b>보여 주는 것</b> '너임마청년'만 센 것이 3장이고, '엄마'와 관련된 패드립은 그보다 더 있다. 점선은 <strong>정확히 몇 장인지 세지 못한 부분</strong>이다.</p>
+      </figure>
+
+      <section class="blk">
+        <p class="sub">라. 이 말을 계속 쓰게 하는 원인</p>
+        <p>면접에서 응답자는 <strong>익명인 온라인에서 남을 깎아내리는 것이 재밌기 때문에</strong> 이 말을 쓰게 된다고 했다. STEP 5에서 우리 모둠은 자신이 화났을 때 상대방에게 그 감정을 표출하며 재미를 느끼는 것을 원인으로 정했다. 그 근거는 응답자의 답변이다. 따라서 우리 조사에서 이 말을 계속 쓰게 하는 원인은 자신만을 위한 재미일 수 있다.</p>
+        <p>방안으로 다룰 다른 원인 하나: 잠깐의 화난 감정을 주체하지 못했기 때문이다.</p>
+      </section>
+
+      <div class="po-cause">
+        <span class="lab">방안으로 다룰 원인 하나</span>
+        <p>우리 조사에서 이 말을 계속 쓰게 하는 원인은 익명인 온라인에서 남을 깎아내리는 것이 재미있기 때문이다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 결론 ══ -->
+  <div class="po-concl">
+    <h2><span class="n">4</span>결론</h2>
+    <div class="po-cgrid">
+
+      <div>
+        <p class="sub">가. 주요 발견점</p>
+        <p style="font-size:.93rem;line-height:1.72">우리 모둠이 조사한 '너임마청년'에서는, 면접 1명과 같은 말이 적힌 카드 3장을 보고 다음을 알아냈다. '너임마청년'이라는 단어를 쓰는 이유는 <strong>자신이 화났을 때 상대방에게 그 감정을 표출하며 재미를 느끼기 때문</strong>에 쓰는 것일 수 있다. 3에서 정한 원인은 익명인 온라인에서 남을 깎아내리는 것이 재미있기 때문이다. 그래서 우리 탐구질문의 답은 '돌려서 은어로 패드립을 하는 단어인 너임마청년이라는 단어가 가장 기분 나쁘다'이다.</p>
+        <div class="po-limit">
+          <strong>여기까지가 우리가 알아낸 것이다</strong>
+          <p>면접은 1명, 카드는 3장이다. 응답자는 이 말을 <strong>써 본 사람이 아니라 들어 본 사람</strong>이라서, 말한 사람에게 직접 물어보지는 못했다. '엄마'와 관련된 패드립이 몇 장인지는 '3장 이상'까지만 세었고 정확한 수는 <strong>아직 세지 못했다.</strong></p>
+        </div>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓐ — 각자 자기 카드의 말을 바꾼 것</p>
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>"너임마청년"</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>"GG(Good Game)"</p></div>
+        </div>
+        <table class="po-tbl">
+          <tr><th>모둠원</th><th>원래 말</th><th>바꾼 말</th></tr>
+          <tr><td>1504</td><td>너임마청년</td><td>GG</td></tr>
+          <tr><td>1511</td><td>너임마청년</td><td>수고했어</td></tr>
+          <tr><td>1512</td><td>너임마청년</td><td>잘한다</td></tr>
+          <tr><td>1515</td><td>너임마청년</td><td>재밌었어</td></tr>
+        </table>
+        <p style="font-size:.78rem;font-weight:600;color:#6B7280;line-height:1.5">보고서에 이름 대신 학번으로 적혀 있어 그대로 실었다.</p>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓑ — 원인 하나에 맞춘 실행 방안</p>
+        <div class="po-plan">
+          <dl>
+            <dt>줄일 원인</dt><dd>익명인 온라인상에서 남을 깎아내리는 것</dd>
+            <dt>누가</dt><dd>나부터</dd>
+            <dt>언제</dt><dd>온라인에서 게임이 끝나면</dd>
+            <dt>무엇을</dt><dd>'너임마청년' 같은 패드립이 아닌, 같이 플레이한 상대를 존중하기 위해 <strong>'GG(good game)'나 '수고했어'</strong>와 같은 상대를 존중하는 듯한 채팅을 보낸다</dd>
+            <dt>확인</dt><dd>실행 뒤에는 상대방의 반응을 채팅으로 확인한다</dd>
+          </dl>
+          <p class="why">이 행동을 하면 원인인 온라인상에서 남을 깎아내리는 행동이 같이 플레이한 서로를 존중하는 행동으로 바뀐다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="po-foot">
+    <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 3장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
+    <p class="brand">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+  </footer>
+
+</article>
+</body>
+</html>

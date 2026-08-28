@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>'야르' — 학급 언어생활 사례 조사 · 1학년 3반 1조</title>
+<meta name="description" content="'야르'는 어떻게 쓰이게 됐고 어떤 뜻으로 쓰일까. 1학년 3반 1조가 면접 1명과 우리 반 RED 카드로 조사한 결과.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* 학급 언어생활 사례 조사 · 모둠 조사 포스터
+     A1 세로(594×841mm) 비율. 인쇄하면 그대로 나온다. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #E9EDF3; color: #22262E;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
+p { margin: 0; }
+
+/* ── 포스터 캔버스 · A1 세로 비율 1 : 1.414 ── */
+.poster { width: 1360px; min-height: 1923px; margin: 28px auto; background: #fff;
+  box-shadow: 0 18px 46px rgba(30,35,45,.22); display: flex; flex-direction: column; }
+
+/* ── 머리띠 · 제목과 작성자 ── */
+.po-head { background: #22262E; color: #fff; padding: 34px 44px 30px; position: relative; }
+.po-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px;
+  background: linear-gradient(90deg, #FF5A47 0%, #FFD84D 50%, #1FA97E 100%); }
+.po-kicker { font-size: .92rem; font-weight: 800; color: #FFD84D; letter-spacing: .04em; }
+.po-head h1 { font-size: 2.75rem; line-height: 1.22; margin-top: 12px; }
+.po-head h1 .hl { background: #FFD84D; color: #22262E; border-radius: 8px; padding: 0 12px; }
+.po-sub { font-size: 1.12rem; font-weight: 600; color: #C7CEDA; margin-top: 14px; line-height: 1.6; }
+.po-authors { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-top: 22px;
+  padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+.po-authors .aff { font-size: 1.02rem; font-weight: 800; color: #8FE3C4; }
+.po-authors .names { font-size: 1.02rem; font-weight: 600; color: #E8ECF3; }
+.po-authors .names b { font-weight: 800; }
+.po-authors .when { font-size: .9rem; font-weight: 600; color: #9AA4B4; margin-left: auto; }
+
+/* ── 조사 범위 띠 ── */
+.po-scope { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 13px 44px;
+  display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: center; }
+.po-scope span { font-size: .95rem; font-weight: 700; }
+.po-scope .k { color: #8A6D1F; font-weight: 800; margin-right: 6px; }
+
+/* ── 2단 본문 ── */
+.po-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+.po-col { padding: 26px 32px; border-right: 1px solid #E4E8EE;
+  display: flex; flex-direction: column; gap: 22px; }
+.po-col:last-child { border-right: none; }
+
+.blk > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.14rem; margin-bottom: 10px; }
+.blk .n { display: inline-flex; align-items: center; justify-content: center; width: 27px; height: 27px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .88rem; font-weight: 800; flex: 0 0 auto; }
+.blk p { font-size: .93rem; line-height: 1.72; margin-bottom: 9px; }
+.blk p:last-child { margin-bottom: 0; }
+.blk .sub { font-size: .86rem; font-weight: 800; color: #4B5563; margin: 12px 0 5px; }
+
+/* ── 자료 · 표·그래프·워드클라우드·그림은 모두 이 틀에 넣는다 ── */
+.po-fig { border: 1.5px solid #E1E6ED; border-radius: 12px; background: #FBFCFE; padding: 12px 14px 9px; }
+.po-fig svg { display: block; width: 100%; height: auto; }
+.po-fig .cap { font-size: .74rem; font-weight: 700; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+.po-fig .cap b { color: #22262E; }
+.wc text { font-weight: 800; }
+
+/* ── 면접에서 들은 말 ── */
+.po-quote { border-left: 5px solid #4A7DDC; background: #EEF3FC; border-radius: 0 12px 12px 0; padding: 14px 16px; }
+.po-quote p { font-size: 1rem; font-weight: 800; line-height: 1.6; }
+.po-quote .who { display: block; font-size: .78rem; font-weight: 700; color: #6B7280; margin-top: 8px; }
+
+/* ── 원인 · 포스터의 축. 바꾼 말·제언보다 앞에 온다 ── */
+.po-cause { border: 2.5px solid #22262E; border-radius: 14px; background: #FFF8E1; padding: 16px 18px; }
+.po-cause .lab { display: inline-block; font-size: .72rem; font-weight: 800; color: #fff; background: #22262E;
+  border-radius: 999px; padding: 3px 11px; margin-bottom: 9px; }
+.po-cause p { font-size: 1.02rem; font-weight: 800; line-height: 1.55; }
+
+/* ── 결론 전폭 띠 ── */
+.po-concl { border-top: 3px solid #22262E; background: #FAFBFD; padding: 24px 32px 26px; }
+.po-concl > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.24rem; margin-bottom: 16px; }
+.po-concl > h2 .n { display: inline-flex; align-items: center; justify-content: center; width: 29px; height: 29px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .92rem; font-weight: 800; flex: 0 0 auto; }
+.po-cgrid { display: grid; grid-template-columns: 1.05fr 1fr 1.15fr; gap: 22px; align-items: start; }
+.po-cgrid > div { display: flex; flex-direction: column; gap: 12px; }
+
+/* ── 원래 말 → 바꾼 말 ── */
+.po-flip { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 6px; align-items: stretch; }
+.po-flip .s { border-radius: 11px; padding: 12px 13px; }
+.po-flip .b4 { background: #FFECE8; border: 1.5px solid #FF5A47; }
+.po-flip .af { background: #E3F6EE; border: 1.5px solid #1FA97E; }
+.po-flip .t { display: inline-block; font-size: .68rem; color: #fff; border-radius: 999px;
+  padding: 2px 9px; margin-bottom: 6px; font-weight: 800; }
+.po-flip .b4 .t { background: #D6402F; }
+.po-flip .af .t { background: #14775A; }
+.po-flip .s p { font-size: .87rem; font-weight: 700; line-height: 1.5; }
+.po-flip .ar { display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; }
+
+/* ── 실행 방안 · 줄일 원인·누가·언제·무엇을·확인 ── */
+.po-plan { border: 2px solid #1FA97E; border-radius: 14px; background: #E3F6EE; padding: 15px 17px; }
+.po-plan dl { display: grid; grid-template-columns: 62px 1fr; gap: 7px 12px; margin: 0; }
+.po-plan dt { font-size: .76rem; font-weight: 800; color: #14775A; padding-top: 2px; }
+.po-plan dd { margin: 0; font-size: .87rem; line-height: 1.6; font-weight: 600; }
+.po-plan .why { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(20,119,90,.26);
+  font-size: .84rem; line-height: 1.6; font-weight: 700; }
+
+.po-tbl { width: 100%; border-collapse: collapse; }
+.po-tbl th, .po-tbl td { border: 1px solid #DDE2EA; padding: 7px 9px; font-size: .84rem;
+  text-align: left; line-height: 1.5; }
+.po-tbl th { background: #F4F6FA; font-weight: 800; font-size: .78rem; }
+
+/* ── 알아내지 못한 것 ── */
+.po-limit { border: 2px dashed #B9C2D0; border-radius: 12px; background: #F6F8FB; padding: 13px 15px; }
+.po-limit strong { display: block; font-size: .88rem; margin-bottom: 5px; }
+.po-limit p { font-size: .84rem; line-height: 1.65; font-weight: 600; color: #4B5563; }
+
+/* ── 발 ── */
+.po-foot { background: #F4F6FA; border-top: 2px solid #E1E6ED; padding: 15px 44px;
+  display: flex; flex-wrap: wrap; gap: 6px 26px; align-items: baseline; }
+.po-foot p { font-size: .8rem; font-weight: 600; color: #4B5563; line-height: 1.6; }
+.po-foot .brand { font-size: .84rem; font-weight: 800; color: #22262E; margin-left: auto; }
+
+/* ── 휴대폰 · 캔버스 고정을 풀고 1열로 편다 ── */
+@media (max-width: 900px) {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: 0; margin: 0; box-shadow: none; }
+  .po-head { padding: 24px 20px 22px; }
+  .po-head h1 { font-size: 1.72rem; }
+  .po-sub { font-size: 1rem; }
+  .po-authors { gap: 6px 12px; }
+  .po-authors .when { margin-left: 0; }
+  .po-scope { padding: 12px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .po-body { grid-template-columns: 1fr; }
+  .po-col { border-right: none; border-bottom: 1px solid #E4E8EE; padding: 22px 20px; }
+  .po-concl { padding: 22px 20px 26px; }
+  .po-cgrid { grid-template-columns: 1fr; gap: 26px; }
+  .po-plan dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .po-plan dt { padding-top: 9px; }
+  .po-flip { grid-template-columns: 1fr; gap: 4px; }
+  .po-flip .ar { transform: rotate(90deg); padding: 2px 0; }
+  .po-foot { padding: 14px 20px; }
+  .po-foot .brand { margin-left: 0; }
+  .blk p, .po-plan dd, .po-limit p { font-size: .96rem; }
+}
+
+/* ── 인쇄 · A1 세로 ── */
+@media print {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
+  @page { size: 594mm 841mm; margin: 0 }
+    /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
+}
+</style>
+
+  <style>
+    /* 내용이 많아 세로가 길어진 포스터를 A1에 가깝게 좁힌다.
+       본문은 0.88rem까지만 줄인다 — 그 아래로 가면 멀리서 못 읽는다. */
+    .blk p, .po-plan dd, .po-limit p,
+    .po-tbl th, .po-tbl td { font-size: 0.88rem; }
+    .po-col { padding: 18px 28px; gap: 17px; }
+    .po-concl { padding: 18px 28px 20px; }
+    .po-quote, .po-cause, .po-plan,
+    .po-limit, .po-fig { padding: 14px 15px; }
+    .po-cgrid { gap: 18px; }
+    @media (max-width: 900px) {
+      /* 폰에서는 원래 크기로 돌린다. 좁은 화면에서 더 줄일 까닭이 없다 */
+      .blk p, .po-plan dd, .po-limit p,
+      .po-tbl th, .po-tbl td { font-size: .96rem; }
+      .po-col { padding: 22px 20px; }
+    }
+  </style>
+<!-- fit:applied -->
+</head>
+<body>
+<article class="poster">
+
+  <header class="po-head">
+    <p class="po-kicker">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+    <h1>'<span class="hl">야르</span>'는 어떻게 쓰이게 됐고<br>어떤 뜻으로 쓰일까</h1>
+    <p class="po-sub">'야르' — 신나는 기분 표현, 대체할 말 없이 습관적으로 쓰고 있진 않나요?</p>
+    <div class="po-authors">
+      <span class="aff">1학년 3반 1조</span>
+      <span class="names"><b>1301 강승주</b> · <b>1308 김윤수</b> · <b>1310 은지호</b> · <b>1311 이사랑</b> · <b>1314 조승원</b></span>
+      <span class="when">2026년 8월 21일 ~ 8월 28일</span>
+    </div>
+  </header>
+
+  <div class="po-scope">
+    <span><span class="k">조사 대상</span>면접 1명(모둠원 가운데 '야르'를 써 본 사람)</span>
+    <span><span class="k">자료</span>'야르'가 적힌 우리 반 RED 카드 2장 — 4-가와 5 참고 자료에는 12장으로 적혀 있다</span>
+    <span><span class="k">방법</span>사전 조사 · 사례 자료 분석 · 모둠 면접(초점 집단 면접, FGI 방식) · 토의</span>
+    <span><span class="k">모둠 역할</span>응답자 조승원 · 면담자 김윤수 · 기록자 강승주·이사랑 · 촬영자 은지호</span>
+  </div>
+
+  <div class="po-body">
+
+    <!-- ══ 왼쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">1</span>조사 동기와 목적</h2>
+        <p class="sub">가. 조사 동기</p>
+        <p>1차시에 모둠원들과 탐구질문에 관해 대화를 나누어 보았다. 비속어, 신조어를 사용하는 청소년을 찾기 쉬울 정도로 많은 청소년들이 비속어, 신조어를 사용하는 것을 보고 '요즘 청소년들은 어떻게 비속어, 신조어에 접하게 될까?'라는 질문에 대해 흥미가 생겼다. 그래서 이 질문에 관해 조사하기로 하였다.</p>
+        <p class="sub">나. 조사 목적</p>
+        <p>우리 조의 조사 목적은 비속어, 신조어를 어떻게 알게 되었고 왜 사용하는지에 대해 답하는 것이다.</p>
+      </section>
+
+      <section class="blk">
+        <h2><span class="n">2</span>조사 계획</h2>
+        <p class="sub">가. 조사 기간</p><p>2026년 8월 21일부터 2026년 8월 28일까지(1차시~3차시)</p>
+        <p class="sub">나. 조사 대상</p><p>면접 1명(모둠원 가운데 '야르'를 써 본 사람), 우리 반 RED 카드 가운데 '야르'가 적힌 카드 2장.</p>
+        <p class="sub">다. 조사 방법</p><p>사전 조사, 사례 자료 분석, 모둠 면접(초점 집단 면접, FGI 방식), 토의.</p>
+      </section>
+
+      <figure class="po-fig">
+        <table class="po-tbl">
+          <tr><th>찾아본 곳</th><th>'야르'를 찾은 결과</th></tr>
+          <tr><td>표준국어대사전</td><td>검색 결과 없음</td></tr>
+          <tr><td>우리말샘</td><td>검색 결과 없음</td></tr>
+          <tr><td>네이버 국어사전</td><td>10대들 사이에서 '좋다'라는 뜻으로 쓰인다</td></tr>
+          <tr><td>통용되는 뜻(모둠이 정리한 것)</td><td>기쁨과 만족감, 기분이 좋거나 신나는 상황에서 쓴다</td></tr>
+        </table>
+        <p class="cap"><b>표 1</b> · 사전 세 곳에서 '야르'를 찾아본 결과(2026년 8월 28일)<br>
+          <b>어디서 왔나</b> 우리 모둠이 5 참고 자료에 적은 검색 결과 · <b>보여 주는 것</b> 이 말은 국어사전 두 곳에 등록되어 있지 않고, 공식적인 사전적 의미가 없다.</p>
+      </figure>
+
+      <figure class="po-fig">
+        <svg viewBox="0 0 560 175" role="img" aria-label="'야르'가 퍼진 길을 그린 그림. 왼쪽에 숏폼 영상, 가운데 또래 친구들, 오른쪽 우리 반 RED 카드. 화살표가 왼쪽에서 오른쪽으로 이어진다.">
+          <rect x="6" y="26" width="150" height="86" rx="14" fill="#FFECE8" stroke="#FF5A47" stroke-width="2"></rect>
+          <rect x="205" y="26" width="150" height="86" rx="14" fill="#FFF8E1" stroke="#F0E2B0" stroke-width="2"></rect>
+          <rect x="404" y="26" width="150" height="86" rx="14" fill="#E3F6EE" stroke="#1FA97E" stroke-width="2"></rect>
+          <rect x="24" y="40" width="38" height="58" rx="7" fill="#fff" stroke="#D6402F" stroke-width="2"></rect>
+          <path d="M36 57 l17 12 -17 12 z" fill="#D6402F"></path>
+          <g fill="#8A6D1F">
+            <circle cx="232" cy="53" r="8"></circle><path d="M221 75 a11 11 0 0 1 22 0 z"></path>
+            <circle cx="256" cy="47" r="8"></circle><path d="M245 69 a11 11 0 0 1 22 0 z"></path>
+            <circle cx="280" cy="53" r="8"></circle><path d="M269 75 a11 11 0 0 1 22 0 z"></path>
+          </g>
+          <rect x="420" y="41" width="46" height="58" rx="6" fill="#fff" stroke="#14775A" stroke-width="2"></rect>
+          <g stroke="#14775A" stroke-width="3" stroke-linecap="round">
+            <path d="M429 56 h28"></path><path d="M429 68 h28"></path><path d="M429 80 h17"></path>
+          </g>
+          <g font-family="Pretendard, sans-serif" font-weight="800" fill="#22262E">
+            <text x="74" y="63" font-size="15">숏폼</text>
+            <text x="74" y="84" font-size="15">(릴스)</text>
+            <text x="300" y="63" font-size="15">또래</text>
+            <text x="300" y="84" font-size="15">친구들</text>
+            <text x="476" y="63" font-size="14">우리 반</text>
+            <text x="476" y="84" font-size="14">RED 카드</text>
+            <text x="81" y="136" font-size="13" text-anchor="middle">게이머 영상을 보다가</text>
+            <text x="81" y="154" font-size="13" text-anchor="middle">'야르'를 처음 접했다</text>
+            <text x="280" y="136" font-size="13" text-anchor="middle">친구들도 많이 써서</text>
+            <text x="280" y="154" font-size="13" text-anchor="middle">골라 쓰게 되었다</text>
+            <text x="479" y="136" font-size="13" text-anchor="middle">'야르' 카드 2장</text>
+            <text x="479" y="154" font-size="13" text-anchor="middle">(4-가에는 12장)</text>
+          </g>
+          <g stroke="#22262E" stroke-width="3" fill="none">
+            <path d="M164 69 h32"></path><path d="M188 61 l10 8 -10 8"></path>
+            <path d="M363 69 h32"></path><path d="M387 61 l10 8 -10 8"></path>
+          </g>
+        </svg>
+        <p class="cap"><b>그림 1</b> · 응답자가 말한, '야르'가 우리 반까지 온 길(2026년 8월)<br>
+          <b>어디서 왔나</b> 면접에서 들은 것과 우리 모둠이 3절에 쓴 문장 · <b>보여 주는 것</b> 이 말은 숏폼 영상에서 시작해 또래 사이의 유행을 거쳐 우리 반 카드까지 왔다. 3절에 「추정하고 있다」로 적은 짐작이 섞여 있다.</p>
+      </figure>
+
+      <section class="blk">
+        <h2><span class="n">5</span>참고 자료</h2>
+        <p>국어사전(네이버 국어사전) — '야르' 검색 결과: 10대들 사이에서 '좋다'라는 뜻으로 쓰인다</p>
+        <p>표준국어대사전(stdict.korean.go.kr) — '야르' 검색 결과 없음</p>
+        <p>우리말샘(opendict.korean.go.kr) — '야르' 검색 결과 없음</p>
+        <p>1학년 RED 카드 가운데 '야르'가 적힌 카드 12장 (2026년 8월 28일)</p>
+      </section>
+    </div>
+
+    <!-- ══ 오른쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">3</span>조사 결과</h2>
+        <p class="sub">가. 사전적 의미와 실제 쓰이는 뜻</p>
+        <p>'야르'는 표준국어대사전에 확인되지 않는 단어이며, 공식적인 사전적 의미는 없는 단어이다. '야호', '아싸'와 같은 감탄사가 변형된 후 숏폼, SNS, 방송 등의 온라인 매체로 유행이 퍼져나간 것이라고 추정하고 있다. <strong>기쁨과 만족감, 기분이 좋거나 신나는 상황에서 쓰는 것</strong>이 통용적인 의미로 쓰인다.</p>
+        <p class="sub">나. 말하는 사람이 이 표현을 고른 이유</p>
+      </section>
+
+      <div class="po-quote">
+        <p>"릴스로 게이머 영상을 보다가 '야르'를 접했는데 어감이 귀엽고 입에 촥 감겨서 쓰게 되었어요."</p>
+        <span class="who">— 면접 응답자, 2026년 8월</span>
+      </div>
+
+      <section class="blk">
+        <p>면접에서 응답자는 릴스로 게이머 영상을 보다가 '야르'라는 단어를 접한 뒤 귀여우면서 입에 촥 감기고 친구들도 많이 써서 골라 쓰게 되었다고 했다. 여기까지는 면접에서 들은 것이다. 그러니까 릴스를 통해 처음 접한 뒤 어감이 재미있고 또래 친구들 사이에서 유행하는 말이라 사용했을 수 있다.</p>
+        <p class="sub">다. 듣는 사람의 느낌</p>
+        <p>응답자는 그 말을 들은 사람이 같이 웃어주었다고 했다. 그래서 근거는 친구들이 기분 나빠하지 않고 웃음을 보인 표정과 대화 반응이라는 직접 들은 행동이다.</p>
+        <p class="sub">라. 이 말을 계속 쓰게 하는 원인</p>
+        <p>면접에서 응답자는 10대들 특유의 격한 말투 때문에 이 말을 쓰게 된다고 답했다. STEP 5에서 우리 모둠은 SNS의 발달과 또래 유행을 따라가려는 심리, 친구들이 다 사용하는 분위기, 그리고 기쁜 감정을 표현할 적절한 다른 대안 표현을 찾지 못한 것을 원인으로 정했다. 그 근거는 릴스에서 접한 뒤 어감이 귀엽고 입에 촥 감겨 친구들과 대화할 때 소통용으로 자연스럽게 골라 썼다는 응답자의 직접 진술이다. 따라서 우리 조사에서 이 말을 계속 쓰게 하는 원인은 <strong>SNS로 접한 신조어를 또래 집단의 유행에 맞춰 사용하면서 대체할 표현을 찾지 않고 습관적으로 쓰게 되기 때문</strong>일 수 있다.</p>
+      </section>
+
+      <div class="po-cause">
+        <span class="lab">방안으로 다룰 원인 하나</span>
+        <p>SNS로 접한 신조어를 또래 집단 내 유행을 따라가기 위해 대체 표현 없이 습관적으로 사용하는 것이다.</p>
+      </div>
+
+      <figure class="po-fig">
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>"야르"</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>"야호"</p></div>
+        </div>
+        <p class="cap"><b>그림 2</b> · 모둠이 조사한 말을 바꿔 본 것(2026년 8월)<br>
+          <b>어디서 왔나</b> 보고서 3절 「바꿔 쓸 표현」 · <b>보여 주는 것</b> 모둠에서 한 사람이 실제로 말해 보았고, 뜻이 바로 통한다 · 듣는 사람을 존중한다 · 나라도 이 상황에서 이렇게 말하겠다 세 기준에 모두 표시했다.</p>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ══ 결론 ══ -->
+  <div class="po-concl">
+    <h2><span class="n">4</span>결론</h2>
+    <div class="po-cgrid">
+
+      <div>
+        <p class="sub">가. 조사에 따른 주요 발견점</p>
+        <p style="font-size:.93rem;line-height:1.72">우리 모둠이 조사한 '야르'에서는, 면접 1명과 같은 말이 적힌 카드 12장을 보고 다음을 알아냈다. '야르'는 기분이 좋거나 기쁜 일이 있을 때 사용하는 말이지만 친구들이 쓰니까 정확한 뜻을 모른 채 따라 사용하는 경우가 많다. 또 유튜브나 인스타그램 같은 SNS 매체에서 릴스를 보다가 이 단어를 처음 접하고 사용하는 경우도 있다. 3에서 정한 원인은 SNS로 접한 신조어를 또래 집단 내 유행을 따라가기 위해 대체 표현 없이 습관적으로 사용하는 것이다. 우리 탐구질문의 답은 청소년들이 릴스 같은 SNS 숏폼 매체를 통해 신조어를 처음 접하고 또래 집단 안에서 유행을 따라가며 친목을 도모하는 과정에서 이 표현을 직접 사용하며 전파한다는 것이다.</p>
+        <div class="po-limit">
+          <strong>여기까지가 우리가 알아낸 것이다</strong>
+          <p>면접은 1명이다. 카드 장수는 2 조사 계획에 2장, 4-가와 5 참고 자료에 12장으로 서로 다르게 적혀 있어 <strong>어느 쪽인지 아직 정하지 못했다.</strong> 이 말이 어디서 처음 만들어졌는지는 「추정하고 있다」까지만 확인했다.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓐ — 각자 자기 카드의 말을 바꾼 것</p>
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>"ㅈ같다"</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>"화난다"</p></div>
+        </div>
+        <table class="po-tbl">
+          <tr><th>이름</th><th>원래 말</th><th>바꾼 말</th></tr>
+          <tr><td>강승주</td><td>잼얘</td><td>재밌는 이야기</td></tr>
+          <tr><td>김윤수</td><td>ㅈ같다</td><td>화난다</td></tr>
+          <tr><td>은지호</td><td>ㅈㄴ 못생겼네</td><td>그런 말은 하지 않기</td></tr>
+          <tr><td>이사랑</td><td>미팅 끝나고 힐링하자. 마인드셋 리셋하고 워라벨 갖자.</td><td>회의 끝나고 휴식하자. 생각 정리하고 균형 잡자.</td></tr>
+          <tr><td>조승원</td><td>어흐</td><td>진짜 이쁘다</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓑ — 원인 하나에 맞춘 실행 방안</p>
+        <div class="po-plan">
+          <dl>
+            <dt>줄일 원인</dt><dd>SNS로 접한 신조어를 또래 집단 내 유행을 따라가기 위해 대체 표현 없이 습관적으로 사용하는 것</dd>
+            <dt>누가</dt><dd>신조어 사용을 줄이고 싶은 학생</dd>
+            <dt>언제</dt><dd>기분이 좋거나 신나는 일이 있을 때</dd>
+            <dt>무엇을</dt><dd>'야르'를 말하는 대신 <strong>뜻을 명확히 알 수 있는 '야호' 같은 표현</strong>을 사용하는 방식으로 실행한다</dd>
+            <dt>확인</dt><dd>일주일 동안 기쁠 때 '야르' 대신 바꾼 표현을 사용한 횟수를 스스로 기록표에 점검한다</dd>
+          </dl>
+          <p class="why">이 행동을 하면 원인인 습관적인 신조어 사용이 뜻이 명확하고 고운 대안 표현을 사용하는 습관으로 바뀐다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="po-foot">
+    <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 2장</strong>(4-가와 5 참고 자료에는 12장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
+    <p class="brand">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+  </footer>
+
+</article>
+</body>
+</html>

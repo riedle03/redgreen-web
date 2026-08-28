@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>'아자스' — 학급 언어생활 사례 조사 · 1학년 2반 2조</title>
+<meta name="description" content="유행의 기준은 무엇이고, 친구들과 대화를 즐겁게 하려는 이유는 무엇인가. 1학년 2반 2조가 면접 1명과 우리 반 RED 카드로 조사한 결과.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* 학급 언어생활 사례 조사 · 모둠 조사 포스터
+     A1 세로(594×841mm) 비율. 인쇄하면 그대로 나온다. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #E9EDF3; color: #22262E;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
+p { margin: 0; }
+
+/* ── 포스터 캔버스 · A1 세로 비율 1 : 1.414 ── */
+.poster { width: 1360px; min-height: 1923px; margin: 28px auto; background: #fff;
+  box-shadow: 0 18px 46px rgba(30,35,45,.22); display: flex; flex-direction: column; }
+
+/* ── 머리띠 · 제목과 작성자 ── */
+.po-head { background: #22262E; color: #fff; padding: 34px 44px 30px; position: relative; }
+.po-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px;
+  background: linear-gradient(90deg, #FF5A47 0%, #FFD84D 50%, #1FA97E 100%); }
+.po-kicker { font-size: .92rem; font-weight: 800; color: #FFD84D; letter-spacing: .04em; }
+.po-head h1 { font-size: 2.75rem; line-height: 1.22; margin-top: 12px; }
+.po-head h1 .hl { background: #FFD84D; color: #22262E; border-radius: 8px; padding: 0 12px; }
+.po-sub { font-size: 1.12rem; font-weight: 600; color: #C7CEDA; margin-top: 14px; line-height: 1.6; }
+.po-authors { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-top: 22px;
+  padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+.po-authors .aff { font-size: 1.02rem; font-weight: 800; color: #8FE3C4; }
+.po-authors .names { font-size: 1.02rem; font-weight: 600; color: #E8ECF3; }
+.po-authors .names b { font-weight: 800; }
+.po-authors .when { font-size: .9rem; font-weight: 600; color: #9AA4B4; margin-left: auto; }
+
+/* ── 조사 범위 띠 ── */
+.po-scope { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 13px 44px;
+  display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: center; }
+.po-scope span { font-size: .95rem; font-weight: 700; }
+.po-scope .k { color: #8A6D1F; font-weight: 800; margin-right: 6px; }
+
+/* ── 2단 본문 ── */
+.po-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+.po-col { padding: 26px 32px; border-right: 1px solid #E4E8EE;
+  display: flex; flex-direction: column; gap: 22px; }
+.po-col:last-child { border-right: none; }
+
+.blk > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.14rem; margin-bottom: 10px; }
+.blk .n { display: inline-flex; align-items: center; justify-content: center; width: 27px; height: 27px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .88rem; font-weight: 800; flex: 0 0 auto; }
+.blk p { font-size: .93rem; line-height: 1.72; margin-bottom: 9px; }
+.blk p:last-child { margin-bottom: 0; }
+.blk .sub { font-size: .86rem; font-weight: 800; color: #4B5563; margin: 12px 0 5px; }
+
+/* ── 자료 · 표·그래프·워드클라우드·그림은 모두 이 틀에 넣는다 ── */
+.po-fig { border: 1.5px solid #E1E6ED; border-radius: 12px; background: #FBFCFE; padding: 12px 14px 9px; }
+.po-fig svg { display: block; width: 100%; height: auto; }
+.po-fig .cap { font-size: .74rem; font-weight: 700; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+.po-fig .cap b { color: #22262E; }
+.wc text { font-weight: 800; }
+
+/* ── 면접에서 들은 말 ── */
+.po-quote { border-left: 5px solid #4A7DDC; background: #EEF3FC; border-radius: 0 12px 12px 0; padding: 14px 16px; }
+.po-quote p { font-size: 1rem; font-weight: 800; line-height: 1.6; }
+.po-quote .who { display: block; font-size: .78rem; font-weight: 700; color: #6B7280; margin-top: 8px; }
+
+/* ── 원인 · 포스터의 축. 바꾼 말·제언보다 앞에 온다 ── */
+.po-cause { border: 2.5px solid #22262E; border-radius: 14px; background: #FFF8E1; padding: 16px 18px; }
+.po-cause .lab { display: inline-block; font-size: .72rem; font-weight: 800; color: #fff; background: #22262E;
+  border-radius: 999px; padding: 3px 11px; margin-bottom: 9px; }
+.po-cause p { font-size: 1.02rem; font-weight: 800; line-height: 1.55; }
+
+/* ── 결론 전폭 띠 ── */
+.po-concl { border-top: 3px solid #22262E; background: #FAFBFD; padding: 24px 32px 26px; }
+.po-concl > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.24rem; margin-bottom: 16px; }
+.po-concl > h2 .n { display: inline-flex; align-items: center; justify-content: center; width: 29px; height: 29px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .92rem; font-weight: 800; flex: 0 0 auto; }
+.po-cgrid { display: grid; grid-template-columns: 1.05fr 1fr 1.15fr; gap: 22px; align-items: start; }
+.po-cgrid > div { display: flex; flex-direction: column; gap: 12px; }
+
+/* ── 원래 말 → 바꾼 말 ── */
+.po-flip { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 6px; align-items: stretch; }
+.po-flip .s { border-radius: 11px; padding: 12px 13px; }
+.po-flip .b4 { background: #FFECE8; border: 1.5px solid #FF5A47; }
+.po-flip .af { background: #E3F6EE; border: 1.5px solid #1FA97E; }
+.po-flip .t { display: inline-block; font-size: .68rem; color: #fff; border-radius: 999px;
+  padding: 2px 9px; margin-bottom: 6px; font-weight: 800; }
+.po-flip .b4 .t { background: #D6402F; }
+.po-flip .af .t { background: #14775A; }
+.po-flip .s p { font-size: .87rem; font-weight: 700; line-height: 1.5; }
+.po-flip .ar { display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; }
+
+/* ── 실행 방안 · 줄일 원인·누가·언제·무엇을·확인 ── */
+.po-plan { border: 2px solid #1FA97E; border-radius: 14px; background: #E3F6EE; padding: 15px 17px; }
+.po-plan dl { display: grid; grid-template-columns: 62px 1fr; gap: 7px 12px; margin: 0; }
+.po-plan dt { font-size: .76rem; font-weight: 800; color: #14775A; padding-top: 2px; }
+.po-plan dd { margin: 0; font-size: .87rem; line-height: 1.6; font-weight: 600; }
+.po-plan .why { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(20,119,90,.26);
+  font-size: .84rem; line-height: 1.6; font-weight: 700; }
+
+.po-tbl { width: 100%; border-collapse: collapse; }
+.po-tbl th, .po-tbl td { border: 1px solid #DDE2EA; padding: 7px 9px; font-size: .84rem;
+  text-align: left; line-height: 1.5; }
+.po-tbl th { background: #F4F6FA; font-weight: 800; font-size: .78rem; }
+
+/* ── 알아내지 못한 것 ── */
+.po-limit { border: 2px dashed #B9C2D0; border-radius: 12px; background: #F6F8FB; padding: 13px 15px; }
+.po-limit strong { display: block; font-size: .88rem; margin-bottom: 5px; }
+.po-limit p { font-size: .84rem; line-height: 1.65; font-weight: 600; color: #4B5563; }
+
+/* ── 발 ── */
+.po-foot { background: #F4F6FA; border-top: 2px solid #E1E6ED; padding: 15px 44px;
+  display: flex; flex-wrap: wrap; gap: 6px 26px; align-items: baseline; }
+.po-foot p { font-size: .8rem; font-weight: 600; color: #4B5563; line-height: 1.6; }
+.po-foot .brand { font-size: .84rem; font-weight: 800; color: #22262E; margin-left: auto; }
+
+/* ── 휴대폰 · 캔버스 고정을 풀고 1열로 편다 ── */
+@media (max-width: 900px) {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: 0; margin: 0; box-shadow: none; }
+  .po-head { padding: 24px 20px 22px; }
+  .po-head h1 { font-size: 1.72rem; }
+  .po-sub { font-size: 1rem; }
+  .po-authors { gap: 6px 12px; }
+  .po-authors .when { margin-left: 0; }
+  .po-scope { padding: 12px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .po-body { grid-template-columns: 1fr; }
+  .po-col { border-right: none; border-bottom: 1px solid #E4E8EE; padding: 22px 20px; }
+  .po-concl { padding: 22px 20px 26px; }
+  .po-cgrid { grid-template-columns: 1fr; gap: 26px; }
+  .po-plan dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .po-plan dt { padding-top: 9px; }
+  .po-flip { grid-template-columns: 1fr; gap: 4px; }
+  .po-flip .ar { transform: rotate(90deg); padding: 2px 0; }
+  .po-foot { padding: 14px 20px; }
+  .po-foot .brand { margin-left: 0; }
+  .blk p, .po-plan dd, .po-limit p { font-size: .96rem; }
+}
+
+/* ── 인쇄 · A1 세로 ── */
+@media print {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
+  @page { size: 594mm 841mm; margin: 0 }
+    /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
+}
+</style>
+
+  <style>
+    /* 내용이 많아 세로가 길어진 포스터를 A1에 가깝게 좁힌다.
+       본문은 0.88rem까지만 줄인다 — 그 아래로 가면 멀리서 못 읽는다. */
+    .blk p, .po-plan dd, .po-limit p,
+    .po-tbl th, .po-tbl td { font-size: 0.88rem; }
+    .po-col { padding: 18px 28px; gap: 17px; }
+    .po-concl { padding: 18px 28px 20px; }
+    .po-quote, .po-cause, .po-plan,
+    .po-limit, .po-fig { padding: 14px 15px; }
+    .po-cgrid { gap: 18px; }
+    @media (max-width: 900px) {
+      /* 폰에서는 원래 크기로 돌린다. 좁은 화면에서 더 줄일 까닭이 없다 */
+      .blk p, .po-plan dd, .po-limit p,
+      .po-tbl th, .po-tbl td { font-size: .96rem; }
+      .po-col { padding: 22px 20px; }
+    }
+  </style>
+<!-- fit:applied -->
+</head>
+<body>
+<article class="poster">
+
+  <header class="po-head">
+    <p class="po-kicker">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+    <h1>'<span class="hl">아자스</span>'는 어떤 뜻으로 쓰이고<br>듣는 사람에게는 어떤 식으로 들리나</h1>
+    <p class="po-sub">우리 모둠의 조사 목적은 "유행의 기준은 무엇이고 친구들과 대화를 즐겁게 하려는 이유가 무엇인지"에 대해서 답하는 것이다.</p>
+    <div class="po-authors">
+      <span class="aff">1학년 2반 2조</span>
+      <span class="names"><b>1213 전효민</b> · <b>1207 변지현</b> · <b>1217 한병민</b> · <b>1215 최승우</b> · <b>1208 여서정</b></span>
+      <span class="when">2026년 8월 20일 ~ 8월 27일</span>
+    </div>
+  </header>
+
+  <div class="po-scope">
+    <span><span class="k">조사 대상</span>면접 1명(모둠원 가운데 '아자스'를 써 본 사람 / 들어 본 사람)</span>
+    <span><span class="k">자료</span>'아자스'가 적힌 우리 반 RED 카드 1장</span>
+    <span><span class="k">방법</span>사전 조사 · 모둠 면접</span>
+  </div>
+
+  <div class="po-body">
+
+    <!-- ══ 왼쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">1</span>조사 동기와 목적</h2>
+        <p class="sub">가. 조사 동기</p>
+        <p>1차시 학급 카드를 보다가 "아자스"라는 카드를 봤다. 유행의 기준은 무엇이고 친구들과 대화를 즐겁게 하는 이유가 무엇인지 궁금해졌다. 그래서 이 말을 조사하기로 했다.</p>
+        <p class="sub">나. 조사 목적</p>
+        <p>우리 모둠의 조사 목적은 "유행의 기준은 무엇이고 친구들과 대화를 즐겁게 하려는 이유가 무엇인지"에 대해서 답하는 것이다.</p>
+      </section>
+
+      <section class="blk">
+        <h2><span class="n">2</span>조사 계획</h2>
+        <p class="sub">가. 조사 기간</p><p>2026년 8월 20일부터 8월 27일까지</p>
+        <p class="sub">나. 조사 대상</p><p>면접 1명(모둠원 가운데 '아자스'를 써 본 사람 / 들어 본 사람), 우리 반 RED 카드 가운데 '아자스'가 적힌 카드 1장.</p>
+        <p style="font-size:.86rem;line-height:1.6;font-weight:600;color:#4B5563">모둠 안에서 맡은 일 — 촬영자 변지현 · 면담자 전효민 · 응답자 최승우 · 기록자 한병민. 여서정이 맡은 일은 보고서에 적혀 있지 않다.</p>
+        <p class="sub">다. 조사 방법</p><p>우리 모둠의 조사 방법은 사전 조사, 모둠 면접이었다.</p>
+      </section>
+
+      <figure class="po-fig">
+        <table class="po-tbl">
+          <tr><th>찾아본 것</th><th>'아자스'에 대해 알아낸 것</th></tr>
+          <tr><td>어원</td><td>일본어 「ありがとうございます」(아리가토 고자이마스, 감사합니다)가 발음하기 편하게 줄어든 젊은이 말</td></tr>
+          <tr><td>통용 의미</td><td>고마워, 감사합니다</td></tr>
+          <tr><td>쓰이던 자리</td><td>스포츠 동아리나 선후배 관계처럼 친근하면서도 약간의 예의를 갖추는 상황</td></tr>
+          <tr><td>주의할 점</td><td>문법적으로 정식 경어는 아니어서 공식적인 자리에는 맞지 않는다</td></tr>
+        </table>
+        <p class="cap"><b>표 1</b> · 우리 모둠이 찾아본 '아자스'의 뜻과 쓰임(2026년 8월)<br>
+          <b>어디서 왔나</b> KSLang에서 찾은 검색 결과와 우리 보고서 3-가 · <b>보여 주는 것</b> 이 말은 우리말이 아니라 일본어 인사말이 줄어든 말이라는 것.</p>
+      </figure>
+
+      <section class="blk">
+        <h2><span class="n">5</span>참고 자료</h2>
+        <p>KSLang — 아자스(A-ja-seu) 의미 및 사용법</p>
+        <p style="font-size:.8rem;color:#6B7280;word-break:break-all">https://kslang.com/korean-slang/a-ja-seu</p>
+      </section>
+    </div>
+
+    <!-- ══ 오른쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">3</span>조사 결과</h2>
+        <p class="sub">가. 사전적 의미와 실제 쓰이는 뜻</p>
+        <p>사전적 의미는 일본어에서 유래했고, 통용 의미는 <strong>"고마워, 감사합니다"</strong>이다. 아자스(あざす／あざっす)는 일본어 「ありがとうございます」(아리가토 고자이마스, 감사합니다)가 발음하기 편하게 줄어든 젊은이 말이다. 원래 스포츠 동아리나 선후배 관계처럼 친근하면서도 약간의 예의를 갖추는 상황에서 많이 쓰였고, 이후 방송·인터넷 등을 통해 널리 퍼졌다.</p>
+        <p class="sub">나. 말하는 사람이 이 표현을 고른 이유</p>
+      </section>
+
+      <div class="po-quote">
+        <p>이런 말들이 친구들 사이에서 가장 많이 사용되고 익숙한 느낌이다.</p>
+        <span class="who">— 면접에서 들은 것을 모둠이 간추려 적은 것, 2026년 8월</span>
+      </div>
+
+      <section class="blk">
+        <p>그러니까 또래 사이에서 익숙한 용어들을 고른 것을 알 수 있다.</p>
+        <p class="sub">다. 듣는 사람의 느낌</p>
+        <p>들은 사람들은 그 유행어의 뜻을 거의 다 알고 있어서 <strong>웃거나 자연스럽게 따라 사용했다.</strong></p>
+      </section>
+
+      <figure class="po-fig">
+        <svg viewBox="0 0 560 150" role="img" aria-label="말이 줄어든 길을 그린 그림. 왼쪽에 일본어 인사말 아리가토 고자이마스, 가운데에 줄어든 말 아자쓰, 오른쪽에 우리 반 카드에 적힌 아자스. 화살표가 왼쪽에서 오른쪽으로 이어진다.">
+          <rect x="4" y="26" width="164" height="80" rx="14" fill="#FFF8E1" stroke="#F0E2B0" stroke-width="2"></rect>
+          <rect x="198" y="26" width="164" height="80" rx="14" fill="#EEF3FC" stroke="#4A7DDC" stroke-width="2"></rect>
+          <rect x="392" y="26" width="164" height="80" rx="14" fill="#E3F6EE" stroke="#1FA97E" stroke-width="2"></rect>
+          <g font-family="Pretendard, sans-serif" font-weight="800" fill="#22262E">
+            <text x="86" y="60" font-size="17" text-anchor="middle">ありがとう</text>
+            <text x="86" y="84" font-size="17" text-anchor="middle">ございます</text>
+            <text x="86" y="130" font-size="13" text-anchor="middle">일본어 인사말</text>
+            <text x="280" y="74" font-size="22" text-anchor="middle">あざっす</text>
+            <text x="280" y="130" font-size="13" text-anchor="middle">발음하기 편하게 줄어듦</text>
+            <text x="474" y="74" font-size="24" text-anchor="middle">아자스</text>
+            <text x="474" y="130" font-size="13" text-anchor="middle">우리 반 RED 카드 1장</text>
+          </g>
+          <g stroke="#22262E" stroke-width="3" fill="none">
+            <path d="M174 66 h20"></path><path d="M186 58 l10 8 -10 8"></path>
+            <path d="M368 66 h20"></path><path d="M380 58 l10 8 -10 8"></path>
+          </g>
+        </svg>
+        <p class="cap"><b>그림 1</b> · '아자스'가 어떻게 줄어든 말인지 그린 것(2026년 8월)<br>
+          <b>어디서 왔나</b> 보고서 3-가에 우리 모둠이 적은 설명 · <b>보여 주는 것</b> 일본어 인사말이 줄어들어 우리 반 카드에까지 왔다는 것.</p>
+      </figure>
+
+      <section class="blk">
+        <p class="sub">라. 이 말을 계속 쓰게 하는 원인</p>
+        <p>친구들과 유행어를 함께 사용함으로써 서로 같은 소속감에 있는 느낌이 들어 더 친해진 것 같은 느낌을 받았다고 답했습니다. STEP 5에서 우리 모둠은 <strong>친구들과 유대감을 쌓기 위해 사용했다</strong>는 게 원인이라고 생각했습니다.</p>
+      </section>
+
+      <div class="po-cause">
+        <span class="lab">방안으로 다룰 원인 하나</span>
+        <p>우리 조사에서 이 말을 계속 쓰게 하는 원인은 친구들과 유대감을 쌓기 위해 사용한다는 것이다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 결론 ══ -->
+  <div class="po-concl">
+    <h2><span class="n">4</span>결론</h2>
+    <div class="po-cgrid">
+
+      <div>
+        <p class="sub">가. 주요 발견점</p>
+        <p style="font-size:.9rem;line-height:1.68">우리 모둠이 조사한 아자스에서는 면접 1명과 같은 말이 적힌 카드 1장을 보고 다음과 같은 점을 알아냈다. 면접에서 응답자는 이런 말들이 친구들 사이에서 가장 많이 사용되고, 평소 자주 접해 익숙한 느낌이 들기 때문에 사용한다고 했다. 따라서 응답자는 친구들 사이에서 익숙하게 쓰이는 표현을 자연스럽게 골라 사용한다는 것을 알 수 있었다. 또한 듣는 사람들은 그 유행어의 뜻을 거의 모두 알고 있었기 때문에, 말을 들었을 때 웃거나 자연스럽게 따라서 사용하는 모습을 보였다.</p>
+        <p style="font-size:.9rem;line-height:1.68">3에서 정한 원인은 친구들과 유행어를 함께 사용하면서 서로 소속감과 더 친해진 것 같다는 느낌을 받기 때문이다. 따라서 우리 조사에서 이 말을 계속 쓰게 하는 원인은 친구들과 같은 표현을 공유하면서 소속감과 유대감을 느낄 수 있기 때문이라고 볼 수 있다.</p>
+        <p style="font-size:.9rem;line-height:1.68">우리 모둠의 탐구질문인 "왜 사람들이 유행어를 계속 사용하는가?"에 대한 답은, 친구들 사이에서 익숙한 표현을 함께 사용하면 서로의 말을 쉽게 이해할 수 있고 같은 집단에 속해 있다는 느낌과 친밀감을 느낄 수 있기 때문이다. 또 아자스를 고마워로 바꾸어 실제로 말해 보았을 때 상대가 존중받는 기분이 든다고 한 결과도 확인할 수 있었다.</p>
+        <div class="po-limit">
+          <strong>여기까지가 우리가 알아낸 것이다</strong>
+          <p>면접은 1명, 카드는 1장이다. 4-나 ⓑ에 적은 원인(SNS·인터넷으로 유행어를 자주 접하는 것)은 3-라에서 정한 원인(유대감)과 <strong>서로 다르게 적혀 있다.</strong> 어느 쪽이 우리 모둠의 원인인지는 <strong>아직 정하지 못했다.</strong></p>
+        </div>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓐ — 각자 자기 카드의 말을 바꾼 것</p>
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>"아자스"</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>"고맙습니다, 고마워"</p></div>
+        </div>
+        <p style="font-size:.84rem;line-height:1.6;font-weight:600">모둠에서 한 사람이 실제로 실행해 보았을 때 "존중받는 기분이 든다"라고 말을 남겼습니다.</p>
+        <table class="po-tbl">
+          <tr><th>이름</th><th>원래 말</th><th>바꾼 말</th></tr>
+          <tr><td>변지현</td><td>이게 아부지도 없는 게 까불어</td><td>우리 조금 진정하고, 차분하게 이야기해 보자</td></tr>
+          <tr><td>여서정</td><td>밤티</td><td>못생겼다, 이상하다, 별로다</td></tr>
+          <tr><td>전효민</td><td>찐따</td><td>인간관계가 서툰 사람</td></tr>
+          <tr><td>한병민</td><td>야 이런 ㅅㅂ아 맞짱을 까자</td><td>우리 한번 해결해 보자</td></tr>
+          <tr><td>—</td><td>여성을 낮잡는 영어 비속어</td><td>겁이 많거나 조심성이 많은 사람</td></tr>
+        </table>
+        <p style="font-size:.78rem;line-height:1.55;color:#6B7280;font-weight:600">마지막 줄의 원래 말은 여성을 낮잡는 표현이어서 말 자체를 싣지 않고 성격만 밝혔고, 그 줄에서는 이름을 뺐습니다.</p>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓑ — 원인 하나에 맞춘 실행 방안</p>
+        <div class="po-plan">
+          <dl>
+            <dt>줄일 원인</dt><dd>SNS나 인터넷을 통해 유행어를 자주 접하면서 이를 계속 사용하려는 것</dd>
+            <dt>누가</dt><dd>보고서에 적지 않았다 — <strong>아직 정하지 못했다</strong></dd>
+            <dt>언제</dt><dd>매 순간</dd>
+            <dt>무엇을</dt><dd>유행어 대신 <strong>고유한 우리말을 사용하려는 노력</strong>을 한다</dd>
+            <dt>확인</dt><dd>실행을 어떻게 확인할지는 <strong>아직 정하지 못했다</strong></dd>
+          </dl>
+          <p class="why">우리 모둠이 실제로 해 본 것은 '아자스'를 '고마워'로 바꾸어 말해 본 것이고, 들은 사람이 존중받는 기분이 든다고 했다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="po-foot">
+    <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 1장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
+    <p class="brand">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+  </footer>
+
+</article>
+</body>
+</html>

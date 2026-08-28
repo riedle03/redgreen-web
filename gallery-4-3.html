@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>'샤갈 / 쌰갈' — 학급 언어생활 사례 조사 · 1학년 4반 3조</title>
+<meta name="description" content="'샤갈'이라는 말은 어떻게 유행하게 되었을까 — 1학년 4반 3조가 면접 1명과 RED 카드로 조사한 결과">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* 학급 언어생활 사례 조사 · 모둠 조사 포스터
+     A1 세로(594×841mm) 비율. 인쇄하면 그대로 나온다. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #E9EDF3; color: #22262E;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
+p { margin: 0; }
+
+/* ── 포스터 캔버스 · A1 세로 비율 1 : 1.414 ── */
+.poster { width: 1360px; min-height: 1923px; margin: 28px auto; background: #fff;
+  box-shadow: 0 18px 46px rgba(30,35,45,.22); display: flex; flex-direction: column; }
+
+/* ── 머리띠 · 제목과 작성자 ── */
+.po-head { background: #22262E; color: #fff; padding: 34px 44px 30px; position: relative; }
+.po-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px;
+  background: linear-gradient(90deg, #FF5A47 0%, #FFD84D 50%, #1FA97E 100%); }
+.po-kicker { font-size: .92rem; font-weight: 800; color: #FFD84D; letter-spacing: .04em; }
+.po-head h1 { font-size: 2.75rem; line-height: 1.22; margin-top: 12px; }
+.po-head h1 .hl { background: #FFD84D; color: #22262E; border-radius: 8px; padding: 0 12px; }
+.po-sub { font-size: 1.12rem; font-weight: 600; color: #C7CEDA; margin-top: 14px; line-height: 1.6; }
+.po-authors { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-top: 22px;
+  padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+.po-authors .aff { font-size: 1.02rem; font-weight: 800; color: #8FE3C4; }
+.po-authors .names { font-size: 1.02rem; font-weight: 600; color: #E8ECF3; }
+.po-authors .names b { font-weight: 800; }
+.po-authors .when { font-size: .9rem; font-weight: 600; color: #9AA4B4; margin-left: auto; }
+
+/* ── 조사 범위 띠 ── */
+.po-scope { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 13px 44px;
+  display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: center; }
+.po-scope span { font-size: .95rem; font-weight: 700; }
+.po-scope .k { color: #8A6D1F; font-weight: 800; margin-right: 6px; }
+
+/* ── 2단 본문 ── */
+.po-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+.po-col { padding: 26px 32px; border-right: 1px solid #E4E8EE;
+  display: flex; flex-direction: column; gap: 22px; }
+.po-col:last-child { border-right: none; }
+
+.blk > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.14rem; margin-bottom: 10px; }
+.blk .n { display: inline-flex; align-items: center; justify-content: center; width: 27px; height: 27px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .88rem; font-weight: 800; flex: 0 0 auto; }
+.blk p { font-size: .93rem; line-height: 1.72; margin-bottom: 9px; }
+.blk p:last-child { margin-bottom: 0; }
+.blk .sub { font-size: .86rem; font-weight: 800; color: #4B5563; margin: 12px 0 5px; }
+
+/* ── 자료 · 표·그래프·워드클라우드·그림은 모두 이 틀에 넣는다 ── */
+.po-fig { border: 1.5px solid #E1E6ED; border-radius: 12px; background: #FBFCFE; padding: 12px 14px 9px; }
+.po-fig svg { display: block; width: 100%; height: auto; }
+.po-fig .cap { font-size: .74rem; font-weight: 700; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+.po-fig .cap b { color: #22262E; }
+.wc text { font-weight: 800; }
+
+/* ── 면접에서 들은 말 ── */
+.po-quote { border-left: 5px solid #4A7DDC; background: #EEF3FC; border-radius: 0 12px 12px 0; padding: 14px 16px; }
+.po-quote p { font-size: 1rem; font-weight: 800; line-height: 1.6; }
+.po-quote .who { display: block; font-size: .78rem; font-weight: 700; color: #6B7280; margin-top: 8px; }
+
+/* ── 원인 · 포스터의 축. 바꾼 말·제언보다 앞에 온다 ── */
+.po-cause { border: 2.5px solid #22262E; border-radius: 14px; background: #FFF8E1; padding: 16px 18px; }
+.po-cause .lab { display: inline-block; font-size: .72rem; font-weight: 800; color: #fff; background: #22262E;
+  border-radius: 999px; padding: 3px 11px; margin-bottom: 9px; }
+.po-cause p { font-size: 1.02rem; font-weight: 800; line-height: 1.55; }
+
+/* ── 결론 전폭 띠 ── */
+.po-concl { border-top: 3px solid #22262E; background: #FAFBFD; padding: 24px 32px 26px; }
+.po-concl > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.24rem; margin-bottom: 16px; }
+.po-concl > h2 .n { display: inline-flex; align-items: center; justify-content: center; width: 29px; height: 29px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .92rem; font-weight: 800; flex: 0 0 auto; }
+.po-cgrid { display: grid; grid-template-columns: 1.05fr 1fr 1.15fr; gap: 22px; align-items: start; }
+.po-cgrid > div { display: flex; flex-direction: column; gap: 12px; }
+
+/* ── 원래 말 → 바꾼 말 ── */
+.po-flip { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 6px; align-items: stretch; }
+.po-flip .s { border-radius: 11px; padding: 12px 13px; }
+.po-flip .b4 { background: #FFECE8; border: 1.5px solid #FF5A47; }
+.po-flip .af { background: #E3F6EE; border: 1.5px solid #1FA97E; }
+.po-flip .t { display: inline-block; font-size: .68rem; color: #fff; border-radius: 999px;
+  padding: 2px 9px; margin-bottom: 6px; font-weight: 800; }
+.po-flip .b4 .t { background: #D6402F; }
+.po-flip .af .t { background: #14775A; }
+.po-flip .s p { font-size: .87rem; font-weight: 700; line-height: 1.5; }
+.po-flip .ar { display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; }
+
+/* ── 실행 방안 · 줄일 원인·누가·언제·무엇을·확인 ── */
+.po-plan { border: 2px solid #1FA97E; border-radius: 14px; background: #E3F6EE; padding: 15px 17px; }
+.po-plan dl { display: grid; grid-template-columns: 62px 1fr; gap: 7px 12px; margin: 0; }
+.po-plan dt { font-size: .76rem; font-weight: 800; color: #14775A; padding-top: 2px; }
+.po-plan dd { margin: 0; font-size: .87rem; line-height: 1.6; font-weight: 600; }
+.po-plan .why { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(20,119,90,.26);
+  font-size: .84rem; line-height: 1.6; font-weight: 700; }
+
+.po-tbl { width: 100%; border-collapse: collapse; }
+.po-tbl th, .po-tbl td { border: 1px solid #DDE2EA; padding: 7px 9px; font-size: .84rem;
+  text-align: left; line-height: 1.5; }
+.po-tbl th { background: #F4F6FA; font-weight: 800; font-size: .78rem; }
+
+/* ── 알아내지 못한 것 ── */
+.po-limit { border: 2px dashed #B9C2D0; border-radius: 12px; background: #F6F8FB; padding: 13px 15px; }
+.po-limit strong { display: block; font-size: .88rem; margin-bottom: 5px; }
+.po-limit p { font-size: .84rem; line-height: 1.65; font-weight: 600; color: #4B5563; }
+
+/* ── 발 ── */
+.po-foot { background: #F4F6FA; border-top: 2px solid #E1E6ED; padding: 15px 44px;
+  display: flex; flex-wrap: wrap; gap: 6px 26px; align-items: baseline; }
+.po-foot p { font-size: .8rem; font-weight: 600; color: #4B5563; line-height: 1.6; }
+.po-foot .brand { font-size: .84rem; font-weight: 800; color: #22262E; margin-left: auto; }
+
+/* ── 휴대폰 · 캔버스 고정을 풀고 1열로 편다 ── */
+@media (max-width: 900px) {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: 0; margin: 0; box-shadow: none; }
+  .po-head { padding: 24px 20px 22px; }
+  .po-head h1 { font-size: 1.72rem; }
+  .po-sub { font-size: 1rem; }
+  .po-authors { gap: 6px 12px; }
+  .po-authors .when { margin-left: 0; }
+  .po-scope { padding: 12px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .po-body { grid-template-columns: 1fr; }
+  .po-col { border-right: none; border-bottom: 1px solid #E4E8EE; padding: 22px 20px; }
+  .po-concl { padding: 22px 20px 26px; }
+  .po-cgrid { grid-template-columns: 1fr; gap: 26px; }
+  .po-plan dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .po-plan dt { padding-top: 9px; }
+  .po-flip { grid-template-columns: 1fr; gap: 4px; }
+  .po-flip .ar { transform: rotate(90deg); padding: 2px 0; }
+  .po-foot { padding: 14px 20px; }
+  .po-foot .brand { margin-left: 0; }
+  .blk p, .po-plan dd, .po-limit p { font-size: .96rem; }
+}
+
+/* ── 인쇄 · A1 세로 ── */
+@media print {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
+  @page { size: 594mm 841mm; margin: 0 }
+    /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
+}
+</style>
+
+  <style>
+    /* 내용이 많아 세로가 길어진 포스터를 A1에 가깝게 좁힌다.
+       본문은 0.9rem까지만 줄인다 — 그 아래로 가면 멀리서 못 읽는다. */
+    .blk p, .po-plan dd, .po-limit p,
+    .po-tbl th, .po-tbl td { font-size: 0.9rem; }
+    .po-col { padding: 20px 28px; gap: 19px; }
+    .po-concl { padding: 20px 28px 22px; }
+    .po-quote, .po-cause, .po-plan,
+    .po-limit, .po-fig { padding: 15px 15px; }
+    .po-cgrid { gap: 19px; }
+    @media (max-width: 900px) {
+      /* 폰에서는 원래 크기로 돌린다. 좁은 화면에서 더 줄일 까닭이 없다 */
+      .blk p, .po-plan dd, .po-limit p,
+      .po-tbl th, .po-tbl td { font-size: .96rem; }
+      .po-col { padding: 22px 20px; }
+    }
+  </style>
+<!-- fit:applied -->
+</head>
+<body>
+
+<article class="poster">
+
+  <header class="po-head">
+    <p class="po-kicker">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+    <h1>'샤갈'이라는 말은<br><span class="hl">어떻게 유행하게</span> 되었을까?</h1>
+    <p class="po-sub">우리 모둠의 조사 목적은 「'샤갈'이라는 말은 어떻게 유행하게 되었을까?」에 답하는 것이다.</p>
+    <div class="po-authors">
+      <span class="aff">1학년 4반 3조</span>
+      <span class="names"><b>1401 권도현</b> · <b>1405 박경은</b> · <b>1407 백수민</b> · <b>1418 지예은</b></span>
+      <span class="when">2026년 8월 14일 ~ 8월 28일</span>
+    </div>
+  </header>
+
+  <div class="po-scope">
+    <span><span class="k">조사 대상</span>면접 1명(모둠원 가운데 이 말을 사용한 사람)</span>
+    <span><span class="k">자료</span>'샤갈' 카드 R56 — 카드 장수는 보고서에 3장과 4장이 함께 적혀 있다</span>
+    <span><span class="k">방법</span>사전 조사 뒤 사용하거나 들었던 사람과 면접</span>
+  </div>
+
+  <div class="po-body">
+
+    <!-- ══ 왼쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">1</span>조사 동기와 목적</h2>
+        <p>1차시에 학급 카드를 보다가 샤갈이라는 카드를 봤다. 샤갈은 SNS에서 유행하는 말이고 샤갈이라는 말이 어떻게 만들어지게 되었고, 유행하게 되었는지 궁금해졌다. 그래서 이 말을 조사하기로 했다.</p>
+        <p>우리 모둠의 조사 목적은 「"샤갈이라는 말은 어떻게 유행하게 되었을까?"」에 답하는 것이다.</p>
+      </section>
+
+      <section class="blk">
+        <h2><span class="n">2</span>조사 계획</h2>
+        <p class="sub">가. 조사 기간</p>
+        <p>2026년 8월 14일부터 8월 28일까지</p>
+        <p class="sub">나. 조사 대상</p>
+        <p>샤갈 카드, R56, 백수민(사용한 사람), 4장 사용됨.</p>
+        <p class="sub">다. 조사 방법</p>
+        <p>샤갈 단어 사전 조사를 한 뒤 샤갈을 사용하거나 들었던 사람과 면접을 진행하여 조사하였다.</p>
+      </section>
+
+      <section class="blk">
+        <h2><span class="n">3</span>조사 결과</h2>
+        <p class="sub">가. 사전적 의미와 실제 쓰이는 뜻</p>
+        <p>'샤갈'은 유튜버 여단오 채널의 출연자가 쓰던 말에서 유래해 10~20대 사이에서 유행하기 시작했다. 거친 욕설 대신 사용하는, 어이없거나 짜증나는 상황을 표현할 때 쓰인다.</p>
+        <p class="sub">나. 말하는 사람이 이 표현을 고른 이유</p>
+        <p>욕처럼 발음이 비슷하지만 욕을 대신하여 사용하는 감탄사이기에 순하고 재미있게 말을 표현할 수 있어서 이 표현을 골랐다.</p>
+      </section>
+
+      <figure class="po-fig">
+        <table class="po-tbl">
+          <tr><th style="width:30%">찾아본 곳</th><th>결과</th></tr>
+          <tr><td>국어사전</td><td>단어 뜻 없음</td></tr>
+          <tr><td>실제 쓰이는 뜻</td><td>ㅅㅂ 같은 욕설이나 비속어를 부드럽게 순화해서 사용하는 감탄사</td></tr>
+          <tr><td>유래</td><td>유튜버 여단오 채널의 출연자가 쓰던 말</td></tr>
+        </table>
+        <p class="cap"><b>그림 1</b> · '샤갈'을 사전에서 찾아본 결과(2026년 8월 28일 금요일 확인).<br>
+          <b>어디서 왔나</b> 5 참고 자료의 국어사전 검색 · 보고서 3-가 · <b>보여 주는 것</b> 사전에는 없는 말이고, 욕설을 순화해 쓰는 감탄사로 통한다.</p>
+      </figure>
+
+      <section class="blk">
+        <h2><span class="n">5</span>참고 자료</h2>
+        <p>"샤갈" 국어사전 → 단어 뜻 없음. ㅅㅂ 같은 욕설이나 비속어를 부드럽게 순화해서 사용하는 감탄사. (2026년 8월 28일, 금)</p>
+      </section>
+    </div>
+
+    <!-- ══ 오른쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">3</span>조사 결과 — 이어서</h2>
+        <p class="sub">다. 듣는 사람의 느낌</p>
+      </section>
+
+      <div class="po-quote">
+        <p>"부정적인 감정은 들진 않을 것."</p>
+        <span class="who">— 면접 응답자</span>
+      </div>
+
+      <section class="blk">
+        <p>그 근거로는 "샤갈/쌰갈"이라는 단어는 욕설이 아닌 그저 "우와/와" 같은 감탄사 종류여서, 욕설을 사용한 것이 아니기 때문에 기분이 그리 부정적이진 않을 것이다.</p>
+      </section>
+
+      <figure class="po-fig">
+        <svg viewBox="0 0 620 116" role="img" aria-label="유행이 습관이 되는 순서를 그린 그림. SNS에서 퍼진 말이 계속 노출되고, 자주 접하게 되고, 쉽게 익숙해지고, 입에 붙고, 주변인도 자주 쓰고, 사용자도 자주 써서 습관이 된다.">
+          <g font-family="Pretendard, sans-serif" font-size="11.5" font-weight="700" fill="#22262E">
+            <rect x="1" y="16" width="90" height="84" rx="11" fill="#FFF8E1" stroke="#E7CF86" stroke-width="1.5"></rect>
+            <text x="46" y="52" text-anchor="middle">SNS에서</text>
+            <text x="46" y="70" text-anchor="middle">퍼진 말</text>
+            <rect x="107" y="16" width="90" height="84" rx="11" fill="#FFF8E1" stroke="#E7CF86" stroke-width="1.5"></rect>
+            <text x="152" y="52" text-anchor="middle">계속</text>
+            <text x="152" y="70" text-anchor="middle">노출된다</text>
+            <rect x="213" y="16" width="90" height="84" rx="11" fill="#FFF8E1" stroke="#E7CF86" stroke-width="1.5"></rect>
+            <text x="258" y="52" text-anchor="middle">자주</text>
+            <text x="258" y="70" text-anchor="middle">접하게 된다</text>
+            <rect x="319" y="16" width="90" height="84" rx="11" fill="#FFECE8" stroke="#F0A99C" stroke-width="1.5"></rect>
+            <text x="364" y="43" text-anchor="middle">쉽게</text>
+            <text x="364" y="61" text-anchor="middle">익숙해져</text>
+            <text x="364" y="79" text-anchor="middle">입에 붙는다</text>
+            <rect x="425" y="16" width="90" height="84" rx="11" fill="#FFECE8" stroke="#F0A99C" stroke-width="1.5"></rect>
+            <text x="470" y="52" text-anchor="middle">주변인도</text>
+            <text x="470" y="70" text-anchor="middle">자주 쓴다</text>
+            <rect x="531" y="16" width="89" height="84" rx="11" fill="#FFECE8" stroke="#F0A99C" stroke-width="1.5"></rect>
+            <text x="575" y="43" text-anchor="middle">사용자도</text>
+            <text x="575" y="61" text-anchor="middle">자주 써서</text>
+            <text x="575" y="79" text-anchor="middle">습관이 된다</text>
+          </g>
+          <g stroke="#6B7280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M94 58 h8 M97 53 l5 5 -5 5"></path>
+            <path d="M200 58 h8 M203 53 l5 5 -5 5"></path>
+            <path d="M306 58 h8 M309 53 l5 5 -5 5"></path>
+            <path d="M412 58 h8 M415 53 l5 5 -5 5"></path>
+            <path d="M518 58 h8 M521 53 l5 5 -5 5"></path>
+          </g>
+        </svg>
+        <p class="cap"><b>그림 2</b> · 우리 모둠이 3-라에 적은, 유행이 습관이 되는 순서.<br>
+          <b>어디서 왔나</b> 보고서 3-라 · 모둠 면접 · <b>보여 주는 것</b> SNS에서 시작한 말이 주변 사람을 거쳐 자기 말이 된다.</p>
+      </figure>
+
+      <section class="blk">
+        <p class="sub">라. 이 말을 계속 쓰게 하는 원인</p>
+        <p>면접에서 응답자는 "유행으로 인한 습관화" 때문이라고 이 말을 쓰게 된다고 답했다. STEP 5에서 우리 모둠은 "유행으로 인한 습관화"로 응답자와 똑같이 원인으로 정했다. 그 근거는 SNS에서 퍼지게 된 말이 계속 SNS에서 노출되고 &gt; 그로 인해서 사람들이 그런 말들을 자주 접하게 되니 &gt; "샤갈/쌰갈"이라는 말에 쉽게 익숙해지면서 &gt; 자연스럽게 입에 붙게 되고 &gt; 주변인들도 자주 쓰기 시작하니 &gt; 사용자도 자주 쓰게 되고 그러면서 점점 습관화 되었기 때문이다. 따라서 우리 조사에서 이 말을 계속 쓰게 하는 원인은 "유행으로 인한 습관화"임을 알 수 있다.</p>
+      </section>
+
+      <div class="po-cause">
+        <span class="lab">방안으로 다룰 원인 하나</span>
+        <p>"주변인들도 자주 쓰기 시작하니 &gt; 사용자도 자주 쓰게 되고 그러면서 점점 습관화 되었기 때문이다."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 결론 전폭 띠 ══ -->
+  <div class="po-concl">
+    <h2><span class="n">4</span>결론</h2>
+    <div class="po-cgrid">
+
+      <div>
+        <p class="sub">가. 주요 발견점</p>
+        <p style="font-size:.84rem;line-height:1.66">우리 모둠이 조사한 샤갈에서는, 면접 1명과 같은 말이 적힌 카드 3장을 보고 다음을 알아냈다. 첫 번째로는 이 샤갈이라는 단어는 비속어는 아니기에 사람들이 많이 쓴다. 하지만 샤갈은 욕설은 아니지만 욕설을 순화시킨 표현이므로 그렇게 자주 쓰는 건 좋지 않다. 둘째는 방금 첫째와 이어지는데 사람들은 이건 욕설이 아니라고 막 쓰고 다니지만 실제로 이 샤갈이라는 단어를 모르는 어른들은 이 말을 단순히 욕설이라고 이해하여 서로 간에 갈등이 생길 수 있습니다. 셋째 이러한 샤갈은 왜 빨리 퍼지게 되는 걸까? 에 대한 답은 생각보다 단순했습니다. 숏폼과 같은 곳에서 중독적인 어감인 샤갈은 사람들에게 머리에 박힐 정도로 중독적이었고 사람들이 점점 많이 쓰고 그 쓰는 걸 보고 웃겨서 점점 많이 쓰다 퍼지게 되는 것이었습니다. 실제로 유행어가 생기는 이유, 재미와 간편함을 추구하고, 마땅한 표준어가 없을 감정을 더 빠르게 전달하려는 심리 때문에 생기는 것입니다. 그래서 저희의 탐구 질문인 "'샤갈'이라는 말은 어떻게 유행하게 되었을까?"의 답은 사람은 재미와 간편함을 추구하고 중독적인 어감이 기억에 잘 남으며 기억에 잘 남으면 자주 쓰게 되고 그게 반복되며 유행하게 된 거 같다.</p>
+        <div class="po-limit">
+          <strong>여기까지가 우리가 알아낸 것이다</strong>
+          <p>면접은 1명이다. 카드 장수는 보고서에 <strong>4-가에는 3장, 2-나에는 4장</strong>으로 다르게 적혀 있어, 어느 쪽이 맞는지 이 포스터에서는 정하지 않았다. 우리 반 전체나 모든 학생의 이야기가 아니다.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓐ — 각자 자기 카드의 말을 바꾼 것</p>
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>"샤갈 / 쌰갈"</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>"샤샤"</p></div>
+        </div>
+        <p style="font-size:.8rem;line-height:1.55;font-weight:600;color:#4B5563">3절 「바꿔 쓸 표현」에서 모둠이 정한 것이다. 한 사람이 실제로 말해 보았고, 들은 사람이 "귀엽고 웃기다"라고 이야기했다.</p>
+        <table class="po-tbl">
+          <tr><th>이름</th><th>원래 말</th><th>바꾼 말</th></tr>
+          <tr><td>권도현</td><td>ㄱㅇㄱ</td><td>매우 웃기다</td></tr>
+          <tr><td>박경은</td><td>샤갈</td><td>샤샤</td></tr>
+          <tr><td>백수민</td><td>표독하게 꾸역꾸역 쓴다</td><td>길게 쓰지 마</td></tr>
+          <tr><td>지예은</td><td>어 형이야</td><td>어 나야</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓑ — 원인 하나에 맞춘 실행 방안</p>
+        <div class="po-plan">
+          <dl>
+            <dt>줄일 원인</dt><dd>유행만 따라가며 말하는 습관</dd>
+            <dt>누가</dt><dd>나 자신</dd>
+            <dt>언제</dt><dd>오늘부터</dd>
+            <dt>무엇을</dt><dd>유행어를 쓰기보단 자신의 개성을 찾거나 자신이 편한 대로 이야기한다</dd>
+            <dt>확인</dt><dd>실행한 뒤에는 자신이 했던 말을 되돌아보며 확인한다</dd>
+          </dl>
+          <p class="why">이 행동을 하면 원인인 유행어를 계속해서 무의식적으로 사용하는 것을 줄일 수 있다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="po-foot">
+    <p>이 포스터에 적은 것은 <strong>면접 1명과 우리 반 RED 카드</strong>로 알아낸 범위 안의 결과입니다. 카드 장수는 보고서에 3장과 4장이 함께 적혀 있어 양쪽을 그대로 실었습니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
+    <p class="brand">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+  </footer>
+
+</article>
+
+</body>
+</html>

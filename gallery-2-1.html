@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>'쌰갈' — 학급 언어생활 사례 조사 · 1학년 2반 1조</title>
+<meta name="description" content="'쌰갈'은 왜 '짜증나' 대신 쓰일까. 1학년 2반 1조가 면접 1명과 우리 반 RED 카드로 조사한 결과.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* 학급 언어생활 사례 조사 · 모둠 조사 포스터
+     A1 세로(594×841mm) 비율. 인쇄하면 그대로 나온다. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #E9EDF3; color: #22262E;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
+p { margin: 0; }
+
+/* ── 포스터 캔버스 · A1 세로 비율 1 : 1.414 ── */
+.poster { width: 1360px; min-height: 1923px; margin: 28px auto; background: #fff;
+  box-shadow: 0 18px 46px rgba(30,35,45,.22); display: flex; flex-direction: column; }
+
+/* ── 머리띠 · 제목과 작성자 ── */
+.po-head { background: #22262E; color: #fff; padding: 34px 44px 30px; position: relative; }
+.po-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px;
+  background: linear-gradient(90deg, #FF5A47 0%, #FFD84D 50%, #1FA97E 100%); }
+.po-kicker { font-size: .92rem; font-weight: 800; color: #FFD84D; letter-spacing: .04em; }
+.po-head h1 { font-size: 2.75rem; line-height: 1.22; margin-top: 12px; }
+.po-head h1 .hl { background: #FFD84D; color: #22262E; border-radius: 8px; padding: 0 12px; }
+.po-sub { font-size: 1.12rem; font-weight: 600; color: #C7CEDA; margin-top: 14px; line-height: 1.6; }
+.po-authors { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-top: 22px;
+  padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+.po-authors .aff { font-size: 1.02rem; font-weight: 800; color: #8FE3C4; }
+.po-authors .names { font-size: 1.02rem; font-weight: 600; color: #E8ECF3; }
+.po-authors .names b { font-weight: 800; }
+.po-authors .when { font-size: .9rem; font-weight: 600; color: #9AA4B4; margin-left: auto; }
+
+/* ── 조사 범위 띠 ── */
+.po-scope { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 13px 44px;
+  display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: center; }
+.po-scope span { font-size: .95rem; font-weight: 700; }
+.po-scope .k { color: #8A6D1F; font-weight: 800; margin-right: 6px; }
+
+/* ── 2단 본문 ── */
+.po-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+.po-col { padding: 26px 32px; border-right: 1px solid #E4E8EE;
+  display: flex; flex-direction: column; gap: 22px; }
+.po-col:last-child { border-right: none; }
+
+.blk > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.14rem; margin-bottom: 10px; }
+.blk .n { display: inline-flex; align-items: center; justify-content: center; width: 27px; height: 27px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .88rem; font-weight: 800; flex: 0 0 auto; }
+.blk p { font-size: .93rem; line-height: 1.72; margin-bottom: 9px; }
+.blk p:last-child { margin-bottom: 0; }
+.blk .sub { font-size: .86rem; font-weight: 800; color: #4B5563; margin: 12px 0 5px; }
+
+/* ── 자료 · 표·그래프·워드클라우드·그림은 모두 이 틀에 넣는다 ── */
+.po-fig { border: 1.5px solid #E1E6ED; border-radius: 12px; background: #FBFCFE; padding: 12px 14px 9px; }
+.po-fig svg { display: block; width: 100%; height: auto; }
+.po-fig .cap { font-size: .74rem; font-weight: 700; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+.po-fig .cap b { color: #22262E; }
+.wc text { font-weight: 800; }
+
+/* ── 면접에서 들은 말 ── */
+.po-quote { border-left: 5px solid #4A7DDC; background: #EEF3FC; border-radius: 0 12px 12px 0; padding: 14px 16px; }
+.po-quote p { font-size: 1rem; font-weight: 800; line-height: 1.6; }
+.po-quote .who { display: block; font-size: .78rem; font-weight: 700; color: #6B7280; margin-top: 8px; }
+
+/* ── 원인 · 포스터의 축. 바꾼 말·제언보다 앞에 온다 ── */
+.po-cause { border: 2.5px solid #22262E; border-radius: 14px; background: #FFF8E1; padding: 16px 18px; }
+.po-cause .lab { display: inline-block; font-size: .72rem; font-weight: 800; color: #fff; background: #22262E;
+  border-radius: 999px; padding: 3px 11px; margin-bottom: 9px; }
+.po-cause p { font-size: 1.02rem; font-weight: 800; line-height: 1.55; }
+
+/* ── 결론 전폭 띠 ── */
+.po-concl { border-top: 3px solid #22262E; background: #FAFBFD; padding: 24px 32px 26px; }
+.po-concl > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.24rem; margin-bottom: 16px; }
+.po-concl > h2 .n { display: inline-flex; align-items: center; justify-content: center; width: 29px; height: 29px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .92rem; font-weight: 800; flex: 0 0 auto; }
+.po-cgrid { display: grid; grid-template-columns: 1.05fr 1fr 1.15fr; gap: 22px; align-items: start; }
+.po-cgrid > div { display: flex; flex-direction: column; gap: 12px; }
+
+/* ── 원래 말 → 바꾼 말 ── */
+.po-flip { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 6px; align-items: stretch; }
+.po-flip .s { border-radius: 11px; padding: 12px 13px; }
+.po-flip .b4 { background: #FFECE8; border: 1.5px solid #FF5A47; }
+.po-flip .af { background: #E3F6EE; border: 1.5px solid #1FA97E; }
+.po-flip .t { display: inline-block; font-size: .68rem; color: #fff; border-radius: 999px;
+  padding: 2px 9px; margin-bottom: 6px; font-weight: 800; }
+.po-flip .b4 .t { background: #D6402F; }
+.po-flip .af .t { background: #14775A; }
+.po-flip .s p { font-size: .87rem; font-weight: 700; line-height: 1.5; }
+.po-flip .ar { display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; }
+
+/* ── 실행 방안 · 줄일 원인·누가·언제·무엇을·확인 ── */
+.po-plan { border: 2px solid #1FA97E; border-radius: 14px; background: #E3F6EE; padding: 15px 17px; }
+.po-plan dl { display: grid; grid-template-columns: 62px 1fr; gap: 7px 12px; margin: 0; }
+.po-plan dt { font-size: .76rem; font-weight: 800; color: #14775A; padding-top: 2px; }
+.po-plan dd { margin: 0; font-size: .87rem; line-height: 1.6; font-weight: 600; }
+.po-plan .why { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(20,119,90,.26);
+  font-size: .84rem; line-height: 1.6; font-weight: 700; }
+
+.po-tbl { width: 100%; border-collapse: collapse; }
+.po-tbl th, .po-tbl td { border: 1px solid #DDE2EA; padding: 7px 9px; font-size: .84rem;
+  text-align: left; line-height: 1.5; }
+.po-tbl th { background: #F4F6FA; font-weight: 800; font-size: .78rem; }
+
+/* ── 알아내지 못한 것 ── */
+.po-limit { border: 2px dashed #B9C2D0; border-radius: 12px; background: #F6F8FB; padding: 13px 15px; }
+.po-limit strong { display: block; font-size: .88rem; margin-bottom: 5px; }
+.po-limit p { font-size: .84rem; line-height: 1.65; font-weight: 600; color: #4B5563; }
+
+/* ── 발 ── */
+.po-foot { background: #F4F6FA; border-top: 2px solid #E1E6ED; padding: 15px 44px;
+  display: flex; flex-wrap: wrap; gap: 6px 26px; align-items: baseline; }
+.po-foot p { font-size: .8rem; font-weight: 600; color: #4B5563; line-height: 1.6; }
+.po-foot .brand { font-size: .84rem; font-weight: 800; color: #22262E; margin-left: auto; }
+
+/* ── 휴대폰 · 캔버스 고정을 풀고 1열로 편다 ── */
+@media (max-width: 900px) {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: 0; margin: 0; box-shadow: none; }
+  .po-head { padding: 24px 20px 22px; }
+  .po-head h1 { font-size: 1.72rem; }
+  .po-sub { font-size: 1rem; }
+  .po-authors { gap: 6px 12px; }
+  .po-authors .when { margin-left: 0; }
+  .po-scope { padding: 12px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .po-body { grid-template-columns: 1fr; }
+  .po-col { border-right: none; border-bottom: 1px solid #E4E8EE; padding: 22px 20px; }
+  .po-concl { padding: 22px 20px 26px; }
+  .po-cgrid { grid-template-columns: 1fr; gap: 26px; }
+  .po-plan dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .po-plan dt { padding-top: 9px; }
+  .po-flip { grid-template-columns: 1fr; gap: 4px; }
+  .po-flip .ar { transform: rotate(90deg); padding: 2px 0; }
+  .po-foot { padding: 14px 20px; }
+  .po-foot .brand { margin-left: 0; }
+  .blk p, .po-plan dd, .po-limit p { font-size: .96rem; }
+}
+
+/* ── 인쇄 · A1 세로 ── */
+@media print {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
+  @page { size: 594mm 841mm; margin: 0 }
+    /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
+}
+</style>
+
+  <style>
+    /* 내용이 많아 세로가 길어진 포스터를 A1에 가깝게 좁힌다.
+       본문은 0.88rem까지만 줄인다 — 그 아래로 가면 멀리서 못 읽는다. */
+    .blk p, .po-plan dd, .po-limit p,
+    .po-tbl th, .po-tbl td { font-size: 0.88rem; }
+    .po-col { padding: 18px 28px; gap: 17px; }
+    .po-concl { padding: 18px 28px 20px; }
+    .po-quote, .po-cause, .po-plan,
+    .po-limit, .po-fig { padding: 14px 15px; }
+    .po-cgrid { gap: 18px; }
+    @media (max-width: 900px) {
+      /* 폰에서는 원래 크기로 돌린다. 좁은 화면에서 더 줄일 까닭이 없다 */
+      .blk p, .po-plan dd, .po-limit p,
+      .po-tbl th, .po-tbl td { font-size: .96rem; }
+      .po-col { padding: 22px 20px; }
+    }
+  </style>
+<!-- fit:applied -->
+</head>
+<body>
+<article class="poster">
+
+  <header class="po-head">
+    <p class="po-kicker">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+    <h1>'<span class="hl">쌰갈</span>'은 어떤 뜻으로 쓰이고<br>듣는 사람에게 어떻게 들리나</h1>
+    <p class="po-sub">우리 모둠의 조사 목적은 "'쌰갈'은 왜 '짜증나' 대신 쓸까"에 답하는 것이다.</p>
+    <div class="po-authors">
+      <span class="aff">1학년 2반 1조</span>
+      <span class="names"><b>1212 이현민</b> · <b>1202 고희경</b> · <b>1206 박지성</b> · <b>1209 유리한</b> · <b>1203 권율</b></span>
+      <span class="when">2026년 8월 20일 ~ 8월 27일</span>
+    </div>
+  </header>
+
+  <div class="po-scope">
+    <span><span class="k">조사 대상</span>면접 1명(모둠원 가운데 '쌰갈'을 들어 본 사람)</span>
+    <span><span class="k">자료</span>'쌰갈'이 적힌 우리 반 RED 카드 4장 — 4-가에는 1장으로 적혀 있다</span>
+    <span><span class="k">방법</span>사전 조사 · 사례 자료 분석 · 모둠 면접 · 토의</span>
+  </div>
+
+  <div class="po-body">
+
+    <!-- ══ 왼쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">1</span>조사 동기와 목적</h2>
+        <p class="sub">가. 조사 동기</p>
+        <p>1차시에 학급 카드를 보다가 "쌰갈"이라는 카드를 봤다. "쌰갈"이 궁금해졌다. 그래서 이 말을 조사하기로 했다. 처음에는 어떤 카드를 정할지 조원 다들 고민하고 있었지만 조원 중 한 명이 이 단어를 언급을 하고, 그 언급에 이어 궁금하다는 듯 말을 해 이걸 잡아서 조원들끼리 서로 대화를 하다가 차라리 이걸 조사하자라는 결론이 나와 조사를 하게 되었습니다.</p>
+        <p class="sub">나. 조사 목적</p>
+        <p>우리 모둠의 조사 목적은 "쌰갈은 왜 짜증나 대신 쓸까"에 답하는 것이다. 이 주제에 대한 조사를 시작하게 된 목적은 궁금해서이다. 우리 조 중에서 "쌰갈"이라는 단어를 적극적으로 사용하는 사람은 없었지만 주변에서 많이 듣고 다니는 조원이 있어 그 조원의 궁금증으로부터 조 전원의 궁금증으로 번져나가며 본질적인 의미와 뜻을 찾아내려고 하는 목적을 잡았습니다.</p>
+      </section>
+
+      <section class="blk">
+        <h2><span class="n">2</span>조사 계획</h2>
+        <p class="sub">가. 조사 기간</p><p>2026년 8월 20일부터 8월 27일까지 (1차시부터 3차시까지)</p>
+        <p class="sub">나. 조사 대상</p><p>면접 1명(모둠원 가운데 '쌰갈'을 들어 본 사람), 우리 반 RED 카드 가운데 '쌰갈'이 적힌 카드 4장.</p>
+        <p class="sub">다. 조사 방법</p><p>사전 조사, 사례 자료 분석, 모둠에서 면접자를 골라 면접, 기타 토의들</p>
+      </section>
+
+      <figure class="po-fig">
+        <table class="po-tbl">
+          <tr><th>찾아본 곳</th><th>'쌰갈'을 찾은 결과</th></tr>
+          <tr><td>표준국어대사전</td><td>등록되어 있지 않다</td></tr>
+          <tr><td>우리말샘</td><td>등록되어 있지 않다</td></tr>
+          <tr><td>어원·유래</td><td>원래 있는 욕을 순화시킨 단어</td></tr>
+          <tr><td>우리가 실제로 쓰는 뜻</td><td>놀라운 일에 반응할 때나 장난으로 반응할 때 쓰는 감탄사</td></tr>
+        </table>
+        <p class="cap"><b>표 1</b> · 사전 두 곳에서 찾은 결과와 우리가 쓰는 뜻(2026년 8월 27일)<br>
+          <b>어디서 왔나</b> 표준국어대사전 · 우리말샘 · 모둠 토의 · <b>보여 주는 것</b> 이 말은 사전에 없고, 욕을 순화한 말이 감탄사로 쓰인다.</p>
+      </figure>
+
+      <figure class="po-fig">
+        <p style="font-size:.92rem;font-weight:800;margin-bottom:8px">퀴즈 · '쌰갈'은 사전에 있는 단어일까요?</p>
+        <table class="po-tbl">
+          <tr><td style="width:50%">① 있다</td><td>② 없다</td></tr>
+        </table>
+        <p style="font-size:.87rem;font-weight:700;margin-top:8px">답 — ② 없다. 표준국어대사전에도 우리말샘에도 '쌰갈'은 등록되어 있지 않다.</p>
+        <p class="cap"><b>퀴즈 1</b> · 프롬프트 6번에서 우리 모둠이 넣기로 고른 퀴즈(2026년 8월)<br>
+          <b>어디서 왔나</b> 우리 모둠이 직접 찾아본 사전 두 곳 · <b>보여 주는 것</b> 늘 쓰는 말이라고 해서 사전에 있는 말은 아니라는 것.</p>
+      </figure>
+
+      <section class="blk">
+        <h2><span class="n">5</span>참고 자료</h2>
+        <p>표준국어대사전 — '쌰갈' 검색 결과 없음</p>
+        <p>우리말샘 — '쌰갈' 검색 결과 없음</p>
+        <p>1학년 RED 카드 가운데 '쌰갈'이 적힌 카드 4장 (2026년 8월 27일)</p>
+      </section>
+    </div>
+
+    <!-- ══ 오른쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">3</span>조사 결과</h2>
+        <p class="sub">가. 사전적 의미와 실제 쓰이는 뜻</p>
+        <p>'쌰갈'은 표준국어대사전에는 안 나와 있는 단어이지만, 어원·유래로는 <strong>원래 있는 욕을 순화시킨 단어</strong>이다. 실제로 쓰이는 뜻은 어떠한 놀라운 일에 반응할 때나 장난으로 반응을 할 단어가 필요할 때, 친구들과 놀다 필요한 상황이 있다면 쓰이는 감탄사이다.</p>
+        <p class="sub">나. 말하는 사람이 이 표현을 고른 이유</p>
+      </section>
+
+      <div class="po-quote">
+        <p>감탄사로 심한 욕을 사용하기보다는 순화하여 사용하였다.</p>
+        <span class="who">— 면접에서 들은 것을 모둠이 간추려 적은 것, 2026년 8월</span>
+      </div>
+
+      <section class="blk">
+        <p>그러기에, 우리는 감탄사로 욕을 자주 사용하지만 심한 욕을 쓰기엔 옳지 않다 생각하여 욕을 순화하여 사용하였다고 유추하였다.</p>
+        <p class="sub">다. 듣는 사람의 느낌</p>
+        <p>응답자는 자신이 그 말을 들었을 때, 실제 욕보다는 좀 더 <strong>유쾌하게 넘어갈 수 있었다</strong>고 하였다. 그 표현을 사용할 때 '그런 식으로 욕설을 순화하여 사용한다면 실제로 욕을 할 만큼 화나거나 짜증난다는 것이 아니라는 것을 알 수 있었다'는 것이 근거이다.</p>
+      </section>
+
+      <figure class="po-fig">
+        <svg viewBox="0 0 560 152" role="img" aria-label="사람 다섯을 나란히 그린 그림. 다섯 사람 모두 머리 위에 말풍선이 있고 말풍선 안에 느낌표가 있다. 모둠원 다섯 명 모두가 감탄사로 욕설을 써 본 적이 있다는 것을 나타낸다.">
+          <g transform="translate(0,0)">
+            <path d="M28 26 h56 a9 9 0 0 1 9 9 v22 a9 9 0 0 1 -9 9 h-20 l-11 11 v-11 h-25 a9 9 0 0 1 -9 -9 v-22 a9 9 0 0 1 9 -9 z" fill="#FFECE8" stroke="#FF5A47" stroke-width="2"></path>
+            <text x="56" y="54" font-size="21" font-weight="800" fill="#D6402F" text-anchor="middle">!</text>
+            <circle cx="56" cy="98" r="13" fill="#22262E"></circle>
+            <path d="M39 133 a17 17 0 0 1 34 0 z" fill="#22262E"></path>
+          </g>
+          <g transform="translate(112,0)">
+            <path d="M28 26 h56 a9 9 0 0 1 9 9 v22 a9 9 0 0 1 -9 9 h-20 l-11 11 v-11 h-25 a9 9 0 0 1 -9 -9 v-22 a9 9 0 0 1 9 -9 z" fill="#FFECE8" stroke="#FF5A47" stroke-width="2"></path>
+            <text x="56" y="54" font-size="21" font-weight="800" fill="#D6402F" text-anchor="middle">!</text>
+            <circle cx="56" cy="98" r="13" fill="#22262E"></circle>
+            <path d="M39 133 a17 17 0 0 1 34 0 z" fill="#22262E"></path>
+          </g>
+          <g transform="translate(224,0)">
+            <path d="M28 26 h56 a9 9 0 0 1 9 9 v22 a9 9 0 0 1 -9 9 h-20 l-11 11 v-11 h-25 a9 9 0 0 1 -9 -9 v-22 a9 9 0 0 1 9 -9 z" fill="#FFECE8" stroke="#FF5A47" stroke-width="2"></path>
+            <text x="56" y="54" font-size="21" font-weight="800" fill="#D6402F" text-anchor="middle">!</text>
+            <circle cx="56" cy="98" r="13" fill="#22262E"></circle>
+            <path d="M39 133 a17 17 0 0 1 34 0 z" fill="#22262E"></path>
+          </g>
+          <g transform="translate(336,0)">
+            <path d="M28 26 h56 a9 9 0 0 1 9 9 v22 a9 9 0 0 1 -9 9 h-20 l-11 11 v-11 h-25 a9 9 0 0 1 -9 -9 v-22 a9 9 0 0 1 9 -9 z" fill="#FFECE8" stroke="#FF5A47" stroke-width="2"></path>
+            <text x="56" y="54" font-size="21" font-weight="800" fill="#D6402F" text-anchor="middle">!</text>
+            <circle cx="56" cy="98" r="13" fill="#22262E"></circle>
+            <path d="M39 133 a17 17 0 0 1 34 0 z" fill="#22262E"></path>
+          </g>
+          <g transform="translate(448,0)">
+            <path d="M28 26 h56 a9 9 0 0 1 9 9 v22 a9 9 0 0 1 -9 9 h-20 l-11 11 v-11 h-25 a9 9 0 0 1 -9 -9 v-22 a9 9 0 0 1 9 -9 z" fill="#FFECE8" stroke="#FF5A47" stroke-width="2"></path>
+            <text x="56" y="54" font-size="21" font-weight="800" fill="#D6402F" text-anchor="middle">!</text>
+            <circle cx="56" cy="98" r="13" fill="#22262E"></circle>
+            <path d="M39 133 a17 17 0 0 1 34 0 z" fill="#22262E"></path>
+          </g>
+        </svg>
+        <p class="cap"><b>그림 1</b> · 모둠원 다섯 명 모두 감탄사로 욕설을 써 본 적이 있다(2026년 8월)<br>
+          <b>어디서 왔나</b> 3-라에 우리 모둠이 근거로 적은 문장 · <b>보여 주는 것</b> 이 습관이 남의 이야기가 아니라 우리 모둠 안에도 있다는 것.</p>
+      </figure>
+
+      <section class="blk">
+        <p class="sub">라. 이 말을 계속 쓰게 하는 원인</p>
+        <p>면접에서 응답자는 심한 욕보다는 순화하여 유행어처럼 사용하는 것이 더 유쾌하게 넘길 수 있기 때문에 이 말을 쓰게 된다고 답했다. 우리 모둠은 사람들이 감탄사를 욕으로 표현하는 것이 습관이 되어서, 심한 욕을 사용하는 것보다 순화하여 가볍게 넘길 수 있기 때문임을 원인으로 정하였다. 그 근거는 우리 모둠원 전체가 감탄사로 욕설을 사용한 적이 있고 사용하기 때문이다. 따라서 우리 조사에서 이 말을 계속 쓰게 하는 원인은 <strong>감탄사를 욕으로 사용하는 것이 습관화되어서</strong>임을 알 수 있다.</p>
+      </section>
+
+      <div class="po-cause">
+        <span class="lab">방안으로 다룰 원인 하나</span>
+        <p>욕설을 감탄사로 사용하는 습관</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 결론 ══ -->
+  <div class="po-concl">
+    <h2><span class="n">4</span>결론</h2>
+    <div class="po-cgrid">
+
+      <div>
+        <p class="sub">가. 주요 발견점</p>
+        <p style="font-size:.93rem;line-height:1.72">우리 모둠이 조사한 '쌰갈'에서는, 면접 1명과 같은 말이 적힌 카드 1장을 보고 다음을 알아냈다. 3에서 정한 원인은 <strong>욕설의 습관화</strong>이다.</p>
+        <div class="po-limit">
+          <strong>여기까지가 우리가 알아낸 것이다</strong>
+          <p>면접은 1명이다. 카드 장수는 2 조사 계획에 4장, 4-가에 1장으로 서로 다르게 적혀 있어 <strong>어느 쪽인지 아직 정하지 못했다.</strong> 이 말을 처음 쓴 사람이 누구인지와 언제부터 퍼졌는지는 <strong>이번 조사에서는 확인하지 못했다.</strong></p>
+        </div>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓐ — 각자 자기 카드의 말을 바꾼 것</p>
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>"쌰갈"</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>"아이고 참"</p></div>
+        </div>
+        <p style="font-size:.84rem;line-height:1.6;font-weight:600">모둠에서 한 사람이 실제로 말해 보았고, 들은 사람이 상황에 따라서 어떤 의미인지 알 수 있었다고 하였다.</p>
+        <table class="po-tbl">
+          <tr><th>이름</th><th>원래 말</th><th>바꾼 말</th></tr>
+          <tr><td>고희경</td><td>ㅄ</td><td>웃기다</td></tr>
+          <tr><td>권율</td><td>야르</td><td>나이스</td></tr>
+          <tr><td>박지성</td><td>너 그것 좀 그만해라</td><td>그건 아무래도 조심하는 게 좋아</td></tr>
+          <tr><td>유리한</td><td>억까</td><td>억울하다</td></tr>
+          <tr><td>이현민</td><td>너 그건 진짜 잘한다</td><td>너 그걸 어떻게 그렇게 잘해</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓑ — 원인 하나에 맞춘 실행 방안</p>
+        <div class="po-plan">
+          <dl>
+            <dt>줄일 원인</dt><dd>'쌰갈'이 유쾌하게 사용되는 것. 이 말은 비속어인 'ㅅㅂ'의 은어이기 때문에 가볍고 유쾌하게 넘겨지면 안 되는 말이다</dd>
+            <dt>누가</dt><dd>감탄사를 자주 욕으로 사용하는 사람들</dd>
+            <dt>언제</dt><dd>감탄사를 말하려는 그 순간</dd>
+            <dt>무엇을</dt><dd><strong>아주 잠깐만 멈춰</strong> 자신이 말하는 말이 욕설인지 생각하고, '아이고, 참'이라는 말을 대신 사용한다</dd>
+            <dt>확인</dt><dd>실행을 어떻게 확인할지는 <strong>아직 정하지 못했다</strong></dd>
+          </dl>
+          <p class="why">이 노력으로 비속어를 습관처럼 사용하는 문제를 해결할 수 있다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="po-foot">
+    <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 4장</strong>(4-가에는 1장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
+    <p class="brand">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+  </footer>
+
+</article>
+</body>
+</html>

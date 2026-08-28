@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>'레알' — 학급 언어생활 사례 조사 · 1학년 6반 2조</title>
+<meta name="description" content="'레알' — 습관적으로 쓰이는 말일까? 1학년 6반 2조가 면접 1명과 우리 반 RED 카드 2장으로 조사한 결과.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* 학급 언어생활 사례 조사 · 모둠 조사 포스터
+     A1 세로(594×841mm) 비율. 인쇄하면 그대로 나온다. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #E9EDF3; color: #22262E;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
+p { margin: 0; }
+
+/* ── 포스터 캔버스 · A1 세로 비율 1 : 1.414 ── */
+.poster { width: 1360px; min-height: 1923px; margin: 28px auto; background: #fff;
+  box-shadow: 0 18px 46px rgba(30,35,45,.22); display: flex; flex-direction: column; }
+
+/* ── 머리띠 · 제목과 작성자 ── */
+.po-head { background: #22262E; color: #fff; padding: 34px 44px 30px; position: relative; }
+.po-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px;
+  background: linear-gradient(90deg, #FF5A47 0%, #FFD84D 50%, #1FA97E 100%); }
+.po-kicker { font-size: .92rem; font-weight: 800; color: #FFD84D; letter-spacing: .04em; }
+.po-head h1 { font-size: 2.75rem; line-height: 1.22; margin-top: 12px; }
+.po-head h1 .hl { background: #FFD84D; color: #22262E; border-radius: 8px; padding: 0 12px; }
+.po-sub { font-size: 1.12rem; font-weight: 600; color: #C7CEDA; margin-top: 14px; line-height: 1.6; }
+.po-authors { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-top: 22px;
+  padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+.po-authors .aff { font-size: 1.02rem; font-weight: 800; color: #8FE3C4; }
+.po-authors .names { font-size: 1.02rem; font-weight: 600; color: #E8ECF3; }
+.po-authors .names b { font-weight: 800; }
+.po-authors .when { font-size: .9rem; font-weight: 600; color: #9AA4B4; margin-left: auto; }
+
+/* ── 조사 범위 띠 ── */
+.po-scope { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 13px 44px;
+  display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: center; }
+.po-scope span { font-size: .95rem; font-weight: 700; }
+.po-scope .k { color: #8A6D1F; font-weight: 800; margin-right: 6px; }
+
+/* ── 2단 본문 ── */
+.po-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+.po-col { padding: 26px 32px; border-right: 1px solid #E4E8EE;
+  display: flex; flex-direction: column; gap: 22px; }
+.po-col:last-child { border-right: none; }
+
+.blk > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.14rem; margin-bottom: 10px; }
+.blk .n { display: inline-flex; align-items: center; justify-content: center; width: 27px; height: 27px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .88rem; font-weight: 800; flex: 0 0 auto; }
+.blk p { font-size: .93rem; line-height: 1.72; margin-bottom: 9px; }
+.blk p:last-child { margin-bottom: 0; }
+.blk .sub { font-size: .86rem; font-weight: 800; color: #4B5563; margin: 12px 0 5px; }
+
+/* ── 자료 · 표·그래프·워드클라우드·그림은 모두 이 틀에 넣는다 ── */
+.po-fig { border: 1.5px solid #E1E6ED; border-radius: 12px; background: #FBFCFE; padding: 12px 14px 9px; }
+.po-fig svg { display: block; width: 100%; height: auto; }
+.po-fig .cap { font-size: .74rem; font-weight: 700; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+.po-fig .cap b { color: #22262E; }
+.wc text { font-weight: 800; }
+
+/* ── 면접에서 들은 말 ── */
+.po-quote { border-left: 5px solid #4A7DDC; background: #EEF3FC; border-radius: 0 12px 12px 0; padding: 14px 16px; }
+.po-quote p { font-size: 1rem; font-weight: 800; line-height: 1.6; }
+.po-quote .who { display: block; font-size: .78rem; font-weight: 700; color: #6B7280; margin-top: 8px; }
+
+/* ── 원인 · 포스터의 축. 바꾼 말·제언보다 앞에 온다 ── */
+.po-cause { border: 2.5px solid #22262E; border-radius: 14px; background: #FFF8E1; padding: 16px 18px; }
+.po-cause .lab { display: inline-block; font-size: .72rem; font-weight: 800; color: #fff; background: #22262E;
+  border-radius: 999px; padding: 3px 11px; margin-bottom: 9px; }
+.po-cause p { font-size: 1.02rem; font-weight: 800; line-height: 1.55; }
+
+/* ── 결론 전폭 띠 ── */
+.po-concl { border-top: 3px solid #22262E; background: #FAFBFD; padding: 24px 32px 26px; }
+.po-concl > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.24rem; margin-bottom: 16px; }
+.po-concl > h2 .n { display: inline-flex; align-items: center; justify-content: center; width: 29px; height: 29px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .92rem; font-weight: 800; flex: 0 0 auto; }
+.po-cgrid { display: grid; grid-template-columns: 1.05fr 1fr 1.15fr; gap: 22px; align-items: start; }
+.po-cgrid > div { display: flex; flex-direction: column; gap: 12px; }
+
+/* ── 원래 말 → 바꾼 말 ── */
+.po-flip { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 6px; align-items: stretch; }
+.po-flip .s { border-radius: 11px; padding: 12px 13px; }
+.po-flip .b4 { background: #FFECE8; border: 1.5px solid #FF5A47; }
+.po-flip .af { background: #E3F6EE; border: 1.5px solid #1FA97E; }
+.po-flip .t { display: inline-block; font-size: .68rem; color: #fff; border-radius: 999px;
+  padding: 2px 9px; margin-bottom: 6px; font-weight: 800; }
+.po-flip .b4 .t { background: #D6402F; }
+.po-flip .af .t { background: #14775A; }
+.po-flip .s p { font-size: .87rem; font-weight: 700; line-height: 1.5; }
+.po-flip .ar { display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; }
+
+/* ── 실행 방안 · 줄일 원인·누가·언제·무엇을·확인 ── */
+.po-plan { border: 2px solid #1FA97E; border-radius: 14px; background: #E3F6EE; padding: 15px 17px; }
+.po-plan dl { display: grid; grid-template-columns: 62px 1fr; gap: 7px 12px; margin: 0; }
+.po-plan dt { font-size: .76rem; font-weight: 800; color: #14775A; padding-top: 2px; }
+.po-plan dd { margin: 0; font-size: .87rem; line-height: 1.6; font-weight: 600; }
+.po-plan .why { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(20,119,90,.26);
+  font-size: .84rem; line-height: 1.6; font-weight: 700; }
+
+.po-tbl { width: 100%; border-collapse: collapse; }
+.po-tbl th, .po-tbl td { border: 1px solid #DDE2EA; padding: 7px 9px; font-size: .84rem;
+  text-align: left; line-height: 1.5; }
+.po-tbl th { background: #F4F6FA; font-weight: 800; font-size: .78rem; }
+
+/* ── 알아내지 못한 것 ── */
+.po-limit { border: 2px dashed #B9C2D0; border-radius: 12px; background: #F6F8FB; padding: 13px 15px; }
+.po-limit strong { display: block; font-size: .88rem; margin-bottom: 5px; }
+.po-limit p { font-size: .84rem; line-height: 1.65; font-weight: 600; color: #4B5563; }
+
+/* ── 발 ── */
+.po-foot { background: #F4F6FA; border-top: 2px solid #E1E6ED; padding: 15px 44px;
+  display: flex; flex-wrap: wrap; gap: 6px 26px; align-items: baseline; }
+.po-foot p { font-size: .8rem; font-weight: 600; color: #4B5563; line-height: 1.6; }
+.po-foot .brand { font-size: .84rem; font-weight: 800; color: #22262E; margin-left: auto; }
+
+/* ── 휴대폰 · 캔버스 고정을 풀고 1열로 편다 ── */
+@media (max-width: 900px) {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: 0; margin: 0; box-shadow: none; }
+  .po-head { padding: 24px 20px 22px; }
+  .po-head h1 { font-size: 1.72rem; }
+  .po-sub { font-size: 1rem; }
+  .po-authors { gap: 6px 12px; }
+  .po-authors .when { margin-left: 0; }
+  .po-scope { padding: 12px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .po-body { grid-template-columns: 1fr; }
+  .po-col { border-right: none; border-bottom: 1px solid #E4E8EE; padding: 22px 20px; }
+  .po-concl { padding: 22px 20px 26px; }
+  .po-cgrid { grid-template-columns: 1fr; gap: 26px; }
+  .po-plan dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .po-plan dt { padding-top: 9px; }
+  .po-flip { grid-template-columns: 1fr; gap: 4px; }
+  .po-flip .ar { transform: rotate(90deg); padding: 2px 0; }
+  .po-foot { padding: 14px 20px; }
+  .po-foot .brand { margin-left: 0; }
+  .blk p, .po-plan dd, .po-limit p { font-size: .96rem; }
+}
+
+/* ── 인쇄 · A1 세로 ── */
+@media print {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
+  @page { size: A1 portrait; margin: 0; }
+}
+</style>
+</head>
+<body>
+<article class="poster">
+
+  <header class="po-head">
+    <p class="po-kicker">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+    <h1>'<span class="hl">레알</span>'은 어떤 뜻으로 쓰이고<br>듣는 사람에게 어떻게 들리나</h1>
+    <p class="po-sub">'레알' — 습관적으로 쓰이는 말일까? 우리 모둠의 조사 목적은 "레알은 왜 진짜 대신 쓰일까?"에 답하는 것이다.</p>
+    <div class="po-authors">
+      <span class="aff">1학년 6반 2조</span>
+      <span class="names"><b>1604 김원균</b> · <b>1605 문지윤</b> · <b>1608 심윤진</b> · <b>1610 유성아</b></span>
+      <span class="when">2026년 8월 20일 ~ 8월 26일</span>
+    </div>
+  </header>
+
+  <div class="po-scope">
+    <span><span class="k">조사 대상</span>면접 1명(모둠원 가운데 '레알'을 써 본 사람)</span>
+    <span><span class="k">자료</span>우리 반 RED 카드 2장</span>
+    <span><span class="k">방법</span>사전 조사 · 사례 자료 분석 · 모둠 면접(초점 집단 면접, FGI 방식) · 토의</span>
+  </div>
+
+  <div class="po-body">
+
+    <!-- ══ 왼쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">1</span>조사 동기와 목적</h2>
+        <p class="sub">가. 조사 동기</p>
+        <p>1차시에 "그 수행평가 ㄹㅇ 레전드다. 선생님 폼 미쳤음."이라는 카드를 봤다. 왜 한국의 10~20대는 '진짜'라는 우리말을 두고 '레알'이라는 외국어 단어를 더 자주 사용하게 된 것인지 궁금해졌다. 그래서 이 말을 조사하기로 했다.</p>
+        <p class="sub">나. 조사 목적</p>
+        <p>우리 모둠의 조사 목적은 "레알은 왜 진짜 대신 쓰일까?"에 답하는 것이다.</p>
+      </section>
+
+      <section class="blk">
+        <h2><span class="n">2</span>조사 계획</h2>
+        <p class="sub">가. 조사 기간</p><p>2026년 8월 20일부터 8월 26일까지</p>
+        <p class="sub">나. 조사 대상</p><p>면접 1명(모둠원 가운데 '레알'을 써 본 사람), 학급 RED 카드 2장</p>
+        <p class="sub">다. 조사 방법</p><p>사전 조사, 사례 자료 분석, 모둠 면접(초점 집단 면접, FGI 방식), 토의</p>
+      </section>
+
+      <figure class="po-fig">
+        <table class="po-tbl">
+          <tr><th>찾아본 곳</th><th>'레알'을 찾은 결과</th></tr>
+          <tr><td>표준국어대사전</td><td>검색 결과 없음</td></tr>
+          <tr><td>네이버 사전</td><td>'정말'이라는 뜻. 영단어 real(리얼)에서 나온 말</td></tr>
+          <tr><td>우리말샘</td><td>'진짜', '정말'이라는 뜻으로 쓰는 말. 리얼(real)을 재미있게 발음한 것에서 비롯되었다</td></tr>
+        </table>
+        <p class="cap"><b>표 1</b> · 사전 세 곳에서 '레알'을 찾은 결과(2026년 8월)<br>
+          <b>어디서 왔나</b> 보고서 3-가 · 5 참고 자료 · <b>보여 주는 것</b> 표준국어대사전에는 없지만 다른 두 곳에는 영어 real에서 온 말로 올라 있다.</p>
+      </figure>
+
+      <section class="blk">
+        <h2><span class="n">5</span>참고 자료</h2>
+        <p>표준국어대사전 — '레알' 검색 결과 없음</p>
+        <p>우리말샘 — "'진짜', '정말'이라는 뜻으로 쓰는 말. 리얼(real)을 재미있게 발음한 것에서 비롯되었다."</p>
+        <p>국립국어원, 《매일경제》, 2016년 7월</p>
+        <p>1학년 RED 카드 2장(2026년 8월 27일)</p>
+      </section>
+    </div>
+
+    <!-- ══ 오른쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">3</span>조사 결과</h2>
+        <p class="sub">가. 사전적 의미와 실제 쓰이는 뜻</p>
+        <p>'레알'은 표준국어대사전에는 없지만, 네이버 사전에서 '레알'은 정말이라는 뜻으로 영단어 real(리얼)에서 나온 말이라고 나와 있다. 우리말샘에서는 '진짜', '정말'이라는 뜻으로 쓰는 말, <strong>리얼(real)을 재미있게 발음한 것</strong>에서 비롯되었다고 한다.</p>
+        <p class="sub">나. 말하는 사람이 이 표현을 고른 이유</p>
+      </section>
+
+      <div class="po-quote">
+        <p>"진짜, 진심이라는 표현이 있지만 너무 무거워 보여서 쓰지 않았다."</p>
+        <span class="who">— 면접 응답자, 2026년 8월</span>
+      </div>
+
+      <section class="blk">
+        <p>여기까지는 면접에서 들은 것이다. 그러니까 응답자는 글이나 말을 할 때 상대방에게 부담스럽게 느껴지지 않도록 <strong>가볍고 자연스러운 표현</strong>을 선택하려고 했을 것임을 알 수 있다.</p>
+        <p class="sub">다. 듣는 사람의 느낌</p>
+        <p>응답자는 그 말을 들은 사람이 "친구들과 많이 사용하다 보니 웃고 즐겁게 넘겼다."라고 말했다. 그래서 근거는 응답자가 친구들이 웃고 즐겁게 넘기는 모습을 본 것이고, 들은 사람에게 직접 물어본 것은 아니다.</p>
+      </section>
+
+      <figure class="po-fig">
+        <table class="po-tbl">
+          <tr><th>면접에서 물은 것</th><th>답에서 확인한 것</th></tr>
+          <tr><td>왜 이 말을 골랐나</td><td>'진짜·진심'은 너무 무거워 보여서 쓰지 않았다</td></tr>
+          <tr><td>듣는 사람은 어땠나</td><td>웃고 즐겁게 넘겼다 — 응답자가 본 것이고 직접 물어본 것은 아니다</td></tr>
+          <tr><td>계속 쓰게 하는 원인</td><td>보고서의 이 칸은 비어 있다</td></tr>
+        </table>
+        <p class="cap"><b>표 2</b> · 면접에서 물은 것과 답에서 확인한 것(2026년 8월)<br>
+          <b>어디서 왔나</b> 우리 모둠의 면접 기록(보고서 3-나·3-다·3-라) · <b>보여 주는 것</b> 고른 이유와 들은 사람의 반응은 확인했지만, 원인 칸은 채우지 못했다.</p>
+      </figure>
+
+      <section class="blk">
+        <p class="sub">라. 이 말을 계속 쓰게 하는 원인</p>
+        <p><strong>이 칸은 보고서에서 비어 있다.</strong> 아래 원인 상자에 적은 것은 4-가 발견점에서 옮긴 것이다.</p>
+      </section>
+
+      <div class="po-cause">
+        <span class="lab">방안으로 다룰 원인 하나</span>
+        <p>어른이나 전국조사는 유행이라고 보지만, 실제로 우리가 보기에는 귀찮아서다. 이미 '레알'이라는 말이 습관이 되어서다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 결론 ══ -->
+  <div class="po-concl">
+    <h2><span class="n">4</span>결론</h2>
+    <div class="po-cgrid">
+
+      <div>
+        <p class="sub">가. 주요 발견점</p>
+        <p style="font-size:.93rem;line-height:1.72">우리 모둠이 조사한 '레알은 왜 진짜라는 말 대신 쓰일까?'에서는, 면접 1명과 학급 카드 2장을 보고 레알을 왜 자주 사용하는지에 대한 의미를 알아냈다. 우리 탐구질문의 답으로 첫째, 어른이나 전국조사는 우리가 이런 말을 쓰는 원인을 유행이라고 보지만, 실제로 우리가 보기에는 <strong>귀찮아서</strong>다. 둘째, 이미 레알이라는 말이 <strong>습관</strong>이 되어서다. 셋째, '진짜, 정말'이라는 말 대신 더 강조되기 위해서 사용한다.</p>
+        <div class="po-limit">
+          <strong>여기까지가 우리가 알아낸 것이다</strong>
+          <p>면접은 1명이고 카드는 2장이다. 3의 '이 말을 계속 쓰게 하는 원인' 칸은 보고서에서 비어 있다. 듣는 사람의 느낌은 응답자가 본 것이고 <strong>들은 사람에게 직접 물어보지는 못했다.</strong> 우리 반 전체나 모든 학생의 이야기가 아니다.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓐ — 각자 자기 카드의 말을 바꾼 것</p>
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>"지팔지꼰"</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>"자업자득"</p></div>
+        </div>
+        <table class="po-tbl">
+          <tr><th>이름</th><th>원래 말</th><th>바꾼 말</th></tr>
+          <tr><td>김원균</td><td>지팔지꼰</td><td>자업자득</td></tr>
+          <tr><td>문지윤</td><td>억까 ㄹㅈㄷ네</td><td>비난받는 상황이 믿기지 않네</td></tr>
+          <tr><td>심윤진</td><td>쩝쩝충 진짜 싫다</td><td>먹을 때 소리가 나게 먹으면 불편한 느낌이 들어</td></tr>
+          <tr><td>유성아</td><td>이거 정말 미쳤다</td><td>이거 정말 놀라운데</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓑ — 원인 하나에 맞춘 실행 방안</p>
+        <div class="po-plan">
+          <dl>
+            <dt>줄일 원인</dt><dd>귀찮아서, 그리고 이미 습관이 되어서 쓰는 것</dd>
+            <dt>누가</dt><dd>나 스스로 · 학급 · 온라인</dd>
+            <dt>언제</dt><dd>학급 캠페인은 한글날에 한다. 나머지는 <strong>아직 정하지 못했다</strong></dd>
+            <dt>무엇을</dt><dd>나 스스로 자신의 언어 습관을 돌아보며 줄인다. 학급에서는 한글날 영어 안 쓰기 등 캠페인을 한다. 온라인에서는 유행어 사용을 줄인다</dd>
+            <dt>확인</dt><dd><strong>아직 정하지 못했다.</strong> 무엇으로 확인할지 보고서에 적지 않았다</dd>
+          </dl>
+          <p class="why">이 행동이 원인을 바꾸는 까닭은 보고서에 적지 않았다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="po-foot">
+    <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 2장</strong>으로 알아낸 범위 안의 결과입니다. 3의 '이 말을 계속 쓰게 하는 원인' 칸은 보고서에서 비어 있어 비어 있다고 적었습니다. 확인한 것과 짐작한 것을 나누어 적었습니다.</p>
+    <p class="brand">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+  </footer>
+
+</article>
+</body>
+</html>

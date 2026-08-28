@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>'ㅆㅂ' — 학급 언어생활 사례 조사 · 1학년 3반 2조</title>
+<meta name="description" content="우리 반 친구들은 보통 어떤 종류의 은어나 비속어를 사용할까. 1학년 3반 2조가 'ㅆㅂ'을 면접 1명과 우리 반 RED 카드로 조사한 결과.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* 학급 언어생활 사례 조사 · 모둠 조사 포스터
+     A1 세로(594×841mm) 비율. 인쇄하면 그대로 나온다. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #E9EDF3; color: #22262E;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
+p { margin: 0; }
+
+/* ── 포스터 캔버스 · A1 세로 비율 1 : 1.414 ── */
+.poster { width: 1360px; min-height: 1923px; margin: 28px auto; background: #fff;
+  box-shadow: 0 18px 46px rgba(30,35,45,.22); display: flex; flex-direction: column; }
+
+/* ── 머리띠 · 제목과 작성자 ── */
+.po-head { background: #22262E; color: #fff; padding: 34px 44px 30px; position: relative; }
+.po-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px;
+  background: linear-gradient(90deg, #FF5A47 0%, #FFD84D 50%, #1FA97E 100%); }
+.po-kicker { font-size: .92rem; font-weight: 800; color: #FFD84D; letter-spacing: .04em; }
+.po-head h1 { font-size: 2.75rem; line-height: 1.22; margin-top: 12px; }
+.po-head h1 .hl { background: #FFD84D; color: #22262E; border-radius: 8px; padding: 0 12px; }
+.po-sub { font-size: 1.12rem; font-weight: 600; color: #C7CEDA; margin-top: 14px; line-height: 1.6; }
+.po-authors { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-top: 22px;
+  padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+.po-authors .aff { font-size: 1.02rem; font-weight: 800; color: #8FE3C4; }
+.po-authors .names { font-size: 1.02rem; font-weight: 600; color: #E8ECF3; }
+.po-authors .names b { font-weight: 800; }
+.po-authors .when { font-size: .9rem; font-weight: 600; color: #9AA4B4; margin-left: auto; }
+
+/* ── 조사 범위 띠 ── */
+.po-scope { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 13px 44px;
+  display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: center; }
+.po-scope span { font-size: .95rem; font-weight: 700; }
+.po-scope .k { color: #8A6D1F; font-weight: 800; margin-right: 6px; }
+
+/* ── 2단 본문 ── */
+.po-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+.po-col { padding: 26px 32px; border-right: 1px solid #E4E8EE;
+  display: flex; flex-direction: column; gap: 22px; }
+.po-col:last-child { border-right: none; }
+
+.blk > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.14rem; margin-bottom: 10px; }
+.blk .n { display: inline-flex; align-items: center; justify-content: center; width: 27px; height: 27px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .88rem; font-weight: 800; flex: 0 0 auto; }
+.blk p { font-size: .93rem; line-height: 1.72; margin-bottom: 9px; }
+.blk p:last-child { margin-bottom: 0; }
+.blk .sub { font-size: .86rem; font-weight: 800; color: #4B5563; margin: 12px 0 5px; }
+
+/* ── 자료 · 표·그래프·워드클라우드·그림은 모두 이 틀에 넣는다 ── */
+.po-fig { border: 1.5px solid #E1E6ED; border-radius: 12px; background: #FBFCFE; padding: 12px 14px 9px; }
+.po-fig svg { display: block; width: 100%; height: auto; }
+.po-fig .cap { font-size: .74rem; font-weight: 700; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+.po-fig .cap b { color: #22262E; }
+.wc text { font-weight: 800; }
+
+/* ── 면접에서 들은 말 ── */
+.po-quote { border-left: 5px solid #4A7DDC; background: #EEF3FC; border-radius: 0 12px 12px 0; padding: 14px 16px; }
+.po-quote p { font-size: 1rem; font-weight: 800; line-height: 1.6; }
+.po-quote .who { display: block; font-size: .78rem; font-weight: 700; color: #6B7280; margin-top: 8px; }
+
+/* ── 원인 · 포스터의 축. 바꾼 말·제언보다 앞에 온다 ── */
+.po-cause { border: 2.5px solid #22262E; border-radius: 14px; background: #FFF8E1; padding: 16px 18px; }
+.po-cause .lab { display: inline-block; font-size: .72rem; font-weight: 800; color: #fff; background: #22262E;
+  border-radius: 999px; padding: 3px 11px; margin-bottom: 9px; }
+.po-cause p { font-size: 1.02rem; font-weight: 800; line-height: 1.55; }
+
+/* ── 결론 전폭 띠 ── */
+.po-concl { border-top: 3px solid #22262E; background: #FAFBFD; padding: 24px 32px 26px; }
+.po-concl > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.24rem; margin-bottom: 16px; }
+.po-concl > h2 .n { display: inline-flex; align-items: center; justify-content: center; width: 29px; height: 29px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .92rem; font-weight: 800; flex: 0 0 auto; }
+.po-cgrid { display: grid; grid-template-columns: 1.05fr 1fr 1.15fr; gap: 22px; align-items: start; }
+.po-cgrid > div { display: flex; flex-direction: column; gap: 12px; }
+
+/* ── 원래 말 → 바꾼 말 ── */
+.po-flip { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 6px; align-items: stretch; }
+.po-flip .s { border-radius: 11px; padding: 12px 13px; }
+.po-flip .b4 { background: #FFECE8; border: 1.5px solid #FF5A47; }
+.po-flip .af { background: #E3F6EE; border: 1.5px solid #1FA97E; }
+.po-flip .t { display: inline-block; font-size: .68rem; color: #fff; border-radius: 999px;
+  padding: 2px 9px; margin-bottom: 6px; font-weight: 800; }
+.po-flip .b4 .t { background: #D6402F; }
+.po-flip .af .t { background: #14775A; }
+.po-flip .s p { font-size: .87rem; font-weight: 700; line-height: 1.5; }
+.po-flip .ar { display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; }
+
+/* ── 실행 방안 · 줄일 원인·누가·언제·무엇을·확인 ── */
+.po-plan { border: 2px solid #1FA97E; border-radius: 14px; background: #E3F6EE; padding: 15px 17px; }
+.po-plan dl { display: grid; grid-template-columns: 62px 1fr; gap: 7px 12px; margin: 0; }
+.po-plan dt { font-size: .76rem; font-weight: 800; color: #14775A; padding-top: 2px; }
+.po-plan dd { margin: 0; font-size: .87rem; line-height: 1.6; font-weight: 600; }
+.po-plan .why { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(20,119,90,.26);
+  font-size: .84rem; line-height: 1.6; font-weight: 700; }
+
+.po-tbl { width: 100%; border-collapse: collapse; }
+.po-tbl th, .po-tbl td { border: 1px solid #DDE2EA; padding: 7px 9px; font-size: .84rem;
+  text-align: left; line-height: 1.5; }
+.po-tbl th { background: #F4F6FA; font-weight: 800; font-size: .78rem; }
+
+/* ── 알아내지 못한 것 ── */
+.po-limit { border: 2px dashed #B9C2D0; border-radius: 12px; background: #F6F8FB; padding: 13px 15px; }
+.po-limit strong { display: block; font-size: .88rem; margin-bottom: 5px; }
+.po-limit p { font-size: .84rem; line-height: 1.65; font-weight: 600; color: #4B5563; }
+
+/* ── 발 ── */
+.po-foot { background: #F4F6FA; border-top: 2px solid #E1E6ED; padding: 15px 44px;
+  display: flex; flex-wrap: wrap; gap: 6px 26px; align-items: baseline; }
+.po-foot p { font-size: .8rem; font-weight: 600; color: #4B5563; line-height: 1.6; }
+.po-foot .brand { font-size: .84rem; font-weight: 800; color: #22262E; margin-left: auto; }
+
+/* ── 휴대폰 · 캔버스 고정을 풀고 1열로 편다 ── */
+@media (max-width: 900px) {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: 0; margin: 0; box-shadow: none; }
+  .po-head { padding: 24px 20px 22px; }
+  .po-head h1 { font-size: 1.72rem; }
+  .po-sub { font-size: 1rem; }
+  .po-authors { gap: 6px 12px; }
+  .po-authors .when { margin-left: 0; }
+  .po-scope { padding: 12px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .po-body { grid-template-columns: 1fr; }
+  .po-col { border-right: none; border-bottom: 1px solid #E4E8EE; padding: 22px 20px; }
+  .po-concl { padding: 22px 20px 26px; }
+  .po-cgrid { grid-template-columns: 1fr; gap: 26px; }
+  .po-plan dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .po-plan dt { padding-top: 9px; }
+  .po-flip { grid-template-columns: 1fr; gap: 4px; }
+  .po-flip .ar { transform: rotate(90deg); padding: 2px 0; }
+  .po-foot { padding: 14px 20px; }
+  .po-foot .brand { margin-left: 0; }
+  .blk p, .po-plan dd, .po-limit p { font-size: .96rem; }
+}
+
+/* ── 인쇄 · A1 세로 ── */
+@media print {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
+  @page { size: 594mm 841mm; margin: 0 }
+    /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
+}
+</style>
+
+  <style>
+    /* 내용이 많아 세로가 길어진 포스터를 A1에 가깝게 좁힌다.
+       본문은 0.9rem까지만 줄인다 — 그 아래로 가면 멀리서 못 읽는다. */
+    .blk p, .po-plan dd, .po-limit p,
+    .po-tbl th, .po-tbl td { font-size: 0.9rem; }
+    .po-col { padding: 20px 28px; gap: 19px; }
+    .po-concl { padding: 20px 28px 22px; }
+    .po-quote, .po-cause, .po-plan,
+    .po-limit, .po-fig { padding: 15px 15px; }
+    .po-cgrid { gap: 19px; }
+    @media (max-width: 900px) {
+      /* 폰에서는 원래 크기로 돌린다. 좁은 화면에서 더 줄일 까닭이 없다 */
+      .blk p, .po-plan dd, .po-limit p,
+      .po-tbl th, .po-tbl td { font-size: .96rem; }
+      .po-col { padding: 22px 20px; }
+    }
+  </style>
+<!-- fit:applied -->
+</head>
+<body>
+<article class="poster">
+
+  <header class="po-head">
+    <p class="po-kicker">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+    <h1>'<span class="hl">ㅆㅂ</span>' — 우리 반 친구들은 보통<br>어떤 종류의 은어나 비속어를 사용할까</h1>
+    <p class="po-sub">우리 탐구 질문의 답은 "감정적으로 좋지 않을 때, 상황이 나쁠 때에 주로 [ㅅㅂ]이라는 은어나 비속어를 사용한다."이다.</p>
+    <div class="po-authors">
+      <span class="aff">1학년 3반 2조</span>
+      <span class="names"><b>1303 김동하</b> · <b>1306 김서은</b> · <b>1307 김예령</b> · <b>1316 한민서</b></span>
+      <span class="when">2026년 8월 21일 ~ 8월 28일</span>
+    </div>
+  </header>
+
+  <div class="po-scope">
+    <span><span class="k">조사 대상</span>면접 1명(김동하)</span>
+    <span><span class="k">자료</span>'ㅅㅂ'가 적혀 있는 우리 반 카드 5장 — 4-가에는 1장으로 적혀 있다</span>
+    <span><span class="k">방법</span>단어의 뜻을 찾아보고, 어쩌다가 이러한 단어들을 사용하게 되었는지 생각해 본다</span>
+    <span><span class="k">모둠 역할</span>A 김예령 · B 한민서 · C 김서은 · D 김동하</span>
+  </div>
+
+  <div class="po-body">
+
+    <!-- ══ 왼쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">1</span>조사 동기와 목적</h2>
+        <p class="sub">가. 조사 동기</p>
+        <p>1차시에 학급 카드를 보다가 'ㅆㅂ'이라는 카드를 봤다. 친구들이 이 말의 뜻을 알고 사용하는 건지 궁금해졌다. 그래서 이 말을 조사하기로 했다.</p>
+        <p class="sub">나. 조사 목적</p>
+        <p>우리 모둠의 조사 목적은 「우리 반 친구들은 보통 어떤 종류의 은어나 비속어를 사용할까」에 답하는 것이다.</p>
+      </section>
+
+      <section class="blk">
+        <h2><span class="n">2</span>조사 계획</h2>
+        <p class="sub">가. 조사 기간</p><p>2026년 8월 21일부터 2026년 8월 28일까지</p>
+        <p class="sub">나. 조사 대상</p><p>면접 한 명(김동하), 우리 반 카드 가운데 'ㅅㅂ'가 적혀 있는 카드 5장.</p>
+        <p class="sub">다. 조사 방법</p><p>단어의 뜻을 찾아보고, 어쩌다가 이러한 단어들을 사용하게 되었는지 생각해 본다.</p>
+      </section>
+
+      <figure class="po-fig">
+        <table class="po-tbl">
+          <tr><th>찾아본 곳</th><th>'ㅆㅂ'을 찾은 결과</th></tr>
+          <tr><td>표준국어대사전</td><td>등재되어 있는 단어가 아니다</td></tr>
+          <tr><td>우리말샘</td><td>등재되어 있는 단어가 아니다</td></tr>
+          <tr><td>어원·유래</td><td>성교나 여성의 성기를 뜻하는 비속어 '씹'에서 나온 '씹할'이라는 말이 소리 나는 대로 변한 욕설이다</td></tr>
+        </table>
+        <p class="cap"><b>표 1</b> · 사전 두 곳에서 'ㅆㅂ'을 찾아본 결과와 모둠이 찾은 어원(2026년 8월)<br>
+          <b>어디서 왔나</b> 우리 모둠이 보고서 3절에 쓴 문장 · <b>보여 주는 것</b> 이 말은 사전에 없고, 사전 대신 어원으로 뜻을 확인해야 하는 말이다.</p>
+      </figure>
+
+      <figure class="po-fig">
+        <svg viewBox="0 0 560 178" role="img" aria-label="'ㅆㅂ'의 어원을 그린 그림. 말풍선 셋이 왼쪽에서 오른쪽으로 이어진다. 옛 비속어에서 '씹할'이 나오고, 그것이 소리 나는 대로 변해 'ㅆㅂ'이 되었다.">
+          <path d="M20 24 h124 a16 16 0 0 1 16 16 v44 a16 16 0 0 1 -16 16 h-96 l-16 14 v-14 h-12 a16 16 0 0 1 -16 -16 v-44 a16 16 0 0 1 16 -16 z" fill="#FFF8E1" stroke="#F0E2B0" stroke-width="2"></path>
+          <path d="M219 24 h124 a16 16 0 0 1 16 16 v44 a16 16 0 0 1 -16 16 h-96 l-16 14 v-14 h-12 a16 16 0 0 1 -16 -16 v-44 a16 16 0 0 1 16 -16 z" fill="#FFECE8" stroke="#FF5A47" stroke-width="2"></path>
+          <path d="M418 24 h124 a16 16 0 0 1 16 16 v44 a16 16 0 0 1 -16 16 h-96 l-16 14 v-14 h-12 a16 16 0 0 1 -16 -16 v-44 a16 16 0 0 1 16 -16 z" fill="#22262E" stroke="#22262E" stroke-width="2"></path>
+          <g font-family="Pretendard, sans-serif" font-weight="800">
+            <text x="82" y="60" font-size="16" fill="#22262E" text-anchor="middle">옛 비속어</text>
+            <text x="82" y="82" font-size="16" fill="#22262E" text-anchor="middle">'씹'</text>
+            <text x="281" y="72" font-size="19" fill="#22262E" text-anchor="middle">'씹할'</text>
+            <text x="480" y="72" font-size="21" fill="#FFD84D" text-anchor="middle">'ㅆㅂ'</text>
+            <text x="82" y="140" font-size="13" fill="#22262E" text-anchor="middle">성교나 여성의 성기를</text>
+            <text x="82" y="158" font-size="13" fill="#22262E" text-anchor="middle">뜻하는 비속어</text>
+            <text x="281" y="140" font-size="13" fill="#22262E" text-anchor="middle">여기에서 나온 말</text>
+            <text x="480" y="140" font-size="13" fill="#22262E" text-anchor="middle">소리 나는 대로 변한</text>
+            <text x="480" y="158" font-size="13" fill="#22262E" text-anchor="middle">욕설</text>
+          </g>
+          <g stroke="#22262E" stroke-width="3" fill="none">
+            <path d="M168 62 h34"></path><path d="M193 54 l10 8 -10 8"></path>
+            <path d="M367 62 h34"></path><path d="M392 54 l10 8 -10 8"></path>
+          </g>
+        </svg>
+        <p class="cap"><b>그림 1</b> · 우리 모둠이 찾은 'ㅆㅂ'의 어원(2026년 8월)<br>
+          <b>어디서 왔나</b> 보고서 3절 「사전적 의미와 실제 쓰이는 뜻」에 우리 모둠이 쓴 문장 · <b>보여 주는 것</b> 지금은 짧은 초성으로 쓰지만 원래는 성적인 뜻을 가진 옛 비속어에서 온 말이다.</p>
+      </figure>
+
+      <section class="blk">
+        <h2><span class="n">5</span>참고 자료</h2>
+        <p>보고서 5 참고 자료 칸은 <strong>비어 있다.</strong> 우리 모둠은 3차시 안에 찾아본 곳을 적지 못했다.</p>
+        <p style="font-size:.82rem;color:#6B7280">알아내지 못한 것을 알아내지 못했다고 적는 것도 조사 결과다.</p>
+      </section>
+    </div>
+
+    <!-- ══ 오른쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">3</span>조사 결과</h2>
+        <p class="sub">가. 사전적 의미와 실제 쓰이는 뜻</p>
+        <p>'ㅆㅂ'은 표준국어대사전과 우리말샘에 등재되어 있는 단어가 아니고, 어원·유래는 <strong>'ㅆㅂ'은 성교나 여성의 성기를 뜻하는 비속어 '씹'에서 나온 '씹할'이라는 말이 소리 나는 대로 변한 욕설이다.</strong></p>
+        <p class="sub">나. 말하는 사람이 이 표현을 고른 이유</p>
+      </section>
+
+      <div class="po-quote">
+        <p>평소에 많이 사용하는 표현이기 때문에 이 표현을 골랐다.</p>
+        <span class="who">— 면접에서 들은 것을 모둠이 옮겨 적은 것, 2026년 8월</span>
+      </div>
+
+      <section class="blk">
+        <p>면접에서 응답자는 평소에 많이 사용하는 표현이기 때문에 이 표현을 골랐다고 하였다. 그러니까 다른 표현보다 이 표현이 먼저 떠오르기 때문에 사용하는 것일 수 있다.</p>
+        <p class="sub">다. 듣는 사람의 느낌</p>
+        <p>응답자는 그 말을 들은 사람들 중 <strong>웃어 넘긴 사람도 있고, 불편해 한 사람도 있다</strong>고 답변하였다. 근거는 말한 사람이 본 것이고 들은 사람에게 직접 물어본 것은 아니다.</p>
+        <p class="sub">라. 이 말을 계속 쓰게 하는 원인</p>
+        <p>면접에서 응답자는 평소에 많이 사용하기 때문에 이 말을 쓰게 된다고 답했다. STEP 5에서 우리 모둠은 화가 나는 갑작스러운 상황에서 사용할 수 있는 단어가 생각나지 않아 익숙하게 많이 써 오고 들어 본 단어를 선택하게 되는 것을 원인으로 정했다. 그 근거는 응답자의 답변에서 평소 많이 사용하였다는 답변이 있었기 때문이다. 따라서 우리 조사에서 이 말을 계속 쓰게 하는 원인은 <strong>익숙하게 들은 단어를 습관적으로 사용하는 것</strong>일 수 있다.</p>
+      </section>
+
+      <div class="po-cause">
+        <span class="lab">방안으로 다룰 원인 하나</span>
+        <p>화가 나는 갑작스러운 상황에서 쓸 단어가 생각나지 않아, 익숙하게 들은 단어를 습관적으로 사용하는 것이다.</p>
+      </div>
+
+      <figure class="po-fig">
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>「ㅅㅂ」</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>「아이쿠」</p></div>
+        </div>
+        <p class="cap"><b>그림 2</b> · 모둠이 조사한 말을 바꿔 본 것(2026년 8월)<br>
+          <b>어디서 왔나</b> 보고서 3절 「바꿔 쓸 표현」 · <b>보여 주는 것</b> 모둠에서 한 사람이 실제로 말해 보았고, 들은 사람이 '뜻을 바로 알겠다'와 '존중받는다고 느낀다'에 모두 표시했다.</p>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ══ 결론 ══ -->
+  <div class="po-concl">
+    <h2><span class="n">4</span>결론</h2>
+    <div class="po-cgrid">
+
+      <div>
+        <p class="sub">가. 조사에 따른 주요 발견점</p>
+        <p style="font-size:.93rem;line-height:1.72">우리 모둠이 조사한 'ㅅㅂ'에서는, 면접 1명과 같은 말이 적힌 카드 1장을 보고 다음을 알아냈다. 3에서 정한 원인은 감정적으로 좋지 않을 때 대체 단어를 생각하니 익숙하고, 많이 써 보고, 들어 본 단어를 사용한다는 것이 비속어와 은어를 사용하는 원인이다. 우리 탐구 질문의 답은 "감정적으로 좋지 않을 때, 상황이 나쁠 때에 주로 [ㅅㅂ]이라는 은어나 비속어를 사용한다."이다.</p>
+        <div class="po-limit">
+          <strong>여기까지가 우리가 알아낸 것이다</strong>
+          <p>면접은 1명이다. 카드 장수는 2 조사 계획에 5장, 4-가에 1장으로 서로 다르게 적혀 있어 <strong>어느 쪽인지 아직 정하지 못했다.</strong> 듣는 사람의 느낌은 말한 사람이 본 것이고 들은 사람에게 직접 물어본 것은 아니다. 4-나 ⓑ 실행 방안과 5 참고 자료는 <strong>3차시 안에 쓰지 못했다.</strong></p>
+        </div>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓐ — 각자 자기 카드의 말을 바꾼 것</p>
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>「ㅅㅂ」</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>「아이쿠」</p></div>
+        </div>
+        <table class="po-tbl">
+          <tr><th>이름</th><th>원래 말</th><th>바꾼 말</th></tr>
+          <tr><td>김동하</td><td>밤티</td><td>이거 별로다</td></tr>
+          <tr><td>김서은</td><td>감다살</td><td>짱이다</td></tr>
+          <tr><td>김예령</td><td>ㄱㅅㄲ야</td><td>나쁜 친구야</td></tr>
+          <tr><td>한민서</td><td>ㅅㅂ</td><td>아이쿠</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓑ — 원인 하나에 맞춘 실행 방안</p>
+        <div class="po-plan">
+          <dl>
+            <dt>줄일 원인</dt><dd>아직 정하지 못했다</dd>
+            <dt>누가</dt><dd>아직 정하지 못했다</dd>
+            <dt>언제</dt><dd>아직 정하지 못했다</dd>
+            <dt>무엇을</dt><dd>아직 정하지 못했다</dd>
+            <dt>확인</dt><dd>아직 정하지 못했다</dd>
+          </dl>
+          <p class="why">보고서 4-나 ⓑ 칸에는 「우리가 줄이려는 원인은 이다. 이를 줄이기 위해」까지만 적혀 있다. 실행 방안은 3차시 안에 끝내지 못했다. 알아내지 못한 것을 알아내지 못했다고 적는 것도 조사 결과다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="po-foot">
+    <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 5장</strong>(4-가에는 1장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
+    <p class="brand">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+  </footer>
+
+</article>
+</body>
+</html>

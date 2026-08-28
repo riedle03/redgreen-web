@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>'영포티' — 학급 언어생활 사례 조사 · 1학년 6반 3조</title>
+<meta name="description" content="'영포티' — 외래어로 비하하는 표현을 쓰는 이유는 뭘까? 1학년 6반 3조가 면접 1명과 우리 반 RED 카드로 조사한 결과.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* 학급 언어생활 사례 조사 · 모둠 조사 포스터
+     A1 세로(594×841mm) 비율. 인쇄하면 그대로 나온다. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #E9EDF3; color: #22262E;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
+p { margin: 0; }
+
+/* ── 포스터 캔버스 · A1 세로 비율 1 : 1.414 ── */
+.poster { width: 1360px; min-height: 1923px; margin: 28px auto; background: #fff;
+  box-shadow: 0 18px 46px rgba(30,35,45,.22); display: flex; flex-direction: column; }
+
+/* ── 머리띠 · 제목과 작성자 ── */
+.po-head { background: #22262E; color: #fff; padding: 34px 44px 30px; position: relative; }
+.po-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px;
+  background: linear-gradient(90deg, #FF5A47 0%, #FFD84D 50%, #1FA97E 100%); }
+.po-kicker { font-size: .92rem; font-weight: 800; color: #FFD84D; letter-spacing: .04em; }
+.po-head h1 { font-size: 2.75rem; line-height: 1.22; margin-top: 12px; }
+.po-head h1 .hl { background: #FFD84D; color: #22262E; border-radius: 8px; padding: 0 12px; }
+.po-sub { font-size: 1.12rem; font-weight: 600; color: #C7CEDA; margin-top: 14px; line-height: 1.6; }
+.po-authors { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-top: 22px;
+  padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+.po-authors .aff { font-size: 1.02rem; font-weight: 800; color: #8FE3C4; }
+.po-authors .names { font-size: 1.02rem; font-weight: 600; color: #E8ECF3; }
+.po-authors .names b { font-weight: 800; }
+.po-authors .when { font-size: .9rem; font-weight: 600; color: #9AA4B4; margin-left: auto; }
+
+/* ── 조사 범위 띠 ── */
+.po-scope { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 13px 44px;
+  display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: center; }
+.po-scope span { font-size: .95rem; font-weight: 700; }
+.po-scope .k { color: #8A6D1F; font-weight: 800; margin-right: 6px; }
+
+/* ── 2단 본문 ── */
+.po-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+.po-col { padding: 26px 32px; border-right: 1px solid #E4E8EE;
+  display: flex; flex-direction: column; gap: 22px; }
+.po-col:last-child { border-right: none; }
+
+.blk > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.14rem; margin-bottom: 10px; }
+.blk .n { display: inline-flex; align-items: center; justify-content: center; width: 27px; height: 27px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .88rem; font-weight: 800; flex: 0 0 auto; }
+.blk p { font-size: .93rem; line-height: 1.72; margin-bottom: 9px; }
+.blk p:last-child { margin-bottom: 0; }
+.blk .sub { font-size: .86rem; font-weight: 800; color: #4B5563; margin: 12px 0 5px; }
+
+/* ── 자료 · 표·그래프·워드클라우드·그림은 모두 이 틀에 넣는다 ── */
+.po-fig { border: 1.5px solid #E1E6ED; border-radius: 12px; background: #FBFCFE; padding: 12px 14px 9px; }
+.po-fig svg { display: block; width: 100%; height: auto; }
+.po-fig .cap { font-size: .74rem; font-weight: 700; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+.po-fig .cap b { color: #22262E; }
+.wc text { font-weight: 800; }
+
+/* ── 면접에서 들은 말 ── */
+.po-quote { border-left: 5px solid #4A7DDC; background: #EEF3FC; border-radius: 0 12px 12px 0; padding: 14px 16px; }
+.po-quote p { font-size: 1rem; font-weight: 800; line-height: 1.6; }
+.po-quote .who { display: block; font-size: .78rem; font-weight: 700; color: #6B7280; margin-top: 8px; }
+
+/* ── 원인 · 포스터의 축. 바꾼 말·제언보다 앞에 온다 ── */
+.po-cause { border: 2.5px solid #22262E; border-radius: 14px; background: #FFF8E1; padding: 16px 18px; }
+.po-cause .lab { display: inline-block; font-size: .72rem; font-weight: 800; color: #fff; background: #22262E;
+  border-radius: 999px; padding: 3px 11px; margin-bottom: 9px; }
+.po-cause p { font-size: 1.02rem; font-weight: 800; line-height: 1.55; }
+
+/* ── 결론 전폭 띠 ── */
+.po-concl { border-top: 3px solid #22262E; background: #FAFBFD; padding: 24px 32px 26px; }
+.po-concl > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.24rem; margin-bottom: 16px; }
+.po-concl > h2 .n { display: inline-flex; align-items: center; justify-content: center; width: 29px; height: 29px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .92rem; font-weight: 800; flex: 0 0 auto; }
+.po-cgrid { display: grid; grid-template-columns: 1.05fr 1fr 1.15fr; gap: 22px; align-items: start; }
+.po-cgrid > div { display: flex; flex-direction: column; gap: 12px; }
+
+/* ── 원래 말 → 바꾼 말 ── */
+.po-flip { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 6px; align-items: stretch; }
+.po-flip .s { border-radius: 11px; padding: 12px 13px; }
+.po-flip .b4 { background: #FFECE8; border: 1.5px solid #FF5A47; }
+.po-flip .af { background: #E3F6EE; border: 1.5px solid #1FA97E; }
+.po-flip .t { display: inline-block; font-size: .68rem; color: #fff; border-radius: 999px;
+  padding: 2px 9px; margin-bottom: 6px; font-weight: 800; }
+.po-flip .b4 .t { background: #D6402F; }
+.po-flip .af .t { background: #14775A; }
+.po-flip .s p { font-size: .87rem; font-weight: 700; line-height: 1.5; }
+.po-flip .ar { display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; }
+
+/* ── 실행 방안 · 줄일 원인·누가·언제·무엇을·확인 ── */
+.po-plan { border: 2px solid #1FA97E; border-radius: 14px; background: #E3F6EE; padding: 15px 17px; }
+.po-plan dl { display: grid; grid-template-columns: 62px 1fr; gap: 7px 12px; margin: 0; }
+.po-plan dt { font-size: .76rem; font-weight: 800; color: #14775A; padding-top: 2px; }
+.po-plan dd { margin: 0; font-size: .87rem; line-height: 1.6; font-weight: 600; }
+.po-plan .why { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(20,119,90,.26);
+  font-size: .84rem; line-height: 1.6; font-weight: 700; }
+
+.po-tbl { width: 100%; border-collapse: collapse; }
+.po-tbl th, .po-tbl td { border: 1px solid #DDE2EA; padding: 7px 9px; font-size: .84rem;
+  text-align: left; line-height: 1.5; }
+.po-tbl th { background: #F4F6FA; font-weight: 800; font-size: .78rem; }
+
+/* ── 알아내지 못한 것 ── */
+.po-limit { border: 2px dashed #B9C2D0; border-radius: 12px; background: #F6F8FB; padding: 13px 15px; }
+.po-limit strong { display: block; font-size: .88rem; margin-bottom: 5px; }
+.po-limit p { font-size: .84rem; line-height: 1.65; font-weight: 600; color: #4B5563; }
+
+/* ── 발 ── */
+.po-foot { background: #F4F6FA; border-top: 2px solid #E1E6ED; padding: 15px 44px;
+  display: flex; flex-wrap: wrap; gap: 6px 26px; align-items: baseline; }
+.po-foot p { font-size: .8rem; font-weight: 600; color: #4B5563; line-height: 1.6; }
+.po-foot .brand { font-size: .84rem; font-weight: 800; color: #22262E; margin-left: auto; }
+
+/* ── 휴대폰 · 캔버스 고정을 풀고 1열로 편다 ── */
+@media (max-width: 900px) {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: 0; margin: 0; box-shadow: none; }
+  .po-head { padding: 24px 20px 22px; }
+  .po-head h1 { font-size: 1.72rem; }
+  .po-sub { font-size: 1rem; }
+  .po-authors { gap: 6px 12px; }
+  .po-authors .when { margin-left: 0; }
+  .po-scope { padding: 12px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .po-body { grid-template-columns: 1fr; }
+  .po-col { border-right: none; border-bottom: 1px solid #E4E8EE; padding: 22px 20px; }
+  .po-concl { padding: 22px 20px 26px; }
+  .po-cgrid { grid-template-columns: 1fr; gap: 26px; }
+  .po-plan dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .po-plan dt { padding-top: 9px; }
+  .po-flip { grid-template-columns: 1fr; gap: 4px; }
+  .po-flip .ar { transform: rotate(90deg); padding: 2px 0; }
+  .po-foot { padding: 14px 20px; }
+  .po-foot .brand { margin-left: 0; }
+  .blk p, .po-plan dd, .po-limit p { font-size: .96rem; }
+}
+
+/* ── 인쇄 · A1 세로 ── */
+@media print {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
+  @page { size: A1 portrait; margin: 0; }
+}
+</style>
+</head>
+<body>
+<article class="poster">
+
+  <header class="po-head">
+    <p class="po-kicker">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+    <h1>'<span class="hl">영포티</span>'는 어떤 뜻으로 쓰이고<br>듣는 사람에게 어떻게 들리나</h1>
+    <p class="po-sub">'영포티' — 외래어로 비하하는 표현을 쓰는 이유는 뭘까? 우리 모둠의 조사 목적은 왜 굳이 외래어로 비하 표현을 하는가에 답하는 것이다.</p>
+    <div class="po-authors">
+      <span class="aff">1학년 6반 3조</span>
+      <span class="names"><b>1603 김민경</b> · <b>1609 유석현</b> · <b>1614 이서율</b> · <b>1616 이인서</b></span>
+      <span class="when">2026년 8월 20일 ~ 8월 26일</span>
+    </div>
+  </header>
+
+  <div class="po-scope">
+    <span><span class="k">조사 대상</span>면접 1명(모둠원 가운데 '영포티'를 들어 본 사람)</span>
+    <span><span class="k">자료</span>우리 반 RED 카드 2장 — 4-가에는 1장으로 적혀 있다</span>
+    <span><span class="k">방법</span>사전 조사 · 사례 자료 분석 · 모둠 면접(초점 집단 면접, FGI 방식) · 토의</span>
+  </div>
+
+  <div class="po-body">
+
+    <!-- ══ 왼쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">1</span>조사 동기와 목적</h2>
+        <p class="sub">가. 조사 동기</p>
+        <p>1차시에 학급 카드를 보다가 '영포티'라는 카드를 봤다. 왜 굳이 영어로 비하를 하는 건지 궁금해져서 이 말을 조사하기로 하였다.</p>
+        <p class="sub">나. 조사 목적</p>
+        <p>우리 모둠의 조사 목적은 왜 굳이 외래어로 비하 표현을 하는가에 답하는 것이다.</p>
+      </section>
+
+      <section class="blk">
+        <h2><span class="n">2</span>조사 계획</h2>
+        <p class="sub">가. 조사 기간</p><p>2026년 8월 20일부터 8월 26일까지</p>
+        <p class="sub">나. 조사 대상</p><p>면접 1명(모둠원 가운데 '영포티'를 들어 본 사람), 학급 RED 카드 2장</p>
+        <p class="sub">다. 조사 방법</p><p>사전 조사, 사례 자료 분석, 모둠 면접(초점 집단 면접, FGI 방식), 토의</p>
+      </section>
+
+      <figure class="po-fig">
+        <table class="po-tbl">
+          <tr><th>찾아본 곳</th><th>'영포티'의 뜻</th></tr>
+          <tr><td>표준국어대사전</td><td>나와 있지 않다</td></tr>
+          <tr><td>우리말샘</td><td>젊게 사려는 40대</td></tr>
+          <tr><td>우리가 실제로 쓰는 뜻</td><td>젊은 척하는 아재들이라고 비하하는 뜻</td></tr>
+        </table>
+        <p class="cap"><b>표 1</b> · 사전에 오른 뜻과 우리가 쓰는 뜻(2026년 8월)<br>
+          <b>어디서 왔나</b> 보고서 3-가 · <b>보여 주는 것</b> 사전에 오른 뜻에는 비하가 없지만, 우리가 쓰는 뜻에는 비하가 들어 있다.</p>
+      </figure>
+
+      <section class="blk">
+        <h2><span class="n">5</span>참고 자료</h2>
+        <p>국립국어원, 「2020년 국민의 언어 의식 조사」, 2020</p>
+        <p>1학년 RED 카드 2장(2026년 8월 26일)</p>
+      </section>
+    </div>
+
+    <!-- ══ 오른쪽 단 ══ -->
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">3</span>조사 결과</h2>
+        <p class="sub">가. 사전적 의미와 실제 쓰이는 뜻</p>
+        <p>'영포티'는 표준국어대사전에 안 나와 있고 우리말샘에서는 젊게 사려는 40대, 실제로 쓰이는 뜻은 <strong>젊은 척하는 아재들이라고 비하하는 뜻</strong>이다.</p>
+        <p class="sub">나. 말하는 사람이 이 표현을 고른 이유</p>
+      </section>
+
+      <div class="po-quote">
+        <p>"인터넷에 접해서 정확한 의미를 길게 생각하지 않고 습관적으로 사용한 것 같다. 다만 놀리는 상황일 경우 일부러 사용한 것 같다."</p>
+        <span class="who">— 면접 응답자, 2026년 8월</span>
+      </div>
+
+      <section class="blk">
+        <p class="sub">다. 듣는 사람의 느낌</p>
+        <p>응답자는 그 말을 들은 사람이 비하라는 걸 알고 있어서 기분 나빴을 거라고 했다. 그래서 근거는 말을 들은 사람의 <strong>표정이 어두워지고 기분 나빠하는 기색이 역력했기 때문</strong>이다.</p>
+      </section>
+
+      <figure class="po-fig">
+        <svg viewBox="0 0 560 186" role="img" aria-label="말한 사람이 '영포티'라고 말하고, 그 말이 화살표를 따라 오른쪽 사람에게 가 닿아 그 사람의 입꼬리가 내려간 그림.">
+          <circle cx="60" cy="58" r="22" fill="#FFD84D" stroke="#22262E" stroke-width="2.5"></circle>
+          <circle cx="52" cy="53" r="2.6" fill="#22262E"></circle>
+          <circle cx="68" cy="53" r="2.6" fill="#22262E"></circle>
+          <path d="M50 66 q10 7 20 0" fill="none" stroke="#22262E" stroke-width="2.5" stroke-linecap="round"></path>
+          <path d="M30 110 a30 26 0 0 1 60 0 z" fill="#FFD84D" stroke="#22262E" stroke-width="2.5"></path>
+          <path d="M136 26 h264 a16 16 0 0 1 16 16 v34 a16 16 0 0 1 -16 16 h-264 a16 16 0 0 1 -16 -16 v-6 l-16 8 8 -16 a16 16 0 0 1 8 -36 z" fill="#FFF8E1" stroke="#F0E2B0" stroke-width="2.5"></path>
+          <text x="268" y="70" font-family="Pretendard, sans-serif" font-size="30" font-weight="800" fill="#22262E" text-anchor="middle">영포티</text>
+          <g stroke="#22262E" stroke-width="3" fill="none">
+            <path d="M420 59 h44"></path><path d="M456 51 l10 8 -10 8"></path>
+          </g>
+          <circle cx="500" cy="58" r="22" fill="#C7CEDA" stroke="#22262E" stroke-width="2.5"></circle>
+          <circle cx="492" cy="53" r="2.6" fill="#22262E"></circle>
+          <circle cx="508" cy="53" r="2.6" fill="#22262E"></circle>
+          <path d="M490 72 q10 -7 20 0" fill="none" stroke="#22262E" stroke-width="2.5" stroke-linecap="round"></path>
+          <path d="M470 110 a30 26 0 0 1 60 0 z" fill="#C7CEDA" stroke="#22262E" stroke-width="2.5"></path>
+          <g font-family="Pretendard, sans-serif" font-weight="800" fill="#22262E" text-anchor="middle" font-size="14">
+            <text x="60" y="140">습관처럼 쓴 사람</text>
+            <text x="60" y="162">놀릴 때는 일부러</text>
+            <text x="500" y="140">표정이 어두워진 사람</text>
+            <text x="500" y="162">비하인 줄 알고 있다</text>
+          </g>
+        </svg>
+        <p class="cap"><b>그림 1</b> · 보고서 3-나와 3-다에 적은 장면을 그린 것(2026년 8월)<br>
+          <b>어디서 왔나</b> 우리 모둠의 면접 기록 · <b>보여 주는 것</b> 말한 쪽은 습관처럼 썼지만, 들은 쪽의 표정은 어두워졌다.</p>
+      </figure>
+
+      <section class="blk">
+        <p class="sub">라. 이 말을 계속 쓰게 하는 원인</p>
+        <p><strong>이 칸은 보고서에서 비어 있다.</strong> 아래 원인 상자에 적은 것은 4-가 셋째 발견점에서 옮긴 것이다.</p>
+      </section>
+
+      <div class="po-cause">
+        <span class="lab">방안으로 다룰 원인 하나</span>
+        <p>사람들을 비꼬는 상황에서 바로 알아듣지 못하게 돌려 까기 위함이다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 결론 ══ -->
+  <div class="po-concl">
+    <h2><span class="n">4</span>결론</h2>
+    <div class="po-cgrid">
+
+      <div>
+        <p class="sub">가. 주요 발견점</p>
+        <p style="font-size:.93rem;line-height:1.72">우리 모둠이 조사한 '영포티'에서는, 면접 1명과 학급 카드 1장을 보고 ______을 알아냈다. 첫째, 앞뒤가 안 맞는 답은 없다. 둘째, 어른들은 영포티를 쓰는 원인을 젊은 사람이라고 유행에 껴 주는 것으로 알지만, <strong>실제로는 비꼬는 말</strong>이다. 셋째, 그래서 우리의 탐구 질문의 답은 사람들을 비꼬는 상황에서 <strong>바로 알아듣지 못하게 돌려 까기 위함</strong>인 것이다.</p>
+        <div class="po-limit">
+          <strong>여기까지가 우리가 알아낸 것이다</strong>
+          <p>4-가의 「______을 알아냈다」 칸은 보고서에서 채우지 않았다. 카드 장수는 2-나와 5에 2장, 4-가에 1장으로 서로 다르게 적혀 있어 <strong>어느 쪽인지 아직 정하지 못했다.</strong> 3의 '이 말을 계속 쓰게 하는 원인' 칸은 비어 있다. 듣는 사람에게 직접 물어본 것이 아니라 표정을 보고 판단했다.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓐ — 각자 자기 카드의 말을 바꾼 것</p>
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>"개노맛"</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>"너무 맛없다"</p></div>
+        </div>
+        <table class="po-tbl">
+          <tr><th>이름</th><th>원래 말</th><th>바꾼 말</th></tr>
+          <tr><td>김민경</td><td>야르</td><td>맛있다</td></tr>
+          <tr><td>유석현</td><td>오이쉬</td><td>재미지다</td></tr>
+          <tr><td>이서율</td><td>ㅈㄴ 잘생겼다</td><td>너무 잘생겼다</td></tr>
+          <tr><td>이인서</td><td>개노맛</td><td>너무 맛없다</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓑ — 원인 하나에 맞춘 실행 방안</p>
+        <div class="po-plan">
+          <dl>
+            <dt>줄일 원인</dt><dd>바로 알아듣지 못하게 돌려 까려고 쓰는 것</dd>
+            <dt>누가</dt><dd>학급·학교 · 온라인 · 스스로</dd>
+            <dt>언제</dt><dd><strong>아직 정하지 못했다.</strong> 언제 하는지를 보고서에 적지 않았다</dd>
+            <dt>무엇을</dt><dd>학급에서는 학급 게시판에 '영포티'를 순화해서 표현하기 캠페인을 실시하여, 순화한 언어를 자신이 적어서 게시판에 직접 붙이고 붙인 친구에게는 간식을 준다. 온라인에서는 이 말이 왜 불편한지 댓글에 작성한다</dd>
+            <dt>확인</dt><dd><strong>아직 정하지 못했다.</strong> 무엇으로 확인할지 보고서에 적지 않았다</dd>
+          </dl>
+          <p class="why">이 행동이 원인을 바꾸는 까닭은 보고서에 적지 않았다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="po-foot">
+    <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 2장</strong>(4-가에는 1장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 3의 '이 말을 계속 쓰게 하는 원인' 칸은 보고서에서 비어 있어 비어 있다고 적었습니다. 확인한 것과 짐작한 것을 나누어 적었습니다.</p>
+    <p class="brand">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+  </footer>
+
+</article>
+</body>
+</html>
