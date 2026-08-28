@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="icon" type="image/png" href="img/icon-logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>도우미 3종 — RED RED GREEN GREEN</title>
+  <meta name="description" content="차시마다 하나씩, 선생님이 만든 도우미 셋. 말뜻 도우미(1차시) · 면접 문항 도우미(2차시) · 웹페이지 도우미(과제)">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="design-v2.css">
+  <style>
+    .hp-hero { background: linear-gradient(150deg, #F1ECFD 0%, #F5F6FA 52%, #E3F6EE 100%); padding: 120px 0 52px; }
+    .hp-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    .hp-hero .lede { color: #4B5563; font-weight: 600; margin-top: 12px; font-size: 1.02rem; line-height: 1.75; max-width: 64ch; }
+    .back-link { display: inline-block; margin-bottom: 14px; font-weight: 800; color: var(--blue); text-decoration: none; }
+    .back-link:hover { text-decoration: underline; }
+
+    /* 한눈에 보는 표 */
+    .hp-tbl-wrap { overflow-x: auto; margin-top: 8px; }
+    .hp-tbl { width: 100%; border-collapse: collapse; min-width: 720px; background: var(--white); }
+    .hp-tbl th, .hp-tbl td { border: 1px solid rgba(34,38,46,.14); padding: 12px 14px; font-size: .94rem; line-height: 1.65; text-align: left; vertical-align: top; }
+    .hp-tbl th { background: #F4F6FA; font-weight: 800; font-size: .86rem; }
+    .hp-tbl td strong { font-weight: 800; }
+    .hp-when { display: inline-block; font-family: 'Paperlogy','Pretendard',sans-serif; font-size: .74rem; color: #fff; border-radius: 999px; padding: 3px 10px; white-space: nowrap; }
+    .w1 { background: var(--red-deep, #D6402F); }
+    .w2 { background: var(--green-deep, #14775A); }
+    .w3 { background: var(--violet, #8B5CF6); }
+
+    /* 도우미 카드 */
+    .hp-card { border: 2px solid rgba(34,38,46,.14); border-radius: 22px; background: var(--white); padding: 26px 28px; margin-bottom: 18px; }
+    .hp-card > header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-bottom: 10px; }
+    .hp-card h3 { font-size: clamp(1.15rem, 2.4vw, 1.5rem); margin: 0; }
+    .hp-card h3::after { content: none; }
+    .hp-card .sum { font-size: 1rem; font-weight: 700; color: #4B5563; line-height: 1.7; margin: 0 0 16px; }
+    .hp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .hp-box { border-radius: 14px; padding: 16px 18px; }
+    .hp-in { background: #EEF3FC; border: 1.5px solid #C6D8F5; }
+    .hp-no { background: #FFF1EE; border: 1.5px solid #FFC9C0; }
+    .hp-box strong { display: block; font-size: .88rem; font-weight: 800; margin-bottom: 8px; }
+    .hp-in strong { color: #2F5FBB; }
+    .hp-no strong { color: var(--red-deep, #D6402F); }
+    .hp-box ul { margin: 0; padding-left: 18px; }
+    .hp-box li { font-size: .92rem; line-height: 1.7; font-weight: 600; margin-bottom: 4px; }
+    .hp-open { display: inline-block; margin-top: 16px; font-weight: 800; font-size: .95rem; }
+    .hp-note { margin: 12px 0 0; font-size: .9rem; line-height: 1.7; font-weight: 600; color: #4B5563; }
+
+    /* 다른 하나 — 웹페이지 도우미 예외 설명 */
+    .hp-diff { border-left: 6px solid var(--violet, #8B5CF6); background: #F5F1FE; border-radius: 0 18px 18px 0; padding: 20px 24px; margin: 22px 0 0; }
+    .hp-diff strong { display: block; font-size: 1.02rem; margin-bottom: 8px; }
+    .hp-diff p { margin: 0; font-size: .96rem; line-height: 1.8; }
+
+    .rules { margin: 16px 0 0; padding-left: 20px; }
+    .rules li { font-size: .98rem; line-height: 1.8; margin-bottom: 8px; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+
+    @media (max-width: 760px) { .hp-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a class="brand" href="index.html">
+        <span class="c-red">RED RED</span>
+        <span class="c-green">GREEN GREEN</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="visually-hidden">메뉴</span>
+      </button>
+      <ul id="site-menu" class="nav-links">
+        <li><a href="index.html">← 메인으로</a></li>
+        <li><a class="nav-pill pill-red" href="https://script.google.com/a/macros/e-mirim.hs.kr/s/AKfycbwfmUjWA3QLke0zZzwaPeZRYcMjdLuke04AEYwVJdpgSA2n5LdXSHjYWinZ8odoBpo/exec" target="_blank" rel="noopener">RED 카드 웹앱</a></li>
+        <li><a class="nav-pill pill-blue" href="question.html">탐구질문 가이드</a></li>
+        <li><a class="nav-pill pill-green" href="interview.html">면접(Interview) 가이드</a></li>
+        <li><a class="nav-pill pill-violet is-current" href="helpers.html" aria-current="page">도우미 3종</a></li>
+        <li><a class="nav-pill pill-amber" href="gallery.html">조사 갤러리</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hp-hero">
+      <div class="wrap">
+        <a class="back-link" href="index.html">← 메인으로 돌아가기</a>
+        <h1>차시마다 하나씩, <span style="background:var(--sun);border-radius:6px;padding:0 8px;">도우미 셋</span></h1>
+        <p class="lede">모두 <strong>선생님이 만든 Gemini Gem</strong>입니다. 아무 AI에게나 물어보는 것과 다릅니다. 각 도우미는 <strong>자기 차시에 맡은 일 하나만</strong> 하고, 그 밖의 일은 하지 않습니다. 열기 전에 무엇을 넣어야 하는지, 무엇을 해 주지 않는지 확인하세요.</p>
+      </div>
+    </section>
+
+    <section class="section" id="table">
+      <div class="wrap">
+        <header class="section-head">
+          <h2>한눈에 보기</h2>
+          <p>세 도우미는 하는 일이 겹치지 않습니다. 서로 넘어가지 않습니다.</p>
+        </header>
+        <div class="hp-tbl-wrap">
+          <table class="hp-tbl">
+            <thead>
+              <tr><th>언제</th><th>도우미</th><th>하는 일</th><th>넣을 것</th><th>하지 않는 일</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="hp-when w1">1차시</span></td>
+                <td><strong>말뜻 도우미</strong></td>
+                <td>사전에 없는 말의 통용 의미와 어원·유래</td>
+                <td>알아보려는 말 · 그 말이 쓰인 상황 · 사전에서 찾은 결과</td>
+                <td>좋은 말인지 판정하지 않음 · 다른 말로 바꿔 주지 않음</td>
+              </tr>
+              <tr>
+                <td><span class="hp-when w2">2차시</span></td>
+                <td><strong>면접 문항 도우미</strong></td>
+                <td>모둠이 만든 면접 문항 점검 · 바꿔 쓸 후보 2~3개</td>
+                <td>모둠 탐구질문 · 조사할 말 · 우리가 만든 문항 초안</td>
+                <td>문항을 대신 만들어 주지 않음 · 면접 답을 예상해 주지 않음</td>
+              </tr>
+              <tr>
+                <td><span class="hp-when w3">과제</span></td>
+                <td><strong>웹페이지 도우미</strong></td>
+                <td>보고서와 프롬프트 10칸으로 <strong>조사 포스터 한 장</strong>을 만듦</td>
+                <td>모둠 조사 보고서 전문(프롬프트 10칸 포함)</td>
+                <td>보고서에 없는 사실·수치를 만들지 않음 · 제언을 구호로 바꾸지 않음</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="each">
+      <div class="wrap">
+        <header class="section-head">
+          <h2>하나씩 자세히</h2>
+        </header>
+
+        <article class="hp-card reveal">
+          <header>
+            <span class="hp-when w1">1차시 · 질문하기</span>
+            <h3>말뜻 도우미</h3>
+          </header>
+          <p class="sum">표준국어대사전과 우리말샘에 <strong>둘 다 없는 말</strong>의 통용 의미와 어원·유래를 알아봅니다. 참고용입니다.</p>
+          <div class="hp-grid">
+            <div class="hp-box hp-in">
+              <strong>넣을 것</strong>
+              <ul>
+                <li>알아보려는 말</li>
+                <li>그 말이 쓰인 문장이나 상황 (RED 카드에 적은 것)</li>
+                <li>사전에서 찾아봤는지, 찾았다면 결과</li>
+              </ul>
+            </div>
+            <div class="hp-box hp-no">
+              <strong>하지 않는 일</strong>
+              <ul>
+                <li>좋은 말인지 나쁜 말인지 판정하지 않습니다</li>
+                <li>다른 말로 바꿔 주지 않습니다 — 바꾸는 일은 2차시에 직접</li>
+                <li>학습지 답을 대신 쓰지 않습니다</li>
+              </ul>
+            </div>
+          </div>
+          <p class="hp-note">사전에 <strong>있는</strong> 말이면 사전으로 돌려보냅니다. 알려 준 뜻은 사전적 의미가 아니므로, 학습지 ③ 칸에 <strong>내 말로 줄여</strong> 적고 「말뜻 도우미 참고」라고 밝힙니다.</p>
+          <p><a class="btn btn-primary hp-open" href="https://gemini.google.com/gem/1MPhAmjM_bfyVD6TQtBbKwfhqTvqZYdlZ?usp=sharing" target="_blank" rel="noopener">말뜻 도우미 열기</a></p>
+        </article>
+
+        <article class="hp-card reveal">
+          <header>
+            <span class="hp-when w2">2차시 · 탐구하기</span>
+            <h3>면접 문항 도우미</h3>
+          </header>
+          <p class="sum">모둠이 만든 <strong>면접 문항 초안</strong>을 점검하고, 바꿔 쓸 후보를 2~3개 보여 줍니다. 후보마다 「이 문항으로 알 수 있는 것」이 한 줄 붙어 있습니다.</p>
+          <div class="hp-grid">
+            <div class="hp-box hp-in">
+              <strong>넣을 것</strong>
+              <ul>
+                <li>우리 모둠 탐구질문</li>
+                <li>우리가 조사할 말</li>
+                <li>우리가 만든 면접 문항 초안 (1~3개)</li>
+              </ul>
+            </div>
+            <div class="hp-box hp-no">
+              <strong>하지 않는 일</strong>
+              <ul>
+                <li>문항을 하나로 정해 주지 않습니다 — 고르는 것은 우리 몫</li>
+                <li>면접에서 나올 답을 예상해 주지 않습니다</li>
+                <li>조사하는 말의 뜻은 알려 주지 않습니다 — 그건 말뜻 도우미의 몫</li>
+              </ul>
+            </div>
+          </div>
+          <p class="hp-note"><strong>먼저 2분 동안 직접 만든 뒤</strong>에 여세요. 쓰지 않아도 되는 도구입니다. 쓰지 않은 모둠은 학습지 「고른 후보」 칸에 <strong>「직접 만듦」</strong>이라고 씁니다. 그대로 써도 되는 문항은 후보를 주지 않고 통과시킵니다.</p>
+          <p><a class="btn btn-primary hp-open" href="https://gemini.google.com/gem/1tuwbYwty_VlpjxCYBE7edDCyzDVcMA1Z?usp=sharing" target="_blank" rel="noopener">면접 문항 도우미 열기</a></p>
+        </article>
+
+        <article class="hp-card reveal">
+          <header>
+            <span class="hp-when w3">3차시 뒤 · 과제</span>
+            <h3>웹페이지 도우미</h3>
+          </header>
+          <p class="sum">다 쓴 <strong>모둠 조사 보고서</strong>를 통째로 넣으면, 그 조사를 담은 <strong>학술 포스터 한 장</strong>을 만들어 줍니다. 만들어진 포스터는 선생님이 확인해 <a href="gallery.html">우리 반 조사 갤러리</a>에 올립니다.</p>
+          <div class="hp-grid">
+            <div class="hp-box hp-in">
+              <strong>넣을 것</strong>
+              <ul>
+                <li>모둠 조사 보고서 전문 (붙여넣기 또는 파일)</li>
+                <li>맨 아래 「과제 · 웹페이지 제작 프롬프트」 <strong>10칸까지 함께</strong></li>
+              </ul>
+            </div>
+            <div class="hp-box hp-no">
+              <strong>하지 않는 일</strong>
+              <ul>
+                <li>보고서에 없는 사실·수치·통계를 만들지 않습니다</li>
+                <li>제언을 구호나 캠페인 문구로 바꾸지 않습니다</li>
+                <li>조사 범위를 넓히지 않습니다 — 「요즘 학생들은」 같은 말을 쓰지 않습니다</li>
+                <li>10칸이 비어 있으면 만들지 않고 되묻습니다</li>
+              </ul>
+            </div>
+          </div>
+          <p class="hp-note">포스터에는 <strong>우리 반·조와 학번·이름</strong>이 제목 아래에 실립니다. 거친 말은 초성으로 바뀌고, 특정 지역이나 집단을 낮잡는 말은 실리지 않습니다. 나온 포스터가 마음에 들지 않으면 <strong>프롬프트 칸을 고쳐서 다시 넣으면</strong> 됩니다.</p>
+          <p><a class="btn btn-primary hp-open" href="https://gemini.google.com/gem/1BInF3nLpNw3HeI2Gx9jufquirXp_Qf2h?usp=sharing" target="_blank" rel="noopener">웹페이지 도우미 열기</a></p>
+        </article>
+
+        <div class="hp-diff">
+          <strong>웹페이지 도우미만 다른 점</strong>
+          <p>앞의 두 도우미는 <strong>우리 답을 대신 쓰지 않습니다.</strong> 그런데 웹페이지 도우미는 포스터를 통째로 만들어 줍니다. 모순이 아닙니다 — 이 과제에서 평가하는 것은 <strong>포스터가 아니라 프롬프트 10칸</strong>이기 때문입니다. 무엇을 먼저 보여 줄지, 어떤 자료를 넣을지, 한 줄 소개를 어떻게 쓸지는 모두 모둠이 정한 것입니다. 도우미는 그 판단을 화면으로 옮겨 줄 뿐입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rules">
+      <div class="wrap">
+        <header class="section-head">
+          <h2>세 도우미에 함께 해당하는 것</h2>
+        </header>
+        <ol class="rules">
+          <li><strong>먼저 해 본 뒤에 엽니다.</strong> 백지 상태로 열면 도우미가 대신 생각하게 됩니다. 내가 쓴 것을 넣어야 도우미가 점검할 수 있습니다.</li>
+          <li><strong>학교 구글 계정으로 열립니다.</strong> 개인 계정으로는 열리지 않습니다.</li>
+          <li><strong>실명과 특정 사건은 넣지 않습니다.</strong> 조사한 것은 사람이 아니라 말입니다. (포스터의 작성자 표시는 예외입니다 — 우리 모둠이 쓴 보고서임을 밝히는 자리입니다.)</li>
+          <li><strong>도우미가 알려 준 것은 참고입니다.</strong> 학습지와 보고서에는 <strong>내 말로 줄여</strong> 적고, 도우미를 참고했다고 밝힙니다.</li>
+          <li><strong>범용 AI 챗봇에게 보고서를 대신 쓰게 하지 않습니다.</strong> 찾아보는 것은 됩니다. 대신 써 달라고 하는 것은 안 됩니다.</li>
+        </ol>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="gallery.html">조사 갤러리 보기</a>
+          <a class="btn btn-secondary" href="report.html">보고서는 어떻게 쓰나</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>세 도우미는 모두 선생님이 만들어 학교 계정으로 공유한 Gemini Gem입니다. 각자 맡은 일만 하고 서로 넘어가지 않습니다.</p>
+      <p class="credits">RED RED GREEN GREEN · 학급 언어생활 사례 조사 프로젝트</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
