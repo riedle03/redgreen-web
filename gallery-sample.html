@@ -54,6 +54,18 @@
     .ask > strong { display: block; font-size: 1.02rem; margin-bottom: 6px; color: var(--green-deep, #14775A); }
     .ask p { font-size: .93rem; margin: 0; line-height: 1.7; font-weight: 600; }
 
+    /* 우리가 찾은 원인 — 바꾼 말·제언보다 앞에 온다 */
+    .cause { border: 3px solid var(--ink); border-radius: 22px; background: #FFF8E1; padding: 24px 26px; margin: 20px 0; box-shadow: 6px 6px 0 rgba(34,38,46,.12); }
+    .cause .lab { display: inline-block; font-family: 'Paperlogy','Pretendard',sans-serif; font-size: .78rem; color: #fff; background: var(--ink); border-radius: 999px; padding: 3px 12px; margin-bottom: 12px; }
+    .cause p { margin: 0; font-size: clamp(1.05rem, 2.4vw, 1.35rem); font-weight: 800; line-height: 1.6; }
+
+    /* 원인 하나에 맞춘 실행 방안 — 누가·언제·무엇·확인 */
+    .plan { border: 2px solid var(--green, #1FA97E); border-radius: 20px; background: var(--green-soft, #E3F6EE); padding: 22px 24px; margin-top: 8px; }
+    .plan dl { display: grid; grid-template-columns: 96px 1fr; gap: 10px 16px; margin: 0; }
+    .plan dt { font-family: 'Paperlogy','Pretendard',sans-serif; font-size: .84rem; font-weight: 800; color: var(--green-deep, #14775A); padding-top: 3px; }
+    .plan dd { margin: 0; font-size: .97rem; line-height: 1.75; font-weight: 600; }
+    .plan .why { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid rgba(20,119,90,.24); font-size: .95rem; line-height: 1.75; font-weight: 700; }
+
     .limit { border: 2px dashed #B9C2D0; border-radius: 18px; background: #F6F8FB; padding: 18px 22px; margin-top: 22px; }
     .limit > strong { display: block; margin-bottom: 6px; }
     .limit p { margin: 0; font-size: .93rem; line-height: 1.75; font-weight: 600; color: #4B5563; }
@@ -84,6 +96,8 @@
       .flip { grid-template-columns: 1fr; }
       .flip .mid { padding: 8px 0; transform: rotate(90deg); }
       .asks { grid-template-columns: 1fr; }
+      .plan dl { grid-template-columns: 1fr; gap: 2px 0; }
+      .plan dt { padding-top: 10px; }
       .prompt-sheet { padding: 20px 18px; }
     }
   </style>
@@ -116,7 +130,7 @@
         <p class="gs-kicker">1학년 3모둠이 조사했습니다</p>
         <h1>"다들 쓰니까 쓴다"면서<br>왜 <span class="word">선생님 앞에서는</span> 안 쓸까?</h1>
         <p class="sub">우리는 <strong>'팩폭'</strong>이라는 말을 조사했습니다. 사실을 말하는 건데 왜 듣는 사람은 웃지 않았을까요.<br>3분이면 다 읽습니다.</p>
-        <p class="gs-by">면접 1명 · '팩폭'이 적힌 우리 반 카드 3장 · 2026년 9월</p>
+        <p class="gs-by">면접 1명 · '팩폭'이 적힌 우리 반 카드 3장 · 2026년 8월</p>
       </div>
     </section>
 
@@ -145,7 +159,7 @@
             <text x="410" y="86"  text-anchor="middle" font-size="17" fill="#4A7DDC">폼 미쳤다</text>
             <text x="228" y="90"  text-anchor="middle" font-size="16" fill="#14775A">어쩔티비</text>
           </svg>
-          <p class="src">RED 카드 웹앱 말 지도, 1학년 RED 카드 76장 (2026년 9월 8일) · 글자가 클수록 여러 사람이 적은 말입니다 · 이 가운데 '팩폭'이 적힌 카드가 3장이었습니다</p>
+          <p class="src">RED 카드 웹앱 말 지도 · <strong>예시 모둠</strong>의 학급 카드 76장 (2026년 8월 20일, 1차시) · 글자가 클수록 여러 사람이 적은 말입니다 · 이 가운데 '팩폭'이 적힌 카드가 3장이었습니다</p>
         </figure>
 
         <p class="gs-lede">우리가 <strong>'팩폭'</strong>을 고른 이유는, 네 명 중 세 명이 이 카드를 골랐는데 <strong>왜 불편했는지는 아무도 설명하지 못했기</strong> 때문입니다.</p>
@@ -159,7 +173,7 @@
 
         <div class="big-quote">
           <p>"'그냥 사실이야'라고만 하면 싸우자는 말처럼 들릴 것 같았어요.<br>'팩폭'을 붙이면 장난처럼 넘어갈 수 있으니까."</p>
-          <span class="who">— 면접 응답자, 2026년 9월 9일</span>
+          <span class="who">— 면접 응답자, 2026년 8월 25일</span>
         </div>
 
         <p class="gs-lede">그런데 들은 사람은 웃지 않았습니다. <strong>"아 됐어"</strong> 하고 다른 이야기로 넘어갔다고 합니다. 옆에 있던 사람은 웃었고요. 표정이 굳은 것도 봤다고 했습니다.</p>
@@ -196,14 +210,28 @@
               <text x="108" y="117" fill="#6B7280">0명</text>
             </g>
           </svg>
-          <p class="src">2026년 9월 9일, 면접 전에 모둠원 4명이 각자 말한 것</p>
+          <p class="src">2026년 8월 25일, 면접 전에 모둠원 4명이 각자 말한 것</p>
         </figure>
       </div>
     </section>
 
     <section class="section section-alt">
       <div class="wrap">
-        <div class="gs-head"><span class="step-num">4</span><h2>그럼 뭐라고 말하지</h2></div>
+        <div class="gs-head"><span class="step-num">4</span><h2>그래서 우리가 고른 원인</h2></div>
+        <p class="gs-lede">앞의 이상한 점을 놓고 모둠에서 이야기했습니다. 「다들 쓰니까」는 원인이 될 수 없었습니다. 어른 앞에서는 안 쓰니까요. 그래서 <strong>면접에서 응답자가 한 말</strong>로 돌아갔습니다.</p>
+
+        <div class="cause">
+          <span class="lab">방안으로 다룰 원인 하나</span>
+          <p>지적을 그냥 하면 싸움이 되니까, <span class="word" style="background:var(--sun);border-radius:6px;padding:0 6px;">'팩폭'을 붙여 장난으로 포장해야 넘어간다고</span> 여기는 것</p>
+        </div>
+
+        <p class="gs-lede">근거는 면접에서 들은 이 말입니다 — <strong>"'그냥 사실이야'라고만 하면 싸우자는 말처럼 들릴 것 같았어요."</strong> 포장을 벗기면 싸움이 된다고 여기니까 계속 붙이게 되는 것일 수 있습니다. 아래 두 절은 이 원인 하나만 겨눕니다.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="gs-head"><span class="step-num">5</span><h2>그럼 뭐라고 말하지</h2></div>
         <p class="gs-lede">사실을 말하는 건 그대로 두고, <strong>말하기 전에 물어보는 부분</strong>만 넣어 봤습니다.</p>
 
         <div class="flip">
@@ -222,18 +250,25 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-alt">
       <div class="wrap">
-        <div class="gs-head"><span class="step-num">5</span><h2>우리 제안</h2></div>
-        <div class="asks">
-          <div class="ask">
-            <strong>학급에서</strong>
-            <p>지적할 때 '팩폭'이라는 말을 붙이지 않기. 사실을 말하기 전에 <strong>말해도 되는지 먼저 묻기</strong>를 학급에서 함께 정하면 좋겠습니다.</p>
-          </div>
-          <div class="ask">
-            <strong>각자</strong>
-            <p>어른 앞에서 안 쓰는 말이라면, 친구 앞에서도 한 번은 고를 수 있습니다. 고를 수 있다는 걸 아는 것부터가 시작입니다.</p>
-          </div>
+        <div class="gs-head"><span class="step-num">6</span><h2>우리 제안</h2></div>
+        <p class="gs-lede">4에서 고른 원인 하나만 겨눕니다. <strong>「하면 좋겠다」로 끝내지 않고</strong>, 누가 언제 무엇을 하는지와 했는지 확인할 방법까지 정했습니다.</p>
+
+        <div class="plan">
+          <dl>
+            <dt>줄일 원인</dt>
+            <dd>'팩폭'을 붙여 장난으로 포장해야 넘어간다고 여기는 것</dd>
+            <dt>누가</dt>
+            <dd>우리 모둠 4명</dd>
+            <dt>언제</dt>
+            <dd>앞으로 2주 동안, 친구에게 지적하고 싶어질 때마다</dd>
+            <dt>무엇을</dt>
+            <dd>'팩폭'을 붙이는 대신 <strong>"내가 보기엔 이런데, 말해도 될까?"</strong>라고 먼저 묻고, 그렇다고 하면 그때 말합니다</dd>
+            <dt>확인</dt>
+            <dd>각자 그날 몇 번 그렇게 했는지 학습지 뒤쪽에 표시하고, 2주 뒤 모둠에서 세어 봅니다. 들은 친구에게 <strong>"기분이 어땠어?"</strong>를 한 줄로 받아 함께 적습니다</dd>
+          </dl>
+          <p class="why">이 행동을 하면 원인인 「포장해야 넘어간다」는 생각이, <strong>포장하지 않고 물었는데도 넘어간 횟수</strong>만큼 흔들립니다. 그 횟수가 0이면 우리 원인이 틀렸다는 뜻이므로 그것도 적습니다.</p>
         </div>
 
         <div class="limit">
@@ -243,11 +278,11 @@
       </div>
     </section>
 
-    <section class="section section-alt" id="prompt">
+    <section class="section" id="prompt">
       <div class="wrap">
         <header class="section-head">
           <h2>이 페이지는 이렇게 만들었습니다</h2>
-          <p>3모둠이 보고서를 다 쓴 뒤, 독스 맨 아래 「웹페이지 제작 프롬프트」 9칸을 채웠습니다. 선생님이 아래 내용 그대로 이 페이지를 만들었습니다. <strong>노란 글씨가 모둠이 채운 부분</strong>입니다.</p>
+          <p>3모둠이 보고서를 다 쓴 뒤, 독스 맨 아래 「웹페이지 제작 프롬프트」 10칸을 채웠습니다. 그 보고서를 <strong>웹페이지 도우미</strong>에 넣어 이 페이지를 만들고, 선생님이 확인해 갤러리에 올렸습니다. <strong>노란 글씨가 모둠이 채운 부분</strong>입니다.</p>
         </header>
 
         <div class="prompt-sheet">
@@ -280,28 +315,39 @@
           <div class="prompt-line">
             <span class="pk">4. 위에서 아래로 어떤 순서</span>
             <p><span class="fillin">①</span> 무슨 뜻인지 → <span class="fillin">②</span> 왜 쓰는지(면접에서 들은 것) → <span class="fillin">③</span> 우리가 찾은 점 → <span class="fillin">④</span> 뭐라고 바꿔 말할까 → <span class="fillin">⑤</span> 우리 제안 → <span class="fillin">⑥</span> 아직 모르는 것</p>
-            <p class="more">「듣는 사람은 어땠는지」는 따로 두지 않고 ②에 넣었습니다.</p>
+            <p class="more">「듣는 사람은 어땠는지」는 따로 두지 않고 ②에 넣었습니다. 5번의 원인 한 줄은 이 번호와 별개로, 「바꾼 말·제언보다 앞」이라는 규칙에 따라 ③과 ④ 사이에 들어갑니다. 그래서 화면의 절은 여섯 개가 되었습니다.</p>
           </div>
 
           <div class="prompt-line">
-            <span class="pk">5. 넣을 자료 — 글만 있으면 안 됩니다 (최소 두 가지, 하나는 수를 보여 주는 것)</span>
+            <span class="pk">5. 우리가 찾은 원인 한 줄</span>
+            <p>우리 조사에서 이 말을 계속 쓰게 하는 원인은 <span class="fillin">지적을 그냥 하면 싸움이 되니까 '팩폭'을 붙여 장난으로 포장해야 넘어간다고 여기는 것</span>입니다.</p>
+            <p class="more">보고서 3의 「이 말을 계속 쓰게 하는 원인」 마지막 줄을 그대로 옮겼습니다. 여기서 새로 짓지 않았습니다. 읽는 사람이 이걸 알아야 뒤의 바꾼 말과 제언이 이어지므로, 화면에서는 ④ 자리에 넣어 ⑤ 바꾼 말·⑥ 제언보다 앞에 두었습니다.</p>
+          </div>
+
+          <div class="prompt-line">
+            <span class="pk">6. 넣을 자료 — 글만 있으면 안 됩니다 (최소 두 가지 · 수를 보여 주는 것은 셀 수 있는 수가 실제로 있을 때만)</span>
             <ul>
-              <li>워드클라우드 — 어떤 말들을 모을까: <span class="fillin">우리 반 RED 카드 76장에 나온 말들, 우리가 조사한 말을 가장 크게</span></li>
-              <li>막대그래프 — 무엇의 수를 견줄까: <span class="fillin">모둠원 4명이 써 봤다·들어 봤다·처음 본다</span></li>
-              <li>큰 인용 카드 — 면접에서 들은 말 한 줄: <span class="fillin">"'팩폭'을 붙이면 장난처럼 넘어갈 수 있으니까"</span></li>
-              <li>원래 말 → 바꾼 말 대비 상자 — 어떤 말: <span class="fillin">"그거 팩폭이지 뭐" → "내가 보기엔 이런데, 말해도 될까?"</span></li>
+              <li>워드클라우드 — 어떤 말들을 모을까: <span class="fillin">우리 반 RED 카드 76장에 나온 말들, 우리가 조사한 말을 가장 크게</span>
+                <span class="more" style="display:block">어디서 왔나 — <span class="fillin">우리 반 RED 카드</span> · 보여 주는 것 한 문장 — <span class="fillin">'팩폭'은 우리 반에서 혼자 튀는 말이 아니라 여러 말과 함께 쓰인다</span></span></li>
+              <li>막대그래프 — 무엇의 수를 견줄까: <span class="fillin">모둠원 4명이 써 봤다·들어 봤다·처음 본다</span>
+                <span class="more" style="display:block">어디서 왔나 — <span class="fillin">면접에서 들은 것</span> · 보여 주는 것 한 문장 — <span class="fillin">써 본 사람보다 들어 본 사람이 훨씬 많다</span></span></li>
+              <li>큰 인용 카드 — 면접에서 들은 말 한 줄: <span class="fillin">"'팩폭'을 붙이면 장난처럼 넘어갈 수 있으니까"</span>
+                <span class="more" style="display:block">어디서 왔나 — <span class="fillin">면접에서 들은 것</span> · 보여 주는 것 한 문장 — <span class="fillin">우리가 고른 원인이 이 한마디에서 나왔다</span></span></li>
+              <li>원래 말 → 바꾼 말 대비 상자 — 어떤 말: <span class="fillin">"그거 팩폭이지 뭐" → "내가 보기엔 이런데, 말해도 될까?"</span>
+                <span class="more" style="display:block">어디서 왔나 — <span class="fillin">우리가 바꿔 쓴 표현</span> · 보여 주는 것 한 문장 — <span class="fillin">사실을 말하는 것은 그대로 두고 묻는 부분만 넣었다</span></span></li>
               <li class="off">표 · 원그래프 · 조사 과정 타임라인 · 사진 · 퀴즈 한 문제 · 그림·아이콘</li>
+              <li class="off">우리 조사에는 그래프로 그릴 수가 없다 — 대신 「면접 ○명 · 같은 말이 적힌 카드 ○장」을 한 줄로 보여 준다</li>
             </ul>
-            <p class="more">각 자료에 번호와 이름을 붙여 주세요(표 1, 그림 1처럼). 자료 아래에 어디서 언제 나온 것인지 적어 주세요. 자료 옆에 그 자료에서 무엇을 읽었는지 한 문장 붙여 주세요. 우리가 실제로 본 것만 넣고, 인터넷에서 찾은 남의 그래프를 우리 조사 결과처럼 넣지 말아 주세요.</p>
+            <p class="more">자료마다 어디서 왔는지 네 갈래(면접에서 들은 것 · 우리 반 RED 카드 · 사전 · 우리가 바꿔 쓴 표현) 가운데 골라 적고, 그 자료가 보여 주는 것을 한 문장으로 붙였습니다. 넷 다 아니면 그 자료는 지웁니다. 각 자료에 번호와 이름을 붙여 주세요(표 1, 그림 1처럼). 우리가 실제로 본 것만 넣고, 인터넷에서 찾은 남의 그래프를 우리 조사 결과처럼 넣지 말아 주세요.</p>
           </div>
 
           <div class="prompt-line">
-            <span class="pk">6. 그 가운데 가장 먼저 보여 줄 자료</span>
+            <span class="pk">7. 그 가운데 가장 먼저 보여 줄 자료</span>
             <p><span class="fillin">큰 인용 카드</span>를 가장 눈에 띄게 보여 주세요.</p>
           </div>
 
           <div class="prompt-line">
-            <span class="pk">7. 분위기와 색 — 하나만</span>
+            <span class="pk">8. 분위기와 색 — 하나만</span>
             <ul>
               <li>빨강에서 초록으로 바뀌는 느낌</li>
               <li class="off">차분하고 글이 잘 읽히게 · 눈에 띄고 밝게 · 손으로 쓴 것 같은 느낌 · 뉴스 기사 같은 느낌 · 만화처럼 칸을 나눠서</li>
@@ -309,12 +355,12 @@
           </div>
 
           <div class="prompt-line">
-            <span class="pk">8. 꼭 지킬 것</span>
+            <span class="pk">9. 꼭 지킬 것</span>
             <p>실명과 특정 사건은 쓰지 마세요. 거친 말은 초성으로 적어 주세요. 우리가 조사하지 않은 것까지 넓혀 쓰지 마세요. 확인한 것과 짐작한 것을 나눠서 보여 주세요. 면접 인원과 카드 장수를 밝혀 주세요.</p>
           </div>
 
           <div class="prompt-line">
-            <span class="pk">9. 목록에 뜰 한 줄 소개</span>
+            <span class="pk">10. 목록에 뜰 한 줄 소개</span>
             <p>'<span class="fillin">팩폭</span>' — <span class="fillin">사실이면 다 말해도 될까?</span></p>
           </div>
         </div>
