@@ -181,17 +181,16 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-
-
-    /* print-fit — 인쇄 창에 용지·배율 항목이 없어도 한 장에 담는다.
-       @page에 size를 주면 그 크기가 지면이 되어 넘치는 부분이 잘렸다.
-       size를 빼고 기본 용지(A4)에 맞춰 통째로 줄인다. zoom은 transform과 달리
-       자리까지 함께 줄어 잘리지 않는다. 이 포스터 높이 2062px 기준. */
+    /* print-fit — 인쇄 창에서 용지를 A1로 고르는 것을 전제한다.
+       @page에 size를 넣지 않는 까닭: 넣으면 크롬이 용지 항목을 숨겨
+       사용자가 A1을 고를 수 없고, 넘치는 부분이 그대로 잘린다.
+       빼 두면 「설정 더보기」에서 용지를 고를 수 있고 지면을 꽉 채운다. */
     @media print {
       html, body { margin: 0 !important; padding: 0 !important; background: #fff !important;
         width: auto !important; height: auto !important; overflow: visible !important; }
-      .poster { zoom: 0.5067; width: 1360px !important; min-height: 0 !important;
-        margin: 0 auto !important; box-shadow: none !important; transform: none !important; }
+      .poster { width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; zoom: 1 !important; }
       .po-body { grid-template-columns: 1fr 1fr !important; }
       .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
         padding: 26px 32px !important; }
@@ -379,8 +378,8 @@ p { margin: 0; }
 
   <div class="pdf-bar" id="pdfBar">
     <div class="pdf-tip" id="pdfTip">
-      <b>대상</b>을 「PDF로 저장」으로 고르고, <b>여백</b>을 「없음」,
-      <b>배경 그래픽</b>을 켜세요. 그 밖의 설정은 손대지 않아도 됩니다.
+      <b>대상</b>을 「PDF로 저장」, <b>여백</b>을 「없음」, <b>배경 그래픽</b>을 켜세요.<br>
+      크게 뽑으려면 <b>「설정 더보기」에서 용지 크기를 A1</b>로 고릅니다.
       포스터 전체가 한 쪽에 담깁니다.
     </div>
     <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
