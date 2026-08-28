@@ -266,7 +266,7 @@ RED 카드 웹앱 URL: https://script.google.com/a/macros/e-mirim.hs.kr/s/AKfycb
 - 학습지 2차시 PDF — files/학습지_2차시.pdf
 - 학습지 3차시 PDF — files/학습지_3차시.pdf — 항목 맡기 · 모둠별 제언 공유 · 성찰일지
 - 모둠 조사 보고서 예시 — report.html — 보고서 한 편을 다 쓴 예시 · 표·그래프를 어디에 넣나
-- 우리 반 조사 갤러리 — gallery.html — 모둠이 조사한 말을 웹페이지로 만들어 모은 곳 (예시 1건: gallery-sample.html '팩폭' — 사실이면 다 말해도 될까?)
+- 우리 반 조사 갤러리 — gallery.html — 모둠이 조사한 말을 학술 포스터 한 장으로 만들어 모은 곳 (예시 1건: gallery-poster-sample.html '팩폭' — 사실이면 다 말해도 될까?)
 - 말뜻 도우미 (Gem) — 사전에 없는 말의 통용 의미와 어원·유래를 알아봅니다. 참고용입니다 (위 말뜻 도우미 Gem URL, 새 탭)
 - 면접 문항 도우미 (Gem) — 우리가 만든 면접 문항을 점검하고 바꿔 쓸 후보를 보여 줍니다 (위 Gem URL, 새 탭)
 - 탐구질문 가이드 — 무엇을·왜·어떻게 + 고치는 예시 (question.html)
