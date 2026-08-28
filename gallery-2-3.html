@@ -204,18 +204,17 @@ p { margin: 0; }
       .po-foot .brand { margin-left: auto !important; }
       .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
-
-    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
-       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
-    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
-    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
-    .po-refs > h3::after { content: none; }
-    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
-      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
-      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
-    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
-    .po-refs p:last-child { margin-bottom: 0; }
-    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
+    /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
+       한 줄로 눌러 본문에 자리를 넘긴다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE;
+      padding: 9px 32px; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+    .po-refs .lab { font-size: .72rem; font-weight: 800; color: #8A6D1F;
+      background: #FFF8E1; border: 1px solid #F0E2B0; border-radius: 999px;
+      padding: 2px 9px; white-space: nowrap; flex: 0 0 auto; line-height: 1.5; }
+    .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
+      font-weight: 600; flex: 1; min-width: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
   </style>
 </head>
 <body>
@@ -377,9 +376,8 @@ p { margin: 0; }
     </div>
   </div>
           <div class="po-refs">
-            <h3><span class="n">5</span>참고 자료</h3>
-<p>RED 카드 가운데 "ㄴㅇㅁ"가 적힌 카드 2장 (2026년 8월 26일)</p>
-        <p>RED 카드 가운데 "너임마청년"이 적힌 카드 2장 (2026년 8월 20일)</p>
+            <span class="lab">5 참고 자료</span>
+            <p>RED 카드 가운데 "ㄴㅇㅁ"가 적힌 카드 2장 (2026년 8월 26일) · RED 카드 가운데 "너임마청년"이 적힌 카드 2장 (2026년 8월 20일)</p>
           </div>
 
 
@@ -411,5 +409,6 @@ p { margin: 0; }
   </script>
 <!-- print-ui -->
 <!-- order-fixed -->
+<!-- refs-slim -->
 </body>
 </html>
