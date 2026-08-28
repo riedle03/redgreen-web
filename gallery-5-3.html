@@ -5,8 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>'너임마청년' — 학급 언어생활 사례 조사 · 1학년 5반 3조</title>
 <meta name="description" content="'너임마청년' — 무슨 뜻인지 알고 있나요. 1학년 5반 3조가 면접 1명과 카드 3장으로 조사한 결과.">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
+    /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
+       CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+    @page { size: 594mm 841mm; margin: 0 }
 /* 학급 언어생활 사례 조사 · 모둠 조사 포스터
      A1 세로(594×841mm) 비율. 인쇄하면 그대로 나온다. */
 
@@ -144,9 +152,34 @@ p { margin: 0; }
 @media print {
   body { background: #fff; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
-  @page { size: 594mm 841mm; margin: 0 }
+  
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
 }
+
+    /* 인쇄용 PDF 버튼 — 화면에만 보이고 인쇄물에는 나오지 않는다 */
+    .pdf-bar { position: fixed; right: 20px; bottom: 20px; z-index: 50;
+      display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+    .pdf-btn { font-family: 'Pretendard', system-ui, sans-serif; font-size: .95rem;
+      font-weight: 800; color: #fff; background: #22262E; border: none;
+      border-radius: 999px; padding: 12px 22px; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(30,35,45,.28); }
+    .pdf-btn:hover { background: #3A404C; }
+    .pdf-tip { background: #FFF8E1; border: 2px solid #F0E2B0; border-radius: 12px;
+      padding: 10px 14px; font-size: .82rem; font-weight: 700; line-height: 1.6;
+      color: #22262E; max-width: 280px; display: none; }
+    .pdf-tip.on { display: block; }
+    .pdf-tip b { color: #8A6D1F; }
+    @media print { .pdf-bar { display: none !important; } }
+    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
+       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
+       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
+       594mm = 2245px, 1360px → 배율 1.651 */
+    @media print {
+      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
+      .poster { width: 1360px !important; min-height: 0 !important;
+        margin: 0 !important; box-shadow: none !important;
+        transform: scale(1.651); transform-origin: top left; }
+    }
 </style>
 </head>
 <body>
@@ -316,5 +349,26 @@ p { margin: 0; }
   </footer>
 
 </article>
+
+  <div class="pdf-bar" id="pdfBar">
+    <div class="pdf-tip" id="pdfTip">
+      인쇄 창에서 <b>대상을 「PDF로 저장」</b>, <b>용지를 A1</b>(없으면 A3·A4),
+      <b>여백을 없음</b>, <b>배율을 「용지에 맞추기」</b>로 하고
+      <b>「배경 그래픽」을 켜세요.</b> 포스터 한 장이 한 쪽으로 저장됩니다.
+    </div>
+    <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
+  </div>
+  <script>
+    (function () {
+      var b = document.getElementById('pdfBtn'), t = document.getElementById('pdfTip');
+      if (!b) return;
+      b.addEventListener('click', function () {
+        t.classList.add('on');           // 인쇄 창이 뜨기 전에 설정 안내를 보여 준다
+        setTimeout(function () { window.print(); }, 400);
+      });
+      window.addEventListener('afterprint', function () { t.classList.remove('on'); });
+    })();
+  </script>
+<!-- print-ui -->
 </body>
 </html>

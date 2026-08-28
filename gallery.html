@@ -58,6 +58,12 @@
     .gal-count { font-size: .9rem; font-weight: 700; color: var(--sub, #6B7280); }
     .gal-card[hidden], .gal-none[hidden] { display: none !important; }
     .gal-none { grid-column: 1/-1; text-align: center; padding: 40px 20px; font-weight: 700; color: var(--sub, #6B7280); }
+    .gal-printall { flex-basis: 100%; font-family: 'Paperlogy','Pretendard',sans-serif;
+      font-size: .92rem; font-weight: 800; color: var(--ink); background: var(--sun);
+      border-radius: 999px; padding: 8px 18px; text-decoration: none; align-self: flex-start;
+      display: inline-block; width: auto; }
+    .gal-printall:hover { background: #FFE47A; }
+    @media (min-width: 981px) { .gal-printall { flex-basis: auto; margin-left: 0; } }
     .gal-card .cls { display: inline-block; font-family: 'Paperlogy','Pretendard',sans-serif; font-size: .72rem;
       font-weight: 800; color: #fff; background: var(--blue); border-radius: 999px; padding: 3px 10px; margin-bottom: 10px; }
 
@@ -149,6 +155,7 @@
           <div class="gal-search">
             <input type="search" id="galSearch" placeholder="조사한 말로 찾기" aria-label="조사한 말로 찾기">
           </div>
+          <a class="gal-printall" href="gallery-print-all.html">포스터 20장 모두 인쇄 →</a>
         </div>
         <p class="gal-count" id="galCount"></p>
 

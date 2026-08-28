@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="design-v2.css">
   <style>
+    @page { size: 594mm 841mm; margin: 0 }
     /* ══ 포스터 형식 예시 ══
        학술 포스터 관례: 한 장에 다 담고, 위에서 아래가 아니라 왼쪽 단부터 읽는다.
        A1 세로(594×841mm) 비율에 맞춘 캔버스. 인쇄하면 그대로 나온다. */
@@ -162,8 +163,23 @@
       .site-header, .site-footer, .pv-intro, .pv-note, .cta-row { display: none !important; }
       .pv-stage { background: #fff; padding: 0; }
       .poster { width: 100%; min-height: auto; box-shadow: none; }
-      @page { size: A1 portrait; margin: 0; }
+      
     }
+  
+    /* 인쇄용 PDF 버튼 — 화면에만 보이고 인쇄물에는 나오지 않는다 */
+    .pdf-bar { position: fixed; right: 20px; bottom: 20px; z-index: 50;
+      display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+    .pdf-btn { font-family: 'Pretendard', system-ui, sans-serif; font-size: .95rem;
+      font-weight: 800; color: #fff; background: #22262E; border: none;
+      border-radius: 999px; padding: 12px 22px; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(30,35,45,.28); }
+    .pdf-btn:hover { background: #3A404C; }
+    .pdf-tip { background: #FFF8E1; border: 2px solid #F0E2B0; border-radius: 12px;
+      padding: 10px 14px; font-size: .82rem; font-weight: 700; line-height: 1.6;
+      color: #22262E; max-width: 280px; display: none; }
+    .pdf-tip.on { display: block; }
+    .pdf-tip b { color: #8A6D1F; }
+    @media print { .pdf-bar { display: none !important; } }
   </style>
 </head>
 <body>
@@ -392,5 +408,26 @@
     </div>
   </footer>
   <script src="script.js"></script>
+
+  <div class="pdf-bar" id="pdfBar">
+    <div class="pdf-tip" id="pdfTip">
+      인쇄 창에서 <b>대상을 「PDF로 저장」</b>으로 고르고,
+      <b>용지를 A1</b>(없으면 A3나 A4), <b>여백을 없음</b>,
+      <b>「배경 그래픽」을 켜면</b> 색이 그대로 나옵니다.
+    </div>
+    <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
+  </div>
+  <script>
+    (function () {
+      var b = document.getElementById('pdfBtn'), t = document.getElementById('pdfTip');
+      if (!b) return;
+      b.addEventListener('click', function () {
+        t.classList.add('on');           // 인쇄 창이 뜨기 전에 설정 안내를 보여 준다
+        setTimeout(function () { window.print(); }, 400);
+      });
+      window.addEventListener('afterprint', function () { t.classList.remove('on'); });
+    })();
+  </script>
+<!-- print-ui -->
 </body>
 </html>
