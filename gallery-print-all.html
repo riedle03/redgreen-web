@@ -7,7 +7,10 @@
 <meta name="description" content="우리 반 조사 포스터를 한 번에 인쇄용 PDF로 만듭니다">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-  @page { size: 594mm 841mm; margin: 0 }
+  /* @page에 size를 넣지 않는다. 넣으면 크롬이 인쇄 창의 「설정 더보기」에서
+     용지 항목을 숨겨 사용자가 A1을 고를 수 없고, 지면보다 긴 포스터는
+     그대로 잘린다. 빼 두면 용지를 골라 지면을 꽉 채울 수 있다. */
+  @page { margin: 0 }
 
   body { margin: 0; background: #E9EDF3;
     font-family: 'Pretendard', system-ui, sans-serif; color: #22262E; }
@@ -26,6 +29,8 @@
   .pa-tip { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 14px 28px;
     font-size: .92rem; font-weight: 700; line-height: 1.7; }
   .pa-tip b { color: #8A6D1F; }
+
+  /* 한 장씩 인쇄하는 목록 — 포스터마다 정확히 한 쪽으로 받고 싶을 때 */
   .pa-list { background: #fff; border-bottom: 2px solid #E4E8EE; padding: 18px 28px; }
   .pa-list h2 { font-size: .98rem; margin: 0 0 12px; font-weight: 800; }
   .pa-list ul { list-style: none; margin: 0; padding: 0;
@@ -34,7 +39,6 @@
     text-decoration: none; border: 1.5px solid #E4E8EE; border-radius: 10px; padding: 9px 12px; }
   .pa-list a:hover { border-color: #4A7DDC; color: #4A7DDC; }
   .pa-list a b { color: #6B7280; font-weight: 700; font-size: .8rem; }
-  @media print { .pa-list { display: none !important; } }
 
   /* 포스터 한 장씩 — 사이에 쪽 나눔 */
   .pa-sheet { margin: 26px auto; width: 1360px; background: #fff;
@@ -43,17 +47,25 @@
 
   @media print {
     body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
-    .pa-bar, .pa-tip { display: none !important; }
-    .pa-sheet { margin: 0; width: 100%; box-shadow: none;
+    html, body { margin: 0; padding: 0; width: auto; height: auto; overflow: visible; }
+    .pa-bar, .pa-tip, .pa-list { display: none !important; }
+    /* 포스터마다 한 쪽. 고른 용지 폭을 그대로 채운다 — 개별 포스터와 같은 방식 */
+    .pa-sheet { margin: 0; width: 100%; max-width: none; box-shadow: none;
       break-after: page; page-break-after: always; }
     .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
+    .pa-sheet > .poster { width: 100% !important; max-width: none !important;
+      min-height: 0 !important; margin: 0 !important;
+      box-shadow: none !important; transform: none !important; zoom: 1 !important; }
+    .po-body { grid-template-columns: 1fr 1fr !important; }
+    .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+      padding: 26px 32px !important; }
+    .po-col:last-child { border-right: none !important; }
+    .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+    .po-plan dl { grid-template-columns: 62px 1fr !important; }
+    .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+    .po-flip .ar { transform: none !important; }
+    .po-scope { flex-direction: row !important; }
+    .po-refs { display: flex !important; flex-wrap: nowrap !important; }
   }
 
   @media (max-width: 1400px) {
@@ -207,13 +219,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -233,34 +238,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -272,7 +249,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0645 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -297,34 +291,7 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
+
 
   /* ── 2-2 ── */
 
@@ -473,13 +440,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -499,34 +459,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -538,7 +470,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0239 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -563,34 +512,7 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
+
 
   /* ── 2-3 ── */
 
@@ -739,13 +661,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -765,34 +680,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -804,7 +691,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0627 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
   /* ── 2-4 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -952,13 +856,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -977,34 +874,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -1016,7 +885,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.106 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
   /* ── 3-1 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -1164,13 +1050,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -1190,34 +1069,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -1229,7 +1080,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.013 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -1254,34 +1122,7 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
+
 
   /* ── 3-2 ── */
 
@@ -1430,13 +1271,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -1456,34 +1290,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -1495,7 +1301,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0414 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -1520,34 +1343,7 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
+
 
   /* ── 3-3 ── */
 
@@ -1696,13 +1492,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -1722,34 +1511,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -1761,7 +1522,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.016 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -1786,34 +1564,7 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
+
 
   /* ── 3-4 ── */
 
@@ -1962,13 +1713,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -1988,34 +1732,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -2027,7 +1743,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0172 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -2052,34 +1785,7 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
+
 
   /* ── 4-1 ── */
 
@@ -2228,13 +1934,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -2253,34 +1952,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -2292,7 +1963,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0661 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
   /* ── 4-2 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -2440,13 +2128,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -2466,34 +2147,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -2505,7 +2158,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 0.9778 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -2530,34 +2200,7 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
+
 
   /* ── 4-3 ── */
 
@@ -2706,13 +2349,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -2732,34 +2368,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -2771,7 +2379,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0705 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -2796,34 +2421,7 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
+
 
   /* ── 4-4 ── */
 
@@ -2972,13 +2570,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -2997,34 +2588,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -3036,7 +2599,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.1058 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
   /* ── 5-1 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -3184,13 +2764,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -3210,34 +2783,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -3249,7 +2794,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0387 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -3274,34 +2836,7 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
+
 
   /* ── 5-2 ── */
 
@@ -3450,13 +2985,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -3475,34 +3003,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -3514,7 +3014,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.1658 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
   /* ── 5-3 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -3662,13 +3179,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -3688,34 +3198,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -3727,7 +3209,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0769 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
   /* ── 5-4 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -3875,13 +3374,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -3901,34 +3393,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -3940,7 +3404,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0394 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -3965,34 +3446,7 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
+
 
   /* ── 6-1 ── */
 
@@ -4141,13 +3595,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -4166,34 +3613,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -4205,7 +3624,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.1023 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
   /* ── 6-2 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -4353,13 +3789,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -4378,34 +3807,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -4417,7 +3818,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0917 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
   /* ── 6-3 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -4565,13 +3983,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -4590,34 +4001,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -4629,7 +4012,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.1432 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
   /* ── 6-4 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -4777,13 +4177,6 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
-    html, body { width: 2245px; margin: 0; padding: 0; }
-    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
-      break-after: page; page-break-after: always; }
-    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
-      width: 1360px !important; min-height: 1923px !important;
-      margin: 0 !important; box-shadow: none !important; }
-    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -4802,34 +4195,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.651); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -4841,7 +4206,24 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       
+      .poster { zoom: 1.0985 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+
 </style>
 </head>
 <body>
@@ -4856,37 +4238,35 @@ p { margin: 0; }
 </div>
 
 <div class="pa-tip">
-      한 번에 저장하려면 <b>대상</b>을 「PDF로 저장」, <b>여백</b>을 「없음」, <b>배경 그래픽</b>을 켜고
-      <b>용지를 A3</b>, <b>배율을 「맞춤」에서 50</b>으로 하세요.
-      <b>포스터마다 정확히 한 쪽</b>으로 받으려면 아래 목록에서 한 장씩 열어
-      각 포스터의 「인쇄용 PDF 만들기」를 쓰는 편이 확실합니다.
-    </div>
-  <div class="pa-list">
-    <h2>한 장씩 인쇄하기 — 포스터마다 정확히 한 쪽으로 나옵니다</h2>
-    <ul>
-      <li><a href="gallery-2-1.html"><b>1학년 2반 1조</b> · 쌰갈</a></li>
-      <li><a href="gallery-2-2.html"><b>1학년 2반 2조</b> · 아자스</a></li>
-      <li><a href="gallery-2-3.html"><b>1학년 2반 3조</b> · 너 ㅇㅁ없냐</a></li>
-      <li><a href="gallery-2-4.html"><b>1학년 2반 4조</b> · 헬조선</a></li>
-      <li><a href="gallery-3-1.html"><b>1학년 3반 1조</b> · 야르</a></li>
-      <li><a href="gallery-3-2.html"><b>1학년 3반 2조</b> · ㅆㅂ</a></li>
-      <li><a href="gallery-3-3.html"><b>1학년 3반 3조</b> · ㅈ됐다</a></li>
-      <li><a href="gallery-3-4.html"><b>1학년 3반 4조</b> · 급식충</a></li>
-      <li><a href="gallery-4-1.html"><b>1학년 4반 1조</b> · 엄</a></li>
-      <li><a href="gallery-4-2.html"><b>1학년 4반 2조</b> · ㅅㅂ</a></li>
-      <li><a href="gallery-4-3.html"><b>1학년 4반 3조</b> · 샤갈 / 쌰갈</a></li>
-      <li><a href="gallery-4-4.html"><b>1학년 4반 4조</b> · 쌰르(쌰갈+야르)</a></li>
-      <li><a href="gallery-5-1.html"><b>1학년 5반 1조</b> · 쌰갈 / 샤갈</a></li>
-      <li><a href="gallery-5-2.html"><b>1학년 5반 2조</b> · 야르</a></li>
-      <li><a href="gallery-5-3.html"><b>1학년 5반 3조</b> · 너임마청년</a></li>
-      <li><a href="gallery-5-4.html"><b>1학년 5반 4조</b> · 듣기 싫어도 사실이잖아.</a></li>
-      <li><a href="gallery-6-1.html"><b>1학년 6반 1조</b> · 쌰갈 / 샤갈</a></li>
-      <li><a href="gallery-6-2.html"><b>1학년 6반 2조</b> · 레알</a></li>
-      <li><a href="gallery-6-3.html"><b>1학년 6반 3조</b> · 영포티</a></li>
-      <li><a href="gallery-6-4.html"><b>1학년 6반 4조</b> · 쌰갈</a></li>
-    </ul>
-  </div>
+  <b>대상</b>을 「PDF로 저장」, <b>여백</b>을 「없음」, <b>배경 그래픽</b>을 켜세요.<br>
+  <b>「설정 더보기」에서 용지 크기를 A2</b>로 고릅니다. 포스터 한 장이 한 쪽씩 20쪽으로 저장됩니다.
+</div>
 
+<div class="pa-list">
+  <h2>한 장씩 인쇄하기 — 포스터마다 따로 받고 싶을 때</h2>
+  <ul>
+    <li><a href="gallery-2-1.html"><b>1학년 2반 1조</b> · 쌰갈</a></li>
+    <li><a href="gallery-2-2.html"><b>1학년 2반 2조</b> · 아자스</a></li>
+    <li><a href="gallery-2-3.html"><b>1학년 2반 3조</b> · 너 ㅇㅁ없냐</a></li>
+    <li><a href="gallery-2-4.html"><b>1학년 2반 4조</b> · 헬조선</a></li>
+    <li><a href="gallery-3-1.html"><b>1학년 3반 1조</b> · 야르</a></li>
+    <li><a href="gallery-3-2.html"><b>1학년 3반 2조</b> · ㅆㅂ</a></li>
+    <li><a href="gallery-3-3.html"><b>1학년 3반 3조</b> · ㅈ됐다</a></li>
+    <li><a href="gallery-3-4.html"><b>1학년 3반 4조</b> · 급식충</a></li>
+    <li><a href="gallery-4-1.html"><b>1학년 4반 1조</b> · 할 말이 없을 때</a></li>
+    <li><a href="gallery-4-2.html"><b>1학년 4반 2조</b> · 어떻게 들리나?</a></li>
+    <li><a href="gallery-4-3.html"><b>1학년 4반 3조</b> · 어떻게 유행하게</a></li>
+    <li><a href="gallery-4-4.html"><b>1학년 4반 4조</b> · 한 단어만</a></li>
+    <li><a href="gallery-5-1.html"><b>1학년 5반 1조</b> · 쌰갈</a></li>
+    <li><a href="gallery-5-2.html"><b>1학년 5반 2조</b> · 야르</a></li>
+    <li><a href="gallery-5-3.html"><b>1학년 5반 3조</b> · 너임마청년</a></li>
+    <li><a href="gallery-5-4.html"><b>1학년 5반 4조</b> · 남에게 이런 말을 해도 될까</a></li>
+    <li><a href="gallery-6-1.html"><b>1학년 6반 1조</b> · 쌰갈</a></li>
+    <li><a href="gallery-6-2.html"><b>1학년 6반 2조</b> · 레알</a></li>
+    <li><a href="gallery-6-3.html"><b>1학년 6반 3조</b> · 영포티</a></li>
+    <li><a href="gallery-6-4.html"><b>1학년 6반 4조</b> · 쌰갈</a></li>
+  </ul>
+</div>
 
 <div class="pa-sheet p-2-1">
 <article class="poster">
