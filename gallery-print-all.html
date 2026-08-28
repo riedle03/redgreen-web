@@ -26,6 +26,15 @@
   .pa-tip { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 14px 28px;
     font-size: .92rem; font-weight: 700; line-height: 1.7; }
   .pa-tip b { color: #8A6D1F; }
+  .pa-list { background: #fff; border-bottom: 2px solid #E4E8EE; padding: 18px 28px; }
+  .pa-list h2 { font-size: .98rem; margin: 0 0 12px; font-weight: 800; }
+  .pa-list ul { list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+  .pa-list a { display: block; font-size: .88rem; font-weight: 700; color: #22262E;
+    text-decoration: none; border: 1.5px solid #E4E8EE; border-radius: 10px; padding: 9px 12px; }
+  .pa-list a:hover { border-color: #4A7DDC; color: #4A7DDC; }
+  .pa-list a b { color: #6B7280; font-weight: 700; font-size: .8rem; }
+  @media print { .pa-list { display: none !important; } }
 
   /* 포스터 한 장씩 — 사이에 쪽 나눔 */
   .pa-sheet { margin: 26px auto; width: 1360px; background: #fff;
@@ -34,6 +43,13 @@
 
   @media print {
     body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
     .pa-bar, .pa-tip { display: none !important; }
     .pa-sheet { margin: 0; width: 100%; box-shadow: none;
       break-after: page; page-break-after: always; }
@@ -191,6 +207,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -210,15 +233,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
 
@@ -245,15 +267,14 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 2-2 ── */
@@ -403,6 +424,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -422,15 +450,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
 
@@ -457,15 +484,14 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 2-3 ── */
@@ -615,6 +641,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -634,15 +667,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 2-4 ── */
@@ -792,6 +824,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -810,15 +849,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 3-1 ── */
@@ -968,6 +1006,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -987,15 +1032,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
 
@@ -1022,15 +1066,14 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 3-2 ── */
@@ -1180,6 +1223,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -1199,15 +1249,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
 
@@ -1234,15 +1283,14 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 3-3 ── */
@@ -1392,6 +1440,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -1411,15 +1466,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
 
@@ -1446,15 +1500,14 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 3-4 ── */
@@ -1604,6 +1657,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -1623,15 +1683,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
 
@@ -1658,15 +1717,14 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 4-1 ── */
@@ -1816,6 +1874,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -1834,15 +1899,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 4-2 ── */
@@ -1992,6 +2056,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -2011,15 +2082,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
 
@@ -2046,15 +2116,14 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 4-3 ── */
@@ -2204,6 +2273,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -2223,15 +2299,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
 
@@ -2258,15 +2333,14 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 4-4 ── */
@@ -2416,6 +2490,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -2434,15 +2515,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 5-1 ── */
@@ -2592,6 +2672,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -2611,15 +2698,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
 
@@ -2646,15 +2732,14 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 5-2 ── */
@@ -2804,6 +2889,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -2822,15 +2914,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 5-3 ── */
@@ -2980,6 +3071,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -2999,15 +3097,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 5-4 ── */
@@ -3157,6 +3254,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
     /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
@@ -3176,15 +3280,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
 
@@ -3211,15 +3314,14 @@ p { margin: 0; }
       .po-tbl th, .po-tbl td { font-size: .96rem; }
       .po-col { padding: 22px 20px; }
     }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 6-1 ── */
@@ -3369,6 +3471,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -3387,15 +3496,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 6-2 ── */
@@ -3545,6 +3653,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -3563,15 +3678,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 6-3 ── */
@@ -3721,6 +3835,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -3739,15 +3860,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
   /* ── 6-4 ── */
@@ -3897,6 +4017,13 @@ p { margin: 0; }
 /* ── 인쇄 · A1 세로 ── */
 @media print {
   body { background: #fff; }
+    html, body { width: 2245px; margin: 0; padding: 0; }
+    .pa-sheet { width: 2245px; height: 3179px; overflow: hidden;
+      break-after: page; page-break-after: always; }
+    .pa-sheet > .poster { transform: scale(1.651); transform-origin: top left;
+      width: 1360px !important; min-height: 1923px !important;
+      margin: 0 !important; box-shadow: none !important; }
+    .pa-sheet:last-child { break-after: auto; page-break-after: auto; }
   .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
   
 }
@@ -3915,15 +4042,14 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 
 </style>
@@ -3940,10 +4066,37 @@ p { margin: 0; }
 </div>
 
 <div class="pa-tip">
-  인쇄 창에서 <b>대상을 「PDF로 저장」</b>으로 고르고, <b>용지를 A1</b>(없으면 A3나 A4),
-  <b>여백을 없음</b>, <b>「배경 그래픽」을 켜면</b> 색이 그대로 나옵니다.
-  포스터 한 장이 한 쪽씩 20쪽으로 저장됩니다.
-</div>
+      한 번에 20쪽으로 저장하려면 <b>대상</b>을 「PDF로 저장」, <b>여백</b>을 「없음」,
+      <b>배경 그래픽</b>을 켜고 <b>용지를 A3</b>, <b>배율을 「맞춤」에서 50</b>으로 하세요.
+      <b>포스터마다 정확히 한 쪽</b>으로 받으려면 아래 목록에서 한 장씩 열어
+      각 포스터의 「인쇄용 PDF 만들기」를 쓰는 편이 확실합니다.
+    </div>
+  <div class="pa-list">
+    <h2>한 장씩 인쇄하기 — 포스터마다 정확히 한 쪽으로 나옵니다</h2>
+    <ul>
+      <li><a href="gallery-2-1.html"><b>1학년 2반 1조</b> · 쌰갈</a></li>
+      <li><a href="gallery-2-2.html"><b>1학년 2반 2조</b> · 아자스</a></li>
+      <li><a href="gallery-2-3.html"><b>1학년 2반 3조</b> · 너 ㅇㅁ없냐</a></li>
+      <li><a href="gallery-2-4.html"><b>1학년 2반 4조</b> · 헬조선</a></li>
+      <li><a href="gallery-3-1.html"><b>1학년 3반 1조</b> · 야르</a></li>
+      <li><a href="gallery-3-2.html"><b>1학년 3반 2조</b> · ㅆㅂ</a></li>
+      <li><a href="gallery-3-3.html"><b>1학년 3반 3조</b> · ㅈ됐다</a></li>
+      <li><a href="gallery-3-4.html"><b>1학년 3반 4조</b> · 급식충</a></li>
+      <li><a href="gallery-4-1.html"><b>1학년 4반 1조</b> · 엄</a></li>
+      <li><a href="gallery-4-2.html"><b>1학년 4반 2조</b> · ㅅㅂ</a></li>
+      <li><a href="gallery-4-3.html"><b>1학년 4반 3조</b> · 샤갈 / 쌰갈</a></li>
+      <li><a href="gallery-4-4.html"><b>1학년 4반 4조</b> · 쌰르(쌰갈+야르)</a></li>
+      <li><a href="gallery-5-1.html"><b>1학년 5반 1조</b> · 쌰갈 / 샤갈</a></li>
+      <li><a href="gallery-5-2.html"><b>1학년 5반 2조</b> · 야르</a></li>
+      <li><a href="gallery-5-3.html"><b>1학년 5반 3조</b> · 너임마청년</a></li>
+      <li><a href="gallery-5-4.html"><b>1학년 5반 4조</b> · 듣기 싫어도 사실이잖아.</a></li>
+      <li><a href="gallery-6-1.html"><b>1학년 6반 1조</b> · 쌰갈 / 샤갈</a></li>
+      <li><a href="gallery-6-2.html"><b>1학년 6반 2조</b> · 레알</a></li>
+      <li><a href="gallery-6-3.html"><b>1학년 6반 3조</b> · 영포티</a></li>
+      <li><a href="gallery-6-4.html"><b>1학년 6반 4조</b> · 쌰갈</a></li>
+    </ul>
+  </div>
+
 
 <div class="pa-sheet p-2-1">
 <article class="poster">

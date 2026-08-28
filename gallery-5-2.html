@@ -169,15 +169,20 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v3 — 인쇄할 때 1360px 캔버스를 A1 폭에 맞춰 통째로 축소한다.
-       폭을 mm로 바꾸면 안쪽 px 배치가 함께 줄어 종이의 절반만 채운다.
-       원본 크기를 그대로 두고 scale만 걸어야 비율과 글자 크기가 유지된다.
-       594mm = 2245px, 1360px → 배율 1.651 */
+    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
+       @page에 594mm 841mm를 주면 브라우저는 그 크기의 종이라 여기고 배치한다.
+       인쇄 창에서 A4를 골라도 「배율: 용지에 맞추기」가 A1 지면을 통째로
+       줄여 한 장에 넣는다. 이 방식이라야 용지에 상관없이 한 장이 된다.
+       1360px 캔버스를 A1 폭(2245px)에 맞추는 배율 1.651. */
     @media print {
-      html, body { margin: 0; padding: 0; background: #fff; width: 2245px; }
-      .poster { width: 1360px !important; min-height: 0 !important;
+      html, body { margin: 0; padding: 0; background: #fff;
+        width: 2245px; height: 3179px; overflow: hidden; }
+      .poster { width: 1360px !important; min-height: 1923px !important;
         margin: 0 !important; box-shadow: none !important;
         transform: scale(1.651); transform-origin: top left; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
 </style>
 </head>
@@ -364,9 +369,9 @@ p { margin: 0; }
 
   <div class="pdf-bar" id="pdfBar">
     <div class="pdf-tip" id="pdfTip">
-      인쇄 창에서 <b>대상을 「PDF로 저장」</b>, <b>용지를 A1</b>(없으면 A3·A4),
-      <b>여백을 없음</b>, <b>배율을 「용지에 맞추기」</b>로 하고
-      <b>「배경 그래픽」을 켜세요.</b> 포스터 한 장이 한 쪽으로 저장됩니다.
+      <b>대상</b>을 「PDF로 저장」, <b>여백</b>을 「없음」, <b>배경 그래픽</b>을 켜세요.<br>
+      <b>용지</b>는 <b>A3</b>를 고르면 한 장에 담깁니다. <b>A4</b>만 있으면
+      <b>배율을 「맞춤」에서 30</b>으로 낮추세요. (A1 용지는 인쇄 창 목록에 없습니다.)
     </div>
     <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
