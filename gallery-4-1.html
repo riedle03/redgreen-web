@@ -169,40 +169,6 @@ p { margin: 0; }
     .pdf-tip.on { display: block; }
     .pdf-tip b { color: #8A6D1F; }
     @media print { .pdf-bar { display: none !important; } }
-    /* print-fit-v6 — 포스터를 A1 실치수로 그린다.
-       @page에 594mm 841mm를 주면 브라우저는 그 크기의 종이라 여기고 배치한다.
-       인쇄 창에서 A4를 골라도 「배율: 용지에 맞추기」가 A1 지면을 통째로
-       줄여 한 장에 넣는다. 이 방식이라야 용지에 상관없이 한 장이 된다.
-       1360px 캔버스를 A1 폭(2245px)에 맞추는 배율 1.651. */
-    @media print {
-      html, body { margin: 0; padding: 0; background: #fff;
-        width: 2245px; height: 3179px; overflow: hidden; }
-      .poster { width: 1360px !important; min-height: 1923px !important;
-        margin: 0 !important; box-shadow: none !important;
-        transform: scale(1.5645); transform-origin: top left; }
-      .po-head, .po-scope, .po-body, .po-concl, .po-foot,
-      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
-      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
-    }
-    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
-       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
-       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
-    @media print {
-      .po-body { grid-template-columns: 1fr 1fr !important; }
-      .po-col { border-right: 1px solid #E4E8EE !important;
-        border-bottom: none !important; padding: 26px 32px !important; }
-      .po-col:last-child { border-right: none !important; }
-      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
-      .po-plan dl { grid-template-columns: 62px 1fr !important; }
-      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
-      .po-flip .ar { transform: none !important; }
-      .po-scope { flex-direction: row !important; }
-      .po-head { padding: 34px 44px 30px !important; }
-      .po-head h2 { font-size: 2.75rem !important; }
-      .po-authors .when { margin-left: auto !important; }
-      .po-foot .brand { margin-left: auto !important; }
-      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
-    }
   
     /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
        한 줄로 눌러 본문에 자리를 넘긴다. */
@@ -214,7 +180,32 @@ p { margin: 0; }
     .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
       font-weight: 600; flex: 1; min-width: 0; }
     @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
-  </style>
+      /* print-fit — 인쇄에서 A1 한 장에 담는다.
+       zoom을 쓰는 까닭: transform: scale은 그린 크기만 바꾸고 자리는 그대로라
+       body의 overflow에 잘린다. zoom은 자리까지 함께 줄여 잘리지 않는다.
+       배율은 이 포스터의 실제 높이(px)를 A1 지면에 맞춰 계산한 값이다. */
+    @media print {
+      html, body { margin: 0 !important; padding: 0 !important;
+        background: #fff !important; width: auto !important; height: auto !important;
+        overflow: visible !important; }
+      .poster { width: 100% !important; max-width: 1360px !important; min-height: 0 !important;
+        margin: 0 auto !important; box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+      .po-head, .po-scope, .po-body, .po-concl, .po-refs, .po-foot,
+      .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
+      .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+</style>
 </head>
 <body>
 
@@ -395,9 +386,9 @@ p { margin: 0; }
 
   <div class="pdf-bar" id="pdfBar">
     <div class="pdf-tip" id="pdfTip">
-      <b>대상</b>을 「PDF로 저장」, <b>여백</b>을 「없음」, <b>배경 그래픽</b>을 켜세요.<br>
-      <b>용지</b>는 <b>A3</b>를 고르면 한 장에 담깁니다. <b>A4</b>만 있으면
-      <b>배율을 「맞춤」에서 30</b>으로 낮추세요. (A1 용지는 인쇄 창 목록에 없습니다.)
+      <b>대상</b>을 「PDF로 저장」, <b>여백</b>을 「없음」, <b>배경 그래픽</b>을 켜고
+      <b>배율을 「용지에 맞추기」</b>로 하세요. 용지는 <b>A3</b>나 <b>A4</b> 아무거나 됩니다.
+      포스터 전체가 한 쪽에 담깁니다.
     </div>
     <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
