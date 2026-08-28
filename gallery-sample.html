@@ -5,8 +5,8 @@
   <link rel="icon" type="image/png" href="img/icon-logo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>'팩폭' — 사실이면 다 말해도 될까? · 3모둠</title>
-  <meta name="description" content="1학년 3모둠이 조사한 말 '팩폭'. 왜 쓰는지, 듣는 사람은 어땠는지, 뭐라고 바꿔 말할 수 있는지">
+  <title>'팩폭' — 사실이면 다 말해도 될까? · 1학년 3반 3조</title>
+  <meta name="description" content="1학년 3반 3조가 조사한 말 '팩폭'. 왜 쓰는지, 듣는 사람은 어땠는지, 뭐라고 바꿔 말할 수 있는지">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="design-v2.css">
@@ -17,7 +17,13 @@
     .gs-hero h1 { font-size: clamp(1.9rem, 5vw, 3.3rem); line-height: 1.24; margin: 12px 0 0; }
     .gs-hero .word { background: var(--sun); border-radius: 8px; padding: 0 10px; }
     .gs-hero .sub { font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 700; color: #4B5563; margin-top: 16px; line-height: 1.7; }
-    .gs-by { margin-top: 22px; font-size: .9rem; font-weight: 700; color: var(--sub, #6B7280); }
+    .gs-by { margin-top: 10px; font-size: .9rem; font-weight: 700; color: var(--sub, #6B7280); }
+
+    /* 작성자 — 실제 보고서처럼 제목 바로 아래 */
+    .gs-authors { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-top: 22px;
+      padding-top: 16px; border-top: 2px solid rgba(34,38,46,.14); }
+    .gs-authors .aff { font-size: 1.02rem; font-weight: 800; color: var(--green-deep, #14775A); }
+    .gs-authors .names { font-size: 1rem; font-weight: 700; color: var(--ink, #22262E); }
 
     .step-num { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: #fff; font-family: 'Paperlogy','Pretendard',sans-serif; font-size: 1rem; font-weight: 800; margin-right: 12px; flex: 0 0 auto; }
     .gs-head { display: flex; align-items: center; margin-bottom: 6px; }
@@ -127,10 +133,14 @@
     <section class="gs-hero">
       <div class="wrap">
         <a class="back-link" href="gallery.html">← 갤러리로 돌아가기</a>
-        <p class="gs-kicker">1학년 3모둠이 조사했습니다</p>
+        <p class="gs-kicker">학급 언어생활 사례 조사 · 모둠 조사 보고서</p>
         <h1>"다들 쓰니까 쓴다"면서<br>왜 <span class="word">선생님 앞에서는</span> 안 쓸까?</h1>
         <p class="sub">우리는 <strong>'팩폭'</strong>이라는 말을 조사했습니다. 사실을 말하는 건데 왜 듣는 사람은 웃지 않았을까요.<br>3분이면 다 읽습니다.</p>
-        <p class="gs-by">면접 1명 · '팩폭'이 적힌 우리 반 카드 3장 · 2026년 8월</p>
+        <div class="gs-authors">
+          <span class="aff">1학년 3반 3조</span>
+          <span class="names">1301 김하준 · 1305 박서연 · 1312 이도현 · 1318 정민서</span>
+        </div>
+        <p class="gs-by">면접 1명 · '팩폭'이 적힌 우리 반 카드 3장 · 2026년 8월 20일 ~ 8월 27일</p>
       </div>
     </section>
 
@@ -282,12 +292,12 @@
       <div class="wrap">
         <header class="section-head">
           <h2>이 페이지는 이렇게 만들었습니다</h2>
-          <p>3모둠이 보고서를 다 쓴 뒤, 독스 맨 아래 「웹페이지 제작 프롬프트」 10칸을 채웠습니다. 그 보고서를 <strong>웹페이지 도우미</strong>에 넣어 이 페이지를 만들고, 선생님이 확인해 갤러리에 올렸습니다. <strong>노란 글씨가 모둠이 채운 부분</strong>입니다.</p>
+          <p>3조가 보고서를 다 쓴 뒤, 독스 맨 아래 「웹페이지 제작 프롬프트」 10칸을 채웠습니다. 그 보고서를 <strong>웹페이지 도우미</strong>에 넣어 이 페이지를 만들고, 선생님이 확인해 갤러리에 올렸습니다. <strong>노란 글씨가 모둠이 채운 부분</strong>입니다.</p>
         </header>
 
         <div class="prompt-sheet">
-          <h3>3모둠 · 웹페이지 제작 프롬프트</h3>
-          <p class="pnote">양식에는 고를 수 있는 항목이 더 많습니다. 여기에는 <strong>3모둠이 고른 것</strong>만 보입니다. 보고서 순서(1 조사 동기 → 5 참고 자료)를 그대로 쓰지 않았습니다. 읽는 사람이 우리 모둠에서 다른 반 학생으로 바뀌었기 때문입니다.</p>
+          <h3>1학년 3반 3조 · 웹페이지 제작 프롬프트</h3>
+          <p class="pnote">양식에는 고를 수 있는 항목이 더 많습니다. 여기에는 <strong>3조가 고른 것</strong>만 보입니다. 보고서 순서(1 조사 동기 → 5 참고 자료)를 그대로 쓰지 않았습니다. 읽는 사람이 우리 모둠에서 다른 반 학생으로 바뀌었기 때문입니다.</p>
 
           <div class="prompt-line">
             <span class="pk">1. 만들 것</span>
@@ -356,7 +366,7 @@
 
           <div class="prompt-line">
             <span class="pk">9. 꼭 지킬 것</span>
-            <p>실명과 특정 사건은 쓰지 마세요. 거친 말은 초성으로 적어 주세요. 우리가 조사하지 않은 것까지 넓혀 쓰지 마세요. 확인한 것과 짐작한 것을 나눠서 보여 주세요. 면접 인원과 카드 장수를 밝혀 주세요.</p>
+            <p>우리 모둠의 반·조와 학번·이름은 제목 아래에 밝혀 주세요. 모둠 밖 사람의 이름과 특정 사건은 쓰지 마세요. 거친 말은 초성으로 적어 주세요. 우리가 조사하지 않은 것까지 넓혀 쓰지 마세요. 확인한 것과 짐작한 것을 나눠서 보여 주세요. 면접 인원과 카드 장수를 밝혀 주세요.</p>
           </div>
 
           <div class="prompt-line">
