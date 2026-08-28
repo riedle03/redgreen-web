@@ -242,7 +242,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -275,6 +306,25 @@ p { margin: 0; }
       .po-head, .po-scope, .po-body, .po-concl, .po-foot,
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
 
   /* ── 2-2 ── */
@@ -459,7 +509,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -492,6 +573,25 @@ p { margin: 0; }
       .po-head, .po-scope, .po-body, .po-concl, .po-foot,
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
 
   /* ── 2-3 ── */
@@ -676,7 +776,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
   /* ── 2-4 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -858,7 +989,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
   /* ── 3-1 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -1041,7 +1203,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -1074,6 +1267,25 @@ p { margin: 0; }
       .po-head, .po-scope, .po-body, .po-concl, .po-foot,
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
 
   /* ── 3-2 ── */
@@ -1258,7 +1470,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -1291,6 +1534,25 @@ p { margin: 0; }
       .po-head, .po-scope, .po-body, .po-concl, .po-foot,
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
 
   /* ── 3-3 ── */
@@ -1475,7 +1737,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -1508,6 +1801,25 @@ p { margin: 0; }
       .po-head, .po-scope, .po-body, .po-concl, .po-foot,
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
 
   /* ── 3-4 ── */
@@ -1692,7 +2004,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -1725,6 +2068,25 @@ p { margin: 0; }
       .po-head, .po-scope, .po-body, .po-concl, .po-foot,
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
 
   /* ── 4-1 ── */
@@ -1908,7 +2270,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
   /* ── 4-2 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -2091,7 +2484,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -2124,6 +2548,25 @@ p { margin: 0; }
       .po-head, .po-scope, .po-body, .po-concl, .po-foot,
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
 
   /* ── 4-3 ── */
@@ -2308,7 +2751,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -2341,6 +2815,25 @@ p { margin: 0; }
       .po-head, .po-scope, .po-body, .po-concl, .po-foot,
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
 
   /* ── 4-4 ── */
@@ -2524,7 +3017,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
   /* ── 5-1 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -2707,7 +3231,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -2740,6 +3295,25 @@ p { margin: 0; }
       .po-head, .po-scope, .po-body, .po-concl, .po-foot,
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
 
   /* ── 5-2 ── */
@@ -2923,7 +3497,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
   /* ── 5-3 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -3106,7 +3711,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
   /* ── 5-4 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -3289,7 +3925,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
        CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
@@ -3322,6 +3989,25 @@ p { margin: 0; }
       .po-head, .po-scope, .po-body, .po-concl, .po-foot,
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
 
   /* ── 6-1 ── */
@@ -3505,7 +4191,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
   /* ── 6-2 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -3687,7 +4404,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
   /* ── 6-3 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -3869,7 +4617,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
   /* ── 6-4 ── */
 
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -4051,7 +4830,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
 
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  
 </style>
 </head>
 <body>
@@ -4066,8 +4876,8 @@ p { margin: 0; }
 </div>
 
 <div class="pa-tip">
-      한 번에 20쪽으로 저장하려면 <b>대상</b>을 「PDF로 저장」, <b>여백</b>을 「없음」,
-      <b>배경 그래픽</b>을 켜고 <b>용지를 A3</b>, <b>배율을 「맞춤」에서 50</b>으로 하세요.
+      한 번에 저장하려면 <b>대상</b>을 「PDF로 저장」, <b>여백</b>을 「없음」, <b>배경 그래픽</b>을 켜고
+      <b>용지를 A3</b>, <b>배율을 「맞춤」에서 50</b>으로 하세요.
       <b>포스터마다 정확히 한 쪽</b>으로 받으려면 아래 목록에서 한 장씩 열어
       각 포스터의 「인쇄용 PDF 만들기」를 쓰는 편이 확실합니다.
     </div>
@@ -4159,12 +4969,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 우리 모둠이 직접 찾아본 사전 두 곳 · <b>보여 주는 것</b> 늘 쓰는 말이라고 해서 사전에 있는 말은 아니라는 것.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>표준국어대사전 — '쌰갈' 검색 결과 없음</p>
-        <p>우리말샘 — '쌰갈' 검색 결과 없음</p>
-        <p>1학년 RED 카드 가운데 '쌰갈'이 적힌 카드 4장 (2026년 8월 27일)</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -4284,6 +5089,13 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>표준국어대사전 — '쌰갈' 검색 결과 없음</p>
+        <p>우리말샘 — '쌰갈' 검색 결과 없음</p>
+        <p>1학년 RED 카드 가운데 '쌰갈'이 적힌 카드 4장 (2026년 8월 27일)</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 4장</strong>(4-가에는 1장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -4294,6 +5106,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-2-2">
@@ -4348,11 +5163,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> KSLang에서 찾은 검색 결과와 우리 보고서 3-가 · <b>보여 주는 것</b> 이 말은 우리말이 아니라 일본어 인사말이 줄어든 말이라는 것.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>KSLang — 아자스(A-ja-seu) 의미 및 사용법</p>
-        <p style="font-size:.8rem;color:#6B7280;word-break:break-all">https://kslang.com/korean-slang/a-ja-seu</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -4461,6 +5272,12 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>KSLang — 아자스(A-ja-seu) 의미 및 사용법</p>
+        <p style="font-size:.8rem;color:#6B7280;word-break:break-all">https://kslang.com/korean-slang/a-ja-seu</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 1장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -4471,6 +5288,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-2-3">
@@ -4524,11 +5344,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 우리 보고서 5 참고 자료와 4-가 · <b>보여 주는 것</b> 두 자리에 적힌 장수가 서로 달라, 몇 장인지 우리도 아직 정하지 못했다는 것.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>RED 카드 가운데 "ㄴㅇㅁ"가 적힌 카드 2장 (2026년 8월 26일)</p>
-        <p>RED 카드 가운데 "너임마청년"이 적힌 카드 2장 (2026년 8월 20일)</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -4635,6 +5451,12 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>RED 카드 가운데 "ㄴㅇㅁ"가 적힌 카드 2장 (2026년 8월 26일)</p>
+        <p>RED 카드 가운데 "너임마청년"이 적힌 카드 2장 (2026년 8월 20일)</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 2장</strong>(4-가에는 8장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -4645,6 +5467,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-2-4">
@@ -4708,11 +5533,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 보고서 3-가와 나무위키에서 찾은 뜻 · <b>보여 주는 것</b> 이 말이 '지옥'과 '조선'을 합쳐 만든 신조어라는 것.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>나무위키 — '헬조선' 검색 결과. Hell(지옥)과 조선(朝鮮)의 합성어로, 마치 지옥(헬)과 같은 한국(조선)이라는 뜻을 담은 신조어다.</p>
-        <p>우리말샘 — '헬조선'</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -4803,6 +5624,12 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>나무위키 — '헬조선' 검색 결과. Hell(지옥)과 조선(朝鮮)의 합성어로, 마치 지옥(헬)과 같은 한국(조선)이라는 뜻을 담은 신조어다.</p>
+        <p>우리말샘 — '헬조선'</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 1장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -4813,6 +5640,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-3-1">
@@ -4906,13 +5736,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 면접에서 들은 것과 우리 모둠이 3절에 쓴 문장 · <b>보여 주는 것</b> 이 말은 숏폼 영상에서 시작해 또래 사이의 유행을 거쳐 우리 반 카드까지 왔다. 3절에 「추정하고 있다」로 적은 짐작이 섞여 있다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>국어사전(네이버 국어사전) — '야르' 검색 결과: 10대들 사이에서 '좋다'라는 뜻으로 쓰인다</p>
-        <p>표준국어대사전(stdict.korean.go.kr) — '야르' 검색 결과 없음</p>
-        <p>우리말샘(opendict.korean.go.kr) — '야르' 검색 결과 없음</p>
-        <p>1학년 RED 카드 가운데 '야르'가 적힌 카드 12장 (2026년 8월 28일)</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -5001,6 +5825,14 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>국어사전(네이버 국어사전) — '야르' 검색 결과: 10대들 사이에서 '좋다'라는 뜻으로 쓰인다</p>
+        <p>표준국어대사전(stdict.korean.go.kr) — '야르' 검색 결과 없음</p>
+        <p>우리말샘(opendict.korean.go.kr) — '야르' 검색 결과 없음</p>
+        <p>1학년 RED 카드 가운데 '야르'가 적힌 카드 12장 (2026년 8월 28일)</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 2장</strong>(4-가와 5 참고 자료에는 12장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -5011,6 +5843,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-3-2">
@@ -5089,11 +5924,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 보고서 3절 「사전적 의미와 실제 쓰이는 뜻」에 우리 모둠이 쓴 문장 · <b>보여 주는 것</b> 지금은 짧은 초성으로 쓰지만 원래는 성적인 뜻을 가진 옛 비속어에서 온 말이다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>보고서 5 참고 자료 칸은 <strong>비어 있다.</strong> 우리 모둠은 3차시 안에 찾아본 곳을 적지 못했다.</p>
-        <p style="font-size:.82rem;color:#6B7280">알아내지 못한 것을 알아내지 못했다고 적는 것도 조사 결과다.</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -5181,6 +6012,12 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>보고서 5 참고 자료 칸은 <strong>비어 있다.</strong> 우리 모둠은 3차시 안에 찾아본 곳을 적지 못했다.</p>
+        <p style="font-size:.82rem;color:#6B7280">알아내지 못한 것을 알아내지 못했다고 적는 것도 조사 결과다.</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 5장</strong>(4-가에는 1장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -5191,6 +6028,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-3-3">
@@ -5262,11 +6102,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 우리 모둠이 보고서 3절에 쓴 문장 · <b>보여 주는 것</b> 한쪽 사전에는 없고 다른 쪽 사전에는 있으며, 사전의 뜻보다 우리가 쓰는 뜻이 더 짧고 세다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>보고서 5 참고 자료 칸은 <strong>비어 있다.</strong> 우리 모둠은 3차시 안에 찾아본 곳을 적지 못했다.</p>
-        <p style="font-size:.82rem;color:#6B7280">알아내지 못한 것을 알아내지 못했다고 적는 것도 조사 결과다.</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -5358,6 +6194,12 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>보고서 5 참고 자료 칸은 <strong>비어 있다.</strong> 우리 모둠은 3차시 안에 찾아본 곳을 적지 못했다.</p>
+        <p style="font-size:.82rem;color:#6B7280">알아내지 못한 것을 알아내지 못했다고 적는 것도 조사 결과다.</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 1장</strong>(4-가에는 4장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -5368,6 +6210,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-3-4">
@@ -5454,11 +6299,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 보고서 3절 「사전적 의미와 실제 쓰이는 뜻」에 우리 모둠이 쓴 문장 · <b>보여 주는 것</b> 이 말은 학생 자신을 가리키면서 벌레에 빗대는 말로 만들어져 있다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>Google — '금식충' 검색 결과: <strong>결과를 적지 못했다.</strong></p>
-        <p style="font-size:.82rem;color:#6B7280">보고서에는 찾아본 곳 이름까지만 적혀 있고 결과가 비어 있다. 검색어도 '금식충'으로 적혀 있다. 알아내지 못한 것을 알아내지 못했다고 적는 것도 조사 결과다.</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -5548,6 +6389,12 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>Google — '금식충' 검색 결과: <strong>결과를 적지 못했다.</strong></p>
+        <p style="font-size:.82rem;color:#6B7280">보고서에는 찾아본 곳 이름까지만 적혀 있고 결과가 비어 있다. 검색어도 '금식충'으로 적혀 있다. 알아내지 못한 것을 알아내지 못했다고 적는 것도 조사 결과다.</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 1장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -5558,6 +6405,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-4-1">
@@ -5611,12 +6461,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 5 참고 자료의 표준국어대사전·우리말샘 검색 결과 · <b>보여 주는 것</b> 사전에 실린 뜻 가운데 우리가 쓰는 뜻과 같은 것은 없다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>표준국어대사전, '엄' 항목 넷(어음 · 엄폐 · 성씨 · 세 차례 북을 치던 일). https://stdict.korean.go.kr/search/searchResult.do</p>
-        <p>우리말샘, '엄' 검색 — '엄하다'의 어근. https://opendict.korean.go.kr/search/searchResult</p>
-        <p>1학년 RED 카드 중 '엄'이 들어간 카드는 1개다. (2026년 8월 21일)</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -5727,6 +6572,13 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>표준국어대사전, '엄' 항목 넷(어음 · 엄폐 · 성씨 · 세 차례 북을 치던 일). https://stdict.korean.go.kr/search/searchResult.do</p>
+        <p>우리말샘, '엄' 검색 — '엄하다'의 어근. https://opendict.korean.go.kr/search/searchResult</p>
+        <p>1학년 RED 카드 중 '엄'이 들어간 카드는 1개다. (2026년 8월 21일)</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 1장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -5738,6 +6590,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-4-2">
@@ -5796,10 +6651,7 @@ p { margin: 0; }
         <p>여기까지는 면접에서 들은 것이다. 그러니까 응답자는 처음에 'ㅅㅂ'이라는 단어(비속어)에 대한 존재 유무도 모르고 있었지만 함께 어울리던 친구에게서 듣게 되었다는 것을 알 수 있다.</p>
       </section>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>표준국어대사전 · 우리말샘 — 모둠원이 각자 자기 카드의 말을 찾아본 결과는 아래 표에 있다.</p>
-      </section>
+      
 
       <figure class="po-fig">
         <table class="po-tbl">
@@ -5921,6 +6773,11 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>표준국어대사전 · 우리말샘 — 모둠원이 각자 자기 카드의 말을 찾아본 결과는 아래 표에 있다.</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 5장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -5932,6 +6789,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-4-3">
@@ -5993,10 +6853,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 5 참고 자료의 국어사전 검색 · 보고서 3-가 · <b>보여 주는 것</b> 사전에는 없는 말이고, 욕설을 순화해 쓰는 감탄사로 통한다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>"샤갈" 국어사전 → 단어 뜻 없음. ㅅㅂ 같은 욕설이나 비속어를 부드럽게 순화해서 사용하는 감탄사. (2026년 8월 28일, 금)</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -6110,6 +6967,11 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>"샤갈" 국어사전 → 단어 뜻 없음. ㅅㅂ 같은 욕설이나 비속어를 부드럽게 순화해서 사용하는 감탄사. (2026년 8월 28일, 금)</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 우리 반 RED 카드</strong>로 알아낸 범위 안의 결과입니다. 카드 장수는 보고서에 3장과 4장이 함께 적혀 있어 양쪽을 그대로 실었습니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -6121,6 +6983,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-4-4">
@@ -6182,13 +7047,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 보고서 2-나 조사 대상 · 우리 반 RED 카드 · <b>보여 주는 것</b> '야르'가 '쌰갈'보다 세 배 많이 겹쳤다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>나무위키 '야르'. https://namu.wiki/w/%EC%95%BC%EB%A5%B4</p>
-        <p>나무위키 '쌰갈'(여단오 항목). https://namu.wiki/w/%EC%97%AC%EB%8B%A8%EC%98%A4</p>
-        <p>인스타그램 '쌰르' 게시물. https://www.instagram.com/p/Db19pY2Pz7F/</p>
-        <p>3-가의 사전적 의미는 보고서에 출처가 '지피티'로 적혀 있다.</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -6293,6 +7152,14 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>나무위키 '야르'. https://namu.wiki/w/%EC%95%BC%EB%A5%B4</p>
+        <p>나무위키 '쌰갈'(여단오 항목). https://namu.wiki/w/%EC%97%AC%EB%8B%A8%EC%98%A4</p>
+        <p>인스타그램 '쌰르' 게시물. https://www.instagram.com/p/Db19pY2Pz7F/</p>
+        <p>3-가의 사전적 의미는 보고서에 출처가 '지피티'로 적혀 있다.</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 4장</strong>으로 알아낸 범위 안의 결과입니다. 3의 나·다·라 칸은 보고서에서 비어 있어 비어 있다고 적었습니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -6304,6 +7171,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-5-1">
@@ -6357,14 +7227,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 사전 · 우리 모둠이 물어본 AI · <b>보여 주는 것</b> 이 말은 사전에 없고, 통용 의미와 우리가 쓰는 뜻이 서로 비슷하다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>표준국어대사전 — '쌰갈' 등록되어 있지 않음</p>
-        <p>우리말샘 — '쌰갈' 등록되어 있지 않음</p>
-        <p>AI(제미나이) — '쌰갈'의 통용 의미를 물어본 답</p>
-        <p>우리 반 RED 카드 가운데 '샤갈'이 적힌 카드 4장</p>
-        <p style="font-size:.82rem;color:#6B7280">보고서 5 참고 자료 칸에는 우리가 조사하지 않은 다른 말('노잼')의 검색 결과가 남아 있어 이 포스터에는 싣지 않았다.</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -6474,6 +7337,15 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>표준국어대사전 — '쌰갈' 등록되어 있지 않음</p>
+        <p>우리말샘 — '쌰갈' 등록되어 있지 않음</p>
+        <p>AI(제미나이) — '쌰갈'의 통용 의미를 물어본 답</p>
+        <p>우리 반 RED 카드 가운데 '샤갈'이 적힌 카드 4장</p>
+        <p style="font-size:.82rem;color:#6B7280">보고서 5 참고 자료 칸에는 우리가 조사하지 않은 다른 말('노잼')의 검색 결과가 남아 있어 이 포스터에는 싣지 않았다.</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 4장</strong>(4-가에는 71장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -6484,6 +7356,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-5-2">
@@ -6537,13 +7412,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 사전 · 우리 반 RED 카드 · <b>보여 주는 것</b> 두 사전에는 없는 말인데 우리 반 카드에는 17장이나 적혀 있다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>표준국어대사전 — '야르' 찾기 결과 (총 0개)</p>
-        <p>우리말샘 — '야르' 검색 결과 없음</p>
-        <p>나무위키 — '야르' 위키 페이지</p>
-        <p>1학년 RED 카드 가운데 '야르'가 적힌 카드 17장(2026년 8월 28일)</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -6659,6 +7528,14 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>표준국어대사전 — '야르' 찾기 결과 (총 0개)</p>
+        <p>우리말샘 — '야르' 검색 결과 없음</p>
+        <p>나무위키 — '야르' 위키 페이지</p>
+        <p>1학년 RED 카드 가운데 '야르'가 적힌 카드 17장(2026년 8월 28일)</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 17장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -6669,6 +7546,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-5-3">
@@ -6723,12 +7603,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 사전 · <b>보여 주는 것</b> 낱말 하나하나는 사전에 있는 보통 말인데, 합치면 사전에 없는 다른 뜻이 된다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>우리말샘 — '임마' 검색 결과: '이놈아'가 줄어든 말 (2026년 8월 27일)</p>
-        <p>우리말샘 — '청년' 검색 결과: 신체적, 정신적으로 무르익은 시기, 성년 남자 (2026년 8월 27일)</p>
-        <p>우리 반 레드 카드 — '너임마청년' 3장</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -6831,6 +7706,13 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>우리말샘 — '임마' 검색 결과: '이놈아'가 줄어든 말 (2026년 8월 27일)</p>
+        <p>우리말샘 — '청년' 검색 결과: 신체적, 정신적으로 무르익은 시기, 성년 남자 (2026년 8월 27일)</p>
+        <p>우리 반 레드 카드 — '너임마청년' 3장</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 3장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -6841,6 +7723,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-5-4">
@@ -6899,13 +7784,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 우리가 살펴본 SNS 게시물과 댓글 · <b>보여 주는 것</b> 이 말은 지적을 한 <strong>뒤에</strong> 붙어서, 상대가 기분 나빠하는 것을 덮는 자리에 온다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>표준국어대사전</p>
-        <p>국립국어원</p>
-        <p>1학년 레드 카드</p>
-        <p>AI(챗지피티, 제미나이)</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -6992,6 +7871,14 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>표준국어대사전</p>
+        <p>국립국어원</p>
+        <p>1학년 레드 카드</p>
+        <p>AI(챗지피티, 제미나이)</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 1장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -7002,6 +7889,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-6-1">
@@ -7054,11 +7944,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 보고서 3-가 · <b>보여 주는 것</b> 이 말은 사전에 없고, 우리는 감탄사나 추임새처럼 쓴다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>챗지피티 — '쌰갈'의 어원과 뜻을 질문함</p>
-        <p style="font-size:.82rem;color:#6B7280">보고서 5 참고 자료 칸에는 이 한 줄만 적혀 있다. 2 조사 계획의 조사 방법 칸에는 네이버 사전과 네이버 블로그 사례도 적혀 있다.</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -7165,6 +8051,12 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>챗지피티 — '쌰갈'의 어원과 뜻을 질문함</p>
+        <p style="font-size:.82rem;color:#6B7280">보고서 5 참고 자료 칸에는 이 한 줄만 적혀 있다. 2 조사 계획의 조사 방법 칸에는 네이버 사전과 네이버 블로그 사례도 적혀 있다.</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 1장</strong>으로 알아낸 범위 안의 결과입니다. 3의 '이 말을 계속 쓰게 하는 원인' 칸은 보고서에서 비어 있어 비어 있다고 적었습니다. 확인한 것과 짐작한 것을 나누어 적었습니다.</p>
@@ -7175,6 +8067,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-6-2">
@@ -7227,13 +8122,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 보고서 3-가 · 5 참고 자료 · <b>보여 주는 것</b> 표준국어대사전에는 없지만 다른 두 곳에는 영어 real에서 온 말로 올라 있다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>표준국어대사전 — '레알' 검색 결과 없음</p>
-        <p>우리말샘 — "'진짜', '정말'이라는 뜻으로 쓰는 말. 리얼(real)을 재미있게 발음한 것에서 비롯되었다."</p>
-        <p>국립국어원, 《매일경제》, 2016년 7월</p>
-        <p>1학년 RED 카드 2장(2026년 8월 27일)</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -7325,6 +8214,14 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>표준국어대사전 — '레알' 검색 결과 없음</p>
+        <p>우리말샘 — "'진짜', '정말'이라는 뜻으로 쓰는 말. 리얼(real)을 재미있게 발음한 것에서 비롯되었다."</p>
+        <p>국립국어원, 《매일경제》, 2016년 7월</p>
+        <p>1학년 RED 카드 2장(2026년 8월 27일)</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 2장</strong>으로 알아낸 범위 안의 결과입니다. 3의 '이 말을 계속 쓰게 하는 원인' 칸은 보고서에서 비어 있어 비어 있다고 적었습니다. 확인한 것과 짐작한 것을 나누어 적었습니다.</p>
@@ -7335,6 +8232,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-6-3">
@@ -7387,11 +8287,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 보고서 3-가 · <b>보여 주는 것</b> 사전에 오른 뜻에는 비하가 없지만, 우리가 쓰는 뜻에는 비하가 들어 있다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>국립국어원, 「2020년 국민의 언어 의식 조사」, 2020</p>
-        <p>1학년 RED 카드 2장(2026년 8월 26일)</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -7499,6 +8395,12 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>국립국어원, 「2020년 국민의 언어 의식 조사」, 2020</p>
+        <p>1학년 RED 카드 2장(2026년 8월 26일)</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 2장</strong>(4-가에는 1장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 3의 '이 말을 계속 쓰게 하는 원인' 칸은 보고서에서 비어 있어 비어 있다고 적었습니다. 확인한 것과 짐작한 것을 나누어 적었습니다.</p>
@@ -7509,6 +8411,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <div class="pa-sheet p-6-4">
@@ -7562,14 +8467,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 보고서 5 참고 자료 · <b>보여 주는 것</b> 사전 세 곳에는 없고, 뜻은 사전이 아닌 곳에서만 찾을 수 있었다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>표준국어대사전(stdict.korean.go.kr) — '쌰갈' 검색 결과 없음</p>
-        <p>우리말샘(opendict.korean.go.kr) — '쌰갈' 검색 결과 없음</p>
-        <p>국립국어원 — '쌰갈' 검색 결과 없음</p>
-        <p>나무위키 — '쌰갈' 검색 결과, 기분이 나쁠 때 쓰는 말로 'ㅅㅂ'을 돌려 말하는 것이다</p>
-        <p>1학년 RED 카드 4장(2026년 8월 26일)</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -7681,6 +8579,15 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>표준국어대사전(stdict.korean.go.kr) — '쌰갈' 검색 결과 없음</p>
+        <p>우리말샘(opendict.korean.go.kr) — '쌰갈' 검색 결과 없음</p>
+        <p>국립국어원 — '쌰갈' 검색 결과 없음</p>
+        <p>나무위키 — '쌰갈' 검색 결과, 기분이 나쁠 때 쓰는 말로 'ㅅㅂ'을 돌려 말하는 것이다</p>
+        <p>1학년 RED 카드 4장(2026년 8월 26일)</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 4장</strong>으로 알아낸 범위 안의 결과입니다. 3의 '이 말을 계속 쓰게 하는 원인' 칸은 보고서에서 비어 있어 비어 있다고 적었습니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -7691,6 +8598,9 @@ p { margin: 0; }
 
   <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
   </div>
+  
+
+<!-- order-fixed -->
 </div>
 
 <script>

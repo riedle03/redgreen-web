@@ -185,7 +185,38 @@ p { margin: 0; }
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
     }
-</style>
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
+    }
+
+    /* 참고 자료 — 결론 아래 전폭 한 줄. 소스 순서를 1·2·3·4·5로 두어
+       화면·인쇄 어느 쪽에서도 번호가 뒤엉키지 않게 한다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE; padding: 18px 32px; }
+    .po-refs > h3 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin: 0 0 8px; }
+    .po-refs > h3::after { content: none; }
+    .po-refs > h3 .n { display: inline-flex; align-items: center; justify-content: center;
+      width: 25px; height: 25px; border-radius: 50%; background: #22262E; color: #fff;
+      font-size: .82rem; font-weight: 800; flex: 0 0 auto; }
+    .po-refs p { font-size: .86rem; line-height: 1.7; margin: 0 0 4px; color: #4B5563; }
+    .po-refs p:last-child { margin-bottom: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 18px 20px; } }
+  </style>
 
   <style>
     /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
@@ -225,6 +256,25 @@ p { margin: 0; }
       .po-head, .po-scope, .po-body, .po-concl, .po-foot,
       .po-col, .blk, .po-fig, .po-quote, .po-cause, .po-plan,
       .po-limit, .po-flip, .po-tbl { break-inside: avoid; page-break-inside: avoid; }
+    }
+    /* print-cols-fix — 인쇄는 창 폭과 무관하게 늘 2단이어야 한다.
+       좁은 창(900px 이하)에서 인쇄하면 화면용 1열 규칙이 그대로 걸려
+       포스터가 세로로 길게 늘어졌다. 인쇄에서만 되돌린다. */
+    @media print {
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important;
+        border-bottom: none !important; padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-head { padding: 34px 44px 30px !important; }
+      .po-head h2 { font-size: 2.75rem !important; }
+      .po-authors .when { margin-left: auto !important; }
+      .po-foot .brand { margin-left: auto !important; }
+      .blk p, .po-plan dd, .po-limit p { font-size: .93rem !important; }
     }
 </style>
 <!-- fit:applied -->
@@ -305,11 +355,7 @@ p { margin: 0; }
           <b>어디서 왔나</b> 보고서 3절 「사전적 의미와 실제 쓰이는 뜻」에 우리 모둠이 쓴 문장 · <b>보여 주는 것</b> 지금은 짧은 초성으로 쓰지만 원래는 성적인 뜻을 가진 옛 비속어에서 온 말이다.</p>
       </figure>
 
-      <section class="blk">
-        <h2><span class="n">5</span>참고 자료</h2>
-        <p>보고서 5 참고 자료 칸은 <strong>비어 있다.</strong> 우리 모둠은 3차시 안에 찾아본 곳을 적지 못했다.</p>
-        <p style="font-size:.82rem;color:#6B7280">알아내지 못한 것을 알아내지 못했다고 적는 것도 조사 결과다.</p>
-      </section>
+      
     </div>
 
     <!-- ══ 오른쪽 단 ══ -->
@@ -397,6 +443,12 @@ p { margin: 0; }
 
     </div>
   </div>
+          <div class="po-refs">
+            <h3><span class="n">5</span>참고 자료</h3>
+<p>보고서 5 참고 자료 칸은 <strong>비어 있다.</strong> 우리 모둠은 3차시 안에 찾아본 곳을 적지 못했다.</p>
+        <p style="font-size:.82rem;color:#6B7280">알아내지 못한 것을 알아내지 못했다고 적는 것도 조사 결과다.</p>
+          </div>
+
 
   <footer class="po-foot">
     <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 5장</strong>(4-가에는 1장으로 적혀 있다)으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
@@ -425,5 +477,6 @@ p { margin: 0; }
     })();
   </script>
 <!-- print-ui -->
+<!-- order-fixed -->
 </body>
 </html>
