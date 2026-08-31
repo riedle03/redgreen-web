@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>'ㅅㅂ' — 학급 언어생활 사례 조사 · 1학년 1반 1조</title>
+<meta name="description" content="우리 모둠의 조사 목적은 욕을 언제부터 사용하였는가에 답하는 것이다. 1학년 1반 1조가 면접 1명과 우리 반 RED 카드 5장으로 조사한 결과.">
+<style>
+    /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
+       CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+    @page { margin: 6mm }
+/* 학급 언어생활 사례 조사 · 모둠 조사 포스터
+     A1 세로(594×841mm) 비율. 인쇄하면 그대로 나온다. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #E9EDF3; color: #22262E;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
+p { margin: 0; }
+
+/* ── 포스터 캔버스 · A1 세로 비율 1 : 1.414 ── */
+.poster { width: 1360px; min-height: 1923px; margin: 28px auto; background: #fff;
+  box-shadow: 0 18px 46px rgba(30,35,45,.22); display: flex; flex-direction: column; }
+
+/* ── 머리띠 · 제목과 작성자 ── */
+.po-head { background: #22262E; color: #fff; padding: 34px 44px 30px; position: relative; }
+.po-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px;
+  background: linear-gradient(90deg, #FF5A47 0%, #FFD84D 50%, #1FA97E 100%); }
+.po-kicker { font-size: .92rem; font-weight: 800; color: #FFD84D; letter-spacing: .04em; }
+.po-head h1 { font-size: 2.75rem; line-height: 1.22; margin-top: 12px; }
+.po-head h1 .hl { background: #FFD84D; color: #22262E; border-radius: 8px; padding: 0 12px; }
+.po-sub { font-size: 1.12rem; font-weight: 600; color: #C7CEDA; margin-top: 14px; line-height: 1.6; }
+.po-authors { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-top: 22px;
+  padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+.po-authors .aff { font-size: 1.02rem; font-weight: 800; color: #8FE3C4; }
+.po-authors .names { font-size: 1.02rem; font-weight: 600; color: #E8ECF3; }
+.po-authors .names b { font-weight: 800; }
+.po-authors .when { font-size: .9rem; font-weight: 600; color: #9AA4B4; margin-left: auto; }
+
+/* ── 조사 범위 띠 ── */
+.po-scope { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 13px 44px;
+  display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: center; }
+.po-scope span { font-size: .95rem; font-weight: 700; }
+.po-scope .k { color: #8A6D1F; font-weight: 800; margin-right: 6px; }
+
+/* ── 2단 본문 ── */
+.po-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+.po-col { padding: 26px 32px; border-right: 1px solid #E4E8EE;
+  display: flex; flex-direction: column; gap: 22px; }
+.po-col:last-child { border-right: none; }
+
+.blk > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.14rem; margin-bottom: 10px; }
+.blk .n { display: inline-flex; align-items: center; justify-content: center; width: 27px; height: 27px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .88rem; font-weight: 800; flex: 0 0 auto; }
+.blk p { font-size: .93rem; line-height: 1.72; margin-bottom: 9px; }
+.blk p:last-child { margin-bottom: 0; }
+.blk .sub { font-size: .86rem; font-weight: 800; color: #4B5563; margin: 12px 0 5px; }
+
+/* ── 자료 · 표·그래프·워드클라우드·그림은 모두 이 틀에 넣는다 ── */
+.po-fig { border: 1.5px solid #E1E6ED; border-radius: 12px; background: #FBFCFE; padding: 12px 14px 9px; }
+.po-fig svg { display: block; width: 100%; height: auto; }
+.po-fig .cap { font-size: .74rem; font-weight: 700; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+.po-fig .cap b { color: #22262E; }
+.wc text { font-weight: 800; }
+
+/* ── 면접에서 들은 말 ── */
+.po-quote { border-left: 5px solid #4A7DDC; background: #EEF3FC; border-radius: 0 12px 12px 0; padding: 14px 16px; }
+.po-quote p { font-size: 1rem; font-weight: 800; line-height: 1.6; }
+.po-quote .who { display: block; font-size: .78rem; font-weight: 700; color: #6B7280; margin-top: 8px; }
+
+/* ── 원인 · 포스터의 축. 바꾼 말·제언보다 앞에 온다 ── */
+.po-cause { border: 2.5px solid #22262E; border-radius: 14px; background: #FFF8E1; padding: 16px 18px; }
+.po-cause .lab { display: inline-block; font-size: .72rem; font-weight: 800; color: #fff; background: #22262E;
+  border-radius: 999px; padding: 3px 11px; margin-bottom: 9px; }
+.po-cause p { font-size: 1.02rem; font-weight: 800; line-height: 1.55; }
+
+/* ── 결론 전폭 띠 ── */
+.po-concl { border-top: 3px solid #22262E; background: #FAFBFD; padding: 24px 32px 26px; }
+.po-concl > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.24rem; margin-bottom: 16px; }
+.po-concl > h2 .n { display: inline-flex; align-items: center; justify-content: center; width: 29px; height: 29px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .92rem; font-weight: 800; flex: 0 0 auto; }
+.po-cgrid { display: grid; grid-template-columns: 1.05fr 1fr 1.15fr; gap: 22px; align-items: start; }
+.po-cgrid > div { display: flex; flex-direction: column; gap: 12px; }
+
+/* ── 원래 말 → 바꾼 말 ── */
+.po-flip { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 6px; align-items: stretch; }
+.po-flip .s { border-radius: 11px; padding: 12px 13px; }
+.po-flip .b4 { background: #FFECE8; border: 1.5px solid #FF5A47; }
+.po-flip .af { background: #E3F6EE; border: 1.5px solid #1FA97E; }
+.po-flip .t { display: inline-block; font-size: .68rem; color: #fff; border-radius: 999px;
+  padding: 2px 9px; margin-bottom: 6px; font-weight: 800; }
+.po-flip .b4 .t { background: #D6402F; }
+.po-flip .af .t { background: #14775A; }
+.po-flip .s p { font-size: .87rem; font-weight: 700; line-height: 1.5; }
+.po-flip .ar { display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; }
+
+/* ── 실행 방안 · 줄일 원인·누가·언제·무엇을·확인 ── */
+.po-plan { border: 2px solid #1FA97E; border-radius: 14px; background: #E3F6EE; padding: 15px 17px; }
+.po-plan dl { display: grid; grid-template-columns: 62px 1fr; gap: 7px 12px; margin: 0; }
+.po-plan dt { font-size: .76rem; font-weight: 800; color: #14775A; padding-top: 2px; }
+.po-plan dd { margin: 0; font-size: .87rem; line-height: 1.6; font-weight: 600; }
+.po-plan .why { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(20,119,90,.26);
+  font-size: .84rem; line-height: 1.6; font-weight: 700; }
+
+.po-tbl { width: 100%; border-collapse: collapse; }
+.po-tbl th, .po-tbl td { border: 1px solid #DDE2EA; padding: 7px 9px; font-size: .84rem;
+  text-align: left; line-height: 1.5; }
+.po-tbl th { background: #F4F6FA; font-weight: 800; font-size: .78rem; }
+
+/* ── 알아내지 못한 것 ── */
+.po-limit { border: 2px dashed #B9C2D0; border-radius: 12px; background: #F6F8FB; padding: 13px 15px; }
+.po-limit strong { display: block; font-size: .88rem; margin-bottom: 5px; }
+.po-limit p { font-size: .84rem; line-height: 1.65; font-weight: 600; color: #4B5563; }
+
+/* ── 발 ── */
+.po-foot { background: #F4F6FA; border-top: 2px solid #E1E6ED; padding: 15px 44px;
+  display: flex; flex-wrap: wrap; gap: 6px 26px; align-items: baseline; }
+.po-foot p { font-size: .8rem; font-weight: 600; color: #4B5563; line-height: 1.6; }
+.po-foot .brand { font-size: .84rem; font-weight: 800; color: #22262E; margin-left: auto; }
+
+/* ── 휴대폰 · 캔버스 고정을 풀고 1열로 편다 ── */
+@media (max-width: 900px) {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: 0; margin: 0; box-shadow: none; }
+  .po-head { padding: 24px 20px 22px; }
+  .po-head h1 { font-size: 1.72rem; }
+  .po-sub { font-size: 1rem; }
+  .po-authors { gap: 6px 12px; }
+  .po-authors .when { margin-left: 0; }
+  .po-scope { padding: 12px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .po-body { grid-template-columns: 1fr; }
+  .po-col { border-right: none; border-bottom: 1px solid #E4E8EE; padding: 22px 20px; }
+  .po-concl { padding: 22px 20px 26px; }
+  .po-cgrid { grid-template-columns: 1fr; gap: 26px; }
+  .po-plan dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .po-plan dt { padding-top: 9px; }
+  .po-flip { grid-template-columns: 1fr; gap: 4px; }
+  .po-flip .ar { transform: rotate(90deg); padding: 2px 0; }
+  .po-foot { padding: 14px 20px; }
+  .po-foot .brand { margin-left: 0; }
+  .blk p, .po-plan dd, .po-limit p { font-size: .96rem; }
+}
+
+/* ── 인쇄 · A1 세로 ── */
+@media print {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
+  
+    /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
+}
+
+    /* 인쇄용 PDF 버튼 — 화면에만 보이고 인쇄물에는 나오지 않는다 */
+    .pdf-bar { position: fixed; right: 20px; bottom: 20px; z-index: 50;
+      display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+    .pdf-btn { font-family: 'Pretendard', system-ui, sans-serif; font-size: .95rem;
+      font-weight: 800; color: #fff; background: #22262E; border: none;
+      border-radius: 999px; padding: 12px 22px; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(30,35,45,.28); }
+    .pdf-btn:hover { background: #3A404C; }
+    .pdf-tip { background: #FFF8E1; border: 2px solid #F0E2B0; border-radius: 12px;
+      padding: 10px 14px; font-size: .82rem; font-weight: 700; line-height: 1.6;
+      color: #22262E; max-width: 280px; display: none; }
+    .pdf-tip.on { display: block; }
+    .pdf-tip b { color: #8A6D1F; }
+    @media print { .pdf-bar { display: none !important; } }
+  
+    /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
+       한 줄로 눌러 본문에 자리를 넘긴다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE;
+      padding: 9px 32px; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+    .po-refs .lab { font-size: .72rem; font-weight: 800; color: #8A6D1F;
+      background: #FFF8E1; border: 1px solid #F0E2B0; border-radius: 999px;
+      padding: 2px 9px; white-space: nowrap; flex: 0 0 auto; line-height: 1.5; }
+    .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
+      font-weight: 600; flex: 1; min-width: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       @page에 size를 넣지 않는 까닭: 넣으면 크롬이 용지 항목을 숨겨 고를 수 없다.
+       zoom은 이 포스터가 A2 지면 세로를 채우는 값이다(여유 2%).
+       transform이 아니라 zoom을 쓰는 것은 자리까지 함께 늘어 잘리지 않기 때문이다. */
+    @media print {
+      html, body { margin: 0 !important; padding: 0 !important; background: #fff !important;
+        width: auto !important; height: auto !important; overflow: visible !important; }
+      .poster { zoom: 1.0645 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+</style>
+
+  <style>
+    /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
+       CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+    /* 내용이 많아 세로가 길어진 포스터를 A1에 가깝게 좁힌다.
+       본문은 0.88rem까지만 줄인다 — 그 아래로 가면 멀리서 못 읽는다. */
+    .blk p, .po-plan dd, .po-limit p,
+    .po-tbl th, .po-tbl td { font-size: 0.88rem; }
+    .po-col { padding: 18px 28px; gap: 17px; }
+    .po-concl { padding: 18px 28px 20px; }
+    .po-quote, .po-cause, .po-plan,
+    .po-limit, .po-fig { padding: 14px 15px; }
+    .po-cgrid { gap: 18px; }
+    @media (max-width: 900px) {
+      /* 폰에서는 원래 크기로 돌린다. 좁은 화면에서 더 줄일 까닭이 없다 */
+      .blk p, .po-plan dd, .po-limit p,
+      .po-tbl th, .po-tbl td { font-size: .96rem; }
+      .po-col { padding: 22px 20px; }
+    }
+
+</style>
+<!-- fit:applied -->
+</head>
+<body>
+<article class="poster">
+
+  <header class="po-head">
+    <p class="po-kicker">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+    <h1>'<span class="hl">ㅅㅂ</span>' — 욕을 언제부터 사용하였는가</h1>
+    <p class="po-sub">우리 모둠의 조사 목적은 “욕을 언제부터 사용하였는가?”에 답하는 것이다.</p>
+    <div class="po-authors">
+      <span class="aff">1학년 1반 1조</span>
+      <span class="names"><b>1106 박상현</b> · <b>1107 박서아</b> · <b>1109 박진우</b> · <b>1115 이시윤</b> · <b>1118 조동규</b></span>
+      <span class="when">2026년 8월 24일 ~ 8월 31일</span>
+    </div>
+  </header>
+
+  <div class="po-scope">
+    <span><span class="k">조사 대상</span>면접 1명(박상현)</span>
+    <span><span class="k">자료</span>'ㅅㅂ'이 적힌 우리 반 RED 카드 5장</span>
+    <span><span class="k">방법</span>사전 조사 · 사례 자료 분석 · 모둠 면접(초점 집단 면접, FGI 방식) · 토의</span>
+  </div>
+
+  <div class="po-body">
+
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">1</span>조사 동기와 목적</h2>
+        <p class="sub">가. 조사 동기</p>
+        <p>1차시에 학습 카드를 보다가 ㅇㅁ없냐, ㅅㅂ 등. 여러 욕설이 담긴 카드들을 봤다. 이런 욕설들을 보며 이 욕설들의 정확한 뜻은 무엇이며, 왜 이 욕설들을 사용하는지와 언제부터 사용하였는지가 궁금해졌다.</p>
+        <p class="sub">나. 조사 목적</p>
+        <p>우리 모둠의 조사 목적은 “욕을 언제부터 사용하였는가?”에 답하는 것이다.</p>
+      </section>
+
+      <section class="blk">
+        <h2><span class="n">2</span>조사 계획</h2>
+        <p class="sub">가. 조사 기간</p><p>2026년 8월 24일부터 8월 31일까지</p>
+        <p class="sub">나. 조사 대상</p><p>면접 1명(박상현), 우리 반 RED 카드 가운데 ‘ㅅㅂ’이 적힌 카드 5장.</p>
+        <p class="sub">다. 조사 방법</p><p>사전 조사, 사례 자료 분석, 모둠 면접(초점 집단 면접, FGI 방식), 토의.</p>
+      </section>
+
+      <figure class="po-fig">
+        <table class="po-tbl">
+          <tr><th>찾아본 곳</th><th>'ㅅㅂ'을 찾은 결과</th></tr>
+          <tr><td>표준국어대사전</td><td>없는 단어이다</td></tr>
+          <tr><td>우리말샘</td><td>없는 단어이다</td></tr>
+          <tr><td>어원·유래</td><td>씹(여성 성기 또는 성교)과 하다를 결합한 뜻이 담긴 심한 욕설</td></tr>
+          <tr><td>우리가 실제로 쓰는 때</td><td>분노, 짜증, 당황, 억울, 놀람, 즐거움, 기쁨 등 여러 감정이 치솟을 때나 사람을 흉보거나 기분이 나쁜 상황에 감탄사로 쓴다</td></tr>
+        </table>
+        <p class="cap"><b>표 1</b> · 사전 두 곳에서 찾은 결과와 우리 모둠이 쓴 어원(2026년 8월)<br>
+          <b>어디서 왔나</b> 보고서 3절 「사전적 의미와 실제 쓰이는 뜻」 · <b>보여 주는 것</b> 이 말은 사전에 없고, 성적 뜻을 가진 옛 비속어에서 온 심한 욕설이다.</p>
+      </figure>
+
+      <figure class="po-fig">
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>ㅅㅂ</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>끝장났다</p></div>
+        </div>
+        <p class="cap"><b>그림 1</b> · 모둠이 조사한 말을 바꿔 본 것(2026년 8월)<br>
+          <b>어디서 왔나</b> 보고서 3절 「바꿔 쓸 표현」 · 프롬프트 6번 대비 상자 · <b>보여 주는 것</b> 비속어 대신 끝장났다라고 하면 들은 사람은 뜻을 알 수 있고 비속어를 쓰지 않고 대화를 할 수 있다.</p>
+      </figure>
+    </div>
+
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">3</span>조사 결과</h2>
+        <p class="sub">가. 사전적 의미와 실제 쓰이는 뜻</p>
+        <p>‘ㅅㅂ’은 표준국어대사전에 없는 단어이며, 우리말샘에서 역시 없는 단어이다. 하지만 실제로 담긴 뜻은 <strong>씹(여성 성기 또는 성교)과 하다를 결합한 뜻이 담긴 심한 욕설</strong>이며, 평소 쓰이는 때는 분노, 짜증, 당황, 억울, 놀람, 즐거움, 기쁨 등 여러 감정들이 치솟을 때나 사람을 흉보거나 기분이 나쁜 상황에 감탄사로 사용한다.</p>
+        <p class="sub">나. 말하는 사람이 이 표현을 고른 이유</p>
+      </section>
+
+      <div class="po-quote">
+        <p>ㅅㅂ을 대체할 수 있는 단어는 없고, 다른 단어는 생각 나지 않아.</p>
+        <span class="who">— 면접에서 들은 것을 모둠이 옮겨 적은 것 · 응답자 박상현, 2026년 8월</span>
+      </div>
+
+      <section class="blk">
+        <p>면접에서 응답자는 ㅅㅂ을 대체할 수 있는 단어는 없고, 다른 단어는 생각 나지 않아라고 했다. 여기까지는 면접에서 들은 것이다. 그러니까 대체할 다른 단어가 필요하다.</p>
+        <p class="sub">다. 듣는 사람의 느낌</p>
+        <p>응답자는 그 말을 들은 사람이 일상적으로 사용하다 보니 일상어가 되어서 사용해도 주변에서는 별 반응이 없었다고 했다. 그래서 근거는 ㅅㅂ이라는 비속어가 일상어가 되어서 대부분의 사람들이 일상어로 사용하기 때문에 다른 단어를 만들어서 대신 사용해야 할 것 같다.</p>
+        <p class="sub">라. 이 말을 계속 쓰게 하는 원인</p>
+        <p>면접에서 응답자는 화가 날 때 사용할 수 있는 단어가 생각 나지 않기 때문에 이 말을 쓰게 된다고 답했다. 우리 모둠은 다른 단어가 생각 나지 않다는 것을 원인으로 정했다. 그 근거는 면접에서 화가 날 때 사용을 한다고 응답자가 말을 했다. 그렇기 때문에 ㅅㅂ 대신 다른 단어를 사용해야 한다는 결론이 나왔다.</p>
+      </section>
+
+      <div class="po-cause">
+        <span class="lab">방안으로 다룰 원인 하나</span>
+        <p>화가 날 때 사용할 수 있는 단어가 생각나지 않아서</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="po-concl">
+    <h2><span class="n">4</span>결론</h2>
+    <div class="po-cgrid">
+
+      <div>
+        <p class="sub">가. 주요 발견점</p>
+        <p style="font-size:.93rem;line-height:1.72">우리 모둠이 조사한 “ㅅㅂ”에서는, 같은 말이 적힌 카드 5장을 보고 다음을 알아냈다. “ㅅㅂ”은 친구들이 자신의 화난 기분이나 강력한 표현을 쓸 때 사용한다. “ㅅㅂ”이라는 단어를 쓰는 원인은 해당 단어 외에 마땅히 기분을 표현할 단어가 생각나지 않았기 때문이다. 우리의 탐구 질문의 답은 <strong>초등학교 4~5학년 때부터 의미는 몰라도 사용하게 되었다</strong>이다.</p>
+        <div class="po-limit">
+          <strong>여기까지가 우리가 알아낸 것이다</strong>
+          <p>면접은 1명이다. 프롬프트 7번에 「몇 살부터 욕설을 사용했는지 설문하여 표로 나타내어 보여 준다」고 적혀 있으나, 보고서에 설문 인원·나이별 수가 없어 <strong>그 표는 만들지 않았다.</strong> 탐구 질문의 답(초등학교 4~5학년)은 4-가에 글로만 적혀 있다.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓐ — 각자 자기 카드의 말을 바꾼 것</p>
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>ㅅㅂ</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>끝장났다</p></div>
+        </div>
+        <table class="po-tbl">
+          <tr><th>이름</th><th>원래 말</th><th>바꾼 말</th></tr>
+          <tr><td>상현</td><td>ㅇㅁ가 터진 새ㄲ</td><td>어이가 없다</td></tr>
+          <tr><td>진우</td><td>ㅇㅁ 없다</td><td>어이 없다</td></tr>
+          <tr><td>—</td><td>자살을 희화하는 말</td><td>유병장수 해</td></tr>
+          <tr><td>시윤</td><td>존ㄴ</td><td>정말</td></tr>
+          <tr><td>서아</td><td>ㅂㅅ</td><td>그러지 마</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓑ — 원인 하나에 맞춘 실행 방안</p>
+        <div class="po-plan">
+          <dl>
+            <dt>줄일 원인</dt><dd>화가 날 때 사용할 수 있는 단어가 생각나지 않아서. 보고서 ⓑ에는 「욕설을 듣고 불쾌해 하는 친구들과 깨끗한 언어 사용을 위함」이라고도 적혀 있다</dd>
+            <dt>누가</dt><dd>우리</dd>
+            <dt>언제</dt><dd>지금부터 나의 기분을 표현할 때</dd>
+            <dt>무엇을</dt><dd>항상 다시 한번 생각하며 말한다</dd>
+            <dt>확인</dt><dd>지금 내가 표현한 말이 상황에 적절히 썼는지, 더 좋은 말은 없었는지 메모를 해서 확인한다</dd>
+          </dl>
+          <p class="why">이 행동을 하면 원인인 「적절한 단어가 생각나지 않았기 때문」이 「적절한 단어를 쓰기 위해 더 좋은 단어들을 찾아본다」로 바뀐다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+          <div class="po-refs">
+            <span class="lab">5 참고 자료</span>
+            <p>나무위키 — 이름만 밝힌다. 주소는 싣지 않는다. · 네이버사전 — ‘ㅅㅂ롬’ 검색 결과: 하는 짓이 얄밉고 더러운 남자를 비속하게 이르는 말 · 1학년 RED 카드 가운데 ‘ㅅㅂ’이 적힌 카드 5장 (2026년 8월)</p>
+          </div>
+
+
+  <footer class="po-foot">
+    <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 5장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
+    <p class="brand">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+  </footer>
+
+</article>
+
+  <div class="pdf-bar" id="pdfBar">
+    <div class="pdf-tip" id="pdfTip">
+      <b>대상</b>을 「PDF로 저장」, <b>여백</b>을 「없음」, <b>배경 그래픽</b>을 켜세요.<br>
+      <b>「설정 더보기」에서 용지 크기를 A2</b>로 고릅니다. 포스터 전체가 한 쪽에 담깁니다.
+    </div>
+    <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
+  </div>
+  <script>
+    (function () {
+      var b = document.getElementById('pdfBtn'), t = document.getElementById('pdfTip');
+      if (!b) return;
+      b.addEventListener('click', function () {
+        t.classList.add('on');
+        setTimeout(function () { window.print(); }, 400);
+      });
+      window.addEventListener('afterprint', function () { t.classList.remove('on'); });
+    })();
+  </script>
+<!-- print-ui -->
+<!-- order-fixed -->
+<!-- refs-slim -->
+</body>
+</html>

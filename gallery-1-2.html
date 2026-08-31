@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>‘늙크크 / 영크크’의 진짜 뜻. · 학급 언어생활 사례 조사 · 1학년 1반 2조</title>
+<meta name="description" content="좀 어른스러워 보인다고 늙크크란 단어를 사용해서 노인에게 안 좋은 표현을 넣어 주고, 영크크란 단어는 어리다라는 걸 안 좋은 표현으로 말하는 건데 이런 차별적이고 비중립적인 표현을 써야 할까?">
+<style>
+    /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
+       CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+    @page { margin: 6mm }
+/* 학급 언어생활 사례 조사 · 모둠 조사 포스터
+     A1 세로(594×841mm) 비율. 인쇄하면 그대로 나온다. */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #E9EDF3; color: #22262E;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
+p { margin: 0; }
+
+/* ── 포스터 캔버스 · A1 세로 비율 1 : 1.414 ── */
+.poster { width: 1360px; min-height: 1923px; margin: 28px auto; background: #fff;
+  box-shadow: 0 18px 46px rgba(30,35,45,.22); display: flex; flex-direction: column; }
+
+/* ── 머리띠 · 제목과 작성자 ── */
+.po-head { background: #22262E; color: #fff; padding: 34px 44px 30px; position: relative; }
+.po-head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 7px;
+  background: linear-gradient(90deg, #FF5A47 0%, #FFD84D 50%, #1FA97E 100%); }
+.po-kicker { font-size: .92rem; font-weight: 800; color: #FFD84D; letter-spacing: .04em; }
+.po-head h1 { font-size: 2.75rem; line-height: 1.22; margin-top: 12px; }
+.po-head h1 .hl { background: #FFD84D; color: #22262E; border-radius: 8px; padding: 0 12px; }
+.po-sub { font-size: 1.12rem; font-weight: 600; color: #C7CEDA; margin-top: 14px; line-height: 1.6; }
+.po-authors { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; margin-top: 22px;
+  padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+.po-authors .aff { font-size: 1.02rem; font-weight: 800; color: #8FE3C4; }
+.po-authors .names { font-size: 1.02rem; font-weight: 600; color: #E8ECF3; }
+.po-authors .names b { font-weight: 800; }
+.po-authors .when { font-size: .9rem; font-weight: 600; color: #9AA4B4; margin-left: auto; }
+
+/* ── 조사 범위 띠 ── */
+.po-scope { background: #FFF8E1; border-bottom: 2px solid #F0E2B0; padding: 13px 44px;
+  display: flex; flex-wrap: wrap; gap: 8px 30px; align-items: center; }
+.po-scope span { font-size: .95rem; font-weight: 700; }
+.po-scope .k { color: #8A6D1F; font-weight: 800; margin-right: 6px; }
+
+/* ── 2단 본문 ── */
+.po-body { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+.po-col { padding: 26px 32px; border-right: 1px solid #E4E8EE;
+  display: flex; flex-direction: column; gap: 22px; }
+.po-col:last-child { border-right: none; }
+
+.blk > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.14rem; margin-bottom: 10px; }
+.blk .n { display: inline-flex; align-items: center; justify-content: center; width: 27px; height: 27px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .88rem; font-weight: 800; flex: 0 0 auto; }
+.blk p { font-size: .93rem; line-height: 1.72; margin-bottom: 9px; }
+.blk p:last-child { margin-bottom: 0; }
+.blk .sub { font-size: .86rem; font-weight: 800; color: #4B5563; margin: 12px 0 5px; }
+
+/* ── 자료 · 표·그래프·워드클라우드·그림은 모두 이 틀에 넣는다 ── */
+.po-fig { border: 1.5px solid #E1E6ED; border-radius: 12px; background: #FBFCFE; padding: 12px 14px 9px; }
+.po-fig svg { display: block; width: 100%; height: auto; }
+.po-fig .cap { font-size: .74rem; font-weight: 700; color: #6B7280; margin-top: 8px; line-height: 1.5; }
+.po-fig .cap b { color: #22262E; }
+.wc text { font-weight: 800; }
+
+/* ── 면접에서 들은 말 ── */
+.po-quote { border-left: 5px solid #4A7DDC; background: #EEF3FC; border-radius: 0 12px 12px 0; padding: 14px 16px; }
+.po-quote p { font-size: 1rem; font-weight: 800; line-height: 1.6; }
+.po-quote .who { display: block; font-size: .78rem; font-weight: 700; color: #6B7280; margin-top: 8px; }
+
+/* ── 원인 · 포스터의 축. 바꾼 말·제언보다 앞에 온다 ── */
+.po-cause { border: 2.5px solid #22262E; border-radius: 14px; background: #FFF8E1; padding: 16px 18px; }
+.po-cause .lab { display: inline-block; font-size: .72rem; font-weight: 800; color: #fff; background: #22262E;
+  border-radius: 999px; padding: 3px 11px; margin-bottom: 9px; }
+.po-cause p { font-size: 1.02rem; font-weight: 800; line-height: 1.55; }
+
+/* ── 결론 전폭 띠 ── */
+.po-concl { border-top: 3px solid #22262E; background: #FAFBFD; padding: 24px 32px 26px; }
+.po-concl > h2 { display: flex; align-items: center; gap: 10px; font-size: 1.24rem; margin-bottom: 16px; }
+.po-concl > h2 .n { display: inline-flex; align-items: center; justify-content: center; width: 29px; height: 29px;
+  border-radius: 50%; background: #22262E; color: #fff; font-size: .92rem; font-weight: 800; flex: 0 0 auto; }
+.po-cgrid { display: grid; grid-template-columns: 1.05fr 1fr 1.15fr; gap: 22px; align-items: start; }
+.po-cgrid > div { display: flex; flex-direction: column; gap: 12px; }
+
+/* ── 원래 말 → 바꾼 말 ── */
+.po-flip { display: grid; grid-template-columns: 1fr 26px 1fr; gap: 6px; align-items: stretch; }
+.po-flip .s { border-radius: 11px; padding: 12px 13px; }
+.po-flip .b4 { background: #FFECE8; border: 1.5px solid #FF5A47; }
+.po-flip .af { background: #E3F6EE; border: 1.5px solid #1FA97E; }
+.po-flip .t { display: inline-block; font-size: .68rem; color: #fff; border-radius: 999px;
+  padding: 2px 9px; margin-bottom: 6px; font-weight: 800; }
+.po-flip .b4 .t { background: #D6402F; }
+.po-flip .af .t { background: #14775A; }
+.po-flip .s p { font-size: .87rem; font-weight: 700; line-height: 1.5; }
+.po-flip .ar { display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; }
+
+/* ── 실행 방안 · 줄일 원인·누가·언제·무엇을·확인 ── */
+.po-plan { border: 2px solid #1FA97E; border-radius: 14px; background: #E3F6EE; padding: 15px 17px; }
+.po-plan dl { display: grid; grid-template-columns: 62px 1fr; gap: 7px 12px; margin: 0; }
+.po-plan dt { font-size: .76rem; font-weight: 800; color: #14775A; padding-top: 2px; }
+.po-plan dd { margin: 0; font-size: .87rem; line-height: 1.6; font-weight: 600; }
+.po-plan .why { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(20,119,90,.26);
+  font-size: .84rem; line-height: 1.6; font-weight: 700; }
+
+.po-tbl { width: 100%; border-collapse: collapse; }
+.po-tbl th, .po-tbl td { border: 1px solid #DDE2EA; padding: 7px 9px; font-size: .84rem;
+  text-align: left; line-height: 1.5; }
+.po-tbl th { background: #F4F6FA; font-weight: 800; font-size: .78rem; }
+
+/* ── 알아내지 못한 것 ── */
+.po-limit { border: 2px dashed #B9C2D0; border-radius: 12px; background: #F6F8FB; padding: 13px 15px; }
+.po-limit strong { display: block; font-size: .88rem; margin-bottom: 5px; }
+.po-limit p { font-size: .84rem; line-height: 1.65; font-weight: 600; color: #4B5563; }
+
+/* ── 발 ── */
+.po-foot { background: #F4F6FA; border-top: 2px solid #E1E6ED; padding: 15px 44px;
+  display: flex; flex-wrap: wrap; gap: 6px 26px; align-items: baseline; }
+.po-foot p { font-size: .8rem; font-weight: 600; color: #4B5563; line-height: 1.6; }
+.po-foot .brand { font-size: .84rem; font-weight: 800; color: #22262E; margin-left: auto; }
+
+/* ── 휴대폰 · 캔버스 고정을 풀고 1열로 편다 ── */
+@media (max-width: 900px) {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: 0; margin: 0; box-shadow: none; }
+  .po-head { padding: 24px 20px 22px; }
+  .po-head h1 { font-size: 1.72rem; }
+  .po-sub { font-size: 1rem; }
+  .po-authors { gap: 6px 12px; }
+  .po-authors .when { margin-left: 0; }
+  .po-scope { padding: 12px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .po-body { grid-template-columns: 1fr; }
+  .po-col { border-right: none; border-bottom: 1px solid #E4E8EE; padding: 22px 20px; }
+  .po-concl { padding: 22px 20px 26px; }
+  .po-cgrid { grid-template-columns: 1fr; gap: 26px; }
+  .po-plan dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .po-plan dt { padding-top: 9px; }
+  .po-flip { grid-template-columns: 1fr; gap: 4px; }
+  .po-flip .ar { transform: rotate(90deg); padding: 2px 0; }
+  .po-foot { padding: 14px 20px; }
+  .po-foot .brand { margin-left: 0; }
+  .blk p, .po-plan dd, .po-limit p { font-size: .96rem; }
+}
+
+/* ── 인쇄 · A1 세로 ── */
+@media print {
+  body { background: #fff; }
+  .poster { width: 100%; min-height: auto; margin: 0; box-shadow: none; }
+  
+    /* 내용이 많아 A1보다 세로로 길다. 인쇄할 때 「페이지에 맞추기」를 켜면 A1 한 장에 들어간다. */
+}
+
+    /* 인쇄용 PDF 버튼 — 화면에만 보이고 인쇄물에는 나오지 않는다 */
+    .pdf-bar { position: fixed; right: 20px; bottom: 20px; z-index: 50;
+      display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+    .pdf-btn { font-family: 'Pretendard', system-ui, sans-serif; font-size: .95rem;
+      font-weight: 800; color: #fff; background: #22262E; border: none;
+      border-radius: 999px; padding: 12px 22px; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(30,35,45,.28); }
+    .pdf-btn:hover { background: #3A404C; }
+    .pdf-tip { background: #FFF8E1; border: 2px solid #F0E2B0; border-radius: 12px;
+      padding: 10px 14px; font-size: .82rem; font-weight: 700; line-height: 1.6;
+      color: #22262E; max-width: 280px; display: none; }
+    .pdf-tip.on { display: block; }
+    .pdf-tip b { color: #8A6D1F; }
+    @media print { .pdf-bar { display: none !important; } }
+  
+    /* 참고 자료 — 발과 같은 층위. 근거를 밝히는 자리이지 읽는 자리가 아니므로
+       한 줄로 눌러 본문에 자리를 넘긴다. */
+    .po-refs { border-top: 1px solid #E4E8EE; background: #FBFCFE;
+      padding: 9px 32px; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+    .po-refs .lab { font-size: .72rem; font-weight: 800; color: #8A6D1F;
+      background: #FFF8E1; border: 1px solid #F0E2B0; border-radius: 999px;
+      padding: 2px 9px; white-space: nowrap; flex: 0 0 auto; line-height: 1.5; }
+    .po-refs p { font-size: .74rem; line-height: 1.6; margin: 0; color: #6B7280;
+      font-weight: 600; flex: 1; min-width: 0; }
+    @media (max-width: 900px) { .po-refs { padding: 8px 20px !important; } }
+    /* print-fit — 인쇄 창 「설정 더보기」에서 용지를 A2로 고르는 것을 전제한다.
+       @page에 size를 넣지 않는 까닭: 넣으면 크롬이 용지 항목을 숨겨 고를 수 없다.
+       zoom은 이 포스터가 A2 지면 세로를 채우는 값이다(여유 2%).
+       transform이 아니라 zoom을 쓰는 것은 자리까지 함께 늘어 잘리지 않기 때문이다. */
+    @media print {
+      html, body { margin: 0 !important; padding: 0 !important; background: #fff !important;
+        width: auto !important; height: auto !important; overflow: visible !important; }
+      .poster { zoom: 1.0645 !important; width: 100% !important; max-width: none !important;
+        min-height: 0 !important; margin: 0 auto !important;
+        box-shadow: none !important; transform: none !important; }
+      .po-body { grid-template-columns: 1fr 1fr !important; }
+      .po-col { border-right: 1px solid #E4E8EE !important; border-bottom: none !important;
+        padding: 26px 32px !important; }
+      .po-col:last-child { border-right: none !important; }
+      .po-cgrid { grid-template-columns: 1.05fr 1fr 1.15fr !important; gap: 22px !important; }
+      .po-plan dl { grid-template-columns: 62px 1fr !important; }
+      .po-flip { grid-template-columns: 1fr 26px 1fr !important; }
+      .po-flip .ar { transform: none !important; }
+      .po-scope { flex-direction: row !important; }
+      .po-refs { display: flex !important; flex-wrap: nowrap !important; }
+      .pdf-bar { display: none !important; }
+    }
+</style>
+
+  <style>
+    /* 인쇄용 PDF에서 글자가 그림(Type 3)이 되는 것을 막으려면 로컬 폰트를 써야 한다.
+       CDN 웹폰트로 인쇄하면 Chrome이 글리프 묶음마다 Type 3 폰트를 새로 만든다. */
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+    @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+    /* 내용이 많아 세로가 길어진 포스터를 A1에 가깝게 좁힌다.
+       본문은 0.88rem까지만 줄인다 — 그 아래로 가면 멀리서 못 읽는다. */
+    .blk p, .po-plan dd, .po-limit p,
+    .po-tbl th, .po-tbl td { font-size: 0.88rem; }
+    .po-col { padding: 18px 28px; gap: 17px; }
+    .po-concl { padding: 18px 28px 20px; }
+    .po-quote, .po-cause, .po-plan,
+    .po-limit, .po-fig { padding: 14px 15px; }
+    .po-cgrid { gap: 18px; }
+    @media (max-width: 900px) {
+      /* 폰에서는 원래 크기로 돌린다. 좁은 화면에서 더 줄일 까닭이 없다 */
+      .blk p, .po-plan dd, .po-limit p,
+      .po-tbl th, .po-tbl td { font-size: .96rem; }
+      .po-col { padding: 22px 20px; }
+    }
+
+</style>
+<!-- fit:applied -->
+</head>
+<body>
+<article class="poster">
+
+  <header class="po-head">
+    <p class="po-kicker">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+    <h1>‘<span class="hl">늙크크 / 영크크</span>’의 진짜 뜻.</h1>
+    <p class="po-sub">좀 어른스러워 보인다고 늙크크란 단어를 사용해서 노인에게 안 좋은 표현을 넣어 주고, 영크크란 단어는 어리다라는 걸 안 좋은 표현으로 말하는 건데 이런 차별적이고 비중립적인 표현을 써야 할까?</p>
+    <div class="po-authors">
+      <span class="aff">1학년 1반 2조</span>
+      <span class="names"><b>1111 오재인</b> · <b>1104 김지우</b> · <b>1116 장예나</b> · <b>1114 이서윤</b> · <b>1117 장우진</b></span>
+      <span class="when">2026년 8월 18일 ~ 8월 31일</span>
+    </div>
+  </header>
+
+  <div class="po-scope">
+    <span><span class="k">조사 대상</span>면접 1명(모둠원 가운데 ‘늙크크 / 영크크’를 들어 본 사람 · 오재인)</span>
+    <span><span class="k">자료</span>‘늙크크 / 영크크’가 적힌 RED 카드 2장</span>
+    <span><span class="k">방법</span>표준국어대사전·우리말샘 사전 조사 · 국립국어원 자료 분석 · 사례 자료 조사 · 사용 맥락 분석 · 모둠 토의</span>
+  </div>
+
+  <div class="po-body">
+
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">1</span>조사 동기와 목적</h2>
+        <p class="sub">가. 조사 동기</p>
+        <p>1차시에 학급 카드를 살펴보다가 ‘영크크’와 ‘늙크크’라는 단어를 발견하였다. 평소 친구들 사이에서도 “늙크크냐?”, “영크크 같네”와 같은 표현을 사용하는 경우가 있어 자연스럽게 이 단어들의 의미와 유래에 대해 궁금해졌다. 또한 코르티스의 아이돌 노래에서 ‘영크크’와 ‘늙크크’라는 표현을 자주 접하게 되었는데, 처음에는 영어 단어인 줄 알았지만 실제로는 새롭게 만들어진 신조어라는 사실을 알게 되어 더욱 흥미를 느꼈다. 이에 ‘영크크’와 ‘늙크크’는 어떤 의미를 가지고 있으며, 어떤 상황에서 사용되는지 궁금증이 생겼고, 두 단어의 의미와 사용 배경을 조사해 보기로 결정하였다.</p>
+        <p class="sub">나. 조사 목적</p>
+        <p>우리 모둠의 조사 목적은 ‘영크크와 늙크크라는 단어는 언제부터 유행된 걸까?’라는 질문에 답하는 것이다. 두 단어의 의미와 유래를 찾아보고, 처음 등장한 곳과 현재는 어떻게 사용되어 왔는지를 조사하고자 한다.</p>
+      </section>
+
+      <section class="blk">
+        <h2><span class="n">2</span>조사 계획</h2>
+        <p class="sub">가. 조사 기간</p><p>조사는 2026년 8월 18일부터 8월 31일까지 (1차시부터 3차시까지) 진행하였다.</p>
+        <p class="sub">나. 조사 대상</p><p>면접 1명(모둠원 가운데 ‘늙크크 / 영크크’를 들어 본 사람 오재인), 전체 RED 카드 가운데 ‘늙크크 / 영크크’가 적힌 카드는 2장 있었다.</p>
+        <p class="sub">다. 조사 방법</p><p>늙크크/영크크를 표준국어대사전 및 우리말샘 사전 조사, 국립국어원 자료 분석, 사례 자료 조사, 사용 맥락 분석, 모둠 토의.</p>
+      </section>
+
+      <figure class="po-fig">
+        <table class="po-tbl">
+          <tr><th>찾아본 곳</th><th>늙크크</th><th>영크크</th></tr>
+          <tr><td>표준국어대사전</td><td>등재되어 있지 않음</td><td>등재되어 있지 않음</td></tr>
+          <tr><td>우리말샘</td><td>등재된 표제어를 찾을 수 없음</td><td>등재된 표제어를 찾을 수 없음</td></tr>
+          <tr><td>우리가 쓰는 뜻</td><td>‘늙다’와 ‘크크’가 결합된 인터넷 신조어. 어른스럽거나 유행에 다소 뒤처진 분위기를 재미있게 표현할 때</td><td>‘영(young)’과 ‘크크’가 결합된 인터넷 신조어. 젊고 트렌디하거나 최신 유행에 잘 어울리는 분위기를 재미있게 표현할 때</td></tr>
+        </table>
+        <p class="cap"><b>표 1</b> · 사전 두 곳에서 찾은 결과와 우리가 쓰는 뜻(2026년 8월 31일)<br>
+          <b>어디서 왔나</b> 표준국어대사전 · 우리말샘 · 보고서 3절 · <b>보여 주는 것</b> 두 말 모두 사전에 없고, 나이를 빗대 분위기를 낮잡거나 높이는 신조어로 쓰인다.</p>
+      </figure>
+    </div>
+
+    <div class="po-col">
+      <section class="blk">
+        <h2><span class="n">3</span>조사 결과</h2>
+        <p class="sub">가. 사전적 의미와 실제 쓰이는 뜻</p>
+        <p><strong>늙크크</strong> — 표준국어대사전에 등재된 정식 단어가 아니므로 사전적 의미가 없다. 실제 쓰이는 뜻은 ‘늙다’와 ‘크크’가 결합된 인터넷 신조어로, 어른스럽거나 유행에 다소 뒤처진 분위기를 재미있게 표현할 때 사용된다.</p>
+        <p><strong>영크크</strong> — 표준국어대사전에 등재된 정식 단어가 아니므로 사전적 의미가 없다. 실제 쓰이는 뜻은 ‘영(young)’과 ‘크크’가 결합된 인터넷 신조어로, 젊고 트렌디하거나 최신 유행에 잘 어울리는 분위기를 재미있게 표현할 때 사용된다.</p>
+        <p class="sub">나. 말하는 사람이 이 표현을 고른 이유</p>
+      </section>
+
+      <div class="po-quote">
+        <p>그런 말을 듣는 거 자체가 기분 나쁘다</p>
+        <span class="who">— 프롬프트 6번에 모둠이 「면접에서 들은 말」로 적은 한 줄, 2026년 8월</span>
+      </div>
+
+      <section class="blk">
+        <p>면접에서 응답자는 보통 늙크크라는 단어는 트렌디하지 못한 상대방을 비하할 때 사용된다고 했다. 여기까지는 면접에서 들은 것이다. 그러니까 그 말을 들은 사람을 노인을 늙은이로 취급하며 비하하는 의도일 수 있다.</p>
+        <p class="sub">다. 듣는 사람의 느낌</p>
+        <p>응답자는 그 말(늙크크)을 들은 사람의 표정이 어리둥절해한다고 했다. 그래서 근거는 그 말(늙크크)을 듣는 사람의 기분은 좋지 않다는 것이다.</p>
+        <p class="sub">라. 이 말을 계속 쓰게 하는 원인</p>
+        <p>면접에서 응답자는 우리의 일상생활에서 이미 노인/아동 비하 발언이 많아서 늙크크와 영크크는 아무렇지 않기 때문에 이 말을 쓰게 된다고 답했다. STEP 5에서 우리 모둠은 다른 노인/아동 비하 발언을 원인으로 정했다. 그 근거는 연합뉴스 보도(2019. 8. 26.)이다. 따라서 우리 조사에서 이 말을 쓰게 하는 원인은 노인/아동 비하 발언일 수 있다.</p>
+      </section>
+
+      <div class="po-cause">
+        <span class="lab">방안으로 다룰 원인 하나</span>
+        <p>노인/아동 비하 발언의 익숙함</p>
+      </div>
+
+      <figure class="po-fig">
+        <svg viewBox="0 0 560 120" role="img" aria-label="학급 카드에서 나온 말 두 개. 늙크크가 크고 붉고, 영크크가 그보다 작다. 보고서에 적힌 말은 이 둘뿐이다.">
+          <text class="wc" x="200" y="70" font-size="42" fill="#D6402F" text-anchor="middle" font-family="Pretendard, sans-serif">늙크크</text>
+          <text class="wc" x="420" y="78" font-size="28" fill="#14775A" text-anchor="middle" font-family="Pretendard, sans-serif">영크크</text>
+        </svg>
+        <p class="cap"><b>그림 1</b> · 학급 카드에서 나온 말(2026년 8월 31일)<br>
+          <b>어디서 왔나</b> 우리 반 RED 카드 2장 · 프롬프트 6번 워드클라우드 · <b>보여 주는 것</b> 보고서에 카드에 적힌 말로 나온 것은 늙크크와 영크크 둘뿐이다. 다른 말은 짓지 않았다.</p>
+      </figure>
+    </div>
+  </div>
+
+  <div class="po-concl">
+    <h2><span class="n">4</span>결론</h2>
+    <div class="po-cgrid">
+
+      <div>
+        <p class="sub">가. 주요 발견점</p>
+        <p style="font-size:.93rem;line-height:1.72">우리 모둠이 조사한 영크크/늙크크는, 앞뒤가 안 맞는 답은 없고 상대방의 취향이 올드하면 늙크크라 해서 늙었다는 표현을 좀 안 좋게 쓴다. 영크크는 취향이 트렌디할 때 자주 쓰는 말이다. 영크크란 말은 칭찬으로 좀 쓰일 때가 많다.</p>
+        <div class="po-limit">
+          <strong>여기까지가 우리가 알아낸 것이다</strong>
+          <p>탐구 질문은 ‘언제부터 유행된 걸까’였으나, 4-가에는 그 시기가 적혀 있지 않다. <strong>언제부터 유행했는지는 이번 조사에서는 확인하지 못했다.</strong> 프롬프트 6번에 막대그래프(모둠원이 써 봤다)를 고르려 했으나 써 본 사람 수가 없어 그래프는 만들지 않았다.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓐ — 각자 자기 카드의 말을 바꾼 것</p>
+        <div class="po-flip">
+          <div class="s b4"><span class="t">원래 말</span><p>늙크크 / 영크크</p></div>
+          <div class="ar" aria-hidden="true">→</div>
+          <div class="s af"><span class="t">바꾼 말</span><p>어른스럽다 / 트렌디하다</p></div>
+        </div>
+        <p style="font-size:.84rem;line-height:1.6;font-weight:600">‘영크크’를 ‘트렌디한 사람’으로, ‘늙크크’를 ‘어른 같은 사람’으로 바꿨다. 모둠에서 한 사람이 실제로 말해 보았고, 들은 사람이 칭찬·성숙함으로 알아들었다.</p>
+        <table class="po-tbl">
+          <tr><th>이름</th><th>원래 말</th><th>바꾼 말</th></tr>
+          <tr><td>모둠원1</td><td>늙크크</td><td>유행을 잘 모르는 사람</td></tr>
+          <tr><td>모둠원2</td><td>영크크</td><td>유행을 잘 아는 사람</td></tr>
+          <tr><td>모둠원3</td><td>늙크크</td><td>최신 유행에 익숙하지 않은 사람</td></tr>
+          <tr><td>모둠원4</td><td>영크크</td><td>트렌드에 밝은 사람</td></tr>
+          <tr><td>모둠원5</td><td>영크크</td><td>최신 유행을 즐기는 사람</td></tr>
+        </table>
+      </div>
+
+      <div>
+        <p class="sub">나. 제언 ⓑ — 원인 하나에 맞춘 실행 방안</p>
+        <div class="po-plan">
+          <dl>
+            <dt>줄일 원인</dt><dd>늙크크란 말은 노인을 비하하는 발언이다</dd>
+            <dt>누가</dt><dd>학교 · 온라인 · 나 스스로</dd>
+            <dt>언제</dt><dd>아직 정하지 못했다</dd>
+            <dt>무엇을</dt><dd>학교에서는 “너 취향 올드하다”처럼 순화해서 기분 안 나쁘게 말하고, 온라인에서는 늙어 보인다고 놀리는 게 아닌 중립적인 단어를 쓰고, 나 스스로는 늙었다고 안 좋게 보는 게 아닌 하나의 취향으로 보며 노인을 비하하지 않고 중립적으로, 순화해서 말한다</dd>
+            <dt>확인</dt><dd>아직 정하지 못했다</dd>
+          </dl>
+          <p class="why">이 행동을 하면 늙크크는 “너 어른 같다”같이 칭찬 표현으로 쓰고 영크크는 “너 되게 트렌드 있다”처럼 순화해서 사용한다.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+          <div class="po-refs">
+            <span class="lab">5 참고 자료</span>
+            <p>표준국어대사전 — ‘늙크크’·‘영크크’ 등재되어 있지 않음 · 우리말샘 — 등재된 표제어를 찾을 수 없음 · 국립국어원 온라인가나다 — ‘늙크크’ 관련 질문 및 답변 자료 확인(답 내용은 보고서에 없음) · 연합뉴스 2019. 8. 26. MYH20190826005500038 · 1학년 RED 카드 가운데 ‘늙크크’와 ‘영크크’가 적힌 카드 2장 (2026년 8월 31일)</p>
+          </div>
+
+
+  <footer class="po-foot">
+    <p>이 포스터에 적은 것은 <strong>면접 1명과 카드 2장</strong>으로 알아낸 범위 안의 결과입니다. 확인한 것과 짐작한 것을 나누어 적었고, 짐작은 「~일 수 있다」로 적었습니다.</p>
+    <p class="brand">RED RED GREEN GREEN · 학급 언어생활 사례 조사</p>
+  </footer>
+
+</article>
+
+  <div class="pdf-bar" id="pdfBar">
+    <div class="pdf-tip" id="pdfTip">
+      <b>대상</b>을 「PDF로 저장」, <b>여백</b>을 「없음」, <b>배경 그래픽</b>을 켜세요.<br>
+      <b>「설정 더보기」에서 용지 크기를 A2</b>로 고릅니다. 포스터 전체가 한 쪽에 담깁니다.
+    </div>
+    <button class="pdf-btn" type="button" id="pdfBtn">인쇄용 PDF 만들기</button>
+  </div>
+  <script>
+    (function () {
+      var b = document.getElementById('pdfBtn'), t = document.getElementById('pdfTip');
+      if (!b) return;
+      b.addEventListener('click', function () {
+        t.classList.add('on');
+        setTimeout(function () { window.print(); }, 400);
+      });
+      window.addEventListener('afterprint', function () { t.classList.remove('on'); });
+    })();
+  </script>
+<!-- print-ui -->
+<!-- order-fixed -->
+<!-- refs-slim -->
+</body>
+</html>
