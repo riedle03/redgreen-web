@@ -83,9 +83,10 @@ async function assertRequestViz(page) {
 
   const checks = {
     title: text.includes("학급 언어생활 사례 조사 의뢰서"),
-    edition: text.includes("후속·미실시 학급용 KOSIS 보완판"),
-    notRetroactive: text.includes("소급 수정 아님") || text.includes("v4 기록은 그대로"),
-    trial: text.includes("시범서비스"),
+    noEdition: !text.includes("보완판") && !text.includes("판본:") && !text.includes("후속·미실시"),
+    noRetroNote: !text.includes("소급 수정") && !text.includes("v4 기록은 그대로"),
+    noTrial: !text.includes("시범서비스") && !text.includes("가상 의뢰") && !text.includes("가상 기관"),
+    posterItem: text.includes("보고서와 포스터 작성") && text.includes("포스터 제작 도우미"),
     chart1: text.includes("학교급별 디지털 혐오 표현 경험률 추이"),
     chart2: text.includes("사이버 언어폭력 피해 세부 유형"),
     chart3: text.includes("2025 고등학생 혐오 표현 유형"),
