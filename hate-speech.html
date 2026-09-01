@@ -11,113 +11,51 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="design-v2.css">
   <style>
-    body { background: #fff; }
-    .read-hero { padding: 118px 0 12px; background: #fff; }
-    .back-link { display: inline-block; margin-bottom: 22px; font-weight: 800; color: var(--blue); text-decoration: none; font-size: .95rem; }
+    .guide-hero { background: var(--blue-soft); padding: 120px 0 48px; }
+    .guide-hero h1 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); }
+    .guide-hero .lede { color: var(--sub, #6B7280); font-weight: 600; margin-top: 10px; max-width: 46rem; line-height: 1.75; }
+    .back-link { display: inline-block; margin-bottom: 14px; font-weight: 800; color: var(--blue); text-decoration: none; }
     .back-link:hover { text-decoration: underline; }
-    .article {
-      width: min(680px, calc(100% - 48px));
-      margin: 0 auto;
-      padding: 8px 0 88px;
-    }
-    .kicker {
-      font-size: .82rem;
-      font-weight: 800;
-      letter-spacing: .06em;
-      color: var(--blue);
-      margin: 0 0 12px;
-    }
-    .article h1 {
-      font-size: clamp(1.85rem, 4.2vw, 2.45rem);
-      line-height: 1.28;
-      margin: 0 0 18px;
-      font-weight: 850;
-    }
-    .article h2 {
-      font-size: 1.38rem;
-      line-height: 1.4;
-      margin: 2.5em 0 .75em;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-    .article h2::after { content: none; }
-    .article p {
-      font-size: 1.18rem;
-      line-height: 1.95;
-      font-weight: 450;
-      margin: 0 0 1.15em;
-      color: #1f2328;
-    }
-    .article p.lead {
-      font-size: 1.22rem;
-      color: #3d4450;
-      font-weight: 500;
-    }
-    .article strong {
-      font-weight: 800;
-      color: #14171c;
-    }
+    .section { padding: 64px 0; }
+    .read p { font-size: 1.05rem; line-height: 1.85; font-weight: 500; margin: 0 0 14px; max-width: 46rem; }
+    .read p:last-child { margin-bottom: 0; }
     mark {
-      background: none;
-      background-image: linear-gradient(transparent 58%, #FFE566 58%);
+      background: var(--sun);
+      border-radius: 6px;
+      padding: 0 6px;
       color: inherit;
-      padding: 0 .06em;
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
     }
     .u {
       text-decoration: underline;
-      text-decoration-color: #3E6DB5;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
-      text-decoration-skip-ink: auto;
+      text-decoration-color: var(--sun);
+      text-decoration-thickness: 0.38em;
+      text-underline-offset: 1px;
+      text-decoration-skip-ink: none;
     }
-    .article blockquote {
-      margin: 1.35em 0 1.5em;
-      padding: 0 0 0 1em;
-      border-left: 4px solid #c9d6ee;
-      font-size: 1.12rem;
-      line-height: 1.9;
-      font-weight: 500;
-      color: #2a3140;
+    .quote-card {
+      border: 2px solid rgba(34,38,46,.14);
+      border-left: 6px solid var(--blue);
+      border-radius: 0 18px 18px 0;
+      background: var(--white);
+      padding: 16px 20px;
+      margin: 16px 0 20px;
+      max-width: 46rem;
+      font-size: 1.02rem;
+      line-height: 1.8;
+      font-weight: 600;
     }
-    .article ol {
-      margin: 0 0 1.4em;
-      padding-left: 1.35em;
-    }
-    .article li {
-      font-size: 1.14rem;
-      line-height: 1.85;
-      font-weight: 450;
-      margin: 0 0 .5em;
-      color: #1f2328;
-    }
-    .refs {
-      margin-top: 3.4em;
-      padding-top: 1.6em;
-      border-top: 1px solid #e6e8ee;
-    }
-    .refs h2 {
-      font-size: 1.12rem;
-      margin: 0 0 .9em;
-      color: #3d4450;
-    }
-    .refs ol {
-      padding-left: 1.25em;
-      margin: 0;
-    }
-    .refs li {
-      font-size: .98rem;
-      line-height: 1.7;
-      color: #3d4450;
-      font-weight: 500;
-      margin: 0 0 .65em;
-    }
-    .refs a { font-weight: 700; }
+    .step-list { counter-reset: gstep; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; max-width: 46rem; margin: 16px 0 18px; }
+    .step-list > li { position: relative; background: var(--white); border: 2px solid rgba(34,38,46,.14); border-radius: 18px; padding: 16px 18px 16px 62px; font-size: 1.02rem; line-height: 1.65; font-weight: 600; }
+    .step-list > li::before { counter-increment: gstep; content: counter(gstep); position: absolute; left: 16px; top: 16px; width: 32px; height: 32px; border-radius: 50%; background: var(--blue); color: #fff; font-family: 'Paperlogy', sans-serif; display: grid; place-items: center; font-size: 1rem; }
+    .refs { max-width: 46rem; }
+    .refs ol { margin: 0; padding-left: 1.25em; }
+    .refs li { font-size: .95rem; line-height: 1.7; font-weight: 600; color: var(--sub, #6B7280); margin: 0 0 8px; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
     @media print {
-      .site-header, .back-link, .site-footer { display: none; }
-      .read-hero { padding-top: 0; }
-      .article { width: 100%; }
+      .site-header, .back-link, .site-footer, .cta-row { display: none; }
+      .guide-hero { padding-top: 24px; }
       mark { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
@@ -145,41 +83,65 @@
   </header>
 
   <main>
-    <div class="read-hero">
-      <article class="article">
-        <a class="back-link" href="index.html#resources">← 자료실로 돌아가기</a>
-        <p class="kicker">읽기 자료</p>
-        <h1>이게 혐오표현일까</h1>
+    <section class="guide-hero">
+      <div class="wrap">
+        <a class="back-link" href="index.html#resources">← 메인으로 돌아가기</a>
+        <h1>이게 혐오표현일까 <span style="background:var(--sun);border-radius:6px;padding:0 6px;">읽기</span></h1>
+        <p class="lede">교실에서, 채팅에서, 짧은 영상 댓글에서 우리는 매일 말을 고릅니다. 그 말 가운데는 <span class="u">장난처럼 들리는 것</span>도 있고, 듣는 사람에게는 <span class="u">폭력처럼 남는 것</span>도 있습니다.</p>
+      </div>
+    </section>
 
-        <p class="lead">교실에서, 채팅에서, 짧은 영상 댓글에서 우리는 매일 말을 고릅니다. 그 말 가운데는 <span class="u">장난처럼 들리는 것</span>도 있고, 듣는 사람에게는 <span class="u">폭력처럼 남는 것</span>도 있습니다.</p>
+    <section class="section" id="open">
+      <div class="wrap read">
+        <header class="section-head"><h2>이 글을 왜 읽나요</h2></header>
         <p>배혜림의 『이게 혐오 표현이라고?』는 바로 그 자리에서 시작합니다. 이 글은 그 책이 던지는 물음을 따라, 우리 반이 조사하는 말을 이해할 때 필요한 배경을 모은 읽기 자료입니다.</p>
+      </div>
+    </section>
 
-        <h2>장난인가, 폭력인가</h2>
+    <section class="section section-alt" id="joke">
+      <div class="wrap read">
+        <header class="section-head"><h2>장난인가, 폭력인가</h2></header>
         <p>어떤 말은 웃자고 나옵니다. 같이 있는 사람은 따라 웃고, 그 순간은 금방 지나갑니다. 그런데 웃지 못한 사람이 있으면, 그 말은 이미 <strong>장난만은 아닙니다</strong>.</p>
         <p>폭력은 주먹에만 있지 않습니다. 특정한 사람을 「우리」 밖으로 밀어 내는 말도 그 사람의 자리를 좁힙니다. 장난인지 아닌지는 <span class="u">말한 사람의 기분</span>만으로 정해지지 않습니다. <mark>들은 사람에게 무슨 일이 생겼는지를 같이 봐야 합니다.</mark></p>
+      </div>
+    </section>
 
-        <h2>아니, 이게 왜 혐오야?</h2>
+    <section class="section" id="what">
+      <div class="wrap read">
+        <header class="section-head"><h2>아니, 이게 왜 혐오야?</h2></header>
         <p><strong>욕</strong>을 썼다고 해서 곧 혐오표현은 아닙니다. <strong>은어</strong>나 유행어라고 해서 곧 혐오표현도 아닙니다. 국가인권위원회는 혐오표현을 <span class="u">일반 욕이나 비판</span>과 다른 것으로 가릅니다.</p>
         <p>혐오표현은 성별, 장애, 종교, 나이, 출신 지역, 인종, 성적 지향처럼 <strong>그 사람이 가진 속성</strong>을 이유로 모욕하거나, 차별과 폭력을 선동해서, <mark>차별을 괜찮은 일로 만드는 말</mark>입니다.</p>
-        <blockquote>성별, 장애, 종교, 나이, 출신 지역, 인종, 성적 지향 등을 이유로 어떤 개인·집단에게 모욕·비하·멸시·위협 또는 차별·폭력의 선전과 선동을 함으로써 차별을 정당화·조장·강화하는 효과를 갖는 표현</blockquote>
+        <p class="quote-card">성별, 장애, 종교, 나이, 출신 지역, 인종, 성적 지향 등을 이유로 어떤 개인·집단에게 모욕·비하·멸시·위협 또는 차별·폭력의 선전과 선동을 함으로써 차별을 정당화·조장·강화하는 효과를 갖는 표현</p>
         <p>같은 보고서는 두 갈래를 말합니다. 상대를 깎아내리는 <strong>모욕</strong>, 다른 사람까지 끌어들이려는 <strong>선동</strong>입니다. 선동은 「같이 하자」고 주변을 부추기는 일입니다.</p>
         <p>홍성수는 혐오표현을 기분 나쁜 말에서 끝나는 것이 아니라, 사회생활을 하는 데 실질적인 위협과 불안을 가져오는 말로 봅니다. <span class="u">듣기 싫다는 느낌</span>과, <span class="u">그 자리에 있기 어려워지는 일</span>은 다릅니다.</p>
         <p>그래서 혐오표현이 나쁜 이유는 「말이 거칠어서」만이 아닙니다. 그 말이 어떤 사람을 열등한 존재로 묶어 두고, 차별을 반복 가능한 일로 만들기 때문입니다. 한 번 붙은 이미지는 짧게 지나가지 않고, 다음 말의 재료가 됩니다.</p>
+      </div>
+    </section>
 
-        <h2>댓글 한 줄이 폭풍이 된다고?</h2>
+    <section class="section section-alt" id="comment">
+      <div class="wrap read">
+        <header class="section-head"><h2>댓글 한 줄이 폭풍이 된다고?</h2></header>
         <p>짧은 댓글은 가볍게 느껴집니다. 손가락 한 번이면 올라가고, 「좋아요」 한 번이면 더 많은 사람에게 보입니다. <mark>그 속도가 곧 장난의 증거가 되지는 않습니다.</mark></p>
         <p>온라인에서는 <span class="u">말한 사람</span>과 <span class="u">들은 사람</span>이 같은 방에 있지 않습니다. 표정은 보이지 않고, 말은 캡처되어 남습니다. 처음에는 한 줄이어도, 퍼진 다음에는 그 한 줄이 그 사람의 얼굴처럼 다닙니다.</p>
         <p>「어디 사람이야?」처럼 출신을 먼저 묻는 말도 있습니다. 호기심으로 들릴 수 있습니다. 그러나 그 질문이 어떤 지역, 어떤 집단을 이미 낮잡아 두는 말과 붙으면, 상대를 한 사람으로 보지 않고 <strong>묶음의 표본</strong>으로 보는 일이 됩니다. 인권위 정의가 「출신 지역」을 속성에 넣은 까닭이 여기에 있습니다.</p>
         <p>좋은 댓글을 달자는 말도 있습니다. 가식처럼 들릴 수 있습니다. 그러나 침묵이 곧 동의로 읽히는 자리에서는, <strong>웃지 않는 일</strong>이 이미 한 가지 태도입니다.</p>
+      </div>
+    </section>
 
-        <h2>밈과 짤, 웃기면 그냥 넘겨도 될까?</h2>
+    <section class="section" id="meme">
+      <div class="wrap read">
+        <header class="section-head"><h2>밈과 짤, 웃기면 그냥 넘겨도 될까?</h2></header>
         <p>밈과 짤은 빨리 퍼지고, 빨리 웃깁니다. 웃음을 입힌 말은 공격성을 잘 안 보이게 합니다. 「그냥 유행이야」가 되면, 그 안에 누구를 낮추는 그림이 들어 있는지는 잘 안 묻게 됩니다.</p>
         <p><mark>웃겼다는 사실이 그 말의 뜻을 지워 주지는 않습니다.</mark> 뜻을 몰랐다면, 몰랐다는 말로 충분한지도 같이 물어야 합니다. 모른 채로 퍼뜨린 말도, 들은 사람에게는 같은 그림으로 도착합니다.</p>
+      </div>
+    </section>
 
-        <h2>‘그냥 농담’인데 예민하게 굴지 말라고?</h2>
+    <section class="section section-alt" id="justjoke">
+      <div class="wrap read">
+        <header class="section-head"><h2>‘그냥 농담’인데 예민하게 굴지 말라고?</h2></header>
         <p>「예능을 다큐로 보지 말라」는 말은, 들은 사람의 불편을 <span class="u">예민함</span>으로 바꿉니다. 그러나 농담의 재료가 <strong>특정 속성</strong>이면, <mark>그 농담은 이미 차별의 말을 빌린 것</mark>입니다.</p>
         <p>김민정·홍성수·송형국이 일상에서 쓰라고 만든 물음은 이렇습니다. 법을 위한 기준이 아닙니다.</p>
-        <ol>
+        <ol class="step-list">
           <li>부정적인 편견이나 고정관념을 드러내는가.</li>
           <li>열등한 존재로 그리거나, 사람을 사람 아닌 이름으로 낮추는가.</li>
           <li>웃음거리나 호기심의 대상으로 삼는가.</li>
@@ -188,34 +150,58 @@
           <li>차별, 적개심, 폭력을 선동하는가.</li>
         </ol>
         <p>「-충」처럼 사람을 벌레 이름으로 부르는 말은, <strong>하찮게 대해도 좋다</strong>는 메시지를 줍니다. 앞에 다섯은 <span class="u">모욕</span>에, 마지막은 <span class="u">선동</span>에 가깝습니다.</p>
+      </div>
+    </section>
 
-        <h2>교실에서</h2>
+    <section class="section" id="class">
+      <div class="wrap read">
+        <header class="section-head"><h2>교실에서</h2></header>
         <p>학교에서는 같은 말이 어떤 학생에게는 매일의 <span class="u">배경음</span>이고, 어떤 학생에게는 그 자리에 있기 어려운 <span class="u">공기</span>입니다. 장난으로 시작한 드립이 반복되면, 교실은 그 말을 연습하는 곳이 됩니다.</p>
         <p>그 말을 듣고도 웃지 않을 수 있는가. 그 용기는 구호가 아닙니다. <mark>따라 웃는 일이, 그 말을 계속 쓰게 하는 원인이 되기도 합니다.</mark></p>
         <p>국립국어원 조사에서, 욕과 비속어를 쓰는 이유로 「습관적으로」라고 답한 사람은 2020년에 <strong>23.1%</strong>였습니다. 2005년에는 1.2%였습니다. 습관은 한 사람의 경험일 수 있습니다. 그러나 교실에서 그 습관이 누구를 어떤 틀에 넣는 말과 겹치면, 습관 뒤에 다른 일이 보입니다. 부정적인 이미지가 반복되면 어느 순간 <strong>사실처럼 굳습니다</strong>.</p>
+      </div>
+    </section>
 
-        <h2>혐오 표현의 자유는 있을까</h2>
+    <section class="section section-alt" id="freedom">
+      <div class="wrap read">
+        <header class="section-head"><h2>혐오 표현의 자유는 있을까</h2></header>
         <p>하고 싶은 말을 할 <strong>자유</strong>는 있습니다. 비판하는 말도 그 안에 들어갑니다. 한국인터넷자율정책기구의 가이드라인도 표현의 자유를 먼저 둡니다. 갈등이 생긴다고 해서 무조건 지우라는 뜻이 아닙니다.</p>
         <p>다만 특정한 속성을 이유로, 특정한 사람을 향해, 차별이나 폭력을 공공연히 선동하는 말까지 <mark>같은 자유로 보지는 않습니다.</mark> <span class="u">생각만으로 미워하는 일</span>과, <span class="u">그 미움을 말로 퍼뜨리는 일</span>은 다릅니다.</p>
         <p>말을 짧게 줄이면 빠르습니다. 그 짧은 말이 사람을 한 속성으로만 남기면, 효율이 곧 낮춤이 됩니다.</p>
+      </div>
+    </section>
 
-        <h2>나도 그 자리에 있을 수 있다</h2>
+    <section class="section" id="me">
+      <div class="wrap read">
+        <header class="section-head"><h2>나도 그 자리에 있을 수 있다</h2></header>
         <p>나이를 낮잡는 말은 지금 웃기는 말처럼 들릴 수 있습니다. 그러나 그 말의 대상은 고정되어 있지 않습니다. 오늘은 다른 세대를 놀리는 말이, <mark>내일은 나를 가리키는 말</mark>이 됩니다.</p>
         <p>「진지하다」는 이유로 사람을 벌레 이름에 붙이는 말도 있습니다. 질문을 막으면, 그 자리에서는 누가 이겨 보이는 것처럼 느껴질 수 있습니다. 사실은 그 말 때문에 <strong>다음 질문이 사라집니다</strong>.</p>
         <p>혐오표현의 대상은 「나와 상관없는 누군가」로 남아 있지 않습니다. 속성은 누구에게나 있습니다. 그 속성만 남기고 사람을 지우는 말은, 대상만 바꾸면 다시 쓰입니다.</p>
+      </div>
+    </section>
 
-        <h2>어, 상처 주네</h2>
+    <section class="section section-alt" id="hurt">
+      <div class="wrap read">
+        <header class="section-head"><h2>어, 상처 주네</h2></header>
         <p>분위기를 살리려고 한 말이 다른 사람의 기분을 죽이는 일이 있습니다. 말한 사람은 의도가 없었다고 합니다. 들은 사람은 그 자리에 있기 어려워집니다. 둘 다 사실일 수 있습니다. <mark>의도가 없다고 해서 영향이 없어지지는 않습니다.</mark></p>
         <p>불안은 혐오를 잘 키웁니다. 「저 사람들이 위험하다」는 그림이 붙으면, 모욕은 보호처럼 포장됩니다. 앞에서 본 다섯 번째 물음—질병이나 범죄를 어떤 집단의 이름으로 묶는 일—이 그 자리입니다.</p>
         <p>말 하나를 바꾼다고 생각이 바뀌는가. 한 번에 바뀌지는 않습니다. 그래도 그 자리에서 쓰는 말이 바뀌면, 따라 웃어야 하는 압력은 줄어듭니다. 누구나 <strong>존중받을 권리</strong>가 있다는 말은 구호로 남겨 두면 힘이 없습니다. 그 자리에서 어떤 말을 고르느냐로 드러납니다.</p>
+      </div>
+    </section>
 
-        <h2>혐오는 힙하지 않다</h2>
+    <section class="section" id="hip">
+      <div class="wrap read">
+        <header class="section-head"><h2>혐오는 힙하지 않다</h2></header>
         <p>낮추는 말이 센 말, 멋진 말처럼 유통될 때가 있습니다. 오글거린다는 이유로 존중의 말을 막으면, 남는 것은 더 짧은 공격뿐입니다.</p>
         <p><span class="u">다른 것</span>과 <span class="u">틀린 것</span>은 다릅니다. 다른 사람을 틀린 사람으로 만드는 말은, <mark>사람 대신 속성만 남깁니다.</mark></p>
         <p>모두가 같은 말을 쓸 필요는 없습니다. 조사하는 우리에게 필요한 것은, 우리 반에서 실제로 도는 그 말이 장난으로 끝나는지, 누구를 어디로 밀어 내는지를 가릴 수 있는 눈입니다. 그 눈이 있으면 「이게 혐오표현일까」라는 물음에, 구호가 아니라 <strong>근거</strong>로 답할 수 있습니다.</p>
+      </div>
+    </section>
 
-        <section class="refs" aria-label="참고문헌">
-          <h2>참고문헌</h2>
+    <section class="section section-alt" id="refs">
+      <div class="wrap">
+        <header class="section-head"><h2>참고문헌</h2></header>
+        <div class="refs">
           <ol>
             <li>국가인권위원회(2019). 「혐오표현 리포트」. <a href="https://www.humanrights.go.kr/download/BASIC_ATTACH?storageNo=1068506" target="_blank" rel="noopener">영문 PDF</a></li>
             <li>국립국어원(2020). 「2020년 국민의 언어 의식 조사」. 임동근(2021. 3. 10). 「성인 절반가량 "국민들이 일상생활서 욕설·비속어 사용" 인식」. 『연합뉴스』. <a href="https://www.yna.co.kr/view/AKR20210310070800005" target="_blank" rel="noopener">기사</a></li>
@@ -225,14 +211,19 @@
             <li>한국인터넷자율정책기구(2026. 7. 15). 「혐오표현 자율정책 가이드라인」. <a href="https://www.kiso.or.kr/policy-guide/hate-speech-guideline" target="_blank" rel="noopener">조문</a></li>
             <li>홍성수(2018). 『말이 칼이 될 때』. 어크로스. 경향신문(2022. 4. 7). <a href="https://www.khan.co.kr/article/202204071510001" target="_blank" rel="noopener">기사</a></li>
           </ol>
-        </section>
-      </article>
-    </div>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-secondary" href="index.html#resources">자료실로</a>
+          <a class="btn btn-secondary" href="report.html">모둠 조사 보고서 예시</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>읽기 자료 · RED RED GREEN GREEN · 학급 언어생활 사례 조사 프로젝트</p>
+      <p>이 페이지는 거친 말과 혐오표현을 가르는 읽기 자료입니다.</p>
+      <p class="credits">RED RED GREEN GREEN · 학급 언어생활 사례 조사 프로젝트</p>
     </div>
   </footer>
   <script src="script.js"></script>
