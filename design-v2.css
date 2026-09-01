@@ -298,6 +298,15 @@ h1, h2, h3, .brand, .session-num, .tool-badge {
 .hero-spine span:nth-child(3) { color: var(--green-deep); }
 .hero-safety { margin: 0 0 14px; font-size: .92rem; font-weight: 700; color: var(--ink); }
 .hero-safety a { color: var(--red-deep); font-weight: 800; }
+.hero-decision {
+  margin: 0 0 10px; font-size: 1.05rem; font-weight: 800;
+  font-family: 'Paperlogy','Pretendard',sans-serif;
+}
+.map-toc { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 14px 0 0; }
+.map-toc a {
+  font-weight: 800; color: var(--ink); text-decoration: none;
+  border: 2px solid var(--ink); border-radius: 999px; padding: 6px 12px; background: #fff;
+}
 
 /* ── 세 차시 한눈에 (히어로 아래) ───────────────── */
 .page-toc-section { padding: 34px 0 18px; background: var(--bg); }

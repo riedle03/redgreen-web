@@ -12,10 +12,10 @@
   <link rel="stylesheet" href="design-v2.css">
 </head>
 <body id="top">
-  <a class="skip-link" href="#start">따라가기로 건너뛰기</a>
+  <a class="skip-link" href="#start">오늘 차시 고르기로 건너뛰기</a>
   <header class="site-header">
     <nav class="site-nav">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-current="page">
         <span class="c-red">RED RED</span>
         <span class="c-green">GREEN GREEN</span>
       </a>
@@ -24,14 +24,8 @@
         <span class="visually-hidden">메뉴</span>
       </button>
       <ul id="site-menu" class="nav-links">
-        <li><a class="nav-pill pill-red" href="walk-1.html">1 질문하기</a></li>
-        <li><a class="nav-pill pill-blue" href="walk-2.html">2 탐구하기</a></li>
-        <li><a class="nav-pill pill-green" href="walk-3.html">3 쓰기</a></li>
         <li><a class="nav-pill pill-amber" href="gallery.html">조사 갤러리</a></li>
-        <li class="nav-toc-head">자료</li>
-        <li class="nav-section-link"><a href="map.html#request">조사 의뢰문</a></li>
-        <li class="nav-section-link"><a href="map.html#resources">자료실</a></li>
-        <li class="nav-section-link"><a href="map.html#about">참관 안내</a></li>
+        <li><a class="nav-pill pill-blue" href="map.html">교실 자료</a></li>
       </ul>
     </nav>
   </header>
@@ -45,6 +39,7 @@
           <h1 id="hero-title">모르고 막 쓰면 <span class="c-red">RED RED</span>,<br>뜻 알고 바꾸면 <span class="c-green">GREEN GREEN</span></h1>
           <p class="hero-sub">우리 반 언어생활을 우리가 직접 조사합니다</p>
           <p class="hero-safety">실명·학번은 쓰지 않습니다. 거친 말은 초성으로.</p>
+          <h2 class="hero-decision" id="start">오늘 몇 차시인가요?</h2>
           <div class="start-paths hero-starts">
             <a class="start-path start-1" href="walk-1.html"><strong>1차시부터</strong><span>카드 모으고 질문 하나</span></a>
             <a class="start-path start-2" href="walk-2.html"><strong>이미 2차시</strong><span>말 하나 정해 면접</span></a>
@@ -60,61 +55,10 @@
       </div>
     </section>
 
-    <section class="hub-walks" id="start" aria-labelledby="walks-title">
-      <div class="wrap">
-        <p class="hub-kicker">따라가기</p>
-        <h2 id="walks-title">세 편입니다. 순서대로 하거나 오늘 편만 엽니다.</h2>
-        <ol class="walk-index">
-          <li>
-            <a href="walk-1.html">
-              <span class="wi-num">1</span>
-              <span class="wi-body">
-                <strong>질문하기</strong>
-                <span>우리 반 말을 카드로 모으고, 알아볼 질문 하나를 정한다.</span>
-              </span>
-              <span class="wi-go">따라가기</span>
-            </a>
-          </li>
-          <li>
-            <a href="walk-2.html">
-              <span class="wi-num">2</span>
-              <span class="wi-body">
-                <strong>탐구하기</strong>
-                <span>말 하나를 정해 사전을 찾고, 써 본 사람 한 명에게 선택·영향·원인을 묻는다.</span>
-              </span>
-              <span class="wi-go">따라가기</span>
-            </a>
-          </li>
-          <li>
-            <a href="walk-3.html">
-              <span class="wi-num">3</span>
-              <span class="wi-body">
-                <strong>쓰기</strong>
-                <span>종이 기록을 모아 모둠 조사 보고서를 함께 쓰고, 다른 반이 읽게 포스터로 만든다.</span>
-              </span>
-              <span class="wi-go">따라가기</span>
-            </a>
-          </li>
-        </ol>
-      </div>
-    </section>
-
     <section class="hub-glance">
       <div class="wrap">
         <h2>한 줄로 보면</h2>
         <p>질문하기에서 탐구하기로, 탐구하기에서 쓰기로 이어집니다. 산출물은 모둠 조사 보고서와 조사 포스터입니다. 전국 통계는 왜 우리가 직접 묻는지의 배경입니다.</p>
-      </div>
-    </section>
-
-    <section class="hub-jump">
-      <div class="wrap">
-        <h2>이미 알고 있으면</h2>
-        <p class="hub-jump-links">
-          <a href="map.html#request">조사 의뢰문</a>
-          <a href="gallery.html">조사 갤러리</a>
-          <a href="map.html#resources">자료실</a>
-          <a href="map.html#about">참관 안내</a>
-        </p>
       </div>
     </section>
   </main>
