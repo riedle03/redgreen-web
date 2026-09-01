@@ -159,14 +159,14 @@ h3 {
   white-space: nowrap;
 }
 
-.nav-links a:hover {
+.nav-links a:not(.nav-pill):hover {
   background: var(--green-bg);
   color: var(--green);
 }
 
-.nav-links a.is-active {
-  background: var(--green);
-  color: var(--white);
+.nav-links a:not(.nav-pill).is-active {
+  background: var(--green-bg);
+  color: var(--green);
 }
 
 .nav-toggle {

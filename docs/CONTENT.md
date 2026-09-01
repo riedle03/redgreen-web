@@ -4,7 +4,12 @@
 부제: 우리 반 언어생활을 우리가 직접 조사합니다
 대상 표기: 고1 공통국어2 · 50분 × 3차시 · 학급 언어생활 사례 조사 프로젝트
 
-내비게이션: 조사 의뢰문 / 프로젝트 개요 / 차시별 흐름 / 활동 도구 / 안전 약속 / 자료실 / 참관 안내
+내비게이션: 1 질문하기 / 2 탐구하기 / 3 쓰기 / 조사 갤러리 · 자료(의뢰문·자료실·참관)
+홈 구조: ChatGPT Training형. 여기서 시작(오늘 몇 차시) → 따라가기 3편 → 한 줄 조망 → 이미 알고 있으면.
+따라가기: walk-1.html · walk-2.html · walk-3.html (지금 할 일 순서 + 열기 버튼)
+교실 자료(의뢰·KOSIS·도구·참관): map.html
+히어로 뼈대: 1 질문하기 → 2 탐구하기 → 3 쓰기
+히어로 안전: 실명·학번은 쓰지 않습니다. 거친 말은 초성으로.
 
 RED 카드 웹앱 URL: https://script.google.com/a/macros/e-mirim.hs.kr/s/AKfycbwfmUjWA3QLke0zZzwaPeZRYcMjdLuke04AEYwVJdpgSA2n5LdXSHjYWinZ8odoBpo/exec
 면접 문항 도우미(Gem) URL: https://gemini.google.com/gem/1tuwbYwty_VlpjxCYBE7edDCyzDVcMA1Z?usp=sharing
@@ -17,9 +22,12 @@ RED 카드 웹앱 URL: https://script.google.com/a/macros/e-mirim.hs.kr/s/AKfycb
 
 - 큰 제목: 모르고 막 쓰면 **RED RED**, 뜻 알고 바꾸면 **GREEN GREEN**
 - 부제: 우리 반 언어생활을 우리가 직접 조사합니다
-- 배지(칩): 고1 공통국어2 · 3차시 · 학급 조사 프로젝트
-- 버튼 1(주요): RED 카드 웹앱 열기 → 위 GAS URL, 새 탭
-- 버튼 2(보조): 조사 의뢰문 읽기 → #request 스크롤
+- 배지(칩): 고1 공통국어2 · 총 3차시 · 학급 조사 프로젝트
+- 뼈대: 1 질문하기 / 2 탐구하기 / 3 쓰기
+- 안전 한 줄: 실명·학번은 쓰지 않습니다. 거친 말은 초성으로.
+- 여기서 시작: 1차시부터 / 이미 2차시 / 이미 3차시
+- 따라가기 3편: walk-1 · walk-2 · walk-3
+- 의뢰문·KOSIS는 map.html#request (홈 첫 화면이 아님)
 - 이미지: img/hero-bg.png(배경), img/char-boy.png(RED 카드 든 남학생), img/char-girl.png(GREEN 카드 든 여학생)
 
 ## 2. 조사 의뢰문 (#request)
