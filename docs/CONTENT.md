@@ -29,7 +29,7 @@ RED 카드 웹앱 URL: https://script.google.com/a/macros/e-mirim.hs.kr/s/AKfycb
 - 배지(칩): 고1 공통국어2 · 총 3차시 · 학급 조사 프로젝트
 - 뼈대: 1 질문하기 / 2 탐구하기 / 3 쓰기
 - 안전 한 줄: 실명·학번은 쓰지 않습니다. 거친 말은 초성으로.
-- 여기서 시작: 1차시부터 / 이미 2차시 / 이미 3차시
+- 여기서 시작: 1차시부터(카드 모으고 질문 하나) / 이미 2차시(말 하나 정해 면접) / 이미 3차시(보고서 · 수업 뒤 포스터)
 - 따라가기 3편: walk-1 · walk-2 · walk-3
 - 의뢰문·KOSIS는 map.html#request (홈 첫 화면이 아님)
 - 이미지: img/hero-bg.png(배경), img/char-boy.png(RED 카드 든 남학생), img/char-girl.png(GREEN 카드 든 여학생)
