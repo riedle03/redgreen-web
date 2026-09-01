@@ -29,6 +29,10 @@ html {
   scroll-padding-top: calc(var(--nav-h) + 16px);
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
 body {
   margin: 0;
   font-family: var(--font);
@@ -36,7 +40,6 @@ body {
   line-height: 1.7;
   color: var(--ink);
   background: var(--bg);
-  overflow-x: hidden;
 }
 
 body.nav-open {
@@ -974,7 +977,7 @@ html.js .reveal.is-visible {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1180px) {
   .nav-toggle {
     display: block;
     z-index: 50;

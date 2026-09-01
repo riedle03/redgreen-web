@@ -1,0 +1,10 @@
+node_modules
+package-lock.json
+qa/shots_kosis
+qa/shots_request
+qa/kosis_qa_report.json
+qa/request_kosis_qa_report.json
+_verify_shots
+_tmp_*
+*.bak
+archive

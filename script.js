@@ -45,7 +45,7 @@
     });
 
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 900) closeMenu();
+      if (window.innerWidth > 1180) closeMenu();
     });
   }
 
@@ -64,7 +64,7 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -36px 0px" }
+      { threshold: 0.01, rootMargin: "0px 0px -8px 0px" }
     );
     reveals.forEach(function (el) {
       revealObserver.observe(el);
@@ -130,4 +130,45 @@
   }
   togglePets();
   window.addEventListener("scroll", togglePets, { passive: true });
+})();
+
+(function () {
+  var packs = document.querySelectorAll(".viz-card");
+  if (!packs.length) return;
+
+  function activate(card, panelName) {
+    var buttons = card.querySelectorAll(".viz-btn");
+    var panels = card.querySelectorAll(".viz-panel");
+    buttons.forEach(function (btn) {
+      var on = btn.getAttribute("data-panel") === panelName;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    panels.forEach(function (panel) {
+      var on = panel.getAttribute("data-panel") === panelName;
+      panel.classList.toggle("is-active", on);
+      if (on) {
+        panel.removeAttribute("hidden");
+      } else {
+        panel.setAttribute("hidden", "");
+      }
+    });
+  }
+
+  packs.forEach(function (card) {
+    card.querySelectorAll(".viz-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        activate(card, btn.getAttribute("data-panel"));
+      });
+      btn.addEventListener("keydown", function (event) {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+        event.preventDefault();
+        var buttons = Array.prototype.slice.call(card.querySelectorAll(".viz-btn"));
+        var idx = buttons.indexOf(btn);
+        var next = event.key === "ArrowRight" ? (idx + 1) % buttons.length : (idx - 1 + buttons.length) % buttons.length;
+        buttons[next].focus();
+        activate(card, buttons[next].getAttribute("data-panel"));
+      });
+    });
+  });
 })();

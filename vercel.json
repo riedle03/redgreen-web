@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "framework": null,
+  "installCommand": null,
+  "buildCommand": null,
+  "redirects": [
+    { "source": "/kosis", "destination": "/#request", "permanent": false },
+    { "source": "/kosis.html", "destination": "/#request", "permanent": false }
+  ]
+}
