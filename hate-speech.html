@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>이게 혐오표현일까 — RED RED GREEN GREEN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="img/icon-logo.png">
+<meta name="description" content="모둠 조사 보고서를 고칠 때 옆에 두는 참고자료. 거친 말·은어·혐오표현을 가르는 정의와 출처가 있는 판단 물음.">
+<style>
+  @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Regular.woff2') format('woff2');font-weight:400;font-display:block;}
+  @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Medium.woff2') format('woff2');font-weight:500;font-display:block;}
+  @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-SemiBold.woff2') format('woff2');font-weight:600;font-display:block;}
+  @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Bold.woff2') format('woff2');font-weight:700;font-display:block;}
+  @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-ExtraBold.woff2') format('woff2');font-weight:800;font-display:block;}
+  @font-face{font-family:'Pretendard';src:url('fonts/Pretendard-Black.woff2') format('woff2');font-weight:900;font-display:block;}
+  :root{
+    --red:#E85B4C; --red-soft:#FDEEEC; --red-deep:#C74534;
+    --green:#3D8E7A; --green-soft:#E9F5F1; --green-deep:#2C6E5E;
+    --blue:#3E6DB5; --blue-soft:#EDF2FA; --blue-deep:#2C4F8A;
+    --ink:#26292E; --sub:#6B7280; --line:#D9DDE3; --bg:#F7F8FA;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{font-family:'Pretendard','Malgun Gothic',sans-serif;color:var(--ink);background:#e8eaed;}
+  @page{size:A4;margin:0;}
+  .page{width:210mm;height:296mm;padding:8mm 9mm 7mm;page-break-after:always;position:relative;background:#fff;overflow:hidden;display:flex;flex-direction:column;-webkit-print-color-adjust:exact;print-color-adjust:exact;margin:8mm auto;}
+  .page:last-child{page-break-after:auto;}
+  .eyebrow{font-size:7.4pt;font-weight:700;letter-spacing:.35px;color:var(--sub);margin-bottom:1mm;}
+  .titlebar{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2.5px solid var(--ink);padding-bottom:2mm;margin-bottom:2.2mm;}
+  h1{font-size:15.5pt;font-weight:900;line-height:1.15;}
+  h1 .accent{color:var(--red-deep);}
+  .subtitle{font-size:7.6pt;color:var(--sub);font-weight:600;margin-top:.6mm;}
+  .namebox{display:flex;gap:1.6mm;font-size:7.2pt;font-weight:700;white-space:nowrap;}
+  .namebox span{border:1px solid var(--line);border-radius:2mm;padding:1.2mm 2mm;background:var(--bg);}
+  .namebox b{font-weight:400;color:var(--sub);}
+  .step{margin-bottom:2mm;}
+  .stephead{display:flex;align-items:center;gap:1.8mm;margin-bottom:1.2mm;}
+  .steppill{background:var(--red);color:#fff;font-weight:900;font-size:7.6pt;border-radius:99px;padding:.8mm 2.6mm;}
+  .p2 .steppill{background:var(--blue);}
+  .steptitle{font-size:10pt;font-weight:800;}
+  .stephint{font-size:6.8pt;color:var(--sub);font-weight:500;flex:1;}
+  table{width:100%;border-collapse:collapse;font-size:7.4pt;}
+  th{background:var(--bg);font-weight:800;border:1px solid var(--line);padding:1.1mm 1.5mm;text-align:center;}
+  td{border:1px solid var(--line);padding:1.1mm 1.5mm;vertical-align:top;line-height:1.45;}
+  td.lab{background:var(--bg);font-weight:800;width:42mm;}
+  .hintbox{background:var(--red-soft);border-radius:2mm;padding:1.6mm 2.2mm;font-size:7.1pt;line-height:1.48;margin-bottom:1.6mm;}
+  .p2 .hintbox{background:var(--blue-soft);}
+  .hintbox b{color:var(--red-deep);}
+  .p2 .hintbox b{color:var(--blue-deep);}
+  .box{border:1.1px solid var(--line);border-radius:2mm;padding:1.6mm 2mm;font-size:7.2pt;line-height:1.48;margin-bottom:1.5mm;}
+  .quote{border-left:2.4px solid var(--red);padding-left:2mm;margin:1.2mm 0;font-size:7.1pt;line-height:1.45;color:#1f2328;}
+  .p2 .quote{border-left-color:var(--blue);}
+  .src{font-size:6.5pt;color:var(--sub);}
+  .small{font-size:6.8pt;color:var(--sub);line-height:1.4;}
+  .check{font-size:7.4pt;line-height:1.65;}
+  .check .sq{font-size:8.5pt;}
+  h3{font-size:8.2pt;font-weight:800;margin:1.4mm 0 .8mm;}
+  ul,ol{margin-left:4.2mm;}
+  li{font-size:7.2pt;line-height:1.45;margin-bottom:.4mm;}
+  .cols{display:flex;gap:2.2mm;}
+  .cols > div{flex:1;}
+  .toc{font-size:6.5pt;line-height:1.38;columns:2;column-gap:3mm;}
+  .toc b{font-size:6.8pt;}
+  .footer{margin-top:auto;padding-top:1.4mm;border-top:1px solid var(--line);font-size:6.4pt;color:var(--sub);display:flex;justify-content:space-between;}
+  .fill{border-bottom:1px solid #B9BEC6;display:inline-block;min-width:48mm;height:4.2mm;}
+  .teacher{width:210mm;margin:8mm auto;background:#fff7e8;border:1.5px dashed #9A6B00;border-radius:3mm;padding:5mm 7mm;font-size:8pt;line-height:1.5;}
+  .teacher h2{font-size:11pt;margin-bottom:2mm;}
+  .teacher li{font-size:8pt;margin-bottom:1mm;}
+  .web-bar{width:210mm;margin:8mm auto 0;display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:'Pretendard','Malgun Gothic',sans-serif;}
+  .web-bar a{color:#2C4F8A;font-weight:800;text-decoration:none;font-size:12px;}
+  .web-bar a:hover{text-decoration:underline;}
+  .web-bar .brand{color:#26292E;font-weight:900;font-size:13px;}
+  .web-bar .brand .c-red{color:#C74534;}
+  .web-bar .brand .c-green{color:#2C6E5E;}
+  .web-foot{width:210mm;margin:0 auto 10mm;padding:4mm 0;font-size:11px;color:#6B7280;font-family:'Pretendard','Malgun Gothic',sans-serif;}
+  @media print{
+    body{background:#fff;}
+    .page,.teacher{margin:0;}
+    .teacher,.web-bar,.web-foot{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="web-bar">
+  <a href="index.html#resources">← 자료실로 돌아가기</a>
+  <a class="brand" href="index.html"><span class="c-red">RED RED</span> <span class="c-green">GREEN GREEN</span></a>
+</div>
+
+<div class="teacher">
+  <h2>교사 지시문 (학생 면에 인쇄하지 않습니다)</h2>
+  <p>이 종이는 훈계문이 아닙니다. 모둠 조사 보고서 칸을 고칠 때 옆에 두는 판단 도구입니다. <b>답을 대신 쓰지 마십시오.</b> 「우리 모둠 원인은 ○○이다」를 인쇄하지 않습니다.</p>
+  <ul>
+    <li>수업 세 기준(뜻이 바로 통한다 · 듣는 사람을 존중한다 · 나라도 이 상황에서 이렇게 말하겠다)은 <b>바꿔 쓸 말의 기준</b>입니다. 혐오표현 판정표로 바꾸지 마십시오.</li>
+    <li>배혜림 책은 <b>목차 9장 제목만</b>. 종이책 원문은 열지 못했습니다. 장 요약을 지어 말하지 마십시오.</li>
+    <li>인권위 국문 PDF는 인용하지 않았습니다. 국문 정의는 뉴스앤조이(2019-11-01) 인용, 「일반 욕·비판」과 가른 문장은 영문 PDF입니다.</li>
+    <li>KISO는 <b>2026.07.15 일부개정본</b>. 2024 문장과 합치지 마십시오. 형벌 기준이 아닙니다.</li>
+    <li>원문 욕·지역 비하를 예로 되살리지 마십시오. 실시 보고서가 2026-08-27 거르는 상자를 보고 썼다고 서술하지 마십시오.</li>
+  </ul>
+</div>
+
+<!-- PAGE 1 -->
+<section class="page">
+  <div class="eyebrow">수업 참고자료 · 모둠 조사 보고서를 고칠 때 옆에 둡니다</div>
+  <div class="titlebar">
+    <div>
+      <h1>이게 <span class="accent">혐오표현</span>일까</h1>
+      <div class="subtitle">정답을 대신 적지 않습니다. 칸 이름과 물음만 있습니다. 문장 뒤의 (저자, 해)는 5 참고 자료로 옮깁니다.</div>
+    </div>
+    <div class="namebox">
+      <span><b>반</b> ____</span>
+      <span><b>모둠</b> ____</span>
+      <span><b>조사한 말</b> ________</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="stephead">
+      <span class="steppill">1</span>
+      <span class="steptitle">이 종이로 무엇을 하나</span>
+      <span class="stephint">새 채점 항목이 아닙니다. 지금 쓰는 보고서 칸을 고칠 때 옆에 둡니다.</span>
+    </div>
+    <table>
+      <tr><th>우리가 고치는 칸</th><th>이 종이에서 볼 절</th></tr>
+      <tr><td>3 사전적 의미와 실제 쓰이는 뜻</td><td>2. 세 가지를 가른다</td></tr>
+      <tr><td>3 고른 이유 · 듣는 사람의 느낌</td><td>3. 들은 것과 짐작</td></tr>
+      <tr><td>3 이 말을 계속 쓰게 하는 원인 (마지막 줄: 방안으로 다룰 원인 하나)</td><td>3. 원인</td></tr>
+      <tr><td>3 바꿔 쓸 표현 · 4-나 ⓐ</td><td>아래 세 기준</td></tr>
+      <tr><td>4-가 발견점</td><td>3. 들은 것과 짐작 · 카드 장수 한 줄</td></tr>
+      <tr><td>4-나 ⓑ</td><td>3. 누가·언제·확인 · 원인 한 줄을 그대로 옮기기</td></tr>
+    </table>
+    <div class="hintbox" style="margin-top:1.6mm;">
+      <b>바꿔 쓸 말 — 수업 세 기준 (혐오표현 정의가 아닙니다)</b>
+      학습지 STEP 4 그대로. 「뜻이 바로 통하고, 듣는 사람을 존중하고, 나라도 이 상황에서 실제로 쓸 수 있는 말을 찾습니다」
+      · 점검 세 칸: 뜻이 바로 통한다 · 듣는 사람을 존중한다 · 나라도 이 상황에서 이렇게 말하겠다
+      · 의뢰문 v4(2026): 「같은 상황에서 같은 뜻을 전하면서 듣는 사람이 뜻을 바로 알고 · 듣는 사람을 존중하고 · 그 자리에서 실제로 쓸 수 있는 표현으로 바꿔 주십시오.」
+      은어·거친 말도 이 세 칸으로 바꿉니다. 이 세 칸으로 「이 말은 혐오표현이다 / 아니다」를 가리지 않습니다.
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="stephead">
+      <span class="steppill">2</span>
+      <span class="steptitle">세 가지를 가른다</span>
+      <span class="stephint">거친 말 / 은어·신조어 / 혐오표현 · 뜻 칸 옆에 두는 도구 · 선다형 채점이 아닙니다</span>
+    </div>
+    <div class="box">
+      우리 조사한 말은
+      <span class="check"><span class="sq">□</span> 거친 말(욕·비속) &nbsp;<span class="sq">□</span> 은어·신조어 &nbsp;<span class="sq">□</span> 혐오표현 &nbsp;<span class="sq">□</span> 위에 안 들어간다</span>
+      <div style="margin-top:1mm;">그렇게 가른 근거 한 줄 <span class="fill" style="min-width:78mm;"></span></div>
+      <p class="small" style="margin-top:1mm;">인권위 정의에 안 들어가면 안 들어간다고 씁니다. 「은어나 비속어」로 한 덩어리로 쓰지 않습니다. 기쁨을 나타내는 유행어를 「심각성」 칸에 억지로 넣지 않습니다.</p>
+    </div>
+    <div class="cols">
+      <div class="box" style="margin:0;">
+        <b>거친 말</b><br>
+        국가인권위원회 「혐오표현 리포트」 영문판은 혐오표현을 「일반 욕·비판」과 가릅니다. 욕이라고 해서 곧 혐오표현은 아닙니다. <span class="src">(국가인권위원회, 2019, 영문 PDF)</span>
+      </div>
+      <div class="box" style="margin:0;">
+        <b>은어·신조어</b><br>
+        뜻이 바로 통하지 않는 은어만으로는 인권위 정의에 들어가지 않습니다. <span class="src">(국가인권위원회, 2019)</span> 안 들어가면 안 들어간다고 쓰고, 바꿔 쓸 말은 세 기준으로 찾습니다.
+      </div>
+    </div>
+    <h3>혐오표현 — 출처 있는 정의</h3>
+    <p class="small">뉴스앤조이(2019-11-01)가 리포트를 직접 인용한 국문 정의.</p>
+    <div class="quote">성별, 장애, 종교, 나이, 출신 지역, 인종, 성적 지향 등을 이유로 어떤 개인·집단에게 모욕·비하·멸시·위협 또는 차별·폭력의 선전과 선동을 함으로써 차별을 정당화·조장·강화하는 효과를 갖는 표현</div>
+    <p class="small">같은 리포트의 유형 이름: <b>모욕형</b> · <b>선동형</b>(「차별 선동은 기본적으로 동참해 달라고 대중을 향해 호소하는 것」). 피켓 원문·질병 낙인은 이 종이에 싣지 않습니다. <span class="src">(뉴스앤조이, 2019-11-01)</span></p>
+    <p class="small" style="margin-top:.8mm;">홍성수 『말이 칼이 될 때』(2018)를 경향신문(2022-04-07)이 인용한 정의. 지역 출신 보기는 다시 쓰지 않습니다.</p>
+    <div class="quote">소수자에 대한 편견 또는 차별을 확산시키거나 조장하는 행위 또는 어떤 개인, 집단에 대해 그들이 소수자로서의 속성을 가졌다는 이유로 멸시·모욕·위협하거나 그들에 대한 차별, 적의, 폭력을 선동하는 표현</div>
+    <p class="small">출판사 리뷰: 혐오표현은 「단순히 ‘기분 나쁜 말’, ‘듣기 싫은 말’에서 끝나는 것이 아니라 사회생활을 하는데 실질적인 위협과 불안을 가져오는 말」. <span class="src">(어크로스, 2018)</span></p>
+    <p class="small" style="margin-top:.8mm;">KISO 「혐오표현 자율정책 가이드라인」 <b>현행(2026.07.15)</b> 제2조 ① 1호. 회원사 자율정책이지 형벌 기준이 아닙니다.</p>
+    <div class="quote">인종·국가·민족·지역·나이·장애·성별·성적지향·종교·질병이나 사회적 신분, 소득수준 또는 재산상태(이하 ‘특정 속성’)를 이유로, 특정 집단이나 그 구성원에 대하여 직접적인 폭력이나 차별을 공공연하게 선동하는 표현</div>
+    <p class="small">제9조 ① 셋을 <b>모두</b> 충족해야 합니다. 1. 특정 속성 2. 특정 집단·구성원 3. 직접적인 폭력이나 차별을 선동. 제9조 ② 「단어의 의미뿐 아니라 단어가 쓰인 맥락을 고려한다.」 1·2만 있고 3이 없으면 해당하지 않는다고 씁니다. 제3조 ① 비판적 표현으로 갈등이 생겨도 무조건 제한되어서는 안 됩니다. <span class="src">(KISO, 2026)</span></p>
+    <p class="small" style="margin-top:.8mm;">우리 뜻 칸 물음 — 특정 속성을 이유로 하는가 / 모욕 또는 선동인가 / 차별을 정당화하는 효과가 있는가 / KISO 세 요건을 모두 충족하는가, 아니면 4절 일상 기준에서만 걸리는가. 둘을 한 문장으로 합치지 않습니다. 배혜림 1장 소제목 「이건 혐오 표현이고 저건 아닌 이유」(Yes24 모바일 목차, 2026) — 장 내용은 요약하지 않습니다.</p>
+  </div>
+
+  <div class="footer">
+    <span>수업 참고자료 · 모둠 조사 보고서를 고칠 때 옆에 둡니다</span>
+    <span>1 / 2</span>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page p2">
+  <div class="eyebrow">수업 참고자료 · 모둠 조사 보고서를 고칠 때 옆에 둡니다</div>
+  <div class="titlebar">
+    <div>
+      <h1>이게 <span class="accent" style="color:var(--blue-deep);">혐오표현</span>일까</h1>
+      <div class="subtitle">3~6 · 빈 칸을 채울 물음 · 판단 여섯 물음 · 목차 · 참고 자료</div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="stephead">
+      <span class="steppill">3</span>
+      <span class="steptitle">우리 조사가 자주 빈 칸</span>
+      <span class="stephint">「우리 모둠 원인은 ○○이다」를 이 종이가 대신 쓰지 않습니다.</span>
+    </div>
+
+    <h3>원인 — 3 「이 말을 계속 쓰게 하는 원인」 · 4-가</h3>
+    <p class="small">원인은 「교육 부족」「공감 능력 부족」「심각성을 알지 못함」「습관」에서 멈추지 않습니다. 습관이 면접에서 나왔다면 들은 것으로 적되, 원인 이름을 습관에서 끝내지 않습니다.</p>
+    <ul>
+      <li>국립국어원 「2020년 국민의 언어 의식 조사」: 욕설·비속어를 쓰는 이유 중 「습관적으로」 23.1%(2005년 1.2%). 대상은 <b>전국 성인 5,000명</b>. 면접 1명의 답과 한 문장으로 합치지 않습니다. 청소년 비율은 이 조사에 없습니다. <span class="src">(연합뉴스, 2021-03-10)</span></li>
+      <li>홍성수 2장 공개 인용: 「특정 소수자 집단에 대한 부정적 이미지를 표현하는 말들이 있고, … 이러한 말들이 별다른 제지 없이 발화된다면 어느 순간 사실로 굳어지게 된다.」 <span class="src">(Yes24 「책 속으로」, 쪽수 없음)</span></li>
+      <li>인권위 리포트: 부정적 관념·편견이 차별을 퍼뜨리는 정당화가 된다. 「다들 쓰니까」만 적지 말고, 그 말이 <b>어느 집단을 어떻게 묶는지</b>를 적습니다. <span class="src">(국가인권위원회, 2019, 영문 PDF)</span></li>
+    </ul>
+    <div class="box">
+      이 자리에 다른 형태 대신 이 형태를 붙인 이유는? · 그 말은 누구를 어떻게 묶는가? · 반복되면 사실처럼 굳는 이미지가 있는가?<br>
+      마지막 줄: 방안으로 다룰 원인 하나 <span class="fill"></span><br>
+      <span class="small">칸이 비어 있고 확인하지 못했으면 「이번 면접에서는 원인을 확인하지 못했다」고 씁니다. (의뢰문 v4)</span>
+    </div>
+    <p class="small">원인 후보를 책에서 고를 때는 목차 제목만. 2장 SNS·좋아요 · 3장 밈 · 4장 농담 · 5장 교실. 장 내용을 지어 쓰지 않습니다. <span class="src">(배혜림, 2026, Yes24 모바일 목차)</span></p>
+
+    <h3>들은 것과 짐작 — 3 고른 이유 · 듣는 사람의 느낌 · 4-가</h3>
+    <p class="small">들은 문장 뒤에 우리 해석을 붙일 때: <b>여기까지는 들은 것</b> / <b>~일 수 있다</b>. 1명에게 들은 답을 「사람들은」「청소년들은」으로 쓰지 않습니다. 말한 사람이 본 반응을 들은 사람의 마음으로 바꾸지 않습니다. 들어 본 사람의 추측을 원인으로 확정하지 않습니다.</p>
+    <div class="quote">발견점은 조사한 표현과 면접한 사람 수를 밝혀 "우리 모둠이 조사한 ○○에서는 …"처럼 써 주십시오. 알아내지 못한 것은 알아내지 못했다고 적어 주십시오. <span class="src">(학급 조사 의뢰문 v4, 2026)</span></div>
+    <p class="small">「해석이 자의적이지 않은가」 — 확인과 추정을 가릅니다. 짐작은 「~일 수 있다」. 더 읽을 소제목만: 3장 「몰랐다는 말로는 충분하지 않다」 · 4장 「그냥 농담」. <span class="src">(배혜림, 2026, 목차)</span></p>
+
+    <h3>제언의 누가·언제·확인 — 4-나 ⓑ · 원인 한 줄을 그대로 옮긴다</h3>
+    <div class="quote">우리가 줄이려는 원인은 ___이다. 이를 줄이기 위해 ___(누가)는 ___(언제) ___(무엇을)을 ___ 방식으로 실행한다. 실행 뒤에는 ___을 ___로 확인한다. <span class="src">(지금 쓰는 보고서 양식)</span></div>
+    <p class="small">「우리 모두」「앞으로」는 정해진 담당·시점이 아닙니다. 「나 스스로 확인한다」는 다른 사람이 셀 수 있는 확인이 아닙니다. 3에서 고른 원인 한 줄을 ⓑ 첫 문장에 <b>그대로</b> 옮깁니다. 원인 칸이 「다른 단어가 생각 나지 않음」인데 제언이 「깨끗한 언어 사용」이면 같은 말이 아닙니다.</p>
+    <p class="small" style="margin-top:.6mm;">거르는 문장(지금 쓰는 양식): 「줄인다·돌아본다」→무엇을 언제 몇 번 / 「신고한다·따뜻한 댓글을 단다」→그 행동이 원인을 바꾸는 과정이 없으면 뺌 / 「쓰지 않는다」→대신 할 행동 / 「책임감을 가져야 한다」→<b>행동이 아닙니다</b>. KISO의 신고 절차만 적어도 우리가 고른 원인을 어떻게 바꾸는지가 빠집니다. <span class="src">(KISO, 2026)</span> 더 읽을 소제목만: 5장 「그 ‘드립’에 웃지 않을 용기」 · 8장 「말 하나 바꾼다고 생각이 바뀔까?」</p>
+    <div class="check" style="margin-top:.8mm;">
+      <span class="sq">□</span> 원인을 같은 말로 다시 썼나 &nbsp;
+      <span class="sq">□</span> 담당·시점이 있나 &nbsp;
+      <span class="sq">□</span> 다른 사람이 보거나 셀 수 있나 &nbsp;
+      <span class="sq">□</span> 전후를 기록·수·응답으로 확인하나 &nbsp;
+      <span class="sq">□</span> 원인을 바꾸는 까닭 한 문장 &nbsp;
+      <span class="sq">□</span> 다른 모둠 원인에 넣어도 통하는 넓은 말이 아닌가
+    </div>
+    <div class="hintbox" style="margin-top:1.4mm;">
+      <b>카드 장수 — 한 줄</b>
+      카드 장수는 <b>우리 반 RED 카드 가운데 그 말이 적힌 수</b>입니다. 학년 전체나 상자 전체가 아닙니다. 2-나와 4-가에 같은 수를 씁니다. <span class="src">(보고서 양식 「카드 ○장」)</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="stephead">
+      <span class="steppill">4</span>
+      <span class="steptitle">판단 여섯 물음</span>
+      <span class="stephint">김민정·홍성수·송형국, KBS, 2022-04-21 · 형벌 기준이 아닙니다</span>
+    </div>
+    <div class="quote">이 체크리스트는 형사처벌 등 법적 규제를 위한 기준은 아닙니다. 직장, 학교, 미디어 등 일상에서의 기준을 제시한 것입니다.</div>
+    <ol>
+      <li><b>부정적인 편견이나 고정관념을 드러내는가?</b> 한 사람을 집단 전체의 문제로 묶어 말하는가. 일부를 전체로 부풀리는가.</li>
+      <li><b>열등한 존재로 그리거나, 사람을 사람 아닌 이름으로 낮추는가?</b> 「-충」이 붙은 멸칭, 곤충에 빗대 낮잡는 이름. 기사는 「하찮게 대해도 좋다」=「차별해도 괜찮다」는 메시지를 준다고 적습니다.</li>
+      <li><b>웃음거리나 호기심의 대상으로 삼는가?</b> 약자·소수자에 대한 조롱은 지위를 낮추는 효과를 낳습니다. 「그냥 농담」이어도 건너뛰지 않습니다.</li>
+      <li><b>같은 인격이 아니라 보호·동정의 대상으로만 그리는가?</b> 「차별하지 않는다는 것은 ‘있는 그대로’ 다른 사람과 똑같이 평등하게 대하는 것을 뜻합니다」.</li>
+      <li><b>질병·범죄 등 위험을 일으킬 것이라는 공포를 부추기는가?</b> 기사는 이런 말에 대해서는 혐오표현이라고 생각하지 않는 경우가 많다고 적습니다. 질병 낙인 원문은 싣지 않습니다.</li>
+      <li><b>차별, 적개심, 폭력을 선동하는가?</b> 「선동이란 다른 사람을 부추겨서 어떤 행동에 나서게 하는 것입니다.」 선동이 아니면 1~5항까지로 판단하고, 방안은 원인에 맞춥니다.</li>
+    </ol>
+    <p class="small">1~5항은 모욕형, 6항은 선동형에 가깝습니다. <span class="src">(국가인권위원회, 2019; KBS, 2022)</span> KISO 세 요건보다 넓습니다. 한 문장으로 합치지 않습니다. 멸칭 원문·특정 지역을 낮잡는 말은 다시 싣지 않습니다.</p>
+  </div>
+
+  <div class="step">
+    <div class="stephead">
+      <span class="steppill">5</span>
+      <span class="steptitle">책 목차로 더 읽을 곳</span>
+      <span class="stephint">배혜림 『이게 혐오 표현이라고?』 데이스타, 2026, 164쪽 · 장 내용은 요약하지 않습니다 · 종이책 원문 미확인</span>
+    </div>
+    <p class="small">알라딘 부제: 「우리가 몰랐던 일상 속 혐오와 차별의 말들」. Yes24 모바일 목차. 공개된 쪽 표지는 p.160(9장 제목)뿐, 그 쪽 문장은 확인하지 못했습니다. 역사 사건 이름은 목차에 있다는 사실만. 7장 잘린 글자는 목차 그대로.</p>
+    <div class="toc">
+      <b>프롤로그</b> 혐오, 장난인가 폭력인가<br>
+      <b>1장</b> 아니, 이게 왜 혐오야? — 이건 혐오 표현이고 저건 아닌 이유<br>
+      <b>2장</b> 댓글 한 줄이 폭풍이 된다고? — SNS · ‘좋아요’ · ‘어디 사람’이냐고 묻는 건 혐오 표현?<br>
+      <b>3장</b> 밈과 짤, 웃기면 그냥 넘겨도 될까? — 몰랐다는 말로는 충분하지 않다<br>
+      <b>4장</b> ‘그냥 농담’인데 예민하게 굴지 말라고? — 그 농담이 차별이고 혐오인 이유<br>
+      <b>5장</b> 혐오와 자극으로 얼룩진 교실 — 그 ‘드립’에 웃지 않을 용기<br>
+      <b>6장</b> 왜 ‘혐오 표현의 자유’는 없을까?<br>
+      <b>7장</b> 나도 혐오의 대상이 될 수 있다고? — ‘진지충’이라고 부르면 네가 이긴 걸까? · 린이 · 밍아웃(목차 표기 그대로)<br>
+      <b>8장</b> 어? 상처 주네? — 말 하나 바꾼다고 생각이 바뀔까?<br>
+      <b>9장</b> 혐오? 힙하지도 멋지지도 않아
+    </div>
+    <p class="small" style="margin-top:.8mm;">홍성수 『말이 칼이 될 때』 장 제목만: 「2장 혐오표현과 한국 사회 / “남혐과 개독도 혐오표현인가요?”」 — 장 요약은 쓰지 않습니다. 대상이 소수자 집단인지가 갈림입니다. <span class="src">(Yes24 목차)</span></p>
+  </div>
+
+  <div class="step">
+    <div class="stephead">
+      <span class="steppill">6</span>
+      <span class="steptitle">참고 자료 목록</span>
+      <span class="stephint">5 참고 자료 칸에는 우리가 실제로 연 것만 · 주소까지 옮깁니다</span>
+    </div>
+    <ol>
+      <li>배혜림 글, 유희 그림. 『이게 혐오 표현이라고?』. 데이스타. 2026. https://www.yes24.com/product/goods/193359328 · 모바일 목차 https://m.yes24.com/goods/detail/193359328 · 알라딘 https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=9791168274747 ※ 목차·부제만. 종이책 원문 미확인.</li>
+      <li>이승현·이준일·정강자·조혜인·한상희·홍성수. 「혐오표현 리포트」. 국가인권위원회. 2019. https://www.humanrights.go.kr/site/program/board/basicboard/view?menuid=001003001003004&amp;searchcategory=%EA%B8%B0%ED%83%80%EB%B0%9C%EA%B0%84%EC%9E%90%EB%A3%8C&amp;pagesize=10&amp;boardtypeid=17&amp;boardid=7604691 · 영문 PDF https://www.humanrights.go.kr/download/BASIC_ATTACH?storageNo=1068506 · 국문 정의 인용: 이은혜, 뉴스앤조이, 2019-11-01. http://www.newsnjoy.or.kr/news/articleView.html?idxno=225665 ※ 국문 PDF는 이 유인물이 인용하지 않음.</li>
+      <li>(사)한국인터넷자율정책기구. 「혐오표현 자율정책 가이드라인」. 2023.04.27. 제정, 2026.07.15. 일부개정(현행). https://www.kiso.or.kr/policy-guide/hate-speech-guideline</li>
+      <li>김민정·홍성수·송형국. 「농담이었다고요?…이런 게 ‘혐오표현’입니다」. KBS. 2022-04-21. https://news.kbs.co.kr/news/pc/view/view.do?ncd=5445657</li>
+      <li>홍성수. 『말이 칼이 될 때』. 어크로스. 2018. https://m.yes24.com/goods/detail/57823157 · 경향신문 2022-04-07 https://www.khan.co.kr/article/202204071510001 · 일다 2020-01-25 http://www.ildaro.com/8638 ※ 종이책 쪽수 미확인.</li>
+      <li>학급 조사 의뢰문 v4(2026-08-21) · 학습지 STEP 4 세 기준.</li>
+      <li>국립국어원. 「2020년 국민의 언어 의식 조사」. 연합뉴스 2021-03-10. https://www.yna.co.kr/view/AKR20210310070800005 ※ 원보고서 PDF 미확인. 청소년 표본 없음.</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <span>수업 참고자료 · 모둠 조사 보고서를 고칠 때 옆에 둡니다</span>
+    <span>2 / 2</span>
+  </div>
+</section>
+
+<div class="web-foot">수업 참고자료 · 모둠 조사 보고서를 고칠 때 옆에 둡니다. 인쇄할 때는 교사 지시문과 위 막대가 숨겨집니다.</div>
+
+</body>
+</html>
