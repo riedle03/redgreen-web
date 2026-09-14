@@ -21,11 +21,13 @@ img { max-width: 100%; height: auto; display: block; }
 /* ── 상단 바 ── */
 .topbar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
-.brand { font-weight: 800; letter-spacing: -.01em; text-decoration: none; font-size: 15px; }
+.brand { font-weight: 800; letter-spacing: -.01em; text-decoration: none; font-size: 15px; white-space: nowrap; }
 .brand b { color: var(--red); } .brand i { color: var(--green); font-style: normal; }
 .top-links { display: flex; gap: 8px; list-style: none; }
 .top-links a { text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-2); }
 .top-links a:hover { border-color: var(--ink); color: var(--ink); }
+.top-links a { white-space: nowrap; }
+@media (max-width: 720px) { .brand .sfx { display: none; } .top-links a { font-size: 12.5px; padding: 5px 9px; } .topbar .wrap { padding: 0 14px; } }
 
 /* ── 챕터 내비 ── */
 .chap-nav { position: fixed; left: max(16px, calc((100vw - var(--w)) / 2 - var(--nav-w) - 24px)); top: 120px; width: var(--nav-w); z-index: 40; display: none; }
