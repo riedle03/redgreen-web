@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>한눈에 — 질문하기 · 탐구하기 · 쓰기</title>
+<style>
+  @page { size: A4; margin: 12mm 12mm 12mm 12mm; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+    color: #22262E;
+    background: #fff;
+  }
+  body {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 12mm;
+  }
+  h1 {
+    font-size: 15pt;
+    letter-spacing: -0.03em;
+    margin: 0 0 2mm;
+    font-weight: 800;
+  }
+  .sub {
+    font-size: 9.5pt;
+    color: #5b616c;
+    margin: 0 0 7mm;
+    line-height: 1.45;
+  }
+  .beats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3.5mm;
+    margin: 0 0 7mm;
+  }
+  .beat {
+    border: 1.5px solid #22262E;
+    border-radius: 3mm;
+    padding: 3.2mm 3.5mm 3.5mm;
+    min-height: 28mm;
+  }
+  .beat .k {
+    display: inline-block;
+    font-size: 8pt;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 0.6mm 2.2mm;
+    border-radius: 99px;
+    margin-bottom: 2mm;
+  }
+  .b1 .k { background: #FFECE8; color: #D6402F; }
+  .b2 .k { background: #EAF1FD; color: #2C4F8A; }
+  .b3 .k { background: #E3F6EE; color: #14775A; }
+  .beat p { margin: 0; font-size: 9.4pt; line-height: 1.4; font-weight: 600; }
+  .flow-caption {
+    margin: 0 0 2mm;
+    font-size: 8.5pt;
+    color: #5b616c;
+    font-weight: 600;
+  }
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+    margin: 0 0 7mm;
+    font-size: 9.5pt;
+    font-weight: 800;
+  }
+  .flow span.chip {
+    flex: 1;
+    text-align: center;
+    padding: 2.4mm 0;
+    color: #fff;
+    border-radius: 1.5mm;
+  }
+  .c1 { background: #FF5A47; }
+  .c2 { background: #2C4F8A; }
+  .c3 { background: #1FA97E; }
+  .c4 { background: #fff; color: #14775A; border: 1.5px solid #14775A; }
+  .flow span.chip.c4 { color: #14775A; }
+  .arr { font-size: 12pt; color: #22262E; flex: 0 0 auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.8pt;
+    line-height: 1.38;
+  }
+  th, td {
+    border: 1px solid #22262E;
+    padding: 2.2mm 2.4mm;
+    vertical-align: top;
+  }
+  th {
+    background: #22262E;
+    color: #fff;
+    font-size: 10pt;
+    font-weight: 800;
+    text-align: center;
+  }
+  th.q { background: #D6402F; }
+  th.i { background: #2C4F8A; }
+  th.w { background: #14775A; }
+  th.stub { background: #F4F5F7; color: #22262E; width: 28mm; text-align: left; white-space: nowrap; }
+  .note {
+    margin-top: 5mm;
+    font-size: 9pt;
+    line-height: 1.45;
+    color: #22262E;
+  }
+  .note strong { font-weight: 800; }
+  .foot {
+    margin-top: 4mm;
+    font-size: 8.5pt;
+    color: #5b616c;
+    border-top: 1px solid #d8dbe2;
+    padding-top: 2.5mm;
+  }
+</style>
+</head>
+<body>
+  <h1>모르고 막 쓰면 RED RED, 뜻 알고 바꾸면 GREEN GREEN</h1>
+  <p class="sub">공통국어2 · 고1 · 50분×3 · 질문하기–탐구하기–쓰기. 맞춤법 암기가 아니라, 학생이 자기 학급의 말 하나를 직접 묻고 바꿔 보고서로 남긴다.</p>
+
+  <div class="beats">
+    <div class="beat b1">
+      <span class="k">가 · 통계</span>
+      <p>전국 「청소년 사이버폭력 실태조사」는 비율을 보여 준다.</p>
+    </div>
+    <div class="beat b2">
+      <span class="k">나 · 공백</span>
+      <p>한 사람이 왜 그 말을 골랐고, 들은 사람에게 무슨 일이 있었는지는 없다. 우리 학급 RED 카드 76장 중 67%도 들은 사람의 반응이 비어 있었다.</p>
+    </div>
+    <div class="beat b3">
+      <span class="k">다 · 조사</span>
+      <p>그 답은 쓰고 들은 학생만 할 수 있다. 학급이 말 하나를 묻고 바꿔 남긴다.</p>
+    </div>
+  </div>
+
+  <p class="flow-caption">학생 손에 남는 것의 차례 — 수업 단계는 질문하기 · 탐구하기 · 쓰기 셋이다.</p>
+  <div class="flow" aria-hidden="true">
+    <span class="chip c1">RED 카드</span>
+    <span class="arr">→</span>
+    <span class="chip c1">탐구질문</span>
+    <span class="arr">→</span>
+    <span class="chip c2">면접</span>
+    <span class="arr">→</span>
+    <span class="chip c3">모둠 보고서</span>
+    <span class="arr">→</span>
+    <span class="chip c4">조사 포스터 (수업 뒤)</span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="stub"></th>
+        <th class="q">1 질문하기</th>
+        <th class="i">2 탐구하기</th>
+        <th class="w">3 쓰기</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="stub">학생이 한다</th>
+        <td>우리 반 카드를 보고 질문 하나를 정한다. 내 말을 RED 카드로 모은다. 사전 뜻과 내가 쓰던 뜻을 비교한다.</td>
+        <td>조사할 말 하나를 정한다. 써 본(없으면 들어 본) 한 명에게 선택·영향·원인을 묻는다. 바꿔 쓸 말과 원인을 줄일 방안을 적는다.</td>
+        <td>종이 기록을 모아 모둠 조사 보고서를 함께 쓰고 소리 내어 고친다. <b>수업 뒤</b> 다른 반이 읽게 조사 포스터로 만든다.</td>
+      </tr>
+      <tr>
+        <th class="stub">손에 남는다</th>
+        <td>RED 카드 · 모둠 탐구질문 · 사전 비교</td>
+        <td>면접 기록·영상 · 바꾼 말 · 방안</td>
+        <td>모둠 조사 보고서 · <b>(수업 뒤)</b> 조사 포스터</td>
+      </tr>
+      <tr>
+        <th class="stub">학생만 한다</th>
+        <td>반에서 오간 말을 관찰하고, 확인이 필요한 것을 질문으로 만든다.</td>
+        <td>그 말을 쓴 사람에게 직접 묻고, 들은 그대로 기록하고, 확인과 짐작을 가른다.</td>
+        <td>맡은 항목을 생각해서 쓰고, 소리 내어 읽으며 고칠 곳을 판단한다.</td>
+      </tr>
+      <tr>
+        <th class="stub">도구 하나</th>
+        <td>RED 카드 웹앱<br>(작성 · 조회 · 말 지도)</td>
+        <td>종이 학습지 · 면접</td>
+        <td>구글 독스 · 갤러리</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="note">
+    탐구질문이 조사할 말을 정하고, 면접이 선택 이유·청자 영향·원인을 만들며, 원인이 방안을 만든다. 1·2차시에 학생이 손으로 적은 종이가 3차시 모둠 조사 보고서의 원본이고, 관찰·면접·기록·생각은 AI가 대신할 수 없어 자료가 전부 학생에게서 나왔다.
+    <strong>GREEN은 보고서 제언이다. 구호 포스터가 아니다.</strong>
+  </p>
+  <p class="foot">
+    6학급 24모둠 · 보고서 24편 · 포스터 24장 — 산출 규모이며 성장 증거가 아니다. 수업 전후 효과 측정은 하지 않았다. 조사 포스터는 3차시 50분이 아니라 수업 뒤에 만들었다.
+    공개 포스터는 학년·반·조만 남기고 학번·이름은 가린다.
+  </p>
+</body>
+</html>

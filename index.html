@@ -1,75 +1,410 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="no-js">
 <head>
-  <script>document.documentElement.classList.add("js");</script>
-  <link rel="icon" type="image/png" href="img/icon-logo.png">
+  <script>document.documentElement.classList.remove("no-js");</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>모르고 막 쓰면 RED RED, 뜻 알고 바꾸면 GREEN GREEN</title>
-  <meta name="description" content="질문하기에서 탐구하기로, 탐구하기에서 쓰기로. 오늘 차시의 순서만 따라갑니다.">
+  <title>그 말을 쓴 사람에게 직접 물었다 — 학급 언어생활 사례 조사</title>
+  <meta name="description" content="고1 공통국어2 6학급 24모둠이 학급이 쓰는 비속어·은어를 면담으로 조사해 모둠 보고서를 쓴 수업의 흐름·결과·학생 생각·평가 기록.">
+  <link rel="icon" type="image/png" href="img/icon-logo.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="design-v2.css">
+  <link rel="stylesheet" href="story.css">
 </head>
-<body id="top">
-  <a class="skip-link" href="#start">오늘 차시 고르기로 건너뛰기</a>
-  <header class="site-header">
-    <nav class="site-nav">
-      <a class="brand" href="index.html" aria-current="page">
-        <span class="c-red">RED RED</span>
-        <span class="c-green">GREEN GREEN</span>
-      </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="visually-hidden">메뉴</span>
-      </button>
-      <ul id="site-menu" class="nav-links">
-        <li><a class="nav-pill pill-amber" href="gallery.html">조사 갤러리</a></li>
-        <li><a class="nav-pill pill-blue" href="map.html">교실 자료</a></li>
+<body>
+  <a class="skip-link" href="#c1">본문으로 건너뛰기</a>
+
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-current="page"><b>RED RED</b> <i>GREEN GREEN</i> · 학급 언어생활 사례 조사</a>
+      <ul class="top-links">
+        <li><a href="gallery.html">조사 포스터 24장</a></li>
+        <li><a href="#c6">자료 내려받기</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
+  <nav class="chap-nav" aria-label="챕터">
+    <ol>
+      <li><a href="#c0" data-chap="c0"><span>0</span>시작</a></li>
+      <li><a href="#c1" data-chap="c1"><span>1</span>왜 이 수업인가</a></li>
+      <li><a href="#c2" data-chap="c2"><span>2</span>세 차시</a></li>
+      <li><a href="#c3" data-chap="c3"><span>3</span>무엇이 나왔나</a></li>
+      <li><a href="#c4" data-chap="c4"><span>4</span>학생 생각</a></li>
+      <li><a href="#c5" data-chap="c5"><span>5</span>평가와 환류</a></li>
+      <li><a href="#c6" data-chap="c6"><span>6</span>확산과 자료</a></li>
+    </ol>
+    <p class="progress" aria-hidden="true"><span id="prog">0</span>% 읽음</p>
+  </nav>
+  <nav class="chap-bar" aria-label="챕터 (좁은 화면)">
+    <ol>
+      <li><a href="#c0" data-chap="c0">시작</a></li>
+      <li><a href="#c1" data-chap="c1">1 왜</a></li>
+      <li><a href="#c2" data-chap="c2">2 세 차시</a></li>
+      <li><a href="#c3" data-chap="c3">3 결과</a></li>
+      <li><a href="#c4" data-chap="c4">4 학생 생각</a></li>
+      <li><a href="#c5" data-chap="c5">5 평가</a></li>
+      <li><a href="#c6" data-chap="c6">6 자료</a></li>
+    </ol>
+  </nav>
+
   <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" role="img" aria-label=""></div>
-      <div class="hero-inner wrap">
-        <div class="hero-copy">
-          <p class="hero-badge">고1 공통국어2 · 50분 × 3차시</p>
-          <h1 id="hero-title">모르고 막 쓰면 <span class="c-red">RED RED</span>,<br>뜻 알고 바꾸면 <span class="c-green">GREEN GREEN</span></h1>
-          <p class="hero-sub">우리 반 언어생활을 우리가 직접 조사합니다</p>
-          <p class="hero-safety">실명·학번은 쓰지 않습니다. 거친 말은 초성으로.</p>
-          <h2 class="hero-decision" id="start">오늘 몇 차시인가요?</h2>
-          <div class="start-paths hero-starts">
-            <a class="start-path start-1" href="walk-1.html"><strong>1차시부터</strong><span>카드 모으고 질문 하나</span></a>
-            <a class="start-path start-2" href="walk-2.html"><strong>이미 2차시</strong><span>말 하나 정해 면담</span></a>
-            <a class="start-path start-3" href="walk-3.html"><strong>이미 3차시</strong><span>보고서 · 수업 뒤 포스터</span></a>
+    <!-- 0 히어로 -->
+    <section class="hero" id="c0" aria-labelledby="t0">
+      <div class="wrap">
+        <p class="badge">고등학교 1학년 공통국어2 · 6학급 24모둠 · 50분 × 3차시 · 2026년 8~9월 실시</p>
+        <h1 id="t0">그 말을 쓴 사람에게<br><em>직접 물었다.</em></h1>
+        <p class="sub">학급이 쓰는 비속어·은어를 면담으로 조사해 모둠 보고서 쓰기</p>
+        <p class="nick">학생이 부른 수업 이름 — 모르고 막 쓰면 <b>RED RED</b>, 뜻 알고 바꾸면 <i>GREEN GREEN</i></p>
+        <div class="stats" role="list">
+          <div class="stat reveal" role="listitem"><div class="n"><span data-count="76">76</span><small>장</small></div><div class="l">우리 반 RED 카드</div><div class="d">1학년 6개 반이 1차시까지 모은 것</div></div>
+          <div class="stat reveal" role="listitem"><div class="n"><span data-count="24">24</span><small>편</small></div><div class="l">모둠 조사 보고서</div><div class="d">3차시에 공동 집필</div></div>
+          <div class="stat reveal" role="listitem"><div class="n"><span data-count="24">24</span><small>장</small></div><div class="l">조사 포스터</div><div class="d">수업 뒤 과제, 학급 갤러리에 공개</div></div>
+        </div>
+        <p class="guide">아래로 읽으면 수업의 이유 · 세 차시 · 결과 · 학생 생각 · 평가 · 자료 차례입니다. 수치의 출처는 출품 설명서와 수업 꾸러미이며, 사실과 계획을 구분해 적었습니다.</p>
+      </div>
+    </section>
+
+    <!-- 1 왜 -->
+    <section class="chapter" id="c1" aria-labelledby="t1">
+      <div class="wrap">
+        <p class="kicker"><b>1</b>왜 이 수업인가 <span class="judge">심사 ② 수업 의도 · ③ 교육과정</span></p>
+        <h2 class="display" id="t1">통계는 비율을 보여 주지만, 한 사람에게 무슨 일이 있었는지는 보여 주지 못한다.</h2>
+        <div class="trio">
+          <div class="c reveal"><div class="t">가 · 통계</div><div class="h">전국 통계는 비율을 보여 준다</div><p>방송통신위원회·한국지능정보사회진흥원 「사이버폭력 실태조사」(2025, KOSIS)는 청소년 언어폭력의 비율을 보여 준다.</p></div>
+          <div class="c red reveal"><div class="t">나 · 공백</div><div class="h">누가 왜 골랐고, 들은 사람에게 무슨 일이 있었는지는 없다</div><p>비율은 한 사람이 그 말을 고른 이유와 그 말이 청자에게 남긴 것을 답하지 못한다.</p></div>
+          <div class="c green reveal"><div class="t">다 · 조사</div><div class="h">그 답은 쓰고 들은 학생만 할 수 있다</div><p>그래서 학급이 말 하나를 정해 묻고, 바꾸고, 보고서와 포스터로 남긴다.</p></div>
+        </div>
+        <div class="bignum reveal">
+          <div class="n"><span data-count="67">67</span><small>%</small></div>
+          <div>
+            <p><strong>1차시까지 모은 RED 카드 76장 가운데 51장에 들은 사람의 반응이 적혀 있지 않았다.</strong> 말은 적었으나 그 말이 청자에게 남긴 것은 몰랐다. 여기서 「누구에게 무슨 일이 있었는지 직접 묻는다」는 조사 과제가 나왔다.</p>
+            <div class="bar" style="--v:67%"><i></i></div>
+            <p class="src">설명서 ②④ — 교사가 공개 카드 76장을 전수 집계한 수집 기록이며, 수업 효과의 측정이 아니다.</p>
           </div>
         </div>
-        <div class="hero-chars" aria-hidden="false">
-          <p class="bubble bubble-red hero-bubble hero-bubble-1" aria-hidden="true">그 수행 ㄹㅇ 레전드다!</p>
-          <p class="bubble bubble-green hero-bubble hero-bubble-2" aria-hidden="true">무슨 말인지 바로 알겠어?</p>
-          <img src="img/char-boy.png" alt="RED 카드 든 남학생" width="1024" height="1536">
-          <img src="img/char-girl.png" alt="GREEN 카드 든 여학생" width="1024" height="1536">
+        <p class="thesis">올바른 국어 사용은 맞춤법 암기가 아니라, <em>표현이 청자에게 미친 영향을 확인하고 보고하는 일</em>이다.</p>
+        <h3>성취기준 둘</h3>
+        <div class="std">
+          <div class="s reveal"><code>10공국2-01-03</code><p>사회적 소통 과정에서 말의 영향력을 고려하여 책임감 있게 듣고 말한다. <span class="src">주 증거 1·2차시</span></p></div>
+          <div class="s reveal"><code>10공국2-03-03</code><p>신뢰할 수 있는 정보를 종합하여 복합양식 자료가 포함된 공동 보고서를 쓴다. <span class="src">주 증거 3차시</span></p></div>
+        </div>
+        <h3>수업 모형</h3>
+        <div class="model reveal"><span class="m r">질문하기</span><span class="arr">→</span><span class="m b">탐구하기</span><span class="arr">→</span><span class="m g">쓰기</span></div>
+        <p style="margin-top:14px">서울특별시교육청 「생각을 쓰는 교실」의 8차시 예시를 3차시로 줄이고 개인 쓰기를 공동 보고서로 바꿨다. 핵심역량은 활동과 하나씩 맞물린다 — 언어는 1차시 사전·통용 뜻 견주기, 의사소통은 2차시 면담, 공동체는 3차시 제언. <span class="src">설명서 ③</span></p>
+      </div>
+    </section>
+
+    <!-- 2 세 차시 -->
+    <section class="chapter" id="c2" aria-labelledby="t2">
+      <div class="wrap">
+        <p class="kicker"><b>2</b>세 차시 <span class="judge">심사 ③ 교수·학습 운영 · ④ 평가</span></p>
+        <h2 class="display" id="t2">학생이 한 일을 차시마다 따라간다.</h2>
+        <p class="lede">각 차시의 큰 글은 학생이 실제로 한 일이다. 타임라인의 분 배분과 접힌 칸의 교사 발문·자료·언어 교육 요소는 서식6 수업지도안에서 옮겼다. 오른쪽은 학생이 손에 쥔 학습지 지면이다.</p>
+
+        <article class="lesson l1" aria-labelledby="l1t">
+          <div>
+            <p class="no">1차시 · 질문하기 · 50분</p>
+            <h3 id="l1t">우리 반 카드를 보고 질문 하나를 정한다</h3>
+            <p class="did">우리 반 카드를 보고 모둠 탐구질문 하나를 정한다. 자기가 쓰는 말을 RED 카드로 모은다. 사전 뜻과 자기가 쓰던 뜻을 비교한다.</p>
+            <div class="tl" role="img" aria-label="도입 5분, 전개 38분, 정리 7분"><span class="i" style="flex:5">도입 5'</span><span class="d" style="flex:38">전개 38' · 질문 정하기 · RED 카드 · 사전 비교</span><span class="o" style="flex:7">정리 7'</span></div>
+            <div class="tl-cap"><span><b>도입</b> 조사 의뢰문 · 안전 약속</span><span><b>전개</b> 탐구질문 정하기 · RED 카드 만들기 · 사전과 비교하기</span><span><b>정리</b> 다른 모둠 질문 듣기</span></div>
+            <div style="margin-top:20px">
+              <details><summary>교사 발문</summary><div class="body"><ul><li class="q">「이 카드의 말은 사전에 있습니까? 없다는 것도 결과입니다.」</li><li class="q">「속마음 짐작은 카드에 적지 않습니다. 겉으로 본 것까지만.」</li></ul></div></details>
+              <details><summary>자료와 유의점</summary><div class="body"><ul><li>학급 조사 의뢰문 · RED 카드 웹앱(말 지도)</li><li>표준국어대사전 → 우리말샘 → AI 말뜻 도우미(둘 다 없을 때 참고만)</li><li>실명·학번 금지, 거친 말은 초성</li></ul></div></details>
+              <details><summary>언어 교육 요소</summary><div class="body"><ul><li>관찰과 짐작 구분</li><li>사전적 의미와 통용 의미 비교</li></ul></div></details>
+            </div>
+            <p class="evalt"><b>여기서 평가한 것</b> — ① 말의 영향력 고려하기 · 사전 비교 칸(관찰)</p>
+            <p class="keep"><b>손에 남은 것</b> RED 카드 · 모둠 탐구질문 · 사전 비교</p>
+          </div>
+          <div class="side reveal">
+            <img class="sheet" src="img/story/sheet-1.png" alt="1차시 학습지 지면 — STEP 1 조사 의뢰 확인, STEP 2 카드 관찰, STEP 3 탐구질문, STEP 4 사전 비교, STEP 5 발표 듣기" width="595" height="842" loading="lazy">
+            <p class="cap">1차시 학습지(빈 양식). 학생 기록은 실지 않는다.</p>
+            <div class="dl"><a href="files/story/학습지_1차시.pdf">학습지 PDF</a><a href="files/story/수업지도안_서식6.pdf">서식6 지도안 PDF</a><a href="files/story/수업지도안_서식6.hwpx">hwpx</a></div>
+          </div>
+        </article>
+
+        <article class="lesson l2" aria-labelledby="l2t">
+          <div>
+            <p class="no">2차시 · 탐구하기 · 50분</p>
+            <h3 id="l2t">그 말을 써 본 급우 한 명에게 직접 묻는다</h3>
+            <p class="did">조사할 말 하나를 정한다. 그 말을 써 본(없으면 가장 많이 들어 본) 급우 한 명을 심층 면담한다 — 왜 그 말을 골랐는지, 듣는 사람에게 무슨 일이 있었는지, 무엇이 그 말을 계속 쓰게 하는지. 바꿔 쓸 말과 원인을 줄일 방안을 적는다.</p>
+            <div class="tl" role="img" aria-label="도입 5분, 전개 38분, 정리 7분"><span class="i" style="flex:5">도입 5'</span><span class="d" style="flex:38">전개 38' · 말 정하기 · 한 명 면담 · 바꿔 쓸 말·방안</span><span class="o" style="flex:7">정리 7'</span></div>
+            <div class="tl-cap"><span><b>도입</b> 오늘 답할 항목</span><span><b>전개</b> 말 정하기 · 면담(선택·영향·원인·모둠 문항) · 바꿔 쓸 말과 방안</span><span><b>정리</b> 발견 한 줄</span></div>
+            <div style="margin-top:20px">
+              <details><summary>교사 발문</summary><div class="body"><ul><li class="q">「재촉하거나 원하는 답으로 이끌지 않습니다. 답하지 않음도 그대로 적습니다.」</li><li class="q">「들은 것과 짐작을 나눕니다. 짐작은 ~일 수 있다로.」</li></ul></div></details>
+              <details><summary>자료와 유의점</summary><div class="body"><ul><li>2차시 학습지(면담 기록) · AI 면담 문항 도우미(점검만)</li><li>응답자 1명 심층 면담 — 집단 면접(FGI)과 구분한다</li><li>촬영은 얼굴보다 카드·손 중심, 촬영 동의 표시</li></ul></div></details>
+              <details><summary>언어 교육 요소 · 바꿔 쓸 표현의 세 기준</summary><div class="body"><ul><li>유도 없이 선택 이유·청자 영향 묻기 · 원인에서 방안으로</li><li><strong>뜻이 바로 통한다 · 듣는 사람을 존중한다 · 나라도 이 상황에서 이렇게 말하겠다</strong> — 셋째 기준이 억지 번역을 막는다</li></ul></div></details>
+            </div>
+            <p class="evalt"><b>여기서 평가한 것</b> — ② 책임감 있게 듣고 말하기 · 면담 순회 관찰 / ③ 사회적 소통 윤리 태도 · 세 기준 표시</p>
+            <p class="keep"><b>손에 남은 것</b> 면담 기록·면담 영상 · 바꿔 쓸 말 · 원인과 방안</p>
+          </div>
+          <div class="side reveal">
+            <img class="sheet" src="img/story/sheet-2.png" alt="2차시 학습지 지면 — 조사할 말 정하기, 면담 준비, 면담 문항 선택·영향·원인, 바꿔 쓸 표현, 개선 방안" width="595" height="842" loading="lazy">
+            <p class="cap">2차시 학습지(빈 양식). 공통 면담 문항 ①선택 ②영향 ③원인이 인쇄되어 있다.</p>
+            <div class="dl"><a href="files/story/학습지_2차시.pdf">학습지 PDF</a><a href="interview.html">면담 가이드(수업 당시 화면)</a></div>
+          </div>
+        </article>
+
+        <article class="lesson l3" aria-labelledby="l3t">
+          <div>
+            <p class="no">3차시 · 쓰기 · 50분</p>
+            <h3 id="l3t">종이 기록을 모아 모둠 조사 보고서를 함께 쓴다</h3>
+            <p class="did">1·2차시 종이 기록을 원본 삼아 모둠 조사 보고서를 공동 집필한다(A 틀과 자료 · B 말의 뜻 · C 면담에서 들은 것 · D 결론). 한 사람이 소리 내어 읽고 함께 고친다. 모둠별 제언을 공유한다. 성찰을 쓴다. 수업 뒤 과제로 조사 포스터를 만든다.</p>
+            <div class="tl" role="img" aria-label="도입 5분, 전개 38분, 정리 7분"><span class="i" style="flex:5">도입 5'</span><span class="d" style="flex:38">전개 38' · 함께 쓰기 23' · 소리 내어 고치기 8' · 제언 나누기 7'</span><span class="o" style="flex:7">정리 7'</span></div>
+            <div class="tl-cap"><span><b>도입</b> 종이 펼치고 보고서 짜임 확인</span><span><b>전개</b> 항목 맡아 함께 쓰기 · 고쳐 제출 · 제언 나누기</span><span><b>정리</b> 성찰 쓰기 · 과제 안내 · 4주 뒤 후속 예고</span></div>
+            <div style="margin-top:20px">
+              <details><summary>교사 발문</summary><div class="body"><ul><li class="q">「이 제언대로 하면 내일 누가 무엇을 합니까? 했는지 어떻게 확인합니까?」</li><li class="q">「우리가 조사한 것은 카드 몇 장과 면담 한 명입니다. 이 문장은 그 범위를 넘지 않습니까?」</li></ul></div></details>
+              <details><summary>자료와 유의점</summary><div class="body"><ul><li>모둠 조사 보고서 양식(구글 독스) — 칸마다 담당(A~D)과 종이의 원본 칸이 적혀 있다</li><li>찾아보기는 A만 5분 · 찾아보되 챗봇 대필은 금지 · 범용 대화형 AI는 쓰지 않는다</li><li>「책임감을 가져야 한다」류는 행동이 아니므로 걸러 낸다</li></ul></div></details>
+              <details><summary>언어 교육 요소</summary><div class="body"><ul><li>출처 판단(누가·언제·조사 이름과 연도)과 네 출처 종합</li><li>발견점과 제언 구분 · 원인에 맞춘 실행 방안(누가·언제·무엇·확인)</li><li>고쳐쓰기 · 범위 제한 · 제목 짓기</li></ul></div></details>
+            </div>
+            <p class="evalt"><b>여기서 평가한 것</b> — ④ 공동 보고서 쓰기 · 결과물 / 동료(제언 점검 칸) / 자기(성찰)</p>
+            <p class="keep"><b>손에 남은 것</b> 모둠 조사 보고서 · (수업 뒤) 조사 포스터</p>
+          </div>
+          <div class="side reveal">
+            <img class="sheet" src="img/story/sheet-3.png" alt="3차시 학습지 지면 — STEP 1 항목 맡기 A~D, STEP 2 말하고 듣고 적기, STEP 3 성찰 쓰기" width="595" height="842" loading="lazy">
+            <p class="cap">3차시 학습지(빈 양식). 개정판 — 원인 칸과 제언 점검 칸이 있다.</p>
+            <div class="dl"><a href="files/story/학습지_3차시.pdf">학습지 PDF</a><a href="files/story/모둠조사보고서_양식.pdf">보고서 양식 PDF</a><a href="files/story/과정안_차시별1쪽.pdf">차시별 1쪽 과정안</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3 결과 -->
+    <section class="chapter" id="c3" aria-labelledby="t3">
+      <div class="wrap">
+        <p class="kicker"><b>3</b>무엇이 나왔나 <span class="judge">심사 ⑤ 학습자 성장 · ⑥ 언어문화</span></p>
+        <h2 class="display" id="t3">24모둠이 각각 말 하나를 조사해 보고서와 포스터로 남겼다.</h2>
+        <p class="lede">6학급 24모둠 · 보고서 24편 · 포스터 24장 · 3차시 성찰 45장. 편수는 산출 규모이며 성장을 입증하지 않는다. 아래는 네 모둠의 조사를 처음부터 끝까지 따라간 것이다. <span class="src">설명서 ⑥ · 포스터 원문</span></p>
+
+        <div class="cases">
+          <article class="case reveal">
+            <div class="head"><span class="cls">1학년 1반 1조</span><span class="word red">ㅅㅂ</span><a href="gallery-1-1.html">포스터 원문 →</a></div>
+            <div class="flow">
+              <div class="st"><span class="k">응답자가 고른 이유</span><q>대체할 수 있는 단어는 없고 다른 단어는 생각나지 않아</q></div>
+              <div class="st"><span class="k">들은 사람</span>일상어가 되어 주변에서 별 반응이 없었다고 했다</div>
+              <div class="st"><span class="k">모둠이 정한 원인</span>화가 날 때 쓸 수 있는 단어가 생각나지 않아서</div>
+              <div class="st to"><span class="k">바꾼 말</span><div class="w"><s>ㅅㅂ</s>끝장났다</div></div>
+              <div class="st"><span class="k">제언 ⓑ</span>우리가 · 지금부터 · 기분을 표현할 때 한 번 더 생각하고 말한다</div>
+            </div>
+          </article>
+          <article class="case reveal">
+            <div class="head"><span class="cls">1학년 2반 3조</span><span class="word red">「너 ㅇㅁ없냐?」</span><a href="gallery-2-3.html">포스터 원문 →</a></div>
+            <div class="flow">
+              <div class="st"><span class="k">응답자가 고른 이유</span><q>상대에게 짧고 굵은 임팩트를 남기려고</q></div>
+              <div class="st"><span class="k">들은 사람</span>맞받아치거나 가만히 들었다. 서로 불편한 것을 알면서 골랐다</div>
+              <div class="st"><span class="k">모둠이 정한 원인</span>매체에서 먼저 쓰이고 → 주변이 따라 쓰고 → 나도 쓰게 된다</div>
+              <div class="st to"><span class="k">바꾼 말</span><div class="w"><s>너 ㅇㅁ없냐?</s>너 왜 그렇게 행동해?</div></div>
+              <div class="st"><span class="k">확인</span>한 사람이 실제로 말해 보고, 들은 사람이 「뜻이 바로 통했다」에 표시했다</div>
+            </div>
+          </article>
+          <article class="case reveal">
+            <div class="head"><span class="cls">1학년 5반 4조</span><span class="word red">「듣기 싫어도 사실이잖아」</span><a href="gallery-5-4.html">포스터 원문 →</a></div>
+            <div class="flow">
+              <div class="st"><span class="k">들어 본 사람</span><q>감정과 상황이 모두 부정당하고 무시당한 기분</q></div>
+              <div class="st"><span class="k">확인과 짐작</span>말한 사람에게 직접 묻지 못한 것을 보고서에 밝혔다</div>
+              <div class="st"><span class="k">모둠이 정한 원인</span>상대의 기분에 공감하지 못함</div>
+              <div class="st to"><span class="k">바꾼 말</span><div class="w"><s>듣기 싫어도 사실이잖아</s>이러한 점을 고치면 어떨까</div></div>
+              <div class="st"><span class="k">제언 ⓑ</span>상대방의 입장에서 생각하고, 말할 때 감정을 다스린다</div>
+            </div>
+          </article>
+          <article class="case reveal">
+            <div class="head"><span class="cls">1학년 2반 4조</span><span class="word red">헬조선</span><a href="gallery-2-4.html">포스터 원문 →</a></div>
+            <div class="flow">
+              <div class="st"><span class="k">응답자가 고른 이유</span>힘든 한국 사회를 표현하기에 어울려서</div>
+              <div class="st"><span class="k">들은 사람</span><q>원래 힘들지</q> 하고 넘어갔다</div>
+              <div class="st"><span class="k">모둠이 정한 원인</span>사회 문제(학벌·빈부·경제)</div>
+              <div class="st to"><span class="k">바꾼 말</span><div class="w"><s>헬조선</s>경쟁 사회</div></div>
+              <div class="st"><span class="k">제언 ⓑ — 약한 예</span>학급·학교에서 의견을 내는 방식으로. 「언제」는 정하지 못했다고 적었다. 약한 제언도 그대로 싣는다</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="two">
+          <div class="reveal">
+            <h3 style="margin-top:0">학급을 건너뛰어 겹친 말</h3>
+            <p>모둠은 자기 학급의 카드만 보고 조사할 말을 정했는데, 서로 상의하지 않은 학급이 같은 말을 따로 골랐다. 개인 습관이 아니라 또래 집단에 퍼진 말이라는 근거다. <span class="src">꾸러미 (14)</span></p>
+            <div class="chart-box" style="margin-top:16px"><canvas id="chart-overlap" aria-label="겹친 말 막대 그래프" role="img"></canvas></div>
+            <table class="data" id="tbl-overlap">
+              <caption class="visually-hidden">학급을 건너뛰어 겹친 말</caption>
+              <thead><tr><th>겹친 말</th><th>따로 조사한 모둠</th><th>학급</th></tr></thead>
+              <tbody>
+                <tr><td>쌰갈 계열(쌰갈·샤갈·쌰르)</td><td>5모둠</td><td>2 · 4 · 4 · 5 · 6반</td></tr>
+                <tr><td>야르 계열(야르·쌰르)</td><td>5모둠</td><td>1 · 1 · 3 · 4 · 5반</td></tr>
+                <tr><td>ㅅㅂ 계열(ㅅㅂ·ㅆㅂ·ㅈ됐다)</td><td>4모둠</td><td>1 · 3 · 3 · 4반</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="reveal">
+            <h3 style="margin-top:0">각자 자기 말을 바꾼 87행</h3>
+            <p>포스터 24장의 제언 ⓐ 칸을 전수 세어 87행을 얻었다. 그 가운데 83행에 원래 말과 바꾼 말이 함께 적혔다.</p>
+            <div class="pair"><div class="n"><span data-count="83">83</span><small>/87</small></div><div>원래 말과 바꾼 말이 함께 적힌 행. 상황에 맞는 실제 대체어가 많았다.</div></div>
+            <div class="chips"><span>대박</span><span>오예</span><span>야호</span><span>아이쿠</span><span>영차</span><span>지화자</span><span>회의 끝나고 휴식하자</span></div>
+            <p class="note red" style="margin-top:18px"><strong>세 기준을 통과하지 못한 것도 있다.</strong> 「야말」을 「전문가」로 바꾼 것은 뜻이 통하지 않고, 거친 말을 다른 거친 말로 옮긴 것과 우리말을 영어 약어로 바꾼 것도 있었다. 성공한 것만 세지 않는다.</p>
+          </div>
+        </div>
+
+        <div class="gal-cta reveal">
+          <a href="gallery-3-4.html"><span class="cls">1학년 3반 4조</span><span class="w">급식충 → 학생</span></a>
+          <a href="gallery-2-2.html"><span class="cls">1학년 2반 2조</span><span class="w">아자스 → 고마워</span></a>
+          <a href="gallery-3-3.html"><span class="cls">1학년 3반 3조</span><span class="w">ㅈ됐다 → 망했다</span></a>
+          <a class="all" href="gallery.html">조사 포스터 24장<br>전부 보기 →</a>
+        </div>
+        <p class="src" style="margin-top:10px">공개 포스터는 학년·반·조만 표시하고 학번·이름은 가린다. 거친 말은 초성으로 적는다.</p>
+      </div>
+    </section>
+
+    <!-- 4 학생 생각 -->
+    <section class="chapter" id="c4" aria-labelledby="t4">
+      <div class="wrap">
+        <p class="kicker"><b>4</b>학생 생각 <span class="judge">심사 ⑤ 학습자 성장</span></p>
+        <h2 class="display" id="t4">성찰 45장을 전부 읽고 다섯 갈래로 나눴다. 어려웠다는 기록도 같은 무게로 싣는다.</h2>
+        <div class="tags"><span>뜻을 모르고 썼다는 자각 — 가장 많다</span><span>듣는 사람의 처지에서 다시 본 것</span><span>원인을 짚은 것</span><span>바꿔 쓰기가 어려웠다는 기록</span><span>행동이 바뀌었다는 진술</span></div>
+        <div class="quotes">
+          <div class="quote reveal"><blockquote>우리가 쓰는 단어 중 반 이상은 우리가 모르는 단어라는 것이다.</blockquote><p class="m"><b>자각</b><span>3차시 종이 p24</span></p></div>
+          <div class="quote reveal"><blockquote>처음 듣는 입장이라면 충분히 기분 나쁠 수 있다고 생각을 하게 되었다. 하나의 단어 선택이 다른 사람의 기분을 정할 수 있다는 것을 알게 되었다.</blockquote><p class="m"><b>듣는 사람</b><span>p16</span></p></div>
+          <div class="quote reveal hard"><blockquote>기존에 비속어를 다른 말로 순화하는 것이 생각보다 어렵다고 느꼈다.</blockquote><p class="m"><b>어려움</b><span>p40</span></p></div>
+          <div class="quote reveal"><blockquote>'야르'라는 표현을 그간 많이 사용해왔지만 막상 뜻을 제대로 알게 된 건 이번이 처음이었기 때문에</blockquote><p class="m"><b>자각</b><span>p43</span></p></div>
+          <div class="quote reveal"><blockquote>'다른 사람들이 다 쓰니까 소외감을 느껴 사용한다', '반복적으로 들리다 보니 자연스럽게 쓰게 되었다'라는 답변이 나왔고</blockquote><p class="m"><b>원인</b><span>p07</span></p></div>
+          <div class="quote reveal hard"><blockquote>나쁜 말을 제언하는 게 굉장히 까다로웠다. 언어 습관이라는 건 바꾸는 데 환경 영향이 더 크다는 걸 알게 되었다.</blockquote><p class="m"><b>어려움</b><span>p15</span></p></div>
+          <div class="quote reveal"><blockquote>(헬조선은) 단순한 유행어라기보다 사회에 느끼는 좌절과 불안이 담겨 있다. 사람들이 왜 이런 표현을 사용하게 되었는지 따지는 것이 더 중요하다.</blockquote><p class="m"><b>원인</b><span>p36</span></p></div>
+          <div class="quote reveal"><blockquote>최근 들어 비속어와 유행어들을 줄이고 있다.</blockquote><p class="m"><b>행동 · 자기 보고</b><span>p25</span></p></div>
+        </div>
+        <p class="note">「~하겠다」는 다짐이고 「~줄이고 있다」는 진술이다. 둘을 구분해 읽는다. 학생이 스스로 적은 것이므로 관찰된 행동 변화가 아니라 자기 보고다. 3차시 50분에 집필·고치기·제언 공유·성찰이 겹쳐 「시간이 조금 빠듯한 듯해서」라는 기록도 나왔다. <span class="src">꾸러미 (16) — 인용은 학급·조까지만, 쪽 번호는 3차시 종이 45장의 것</span></p>
+
+        <div class="follow">
+          <div class="reveal">
+            <h3 style="margin-top:0">한 달 뒤 <span class="plan">계획 · 2026년 10월 실시 뒤 채움</span></h3>
+            <p>3차시 뒤 4주에 같은 학생이 10분 동안 「한 달 뒤 · 다시 보기」 활동지와 성찰일지를 쓴다. 1차시 카드의 말을 한 달 동안 썼는지(「모르겠다」 포함), 바꾼 말을 실제로 써 봤는지와 안 쓴 이유, 모둠 제언이 확인 방법대로 실행됐는지(「하지 않았다」 포함)를 적는다. 1차시 카드와 같은 학생이므로 처음으로 개인 단위 전·후 비교가 된다.</p>
+            <div class="slots">
+              <div class="slot"><b>카드의 말을 한 달 동안</b>쓰지 않았다 · 줄었다 · 같다 · 늘었다 · 모르겠다 — 실시 뒤 채움</div>
+              <div class="slot"><b>바꾼 말을 실제로 써 봤다</b>명 · 안 쓴 이유 — 실시 뒤 채움</div>
+              <div class="slot"><b>모둠 제언 실행</b>했다 · 일부 · 하지 않았다 — 실시 뒤 채움</div>
+              <div class="slot"><b>성찰일지 인용</b>실시 뒤 채움</div>
+            </div>
+            <p class="src" style="margin-top:12px">걷기 전에는 어떤 수도 적지 않는다. 자기 보고이며 교사 관찰이 아니라는 한계를 함께 적는다.</p>
+          </div>
+          <div class="side reveal">
+            <img class="sheet" src="img/story/sheet-4.png" alt="한 달 뒤 다시 보기 활동지 — 한 달 전 기록 옮겨 쓰기, 그 말은 지금, 모둠 제언은 실행되었는가, 우리 반 말 다시 듣기" width="595" height="842" loading="lazy">
+            <p class="cap">「한 달 뒤 · 다시 보기」 활동지(앞면). 뒷면은 성찰일지.</p>
+            <div class="dl"><a href="files/story/학습지_후속_한달뒤.pdf">활동지·성찰일지 PDF</a></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="hub-glance">
+    <!-- 5 평가 -->
+    <section class="chapter" id="c5" aria-labelledby="t5">
       <div class="wrap">
-        <h2>한 줄로 보면</h2>
-        <p>질문하기에서 탐구하기로, 탐구하기에서 쓰기로 이어집니다. 산출물은 모둠 조사 보고서와 조사 포스터입니다. 전국 통계는 왜 우리가 직접 묻는지의 배경입니다.</p>
+        <p class="kicker"><b>5</b>평가와 환류 <span class="judge">심사 ④ 평가 및 환류</span></p>
+        <h2 class="display" id="t5">낮게 나온 두 항목이 양식을 고치게 했고, 고친 뒤를 같은 척도로 다시 쟀다.</h2>
+        <h3>평가요소 넷 × 상·중·하</h3>
+        <p>실제로 쓴 채점 척도(6항목 각 0~2점)의 2·1·0점 서술을 그대로 옮겼다. 상=A·B, 중=C, 하=D·E에 대응한다. <span class="src">설명서 ⑤ · 꾸러미 (13)</span></p>
+        <div class="rub-wrap">
+        <table class="rub">
+          <thead><tr><th>평가요소</th><th>상</th><th>중</th><th>하</th></tr></thead>
+          <tbody>
+            <tr><td>① 말의 영향력 고려하기</td><td>사전 뜻(없음도 결과)과 통용 뜻을 나누고 출처를 밝혔다. 원인 한 줄이 조사한 그 말과 이 학급에 닿는다</td><td>뜻은 있으나 한 덩이로 쓰고 출처가 없다. 원인 문장이 일반론이다</td><td>뜻 칸이 비었거나 추측만 있다. 원인 칸이 비었다</td></tr>
+            <tr><td>② 책임감 있게 듣고 말하기</td><td>들은 것과 짐작을 나누고 「응답자는 ~라고 했다」가 있다. 답하지 않은 문항을 「답하지 않음」으로 적었다</td><td>면담 기록은 있으나 확인과 짐작이 섞였다</td><td>면담 없이 모둠 의견만 썼다</td></tr>
+            <tr><td>③ 사회적 소통 윤리 태도</td><td>바꿔 쓸 표현이 모둠원 수만큼 있고 뜻이 통한다. 실명이 없고 거친 말은 초성이다</td><td>인원이 빠졌거나 세 기준 가운데 보이지 않는 것이 있다</td><td>제언 ⓐ가 없거나 원래 말만 적었다</td></tr>
+            <tr><td>④ 공동 보고서 쓰기</td><td>면담 인원·카드 수·조사한 말이 일치하고 범위 문장이 있다. 실행 방안에 누가·언제·무엇을·확인 방법이 모두 보인다</td><td>숫자 하나만 있거나 범위 문장이 없다. 담당·시점·확인 가운데 하나가 없다</td><td>몇 명·몇 장인지 없거나 학급 전체로 넓혔다. 훈계만 있다</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <div class="two">
+          <div class="reveal">
+            <h3 style="margin-top:0">보고서 24편 전수 채점 — 여섯 항목 평균(0~2점)</h3>
+            <div class="scores">
+              <div class="score"><span>조사 범위</span><div class="bar" style="--v:87%"><i></i></div><span class="v">1.75</span></div>
+              <div class="score"><span>말의 뜻</span><div class="bar" style="--v:81%"><i></i></div><span class="v">1.63</span></div>
+              <div class="score"><span>면담 증거</span><div class="bar" style="--v:89%"><i></i></div><span class="v">1.79</span></div>
+              <div class="score low"><span>원인 한 줄</span><div class="bar" style="--v:44%"><i></i></div><span class="v">0.88</span></div>
+              <div class="score"><span>바꿔 쓸 표현</span><div class="bar" style="--v:79%"><i></i></div><span class="v">1.58</span></div>
+              <div class="score low"><span>실행 방안</span><div class="bar" style="--v:48%"><i></i></div><span class="v">0.96</span></div>
+            </div>
+            <p class="src" style="margin-top:12px">꾸러미 (13) 채점 척도. 채점자 교사 1인. 「원인 한 줄」과 「실행 방안」이 가장 낮았다. 가운데 넷의 정확한 값은 설명서에 1.58~1.79 범위로 적혀 있다.</p>
+          </div>
+          <div class="reveal">
+            <h3 style="margin-top:0">낮은 두 항목 → 양식 개정 → 같은 척도로 다시 재기</h3>
+            <div class="revise">
+              <div class="box"><b>첫 실시 · 8/26 · 1학급 4모둠</b>결론이 훈계로 끝났다. 원인 칸이 본문에 없었고 제언이 원인과 끊겼다.</div>
+              <div class="arr">→</div>
+              <div class="box"><b>개정판 · 5학급 20모둠</b>「이 말을 계속 쓰게 하는 원인」 칸 신설. 제언 ⓑ에 누가·언제·무엇·확인 문두틀.</div>
+            </div>
+            <div class="chart-box"><canvas id="chart-revise" aria-label="개정 전후 항목 평균 막대 그래프" role="img"></canvas></div>
+            <table class="data" id="tbl-revise">
+              <caption class="visually-hidden">개정 전후 항목 평균</caption>
+              <thead><tr><th>항목</th><th>첫 실시 4편</th><th>개정판 20편</th></tr></thead>
+              <tbody><tr><td>원인 한 줄</td><td>0.50</td><td>0.95</td></tr><tr><td>실행 방안</td><td>0.25</td><td>1.10</td></tr><tr><td>말의 뜻</td><td>2.00</td><td>1.55</td></tr></tbody>
+            </table>
+            <p class="note" style="margin-top:14px"><strong>「말의 뜻」은 내려갔다.</strong> 올라간 항목만 적지 않는다. 학급이 다르고 무작위 배정이 아니므로 학생 차이일 수 있다. 이 대조는 양식 개정의 효과를 가리키는 것이지 개인의 성장을 재는 것이 아니다.</p>
+          </div>
+        </div>
+        <h3>다음 실시에서</h3>
+        <p>여전히 가장 낮은 「실행 방안」을 겨냥해 3차시 범위 확인 발문을 활동 1 중간으로 옮긴다. 4주 뒤 후속 확인에서 「바꾼 말이 어색했다」가 많으면 2차시 세 기준의 「사용」을 앞으로 옮기고, 제언을 「하지 않았다」가 많으면 「언제」 칸을 날짜로 강제한다. <span class="plan">계획</span></p>
+      </div>
+    </section>
+
+    <!-- 6 확산과 자료 -->
+    <section class="chapter" id="c6" aria-labelledby="t6">
+      <div class="wrap">
+        <p class="kicker"><b>6</b>확산과 자료 <span class="judge">심사 ⑦ 현장 적합성 · ⑧ 확산</span></p>
+        <h2 class="display" id="t6">학급 밖으로 나간 것과, 다른 교사가 가져갈 수 있는 단위.</h2>
+        <div class="two" style="margin-top:0">
+          <div class="reveal">
+            <h3 style="margin-top:0">이미 일어난 것</h3>
+            <ul style="padding-left:18px;font-size:16px;line-height:1.7">
+              <li>조사 포스터 24장이 학급 갤러리에 올라 다른 반 학생이 읽는다.</li>
+              <li>3차시 제언 공유에서 20모둠의 제언이 학급 안에서 전달됐다(학습지 45장에 기록).</li>
+              <li>2026-08-26 한 학급 4모둠으로 먼저 실시하고 양식을 고친 뒤 5학급 20모둠으로 확대해 같은 수업을 다시 실시했다.</li>
+              <li>2026년 9월 동교과(국어과) 협의회와 학교 교원학습공동체 두 자리에서 이 수업 사례와 꾸러미를 공유했다.</li>
+              <li>다음 학기 교과 협의회에서 2차시 면담 문항을 다른 조사 활동에 옮겨 쓰는 것을 안건으로 올린다. <span class="plan">계획</span></li>
+            </ul>
+          </div>
+          <div class="reveal">
+            <h3 style="margin-top:0">다른 교사가 가져갈 수 있는 단위</h3>
+            <div class="units"><span>학급 조사 의뢰문</span><span>면담 문항 넷<br><small style="font-weight:600;color:var(--sub)">선택·영향·원인·모둠</small></span><span>A~D 분담표</span><span>첫 문장 틀</span><span>바꿔 쓸 표현의 세 기준</span></div>
+            <p style="margin-top:14px;font-size:15px">다른 학교급·교과로 옮기는 표와, 웹앱이 없는 학교가 종이만으로 같은 수업을 하는 경로는 이식 안내에 있다.</p>
+          </div>
+        </div>
+
+        <h3>내려받기 — 공모전 출품본과 같은 파일(익명 판)</h3>
+        <div class="dlgrid reveal">
+          <a href="files/story/수업흐름설명서.pdf">수업 흐름 설명서 <small>서식5 표지 + 본문 ①~⑦ + 서식6 · PDF</small></a>
+          <a href="files/story/수업흐름설명서.hwpx">수업 흐름 설명서 <small>hwpx</small></a>
+          <a href="files/story/수업지도안_서식6.pdf">수업지도안 서식6 <small>1~3차시 · PDF</small></a>
+          <a href="files/story/수업지도안_서식6.hwpx">수업지도안 서식6 <small>hwpx</small></a>
+          <a href="files/story/과정안_차시별1쪽.pdf">교수·학습 과정안 <small>차시별 1쪽</small></a>
+          <a href="files/story/학급조사의뢰문.pdf">학급 조사 의뢰문 <small>1차시 동기유발 자료</small></a>
+          <a href="files/story/학습지_1차시.pdf">학습지 1차시 <small>질문하기</small></a>
+          <a href="files/story/학습지_2차시.pdf">학습지 2차시 <small>탐구하기</small></a>
+          <a href="files/story/학습지_3차시.pdf">학습지 3차시 <small>쓰기</small></a>
+          <a href="files/story/학습지_후속_한달뒤.pdf">한 달 뒤 활동지·성찰일지 <small>4주 뒤 후속 확인</small></a>
+          <a href="files/story/모둠조사보고서_양식.pdf">모둠 조사 보고서 양식 <small>구글 독스용</small></a>
+          <a href="files/story/평가자료_채점척도.pdf">평가 자료 <small>채점 척도 · 관찰표 · 자기 점검표</small></a>
+          <a href="files/story/학생산출물_요약.pdf">학생 산출물 요약 <small>24모둠 조사한 말 → 바꾼 말 → 제언</small></a>
+          <a href="files/story/학생성찰_발췌.pdf">학생 성찰 발췌 <small>45장 다섯 갈래</small></a>
+          <a href="files/story/이식안내.pdf">이식 안내 <small>다른 학교급 · 교과 · 웹앱 없는 학교</small></a>
+        </div>
+
+        <h3>수업 당시 학생이 본 화면</h3>
+        <p style="font-size:15px">수업 중 학생은 아래 화면을 보며 활동했다. 그대로 보관한다.</p>
+        <div class="archive-links"><a href="archive/index-lesson.html">학생용 홈</a><a href="walk-1.html">1차시 따라가기</a><a href="walk-2.html">2차시 따라가기</a><a href="walk-3.html">3차시 따라가기</a><a href="interview.html">면담 가이드</a><a href="question.html">탐구질문 가이드</a><a href="helpers.html">AI 도우미</a><a href="map.html">교실 자료</a><a href="hate-speech.html">참고 자료</a></div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>인용 통계 출처: 국가통계포털 KOSIS 「사이버폭력실태조사」</p>
-      <p class="copyright">© 2026 RED RED GREEN GREEN · 학급 언어생활 사례 조사 프로젝트</p>
-      <p class="credits">서체: Pretendard(SIL OFL) · Paperlogy</p>
+      <p>인용 통계 출처: 국가통계포털 KOSIS 「사이버폭력실태조사」(방송통신위원회·한국지능정보사회진흥원, 2025)</p>
+      <p>공개 포스터와 인용은 학년·반·조만 표시하고 학번·이름은 가린다. 거친 말은 초성으로 적는다. 얼굴 사진은 싣지 않는다.</p>
+      <p>© 2026 학급 언어생활 사례 조사 · 서체 Pretendard(SIL OFL)</p>
     </div>
   </footer>
-  <script src="script.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+  <script src="story.js" defer></script>
 </body>
 </html>

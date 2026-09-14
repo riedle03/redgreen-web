@@ -1,0 +1,114 @@
+{
+  "base": "http://127.0.0.1:56217",
+  "generatedAt": "2026-09-01T10:22:43.826Z",
+  "results": [
+    {
+      "name": "desktop_1280",
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "pages": {
+        "index": {
+          "navEntry": 1,
+          "resourceCard": 1,
+          "toolsBanner": 1,
+          "galleryLinks": 4,
+          "overflow": {
+            "docOverflow": false,
+            "docScrollWidth": 1280,
+            "viewport": 1280,
+            "samples": []
+          }
+        },
+        "gallery": {
+          "cardishCount": 37,
+          "overflow": {
+            "docOverflow": false,
+            "docScrollWidth": 1280,
+            "viewport": 1280,
+            "samples": []
+          }
+        },
+        "kosis": {
+          "title": "KOSIS 공공 데이터와\n우리 조사 비교",
+          "noticeHasWarning": true,
+          "metricCount": 3,
+          "barCount": 5,
+          "sourceLinks": 6,
+          "linkedHiddenWhenNone": true,
+          "persistedInquiry": "우리 반에서 그 말을 왜 고를까?",
+          "persistedMode": true,
+          "persistedId": "DT_164003_A075",
+          "printVisible": true,
+          "overflow": {
+            "docOverflow": false,
+            "docScrollWidth": 1280,
+            "viewport": 1280,
+            "samples": []
+          }
+        }
+      },
+      "consoleErrors": [],
+      "pageErrors": []
+    },
+    {
+      "name": "mobile_390",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "pages": {
+        "index": {
+          "navEntry": 1,
+          "resourceCard": 1,
+          "toolsBanner": 1,
+          "galleryLinks": 4,
+          "overflow": {
+            "docOverflow": false,
+            "docScrollWidth": 390,
+            "viewport": 390,
+            "samples": [
+              {
+                "tag": "DIV",
+                "className": "table-wrap reveal",
+                "scrollWidth": 704,
+                "clientWidth": 342
+              }
+            ]
+          }
+        },
+        "gallery": {
+          "cardishCount": 37,
+          "overflow": {
+            "docOverflow": false,
+            "docScrollWidth": 390,
+            "viewport": 390,
+            "samples": []
+          }
+        },
+        "mobileMenuOpen": 1,
+        "kosis": {
+          "title": "KOSIS 공공 데이터와\n우리 조사 비교",
+          "noticeHasWarning": true,
+          "metricCount": 3,
+          "barCount": 5,
+          "sourceLinks": 6,
+          "linkedHiddenWhenNone": true,
+          "persistedInquiry": "우리 반에서 그 말을 왜 고를까?",
+          "persistedMode": true,
+          "persistedId": "DT_164003_A075",
+          "printVisible": true,
+          "overflow": {
+            "docOverflow": false,
+            "docScrollWidth": 390,
+            "viewport": 390,
+            "samples": []
+          }
+        }
+      },
+      "consoleErrors": [],
+      "pageErrors": []
+    }
+  ]
+}

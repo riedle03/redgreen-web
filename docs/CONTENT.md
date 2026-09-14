@@ -1,5 +1,7 @@
 # 콘텐츠 원고 (SSOT) — 이 문서의 문구를 자구 그대로 사용할 것
 
+> **2026-09-15 — 홈(index.html)은 외부인용 포트폴리오로 바뀌었다.** 홈 원고는 `docs/CONTENT_story.md` §0이 SSOT다. 아래 §1~§10은 수업 당시 학생용 화면(`archive/index-lesson.html`·walk·interview·question·helpers·map)의 원고로 그대로 유효하다.
+
 사이트명: 모르고 막 쓰면 RED RED, 뜻 알고 바꾸면 GREEN GREEN
 부제: 우리 반 언어생활을 우리가 직접 조사합니다
 대상 표기: 고1 공통국어2 · 50분 × 3차시 · 학급 언어생활 사례 조사 프로젝트

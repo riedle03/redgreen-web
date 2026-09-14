@@ -1,0 +1,677 @@
+[
+ {
+  "check": "링크·앵커 [index.html]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "링크·앵커 [interview.html]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "링크·앵커 [question.html]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "이모지 없음 [index.html]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "이모지 없음 [interview.html]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "이모지 없음 [question.html]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "옛 모형 문구 없음 [index.html]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "옛 모형 문구 없음 [interview.html]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "옛 모형 문구 없음 [question.html]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "옛 모형 문구 없음 [CONTENT.md]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "필수 문구 있음 [index]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "필수 문구 있음 [interview]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "필수 문구 있음 [question]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "필수 문구 있음 [CONTENT]",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 이에 본 연구소는 귀 학급에 다음 조사를 의뢰합니다…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 이에 본 연구소는 귀 학급에 다음 조사를 의뢰합니다…",
+  "result": "FAIL",
+  "detail": "이에 본 연구소는 귀 학급에 다음 조사를 의뢰합니다. 학생들이 실제로 쓰는 표현 하나를 골라 어떤 뜻으로 쓰이고, 왜 쓰이고, 듣는 사람에게 어떻게 들리는지를 조사하고, 그 표현 대신 쓸 수 있는 말과 더 나은 언어생활을 위한 방안을 제안하는 모둠 조사 보고서입니다."
+ },
+ {
+  "check": "고정 문장 [index] ① 그 표현의 사전적·통용 의미…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] ① 그 표현의 사전적·통용 의미…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] ② 그 상황에서 그 표현을 선택한 의사소통 목적…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] ② 그 상황에서 그 표현을 선택한 의사소통 목적…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] ③ 그 표현이 청자에게 미칠 수 있는 영향…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] ③ 그 표현이 청자에게 미칠 수 있는 영향…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 다른 말도 있었나요? 왜 이 말을 골랐나요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 다른 말도 있었나요? 왜 이 말을 골랐나요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 그 사람이 생각 없이 습관처럼 쓴 것 같나요, 일부…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 그 사람이 생각 없이 습관처럼 쓴 것 같나요, 일부…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 그 자리에 있던 사람들은 어떻게 반응했나요? 어떻게…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 그 자리에 있던 사람들은 어떻게 반응했나요? 어떻게…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 그 말을 들었을 때 어땠나요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 그 말을 들었을 때 어땠나요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 이런 말을 쓰게 되는 원인이 무엇이라고 생각하나요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 이런 말을 쓰게 되는 원인이 무엇이라고 생각하나요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] STEP 2에서 우리 탐구질문에 답하기 위해 만든 …",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] STEP 2에서 우리 탐구질문에 답하기 위해 만든 …",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 누구에게는 쓰고 누구에게는 안 쓰나요? 왜 그런가요…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 누구에게는 쓰고 누구에게는 안 쓰나요? 왜 그런가요…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 이 말이 없었으면 뭐라고 했을까요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 이 말이 없었으면 뭐라고 했을까요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 이 말을 쓰면 뭐가 편한가요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 이 말을 쓰면 뭐가 편한가요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 이 말을 어디서 처음 봤나요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 이 말을 어디서 처음 봤나요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 이 말을 안 쓰는 친구는 왜 안 쓸까요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 이 말을 안 쓰는 친구는 왜 안 쓸까요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 어른들은 이 말을 왜 잘 모를까요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 어른들은 이 말을 왜 잘 모를까요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 뜻이 바로 통한다…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 뜻이 바로 통한다…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 듣는 사람을 존중한다…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 듣는 사람을 존중한다…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 나라도 이 상황에서 이렇게 말하겠다…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 나라도 이 상황에서 이렇게 말하겠다…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 학급·학교에서 · 온라인에서 · 나 스스로…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 학급·학교에서 · 온라인에서 · 나 스스로…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 먼저 2분 동안 직접 만든 뒤 여세요…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 먼저 2분 동안 직접 만든 뒤 여세요…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 면접 문항 도우미…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 면접 문항 도우미…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 응답자 · 면담자 · 기록자 · 촬영자…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 응답자 · 면담자 · 기록자 · 촬영자…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 응답자는 그 말을 써 본 사람 한 명입니다. 써 본…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 한 사람씩 \"써 봤다 / 들어 봤다 / 처음 본다\"…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 면접은 10분 동안 합니다.…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 초점 집단 면접(FGI, Focus Group In…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 초점 집단 면접(FGI, Focus Group In…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 연구소에 보낼 우리의 발견…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 연구소에 보낼 우리의 발견…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 앞뒤가 안 맞는 답이 있나요?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 어른들은 모르지만 우리는 아는 것…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 그래서, 우리 탐구질문의 답은?…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 어른이나 전국 조사는 우리가 이런 말을 쓰는 원인을…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 어른이나 전국 조사는 우리가 이런 말을 쓰는 원인을…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 어른이나 전국 조사는 우리가 이런 말을 쓰는 원인을…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 어른이나 전국 조사는 우리가 이런 말을 쓰는 원인을…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 우리 모둠이 조사한 ○○에서는…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 우리 모둠이 조사한 ○○에서는…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 표준국어대사전 → 없으면 우리말샘 → 둘 다 없으면…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 표준국어대사전 → 없으면 우리말샘 → 둘 다 없으면…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 말뜻 도우미가 알려 준 통용 의미…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 말뜻 도우미가 알려 준 통용 의미…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 말뜻 도우미…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 말뜻 도우미…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 비속어·혐오 표현도 사전에 실려 있으면 사전이 붙인…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 비속어·혐오 표현도 사전에 실려 있으면 사전이 붙인…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 영상 파일명은 학년반모둠명_조사단어로 씁니다 (예:…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] 영상 파일명은 학년반모둠명_조사단어로 씁니다 (예:…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 영상 파일명은 학년반모둠명_조사단어로 씁니다 (예:…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] https://script.google.com/a/…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] https://script.google.com/a/…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [question] https://script.google.com/a/…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] https://script.google.com/a/…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] https://gemini.google.com/ge…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [interview] https://gemini.google.com/ge…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] https://gemini.google.com/ge…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] https://gemini.google.com/ge…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] https://gemini.google.com/ge…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] https://stdict.korean.go.kr…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] https://stdict.korean.go.kr…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] https://opendict.korean.go.k…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] https://opendict.korean.go.k…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] [10공국2-01-03] 사회적 소통 과정에서 말의…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] [10공국2-01-03] 사회적 소통 과정에서 말의…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] [10공국2-03-03] 신뢰할 수 있는 정보를 종…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] [10공국2-03-03] 신뢰할 수 있는 정보를 종…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 항목 맡기…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 항목 맡기…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 구글 독스 모둠 보고서에서 작성할 곳…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 구글 독스 모둠 보고서에서 작성할 곳…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 제목 · 작성자 · 1 조사 동기와 목적 · 2 조…",
+  "result": "FAIL",
+  "detail": "제목 · 작성자 · 1 조사 동기와 목적 · 2 조사 계획"
+ },
+ {
+  "check": "고정 문장 [CONTENT] 제목 · 작성자 · 1 조사 동기와 목적 · 2 조…",
+  "result": "FAIL",
+  "detail": "제목 · 작성자 · 1 조사 동기와 목적 · 2 조사 계획"
+ },
+ {
+  "check": "고정 문장 [index] 3 조사 결과 — 뜻, 그 말을 고른 이유…",
+  "result": "FAIL",
+  "detail": "3 조사 결과 — 뜻, 그 말을 고른 이유"
+ },
+ {
+  "check": "고정 문장 [CONTENT] 3 조사 결과 — 뜻, 그 말을 고른 이유…",
+  "result": "FAIL",
+  "detail": "3 조사 결과 — 뜻, 그 말을 고른 이유"
+ },
+ {
+  "check": "고정 문장 [index] 3 — 듣는 사람의 느낌, 바꿔 쓸 표현 · 4-가…",
+  "result": "FAIL",
+  "detail": "3 — 듣는 사람의 느낌, 바꿔 쓸 표현 · 4-가 발견점"
+ },
+ {
+  "check": "고정 문장 [CONTENT] 3 — 듣는 사람의 느낌, 바꿔 쓸 표현 · 4-가…",
+  "result": "FAIL",
+  "detail": "3 — 듣는 사람의 느낌, 바꿔 쓸 표현 · 4-가 발견점"
+ },
+ {
+  "check": "고정 문장 [index] 4-나 제언 · 5 참고 자료…",
+  "result": "FAIL",
+  "detail": "4-나 제언 · 5 참고 자료"
+ },
+ {
+  "check": "고정 문장 [CONTENT] 4-나 제언 · 5 참고 자료…",
+  "result": "FAIL",
+  "detail": "4-나 제언 · 5 참고 자료"
+ },
+ {
+  "check": "고정 문장 [index] D를 나눕니다. 한 사람은 4-나, 한 사람은 5…",
+  "result": "FAIL",
+  "detail": "D를 나눕니다. 한 사람은 4-나, 한 사람은 5"
+ },
+ {
+  "check": "고정 문장 [CONTENT] D를 나눕니다. 한 사람은 4-나, 한 사람은 5…",
+  "result": "FAIL",
+  "detail": "D를 나눕니다. 한 사람은 4-나, 한 사람은 5"
+ },
+ {
+  "check": "고정 문장 [index] 말하고 듣고 적기…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 말하고 듣고 적기…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 바꾼 말은 모둠이 조사한 말을 무엇으로 바꿨는지만 …",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 바꾼 말은 모둠이 조사한 말을 무엇으로 바꿨는지만 …",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 성찰 쓰기…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 성찰 쓰기…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 구호·다짐 문장은 쓰지 않습니다…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 구호·다짐 문장은 쓰지 않습니다…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [index] 우리 모둠 보고서를 클래스룸에 제출했다…",
+  "result": "FAIL",
+  "detail": "우리 모둠 보고서를 클래스룸에 제출했다"
+ },
+ {
+  "check": "고정 문장 [CONTENT] 우리 모둠 보고서를 클래스룸에 제출했다…",
+  "result": "FAIL",
+  "detail": "우리 모둠 보고서를 클래스룸에 제출했다"
+ },
+ {
+  "check": "고정 문장 [index] 새 면접은 하지 않습니다.…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "고정 문장 [CONTENT] 새 면접은 하지 않습니다.…",
+  "result": "PASS",
+  "detail": ""
+ },
+ {
+  "check": "학습지 일치 다른 말도 있었나요? 왜 이 말을…",
+  "result": "PASS",
+  "detail": "학습지=True interview=True index=True"
+ },
+ {
+  "check": "학습지 일치 그 자리에 있던 사람들은 어떻게 …",
+  "result": "PASS",
+  "detail": "학습지=True interview=True index=True"
+ },
+ {
+  "check": "학습지 일치 그 말을 들었을 때 어땠나요?…",
+  "result": "PASS",
+  "detail": "학습지=True interview=True index=True"
+ },
+ {
+  "check": "학습지 일치 이런 말을 쓰게 되는 원인이 무엇…",
+  "result": "PASS",
+  "detail": "학습지=True interview=True index=True"
+ },
+ {
+  "check": "의뢰문 본문 index ↔ CONTENT.md 동일",
+  "result": "FAIL",
+  "detail": "index=4117자 CONTENT=3424자 (추출 실패면 0)"
+ }
+]

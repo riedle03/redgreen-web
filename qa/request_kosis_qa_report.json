@@ -1,0 +1,128 @@
+{
+  "base": "http://127.0.0.1:62260",
+  "createdAt": "2026-09-01T10:31:21.478Z",
+  "viewports": {
+    "desktop": {
+      "name": "d1280",
+      "size": {
+        "width": 1280,
+        "height": 900
+      },
+      "consoleErrors": [],
+      "pageErrors": [],
+      "request": {
+        "checks": {
+          "title": true,
+          "edition": true,
+          "notRetroactive": true,
+          "a075": true,
+          "a075Types": true,
+          "a134": true,
+          "a142": true,
+          "a047": true,
+          "trial": true,
+          "scope": true,
+          "item7": true,
+          "missingRule": true,
+          "noMix": true,
+          "report3na": true,
+          "frame": true
+        },
+        "linkOk": true,
+        "linkCount": 4,
+        "toKosis": 3,
+        "textSample": "학급 언어생활 사례 조사 의뢰서\n\n후속·미실시 학급용 KOSIS 보완판(2026-09-01)입니다. 이미 실시한 5개 학급의 v4 기록은 그대로 두고, 앞으로 수업을 하는 학급이 함께 읽고 할 일을 확인합니다.\n\n후속·미실시 학급용 KOSIS 보완판 · 기존 실시 5개 학급 v4 소급 수정 아님\n\n17.5%\n고등학생 디지",
+        "overflow": {
+          "docOverflow": false,
+          "docScrollWidth": 1280,
+          "viewport": 1280,
+          "samples": []
+        }
+      },
+      "nav": {
+        "navKosis": 1,
+        "navRequest": 4,
+        "menuOpen": true
+      },
+      "toKosisHref": "kosis.html",
+      "kosis": {
+        "fromKosis": 2,
+        "noticeHasTrial": true,
+        "overflow": {
+          "docOverflow": false,
+          "docScrollWidth": 1280,
+          "viewport": 1280,
+          "samples": []
+        }
+      },
+      "backHref": "index.html#request",
+      "backToRequest": true
+    },
+    "mobile": {
+      "name": "m390",
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "consoleErrors": [],
+      "pageErrors": [],
+      "request": {
+        "checks": {
+          "title": true,
+          "edition": true,
+          "notRetroactive": true,
+          "a075": true,
+          "a075Types": true,
+          "a134": true,
+          "a142": true,
+          "a047": true,
+          "trial": true,
+          "scope": true,
+          "item7": true,
+          "missingRule": true,
+          "noMix": true,
+          "report3na": true,
+          "frame": true
+        },
+        "linkOk": true,
+        "linkCount": 4,
+        "toKosis": 3,
+        "textSample": "학급 언어생활 사례 조사 의뢰서\n\n후속·미실시 학급용 KOSIS 보완판(2026-09-01)입니다. 이미 실시한 5개 학급의 v4 기록은 그대로 두고, 앞으로 수업을 하는 학급이 함께 읽고 할 일을 확인합니다.\n\n후속·미실시 학급용 KOSIS 보완판 · 기존 실시 5개 학급 v4 소급 수정 아님\n\n17.5%\n고등학생 디지",
+        "overflow": {
+          "docOverflow": false,
+          "docScrollWidth": 390,
+          "viewport": 390,
+          "samples": [
+            {
+              "tag": "DIV",
+              "className": "table-wrap reveal",
+              "scrollWidth": 704,
+              "clientWidth": 342
+            }
+          ]
+        }
+      },
+      "nav": {
+        "expanded": "true",
+        "menuVisible": true,
+        "navKosis": 1,
+        "navRequest": 1
+      },
+      "toKosisHref": "kosis.html",
+      "kosis": {
+        "fromKosis": 2,
+        "noticeHasTrial": true,
+        "overflow": {
+          "docOverflow": false,
+          "docScrollWidth": 390,
+          "viewport": 390,
+          "samples": []
+        }
+      },
+      "backHref": "index.html#request",
+      "backToRequest": true
+    }
+  },
+  "pass": true,
+  "fails": []
+}
