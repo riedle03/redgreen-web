@@ -7,7 +7,9 @@ qa/request_kosis_qa_report.json
 _verify_shots
 _tmp_*
 *.bak
-archive
+# 2026-09-29 — archive 폴더 전체를 거르면 archive/index-lesson(수업 당시 홈 보관본)이 404가 된다.
+# 숨길 것은 9/1 KOSIS 단독 페이지 하나뿐이다.
+archive/kosis-standalone-20260901.html
 
 # 2026-09-11 추가 — 위 *.bak 는 .bak 로 끝나는 것만 걸러서
 # index.html.bak_reterm 같은 접미사 붙은 백업이 배포에 섞였다
