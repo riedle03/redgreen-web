@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko" class="no-js">
+<head>
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조사 포스터 24장 — 모르고 막 쓰면 RED RED, 뜻 알고 바꾸면 GREEN GREEN</title>
+  <meta name="description" content="6개 반 24개 모둠이 조사한 말을 학술 포스터로 만들어 모은 곳입니다. 반으로 거르거나 조사한 말로 찾아볼 수 있습니다.">
+  <link rel="icon" type="image/svg+xml" href="img/brand/mark.svg">
+  <link rel="icon" type="image/png" href="img/brand/mark-64.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Nanum+Pen+Script&display=swap">
+  <link rel="stylesheet" href="proof.css">
+</head>
+<body>
+  <a class="skip-link" href="#works">포스터 목록으로 건너뛰기</a>
+  <div class="sheet">
+    <span class="crop k-tl" aria-hidden="true"></span><span class="crop k-tr" aria-hidden="true"></span><span class="crop k-bl" aria-hidden="true"></span><span class="crop k-br" aria-hidden="true"></span>
+    <header class="slug">
+      <div class="in">
+        {{wordmark}}
+        <p class="meta">조사 포스터 24장 · 6학급 24모둠 · 수업 뒤 과제</p>
+        <nav aria-label="바로 가기">
+          <a href="index.html">수업 포트폴리오</a>
+          <a class="go" href="gallery-print-all.html">24장 모두 인쇄</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero gal-top" aria-labelledby="t0">
+        <div class="page">
+          <div class="col">
+            <h1 id="t0">조사 포스터 24장</h1>
+            <p class="lede">모둠이 조사한 말 하나를 <strong>학술 포스터 한 장</strong>으로 만들어 모은 곳입니다. 6개 반 24개 모둠의 조사입니다. 전국 조사 통계에는 없는, <strong>이 교실에서 실제로 쓰는 말</strong>에 대한 기록입니다.</p>
+          </div>
+          <div class="mar">
+            <p class="mnote pen">조사한 것은 사람이 아니라 말이다</p>
+            <p class="mnote">조사한 모둠의 학년·반·조만 밝히고, 학번과 이름은 가립니다. 거친 말은 초성으로 적습니다.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="gal-body" id="works" aria-label="포스터 목록">
+        <div class="page">
+          <div class="gal-tools wide">
+            <div class="gal-filters" role="group" aria-label="반으로 거르기">
+              <button type="button" aria-pressed="true" data-cls="all">{{circle}}전체</button>
+              <button type="button" aria-pressed="false" data-cls="1">{{circle}}1반</button>
+              <button type="button" aria-pressed="false" data-cls="2">{{circle}}2반</button>
+              <button type="button" aria-pressed="false" data-cls="3">{{circle}}3반</button>
+              <button type="button" aria-pressed="false" data-cls="4">{{circle}}4반</button>
+              <button type="button" aria-pressed="false" data-cls="5">{{circle}}5반</button>
+              <button type="button" aria-pressed="false" data-cls="6">{{circle}}6반</button>
+            </div>
+            <label class="gal-search"><span class="visually-hidden">조사한 말로 찾기</span><input type="search" id="galSearch" placeholder="조사한 말로 찾기" autocomplete="off"></label>
+            <p class="gal-count" id="galCount" aria-live="polite"></p>
+          </div>
+
+          <div class="entries wide">
+            <a class="entry sample" href="gallery-poster-sample.html">
+              <span class="cls">형식 예시 · 학생 자료 아님</span>
+              <span class="word">팩폭</span>
+              <span class="one">포스터가 어떻게 생겼는지 보여 주는 예시입니다</span>
+              <span class="meta">교사가 만든 견본</span>
+            </a>
+{{include:_gallery_entries.html}}
+            <p class="gal-none" hidden>찾는 조사가 없습니다. 반을 「전체」로 두거나 다른 말로 찾아보세요.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" aria-labelledby="t2">
+        <div class="page">
+          <div class="col">
+            <h2 class="display" id="t2">읽을 때 지킬 것</h2>
+            <p class="lede">다른 모둠의 조사를 읽는 일도 이 수업의 한 부분입니다.</p>
+            <ol class="rules">
+              <li><span><strong>조사한 범위 안에서 읽습니다.</strong> 각 포스터에 적힌 「면접 ○명 · 카드 ○장」이 그 모둠이 본 전부입니다. 여기서 카드 ○장은 우리 반 RED 카드 가운데 그 말이 적힌 카드 수입니다. "우리 학교 학생들은 다 그렇다"로 넓혀 읽지 않습니다.</span></li>
+              <li><span><strong>알아내지 못했다고 적힌 것을 눈여겨봅니다.</strong> 모르는 것을 모른다고 적은 것도 조사 결과입니다. 빈 곳이 다음 조사의 자리입니다.</span></li>
+              <li><span><strong>확인한 것과 짐작한 것을 나눠서 읽습니다.</strong> "~일 수 있다"라고 쓴 문장은 아직 확인되지 않은 것입니다.</span></li>
+              <li><span><strong>말을 쓴 사람을 찾지 않습니다.</strong> 누가 그랬는지 알아내려 하거나 짐작해서 말하지 않습니다. 조사한 것은 사람이 아니라 말입니다.</span></li>
+            </ol>
+          </div>
+          <div class="mar"><p class="mnote">포스터의 「면접 ○명」은 학생이 만든 포스터에 적힌 그대로입니다. 활동 이름은 이후 「면담」으로 통일했습니다.</p></div>
+
+          <div class="col">
+            <h3>어떻게 여기에 올라오나</h3>
+            <ol class="howto">
+              <li><b>조사하기</b><span>모둠이 말 하나를 정해 사전을 찾고, 써 본 사람을 면담합니다. (1·2차시)</span></li>
+              <li><b>보고서 쓰기</b><span>구글 독스에 모둠 조사 보고서를 함께 씁니다. (3차시)</span></li>
+              <li><b>프롬프트 채우기</b><span>보고서 맨 아래 「포스터 제작 프롬프트」 10칸을 모둠이 채웁니다. 표·그래프·워드클라우드 같은 자료를 반드시 두 가지 이상 고릅니다. 보고서를 옮기는 것이 아니라 다른 반 학생이 읽을 것이므로 무엇을 먼저 보여 줄지 다시 정합니다. (과제)</span></li>
+              <li><b>여기에 올리기</b><span>모둠이 그 보고서를 포스터 제작 도우미에 넣어 포스터를 만들어 냅니다. 선생님이 확인해 갤러리에 올립니다.</span></li>
+            </ol>
+            <p class="archive" style="margin-top:1.5rem"><a href="gallery-poster-sample.html">예시 포스터 읽어 보기</a><a href="report.html">보고서는 어떻게 쓰나</a></p>
+          </div>
+          <div class="mar"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="colophon">
+      <div class="page">
+        <div class="wide in">
+          <div>
+            <p>갤러리에 올라오는 페이지는 모둠이 채운 프롬프트로 만든 것입니다. 조사한 모둠의 학년·반·조만 밝히고, 학번과 이름은 가립니다. 그 밖의 사람 이름과 특정 사건은 담지 않습니다.</p>
+            <p><a href="index.html">수업 포트폴리오</a> · <a href="brand.html">브랜드 가이드</a></p>
+          </div>
+          {{wordmark}}
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="proof.js" defer></script>
+  <script>
+    // 갤러리 거르기 — 반 버튼과 조사한 말 검색. 스크립트가 꺼져 있어도 목록은 전부 보인다.
+    (function () {
+      var list = document.querySelector(".entries");
+      if (!list) return;
+      var items = [].slice.call(list.querySelectorAll(".entry[data-cls]"));
+      var sample = list.querySelector(".entry.sample");
+      var btns = [].slice.call(document.querySelectorAll(".gal-filters button"));
+      var input = document.getElementById("galSearch");
+      var count = document.getElementById("galCount");
+      var none = list.querySelector(".gal-none");
+      var cls = "all";
+      function apply() {
+        var q = (input.value || "").trim().toLowerCase();
+        var shown = 0;
+        items.forEach(function (c) {
+          var ok = (cls === "all" || c.getAttribute("data-cls") === cls) &&
+                   (!q || c.textContent.toLowerCase().indexOf(q) !== -1);
+          c.hidden = !ok; if (ok) shown++;
+        });
+        sample.hidden = !(cls === "all" && !q);
+        none.hidden = shown !== 0;
+        count.textContent = (cls === "all" && !q) ? "모둠 포스터 " + items.length + "장" : items.length + "장 가운데 " + shown + "장";
+      }
+      btns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          btns.forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+          b.setAttribute("aria-pressed", "true");
+          cls = b.getAttribute("data-cls"); apply();
+        });
+      });
+      input.addEventListener("input", apply);
+      apply();
+    })();
+  </script>
+</body>
+</html>

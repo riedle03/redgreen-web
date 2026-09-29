@@ -3,3 +3,9 @@ node_modules/
 Thumbs.db
 .vercel
 *.bak
+
+# 2026-09-29 검토 캡처·결정 서버 상태·로고 원본 폰트(docs/src/build_brand.py 머리말의 주소에서 받는다)
+.impeccable/review/
+.impeccable/questions/
+.impeccable/answer.txt
+docs/src/fonts/

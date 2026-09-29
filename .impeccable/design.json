@@ -1,0 +1,461 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-29T11:30:00+09:00",
+  "title": "Design System: 모르고 막 쓰면 RED RED, 뜻 알고 바꾸면 GREEN GREEN",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "용지",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#474747",
+          "#6b6b6b",
+          "#919191",
+          "#b5b5b5",
+          "#d6d6d6",
+          "#efefef",
+          "#ffffff"
+        ]
+      },
+      "desk": {
+        "role": "neutral",
+        "displayName": "책상",
+        "canonical": "#e6e8e9",
+        "tonalRamp": [
+          "#222527",
+          "#3d4245",
+          "#5a6064",
+          "#7b8185",
+          "#9ea3a6",
+          "#c1c5c7",
+          "#e6e8e9",
+          "#f5f6f6"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "먹",
+        "canonical": "#161616",
+        "tonalRamp": [
+          "#161616",
+          "#2a2a2a",
+          "#3b3b3b",
+          "#5a5a5a",
+          "#7d7d7d",
+          "#a3a3a3",
+          "#cacaca",
+          "#ededed"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "먹 2",
+        "canonical": "#3b3b3b",
+        "tonalRamp": [
+          "#161616",
+          "#2a2a2a",
+          "#3b3b3b",
+          "#5a5a5a",
+          "#7d7d7d",
+          "#a3a3a3",
+          "#cacaca",
+          "#ededed"
+        ]
+      },
+      "pencil": {
+        "role": "neutral",
+        "displayName": "연필",
+        "canonical": "#58626b",
+        "tonalRamp": [
+          "#1a1e22",
+          "#2f363c",
+          "#434b53",
+          "#58626b",
+          "#7a838b",
+          "#9ea5ab",
+          "#c4c9cd",
+          "#e8ebed"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "괘선",
+        "canonical": "#dadcdd",
+        "tonalRamp": [
+          "#232526",
+          "#404344",
+          "#606365",
+          "#818486",
+          "#a3a6a7",
+          "#c2c4c5",
+          "#dadcdd",
+          "#eeefef"
+        ]
+      },
+      "rule-2": {
+        "role": "neutral",
+        "displayName": "연한 괘선",
+        "canonical": "#eeefef",
+        "tonalRamp": [
+          "#232526",
+          "#404344",
+          "#606365",
+          "#818486",
+          "#a3a6a7",
+          "#c2c4c5",
+          "#dadcdd",
+          "#eeefef"
+        ]
+      },
+      "red-pen": {
+        "role": "primary",
+        "displayName": "빨간 펜",
+        "canonical": "#d42a1f",
+        "tonalRamp": [
+          "#3d0a07",
+          "#6b120c",
+          "#b1221a",
+          "#d42a1f",
+          "#e8584e",
+          "#f3b7b2",
+          "#fbe9e7",
+          "#fef6f5"
+        ]
+      },
+      "red-ink": {
+        "role": "primary",
+        "displayName": "빨간 글자 (예비, 현재 미사용)",
+        "canonical": "#b1221a",
+        "tonalRamp": [
+          "#3d0a07",
+          "#6b120c",
+          "#b1221a",
+          "#d42a1f",
+          "#e8584e",
+          "#f3b7b2",
+          "#fbe9e7",
+          "#fef6f5"
+        ]
+      },
+      "red-wash": {
+        "role": "primary",
+        "displayName": "연한 빨강 (예비, 현재 미사용)",
+        "canonical": "#fbe9e7",
+        "tonalRamp": [
+          "#3d0a07",
+          "#6b120c",
+          "#b1221a",
+          "#d42a1f",
+          "#e8584e",
+          "#f3b7b2",
+          "#fbe9e7",
+          "#fef6f5"
+        ]
+      },
+      "green-pen": {
+        "role": "secondary",
+        "displayName": "초록 펜",
+        "canonical": "#14774a",
+        "tonalRamp": [
+          "#05251a",
+          "#0b4a2e",
+          "#14774a",
+          "#2a9463",
+          "#5bb487",
+          "#a3d6b9",
+          "#e5f2ea",
+          "#f4faf6"
+        ]
+      },
+      "green-wash": {
+        "role": "secondary",
+        "displayName": "연한 초록 (예비, 현재 미사용)",
+        "canonical": "#e5f2ea",
+        "tonalRamp": [
+          "#05251a",
+          "#0b4a2e",
+          "#14774a",
+          "#2a9463",
+          "#5bb487",
+          "#a3d6b9",
+          "#e5f2ea",
+          "#f4faf6"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display-hero": {
+        "displayName": "첫 쪽 제목",
+        "purpose": "쪽마다 하나. Pretendard Black."
+      },
+      "display": {
+        "displayName": "장 제목",
+        "purpose": "각 장의 제목. Pretendard Black."
+      },
+      "headline-lesson": {
+        "displayName": "차시 제목",
+        "purpose": "차시 이름(연필색) + 제목이 한 줄."
+      },
+      "title": {
+        "displayName": "소제목",
+        "purpose": "장 안의 h3."
+      },
+      "body": {
+        "displayName": "본문",
+        "purpose": "조판 본문, 40rem 칸 ≈ 68자, keep-all."
+      },
+      "label": {
+        "displayName": "조판 정보",
+        "purpose": "쪽 번호·출처·축·범례·학급 표기."
+      },
+      "proof-line": {
+        "displayName": "교정 줄",
+        "purpose": "첫 쪽의 교정 대상 학생 말. 나눔명조."
+      },
+      "student-word": {
+        "displayName": "조사한 말",
+        "purpose": "사례 줄·갤러리 항목의 조사한 말. 나눔명조."
+      },
+      "student-sentence": {
+        "displayName": "학생 문장",
+        "purpose": "성찰 인용·차시 설명·면담 문항. 나눔명조."
+      },
+      "pen-memo": {
+        "displayName": "펜 메모",
+        "purpose": "바꾼 말과 짧은 여백 메모에만. 나눔펜."
+      },
+      "margin-note": {
+        "displayName": "여백 메모",
+        "purpose": "출처·심사 기준·면담 응답. 연필색."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet",
+        "value": "0 1px 2px rgba(0,0,0,.06), 0 18px 48px -18px rgba(0,0,0,.18)",
+        "purpose": "책상 위 교정 용지 한 장."
+      },
+      {
+        "name": "pasted-sheet",
+        "value": "0 1px 2px rgba(0,0,0,.12), 0 10px 24px -14px rgba(0,0,0,.35)",
+        "purpose": "용지 위에 붙인 학습지 사진."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "모든 움직임의 곡선 하나."
+      },
+      {
+        "name": "pen-draw",
+        "value": "clip-path .55s var(--ease)",
+        "purpose": "교정 부호(빨간 줄·삽입표)를 왼쪽에서 오른쪽으로 긋는다. 한 번만."
+      },
+      {
+        "name": "insert-appear",
+        "value": "opacity .35s var(--ease) .45s",
+        "purpose": "줄을 그은 뒤 초록 바꾼 말이 나타난다. 삽입표는 .4s 지연."
+      },
+      {
+        "name": "leader-draw",
+        "value": "stroke-dashoffset .7s var(--ease) .5s",
+        "purpose": "여백 메모에서 교정 부호까지 지시선."
+      },
+      {
+        "name": "current-circle",
+        "value": "clip-path .5s var(--ease)",
+        "purpose": "지금 읽는 장·고른 반의 빨간 동그라미."
+      },
+      {
+        "name": "bar-fill",
+        "value": "transform .8s var(--ease)",
+        "purpose": "막대가 값만큼 찬다."
+      },
+      {
+        "name": "rise",
+        "value": "opacity .6s, transform .6s (12px)",
+        "purpose": "이미 보이는 상태에서 조금만 올라온다."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce → 처음부터 그어진 상태, 전환 없음",
+        "purpose": "JS 없음·인쇄도 같다."
+      },
+      {
+        "name": "hover",
+        "value": "색 전환 없음 — 밑줄 생김/1px→2px, 채운 버튼은 흰 바탕+먹으로 반전",
+        "purpose": "마우스 올림은 먹으로만. 빨강·초록 금지."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-desk",
+        "value": "min-width: 1500px"
+      },
+      {
+        "name": "two-column",
+        "value": "max-width: 1180px"
+      },
+      {
+        "name": "slug-meta-hide",
+        "value": "max-width: 860px"
+      },
+      {
+        "name": "single-column",
+        "value": "max-width: 820px"
+      },
+      {
+        "name": "stack",
+        "value": "max-width: 560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "교정 한 곳",
+      "kind": "custom",
+      "refersTo": "fix",
+      "description": "원래 말에 빨간 줄, 그 위에 초록 삽입표와 손글씨 바꾼 말. 매크로 {{fix:원래 말|바꾼 말}}.",
+      "html": "<p class=\"ds-line\"><span class=\"ds-fix\"><del>ㅅㅂ<svg class=\"ds-strike\" viewBox=\"0 0 100 10\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M2 6 C30 4 60 7 90 5 C96 4 98 1 95 1 C92 1 93 8 98 8\"/></svg></del><svg class=\"ds-caret\" viewBox=\"0 0 10 7\" aria-hidden=\"true\"><path d=\"M1 1 L5 6 L9 1\"/></svg><ins>끝장났다</ins></span></p>",
+      "css": ".ds-line { font: 800 2.6rem/1.15 'Nanum Myeongjo', Batang, serif; color: #161616; margin: 0; } .ds-fix { position: relative; display: inline-block; padding-top: 1.3em; white-space: nowrap; } .ds-fix del { position: relative; text-decoration: none; } .ds-strike { position: absolute; left: -.12em; top: 52%; width: calc(100% + .62em); height: .42em; transform: translateY(-50%); overflow: visible; } .ds-strike path { fill: none; stroke: #d42a1f; stroke-width: 2.4; stroke-linecap: round; vector-effect: non-scaling-stroke; } .ds-caret { position: absolute; left: 1.1em; top: 1.02em; width: .55em; height: .36em; transform: translateX(-50%); overflow: visible; } .ds-caret path { fill: none; stroke: #14774a; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; } .ds-fix ins { position: absolute; left: 0; top: 0; text-decoration: none; font: 400 1.18em/1 'Nanum Pen Script', cursive; color: #14774a; }"
+    },
+    {
+      "name": "여백 메모",
+      "kind": "custom",
+      "refersTo": "margin-note",
+      "description": "교정의 근거(면담 응답·출처·심사 기준)를 오른쪽 여백에 연필색으로. data-anchor로 지시선을 잇는다.",
+      "html": "<div class=\"ds-mar\"><p class=\"ds-mnote ds-pen\">응답자: 대체할 수 있는 단어는 없고 다른 단어는 생각나지 않아</p><p class=\"ds-mnote\"><b>1학년 1반 1조</b> — 면담 기록</p></div>",
+      "css": ".ds-mar { max-width: 19rem; } .ds-mnote { margin: 0; font: 400 .875rem/1.6 Pretendard, 'Malgun Gothic', sans-serif; color: #58626b; } .ds-mnote + .ds-mnote { margin-top: 1rem; } .ds-mnote b { color: #3b3b3b; font-weight: 700; } .ds-pen { font: 400 1.35rem/1.25 'Nanum Pen Script', cursive; }"
+    },
+    {
+      "name": "슬러그 바로 가기",
+      "kind": "nav",
+      "refersTo": "slug-nav-link",
+      "description": "용지 맨 위 고정 줄의 바로 가기. 먹 테두리 직각 상자는 올리면 먹으로 채워지고, 먹 채움 주 행동은 올리면 흰 바탕+먹으로 뒤집힌다.",
+      "html": "<nav class=\"ds-slugnav\"><a href=\"#\">포스터 24장</a><a class=\"ds-go\" href=\"#\">자료 내려받기</a></nav>",
+      "css": ".ds-slugnav { display: flex; gap: .25rem; } .ds-slugnav a { font: 700 .9375rem/1.4 Pretendard, sans-serif; color: #161616; text-decoration: none; padding: .35rem .75rem; border: 1px solid #161616; border-radius: 0; } .ds-slugnav a:hover { background: #161616; color: #fff; } .ds-slugnav a.ds-go { background: #161616; color: #fff; } .ds-slugnav a.ds-go:hover { background: #fff; color: #161616; } .ds-slugnav a:focus-visible { outline: 2px solid #d42a1f; outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "짚어 두는 문단",
+      "kind": "custom",
+      "refersTo": "flag",
+      "description": "바탕을 칠하지 않고 위 괘선 2px만. 빨강 = 못 된 것·내려간 것, plain = 먹.",
+      "html": "<div class=\"ds-flag\"><strong>못 된 것.</strong> (내려간 값이나 못 된 점을 적는 자리)</div><div class=\"ds-flag ds-plain\"><strong>짚어 둘 것.</strong> (출처와 한계를 적는 자리)</div>",
+      "css": ".ds-flag { margin-top: 1.5rem; padding-top: .85rem; border-top: 2px solid #d42a1f; font: 400 .9875rem/1.75 Pretendard, sans-serif; color: #161616; } .ds-flag strong { color: #d42a1f; } .ds-plain { border-top-color: #161616; } .ds-plain strong { color: #161616; }"
+    },
+    {
+      "name": "무늬 막대",
+      "kind": "custom",
+      "refersTo": "bars",
+      "description": "상태를 모양으로: 먹 실선 기본, 초록 실선 = 올라감, 빨강 빗금 = 낮음, 회색 세로 점선 = 처음 값.",
+      "html": "<div class=\"ds-bars\"><div class=\"ds-row\"><b>처음</b><span class=\"ds-bar ds-first\"><i style=\"width:40%\"></i></span><span class=\"ds-v\">40</span></div><div class=\"ds-row\"><b>바꾼 뒤</b><span class=\"ds-bar ds-up\"><i style=\"width:72%\"></i></span><span class=\"ds-v\">72</span></div><div class=\"ds-row\"><b>반응 없음</b><span class=\"ds-bar ds-low\"><i style=\"width:67%\"></i></span><span class=\"ds-v\">67</span></div></div>",
+      "css": ".ds-bars { font: 400 .9375rem/1.4 Pretendard, sans-serif; color: #161616; } .ds-row { display: grid; grid-template-columns: 7rem 1fr 3rem; align-items: center; gap: .75rem; padding: .45rem 0; border-top: 1px solid #eeefef; } .ds-row:first-child { border-top: 0; } .ds-v { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; } .ds-bar { position: relative; height: .9rem; background: #eeefef; } .ds-bar i { position: absolute; inset: 0 auto 0 0; background: #161616; } .ds-up i { background: #14774a; } .ds-low i { background: repeating-linear-gradient(135deg, #d42a1f 0 2px, #f3b7b2 2px 5px); } .ds-first i { background: repeating-linear-gradient(90deg, #9aa1a6 0 1px, transparent 1px 4px), #d8dbdd; }"
+    },
+    {
+      "name": "갤러리 항목",
+      "kind": "card",
+      "refersTo": "gallery-entry",
+      "description": "테두리·바탕 없는 목록 항목, 아래 괘선만. 조사한 말은 명조, 올리면 먹 밑줄.",
+      "html": "<a class=\"ds-entry\" href=\"#\"><span class=\"ds-cls\">1학년 2반 3조</span><span class=\"ds-word\">밤티</span><span class=\"ds-one\">(모둠 포스터 한 줄 요약)</span><span class=\"ds-meta\"><span>1학년 2반</span><span class=\"ds-read\">포스터 읽기</span></span></a>",
+      "css": ".ds-entry { display: grid; gap: .35rem; max-width: 22rem; padding: 1.25rem 0 1.4rem; border-bottom: 1px solid #dadcdd; text-decoration: none; color: #161616; font-family: Pretendard, sans-serif; } .ds-cls { font-size: .8125rem; font-weight: 800; color: #58626b; } .ds-word { font: 800 2rem/1.2 'Nanum Myeongjo', serif; letter-spacing: -.01em; } .ds-one { font-size: .9375rem; line-height: 1.65; color: #3b3b3b; } .ds-meta { display: flex; justify-content: space-between; font-size: .8125rem; color: #58626b; } .ds-read { font-weight: 800; color: #161616; } .ds-entry:hover .ds-word, .ds-entry:hover .ds-read { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; } .ds-entry:focus-visible { outline: 2px solid #d42a1f; outline-offset: 3px; }"
+    },
+    {
+      "name": "갤러리 검색",
+      "kind": "input",
+      "refersTo": "gallery-search",
+      "description": "밑줄 1px만 있는 입력 칸. 포커스 시 빨강 2px 밑줄.",
+      "html": "<label class=\"ds-search\"><input type=\"search\" placeholder=\"조사한 말로 찾기\"></label>",
+      "css": ".ds-search input { width: 18rem; font: 500 1rem/1.4 Pretendard, sans-serif; color: #161616; border: 0; border-bottom: 1px solid #161616; padding: .45rem 0; background: none; border-radius: 0; } .ds-search input::placeholder { color: #58626b; } .ds-search input:focus { outline: none; border-bottom: 2px solid #d42a1f; }"
+    },
+    {
+      "name": "계획 표시",
+      "kind": "chip",
+      "refersTo": "plan",
+      "description": "아직 하지 않은 일에만. 먹 1px 점선 상자.",
+      "html": "<p class=\"ds-p\">4주 뒤 후속 확인 <span class=\"ds-plan\">계획</span></p>",
+      "css": ".ds-p { font: 400 1.0625rem/1.75 Pretendard, sans-serif; color: #161616; } .ds-plan { display: inline-block; font-size: .75rem; font-weight: 800; color: #161616; border: 1px dashed #161616; padding: 0 .4rem; line-height: 1.6; vertical-align: .1em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "교정쇄 한 장",
+    "overview": "모든 화면은 출판 교정지 한 장이다. 새하얀 용지에 먹색으로 조판한 본문이 있고, 학생이 쓰던 말에 빨간 펜으로 줄을 긋고 그 위에 초록 펜으로 바꾼 말을 적는다. 넓은 오른쪽 교정 여백에는 반드시 그 교정의 근거 — 누가 무슨 말을 했는지(면담 응답), 수치의 출처, 심사 기준 — 가 연필색 메모로 붙고, 지시선이 메모에서 교정 부호까지 이어진다. 교정의 근거가 규칙이 아니라 사람의 말이라는 것이 이 체계의 핵심이다.\n\n밀도는 인쇄물 수준으로 높고, 장식은 없다. 구분은 칠한 면이 아니라 괘선(1px 연한 괘선, 2px 먹 괘선)으로 한다. 용지는 책상색 바탕 위에 놓이며 재단선 표시와 쪽 번호가 교정지라는 사실을 확인해 준다. 움직임은 펜으로 한 번 긋는 순간 하나뿐이다.\n\n거부하는 것은 교육 사례 사이트의 둥근 카드와 파스텔 아이콘, 크림색 종이, 바른말 캠페인 포스터처럼 읽히는 모든 것이다.",
+    "keyCharacteristics": [
+      "흰 용지(#ffffff) + 먹 조판, 색은 빨간 펜·초록 펜 두 자루",
+      "상태는 색이 아니라 부호 모양이 가른다(줄 긋기·빗금 대 삽입표·실선)",
+      "글꼴 셋, 할 일도 셋: 고딕 활자 · 명조 본문 · 손글씨 펜",
+      "쪽 격자 = 차례 레일 | 본문 약 40rem | 교정 여백 19rem",
+      "모서리 0, 칠한 상자 없음, 괘선으로만 나눈다",
+      "움직임 하나: 펜 긋기 0.55초 + 지시선 0.7초, 한 번만"
+    ],
+    "rules": [
+      {
+        "name": "The Two Pens Rule",
+        "body": "빨강은 「모르고 쓴 말」과 교정자의 표시(줄 긋기·현재 위치 동그라미와 차례 밑줄·키보드 포커스 링·검색 칸 포커스 밑줄), 초록은 「뜻을 알고 바꾼 말」에만 쓴다. 넓은 면을 빨강·초록으로 칠하지 않고, 마우스 올림·텍스트 선택에도 빨강·초록을 쓰지 않는다.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Hover Rule",
+        "section": "colors",
+        "body": "마우스 올림과 선택은 먹으로만 반응한다. 링크는 밑줄이 1px에서 2px로 굵어지고, 접는 세부 제목·내려받기 목록·갤러리 항목·갤러리 줄의 말은 밑줄이 생긴다. 먹으로 채운 주 행동(.slug nav a.go, .galrow .all)은 뒤집혀 흰 바탕 + 먹 글자가 되고, 갤러리 줄의 「전체 보기」는 안쪽 2px 먹 테두리를 얻는다. 테두리만 있는 슬러그 링크는 먹으로 채워진다. 텍스트 선택(::selection)은 먹 바탕에 흰 글자."
+      },
+      {
+        "name": "The Shape Carries Meaning Rule",
+        "body": "빨강과 초록은 적록 색각에서 가장 헷갈리는 짝이므로 뜻은 늘 모양이 함께 진다. 빨강 = 줄 긋기·135도 빗금, 초록 = 삽입표·위에 적은 손글씨·실선 채움, 처음 값 = 세로 점선. 흑백으로 인쇄해도 읽혀야 한다. 새 도표·범례를 만들 때 이 세 무늬 가운데 하나를 반드시 붙인다.",
+        "section": "colors"
+      },
+      {
+        "name": "The White Paper Rule",
+        "body": "용지는 #ffffff다. 따뜻한 오프화이트·크림으로 「종이 느낌」을 내지 않는다. 종이임은 재단선·슬러그·쪽 번호가 말한다.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Jobs Rule",
+        "body": "Pretendard는 제목과 조판 정보, 나눔명조는 학생이 쓴 문장과 조사한 말, 나눔펜은 바꾼 말과 짧은 메모에만. 학생 문장을 고딕으로, 제목을 명조로 바꾸지 않는다.",
+        "section": "typography"
+      },
+      {
+        "name": "The Pen Is Short Rule",
+        "body": "손글씨는 한 화면에 몇 줄을 넘기지 않는다. 문단을 펜 글씨로 조판하지 않는다.",
+        "section": "typography"
+      },
+      {
+        "name": "The Replacement Is Largest Rule",
+        "body": "조사한 거친 말을 제목만큼 크게 세우지 않는다. 교정 한 곳에서 가장 눈에 띄는 것은 초록 바꾼 말이다. 거친 말은 초성만 보고 알아볼 수 있으면 초성으로 적는다.",
+        "section": "typography"
+      },
+      {
+        "name": "The Margin Is Grammar Rule",
+        "body": "출처·심사 기준·면담 응답은 본문 문장 안이 아니라 오른쪽 교정 여백으로 간다. 새 장을 만들면 .mar 칸을 먼저 채울 근거가 있는지 확인한다.",
+        "section": "layout"
+      },
+      {
+        "name": "The Paper Only Rule",
+        "body": "그림자는 종이 실물(용지, 붙인 지면)에만 준다. 카드·버튼·메모에 그림자를 주지 않는다.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do 쪽을 고칠 때 docs/src/*.src.html을 고치고 docs/src/build_pages.py를 다시 돌린다. 루트 HTML은 생성물이다.",
+      "Do 빨간 줄 옆에는 면담 응답이나 출처를 여백 메모로 붙이고, data-anchor로 지시선을 잇는다.",
+      "Do 빨강·초록의 뜻에 늘 모양을 함께 준다: 줄 긋기·빗금 / 삽입표·실선.",
+      "Do 학생 문장과 조사한 말은 나눔명조, 바꾼 말은 나눔펜 초록으로 적는다.",
+      "Do 묶음은 2px 먹 괘선으로 열고 행은 1px 괘선으로 나눈다.",
+      "Do 마우스 올림은 먹으로만 반응하게 한다: 밑줄이 생기거나 굵어지고, 채운 버튼은 흰 바탕 + 먹으로 뒤집힌다.",
+      "Do 모든 수치에 출처를 달고, 아직 하지 않은 일은 점선 상자(.plan)로 표시한다.",
+      "Do 학생은 학년·반·조까지만 적는다. 거친 말은 초성만 보고 알아보면 초성으로 적는다."
+    ],
+    "donts": [
+      "Don't 바른말 구호·표어·캠페인 포스터처럼 보이게 만든다.",
+      "Don't 순화어 목록이나 맞춤법 교정처럼 보이게 만든다.",
+      "Don't 조사한 거친 말을 제목만큼 크게 세운다 — 가장 크게 쓰는 것은 바꾼 말이다.",
+      "Don't 빨강·초록을 배경색·장식으로 칠하거나 색만으로 뜻을 가른다.",
+      "Don't 크림색 종이, 이모지, 둥근 카드와 파스텔 아이콘을 쓴다.",
+      "Don't 카드·버튼·메모에 그림자나 둥근 모서리를 준다.",
+      "Don't 마우스 올림·선택·목록 번호에 빨강이나 초록을 쓴다.",
+      "Don't 펜 긋기 말고 다른 움직임을 저작하거나, 같은 부호를 두 번 긋는다."
+    ]
+  }
+}

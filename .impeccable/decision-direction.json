@@ -1,0 +1,230 @@
+{
+  "title": "수업 브랜드의 시각 세계 고르기",
+  "question": "추첨은 「우리 반 카드 목록함」을 배정했습니다. 그대로 가거나, 다른 안을 고르거나, 다시 뽑으세요.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "우리 반 카드 목록함",
+      "kicker": "THE ROLL",
+      "lineage": "학교 도서관 카드 목록함과 붉은 괘선 목록 카드",
+      "thesis": "말 하나가 카드 한 장, 반 하나가 서랍 하나 — 수업 전체를 목록함으로 정리한다.",
+      "palette": [
+        "#23272a",
+        "#f4f5f2",
+        "#d8332a",
+        "#1f7a55",
+        "#8a8f93"
+      ],
+      "materials": [
+        "강철 목록함 서랍과 이름표",
+        "붉은 괘선이 인쇄된 흰 목록 카드",
+        "타자 글씨와 고무 도장"
+      ],
+      "viewport": "여섯 서랍(1~6반) 정면, 가운데 서랍에서 솟은 카드 한 장에 「그 말을 쓴 사람에게 직접 물었다」와 76장 → 24편 → 24장. 서랍 이름표가 곧 차례(왜·세 차시·결과·학생 생각·평가·자료).",
+      "risk": "목록 카드는 누런 종이·복고 감성으로 흐르기 쉽다. 흰 카드·강철·원색 괘선으로 밀어야 하고, 이름표는 비유가 아닌 직접 용어로 쓴다.",
+      "raised": [
+        {
+          "from": "challenger-cutting-bench",
+          "raise": "상태는 색이 아니라 표지로 — 줄 긋기·구멍·도장이 RED/GREEN을 가른다(적록 색각 대응)."
+        },
+        {
+          "from": "challenger-orizuru",
+          "raise": "바꾼 뒤에도 원래 말을 지우지 않는다 — 줄 그은 채 남기고 그 위에 바꾼 말을 적는다."
+        },
+        {
+          "from": "challenger-crouwel",
+          "raise": "기념비 크기는 한 줄에만 — 바꾼 말(GREEN)을 가장 크게, 조사한 말은 작게."
+        },
+        {
+          "from": "challenger-zine",
+          "raise": "구역마다 강조는 학생 문장 한 줄뿐이다."
+        },
+        {
+          "from": "challenger-cyclorama",
+          "raise": "질문하기·탐구하기·쓰기를 이름 붙은 단계로 — 스크롤 순서가 곧 차시 순서."
+        }
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "교정쇄",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "출판 교정쇄와 교정부호",
+      "thesis": "학생 문장을 교정쇄처럼 — 빨간 교정부호로 짚고 여백에 초록으로 고쳐 쓴다.",
+      "palette": [
+        "#ffffff",
+        "#141414",
+        "#e03a2e",
+        "#1d8a5a"
+      ],
+      "materials": [
+        "조판 교정쇄",
+        "교정부호와 여백 메모"
+      ],
+      "viewport": "교정쇄 한 장 위 제목 문장에 빨간 교정부호, 오른쪽 여백에 초록 글씨로 바꾼 말.",
+      "risk": "가장 많이 가는 편집 톤이라 9/15 홈과 차별이 약하다. 교정부호가 맞춤법 고치기로 읽혀 비목표와 혼동될 수 있다."
+    },
+    {
+      "id": "challenger-dumbar",
+      "label": "두 막대 정체성",
+      "verdict": "competitive",
+      "lineage": "Studio Dumbar 모듈 정체성 체계",
+      "thesis": "빨강 막대가 초록 막대로 이어지는 모듈 하나로 로고·웹·학습지·포스터를 묶는다.",
+      "palette": [
+        "#e2372b",
+        "#1f8a5c",
+        "#e9ecef",
+        "#111418"
+      ],
+      "materials": [
+        "평면 원색 막대",
+        "얼굴 없는 수업 사진(손·카드·종이)"
+      ],
+      "viewport": "큰 빨강 막대와 초록 막대가 화면을 가로질러 겹치고, 겹친 자리에 수업 이름.",
+      "case": "로고·가이드 같은 브랜드 체계에는 가장 강하지만, 심사위원이 수업 내용을 알아보는 축에서 진다.",
+      "risk": "캠페인 포스터·표어처럼 읽혀 비목표(바른말 구호)와 부딪힐 수 있다.",
+      "hero": "https://impeccable.style/worlds/cards/studio-dumbar-identity-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/studio-dumbar-identity.webp"
+    },
+    {
+      "id": "challenger-cutting-bench",
+      "label": "필름 편집대",
+      "verdict": "declined",
+      "lineage": "필름 편집대 선택 레일",
+      "thesis": "차시를 프레임으로 레일에 꿴다.",
+      "palette": [
+        "#0b0b0b",
+        "#ff6a13",
+        "#ffffff"
+      ],
+      "materials": [
+        "필름 입자",
+        "테이프 깃발"
+      ],
+      "viewport": "주황 바탕을 가로지르는 천공 레일.",
+      "case": "심사위원·교사가 알아보는 세계가 아니다.",
+      "risk": "영상 편집 도구처럼 읽힌다.",
+      "kept": "상태는 색이 아니라 표지다.",
+      "hero": "https://impeccable.style/worlds/cards/operate-a-cutting-bench-select-rail-hero.webp"
+    },
+    {
+      "id": "challenger-orizuru",
+      "label": "종이학 접기",
+      "verdict": "declined",
+      "lineage": "종이 한 장이 학이 되는 서른두 번의 접기",
+      "thesis": "말 한 장이 접혀 다른 모양이 된다.",
+      "palette": [
+        "#d9412b",
+        "#f1ebe2",
+        "#1b1b1b"
+      ],
+      "materials": [
+        "주홍 화지",
+        "접은 선"
+      ],
+      "viewport": "주홍 종이가 학으로 접히는 순서도.",
+      "case": "수업과 연결이 은유뿐이다(문체 규칙: 비유 금지).",
+      "risk": "공예 튜토리얼로 읽힌다.",
+      "kept": "앞선 접은 선이 끝까지 남는다.",
+      "hero": "https://impeccable.style/worlds/cards/paper-folds-pleats-deployable-orizuru-crane-sequence-hero.webp"
+    },
+    {
+      "id": "challenger-crouwel",
+      "label": "격자 활자 견본",
+      "verdict": "declined",
+      "lineage": "Wim Crouwel 격자 활자 포스터",
+      "thesis": "한글 낱말을 격자 칸으로 쌓아 크게 세운다.",
+      "palette": [
+        "#ffffff",
+        "#1a1a1a",
+        "#2d5bff"
+      ],
+      "materials": [
+        "보이는 모눈",
+        "격자 글자"
+      ],
+      "viewport": "모눈 위에 거대한 한글 낱말.",
+      "case": "조사한 말을 크게 세우면 거친 말을 전시하게 된다.",
+      "risk": "타이포 실험으로만 읽힌다.",
+      "kept": "기념비 크기는 한 줄에만 쓴다.",
+      "hero": "https://impeccable.style/worlds/cards/crouwel-grid-specimen-hero.webp"
+    },
+    {
+      "id": "challenger-zine",
+      "label": "손그림 진",
+      "verdict": "declined",
+      "lineage": "손글씨·낙서 화살표 설명 만화",
+      "thesis": "세 차시를 만화 칸으로 설명한다.",
+      "palette": [
+        "#f7f1e3",
+        "#111111",
+        "#ffd84a",
+        "#ff5aa5"
+      ],
+      "materials": [
+        "마커 글씨",
+        "형광펜"
+      ],
+      "viewport": "마커 제목 아래 낙서 도식.",
+      "case": "옛 캐릭터 화면으로 돌아가고 심사위원에게 가볍게 읽힌다.",
+      "risk": "훈계·캠페인 만화 톤.",
+      "kept": "강조는 한 줄만.",
+      "hero": "https://impeccable.style/worlds/cards/hand-drawn-zine-explainer-hero.webp"
+    },
+    {
+      "id": "challenger-cyclorama",
+      "label": "무대 조명 새벽",
+      "verdict": "declined",
+      "lineage": "무대 사이클로라마 조명",
+      "thesis": "밤에서 낮으로, RED에서 GREEN으로 밝아진다.",
+      "palette": [
+        "#050608",
+        "#1f3fae",
+        "#e7849a",
+        "#ffffff"
+      ],
+      "materials": [
+        "빛의 띠"
+      ],
+      "viewport": "검은 벽에 떠오르는 푸른 수평선.",
+      "case": "빨강·초록 고정 짝을 푸른·분홍 빛으로 흐린다.",
+      "risk": "분위기만 남는다.",
+      "kept": "단계마다 이름을 붙인다.",
+      "hero": "https://impeccable.style/worlds/cards/stagecraft-theater-lighting-cyclorama-dawn-hero.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "code",
+    "toggle": false
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "교육 사례 소개 표준",
+    "thesis": "수업 사례 사이트가 늘 가는 배치를 제대로 만든다.",
+    "palette": [
+      "#ffffff",
+      "#17191c",
+      "#e0432f",
+      "#2f8a68"
+    ],
+    "materials": [
+      "흰 바탕 격자",
+      "둥근 카드와 차시 아이콘"
+    ],
+    "viewport": "수업 이름 히어로, 숫자 셋, 차시 카드 세 장.",
+    "risk": "다른 공모작과 구별되지 않는다."
+  },
+  "steer": true,
+  "seedKey": "b188116a",
+  "seedMode": "read",
+  "answer": {
+    "optionId": "model-pick",
+    "buildPath": "code"
+  }
+}

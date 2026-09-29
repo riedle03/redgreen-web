@@ -15,3 +15,11 @@ archive/kosis-standalone-20260901.html
 # index.html.bak_reterm 같은 접미사 붙은 백업이 배포에 섞였다
 *.bak_*
 .playwright-mcp
+
+# 2026-09-29 빌드 원본·로고 원본 폰트(6MB)는 배포하지 않는다
+docs/src
+
+# 2026-09-29 impeccable 작업 기록 — 방향 기준·결정 기록은 개발용이라 배포하지 않는다
+.impeccable
+PRODUCT.md
+DESIGN.md
